@@ -428,6 +428,71 @@ signal_lost: "I don't know how I got here but I'm staying."
 <footer>
 © XIMERMJ // SIGNAL REMAINS ACTIVE
 </footer>
+<script>
 
+// RANDOM BLUE SCREEN GLITCH
+
+function triggerBlueScreen(){
+
+    const bsod = document.createElement("div");
+
+    bsod.id = "bsod";
+
+    bsod.innerHTML = `
+<pre>
+A problem has been detected and Windows has been shut down.
+
+*** STOP: 0x0000007B
+
+SYSTEM ERROR
+
+SIGNAL INTERRUPTION DETECTED
+
+USER: XIMERMJ
+STATUS: TRANSMISSION LOST
+
+Collecting data...
+
+████████████████ 100%
+
+Reconnecting...
+</pre>
+`;
+
+    bsod.style.position = "fixed";
+    bsod.style.inset = "0";
+    bsod.style.background = "#0018a8";
+    bsod.style.color = "#ffffff";
+    bsod.style.fontFamily = "Courier New, monospace";
+    bsod.style.padding = "60px";
+    bsod.style.zIndex = "999999";
+    bsod.style.fontSize = "20px";
+    bsod.style.display = "flex";
+    bsod.style.alignItems = "center";
+
+    document.body.appendChild(bsod);
+
+    setTimeout(() => {
+        bsod.remove();
+    }, 2500);
+}
+
+function randomGlitch(){
+
+    const delay =
+        Math.floor(Math.random() * 30000) + 30000;
+
+    setTimeout(() => {
+
+        triggerBlueScreen();
+
+        randomGlitch();
+
+    }, delay);
+}
+
+randomGlitch();
+
+</script>
 </body>
 </html>

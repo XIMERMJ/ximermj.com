@@ -1,498 +1,182 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>XIMERMJ // TRANSMISSION ACTIVE</title>
+<title>XIMERMJ Archive</title>
 
 <style>
-
-:root{
-    --bg:#020508;
-    --panel:#05111c;
-    --border:#0d7fd3;
-    --text:#8dd8ff;
-    --glow:#00aeff;
-    --bright:#d7f5ff;
-}
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300&display=swap');
 
 *{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
+margin:0;
+padding:0;
+box-sizing:border-box;
+cursor:crosshair;
 }
 
 body{
-    background:var(--bg);
-    color:var(--text);
-    font-family:"Courier New", monospace;
-    min-height:100vh;
-    overflow-x:hidden;
-    animation:flicker .15s infinite;
+background:#050505;
+color:#ddd;
+font-family:'IBM Plex Mono', monospace;
+overflow:hidden;
+height:100vh;
 }
-
-/* CRT SCANLINES */
 
 body::before{
-    content:"";
-    position:fixed;
-    inset:0;
-    pointer-events:none;
-    background:
-    repeating-linear-gradient(
-        to bottom,
-        rgba(255,255,255,.03) 0px,
-        rgba(255,255,255,.03) 1px,
-        transparent 2px,
-        transparent 4px
-    );
-    z-index:999;
+content:"";
+position:fixed;
+inset:0;
+background:url("https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1600&q=80");
+background-size:cover;
+background-position:center;
+opacity:.15;
+filter:blur(2px);
+z-index:-3;
 }
-
-/* GRID */
 
 body::after{
-    content:"";
-    position:fixed;
-    inset:0;
-    pointer-events:none;
-    background-image:
-    linear-gradient(rgba(0,174,255,.05) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(0,174,255,.05) 1px, transparent 1px);
-
-    background-size:40px 40px;
+content:"";
+position:fixed;
+inset:0;
+background:
+repeating-linear-gradient(
+0deg,
+transparent,
+transparent 2px,
+rgba(255,255,255,.03) 3px
+);
+pointer-events:none;
+z-index:999;
 }
 
-/* FLICKER */
-
-@keyframes flicker{
-    0%{opacity:.98;}
-    50%{opacity:1;}
-    100%{opacity:.97;}
+.window{
+position:absolute;
+background:rgba(8,8,8,.92);
+border:1px solid rgba(255,255,255,.1);
+backdrop-filter:blur(10px);
+padding:15px;
+box-shadow:
+0 0 25px rgba(255,255,255,.04);
 }
 
-/* HEADER */
-
-header{
-    border-bottom:1px solid var(--border);
-    padding:30px;
-    position:relative;
+.header{
+font-size:11px;
+opacity:.5;
+margin-bottom:12px;
+letter-spacing:1px;
 }
 
-.logo{
-    font-size:4rem;
-    color:var(--bright);
-    text-shadow:
-    0 0 10px var(--glow),
-    0 0 25px var(--glow),
-    0 0 50px var(--glow);
-
-    position:relative;
-    display:inline-block;
+.time{
+top:40px;
+left:40px;
+width:180px;
 }
 
-.logo::before{
-    content:"XIMERMJ";
-    position:absolute;
-    left:3px;
-    top:0;
-    color:var(--glow);
-    opacity:.35;
+.album{
+top:140px;
+left:80px;
+width:300px;
 }
 
-.subtitle{
-    margin-top:10px;
-    letter-spacing:4px;
+.album img{
+width:100%;
+display:block;
+filter:contrast(1.1);
 }
-
-/* NAV */
-
-nav{
-    margin-top:25px;
-}
-
-nav a{
-    color:var(--text);
-    text-decoration:none;
-    margin-right:20px;
-}
-
-nav a:hover{
-    color:white;
-}
-
-/* BANNER */
-
-.banner{
-    border-top:1px solid var(--border);
-    border-bottom:1px solid var(--border);
-    text-align:center;
-    padding:15px;
-    background:#04101a;
-}
-
-/* LAYOUT */
-
-.container{
-    max-width:1400px;
-    margin:auto;
-    display:grid;
-    grid-template-columns:300px 1fr;
-    gap:20px;
-    padding:25px;
-}
-
-/* PANELS */
-
-.panel{
-    background:var(--panel);
-    border:1px solid var(--border);
-
-    box-shadow:
-    0 0 10px rgba(0,174,255,.25),
-    inset 0 0 20px rgba(0,174,255,.08);
-
-    padding:20px;
-}
-
-.panel-title{
-    color:var(--bright);
-    margin-bottom:15px;
-}
-
-/* SIDEBAR */
-
-.stat{
-    margin-bottom:10px;
-}
-
-.online{
-    color:#7dffbe;
-}
-
-.counter{
-    font-size:2rem;
-    margin-top:15px;
-}
-
-/* TERMINAL */
-
-.terminal{
-    min-height:500px;
-    line-height:1.8;
-}
-
-.prompt{
-    color:#7dffbe;
-}
-
-.cursor{
-    animation:blink .8s infinite;
-}
-
-@keyframes blink{
-    50%{
-        opacity:0;
-    }
-}
-
-/* FILES */
-
-.files{
-    margin-top:25px;
-}
-
-.file{
-    padding:6px 0;
-    border-bottom:1px dotted rgba(141,216,255,.15);
-}
-
-/* PLAYER */
 
 .player{
-    margin-top:20px;
+right:100px;
+top:80px;
+width:340px;
 }
 
-.visualizer{
-    height:90px;
-    margin:15px 0;
-
-    background:
-    repeating-linear-gradient(
-        90deg,
-        var(--glow) 0px,
-        var(--glow) 2px,
-        transparent 2px,
-        transparent 8px
-    );
-
-    animation:pulse 2s infinite;
+.progress{
+margin-top:15px;
+height:1px;
+background:#444;
 }
 
-@keyframes pulse{
-    50%{
-        opacity:.5;
-    }
+.progress::after{
+content:"";
+display:block;
+width:63%;
+height:100%;
+background:#fff;
 }
 
-button{
-    background:black;
-    color:var(--text);
-    border:1px solid var(--border);
-    padding:10px 15px;
-    cursor:pointer;
+.away{
+bottom:100px;
+left:120px;
+width:240px;
 }
 
-button:hover{
-    box-shadow:0 0 10px var(--glow);
+.archive{
+bottom:60px;
+right:80px;
+width:300px;
 }
 
-/* COMMENTS */
-
-.comment{
-    border-top:1px solid rgba(141,216,255,.1);
-    padding:15px 0;
+.glitch{
+animation:flicker 8s infinite;
 }
 
-footer{
-    text-align:center;
-    padding:30px;
-    color:#5f89a3;
+@keyframes flicker{
+0%,100%{opacity:1;}
+50%{opacity:.92;}
+51%{opacity:.75;}
+52%{opacity:1;}
 }
-
 </style>
 </head>
 
 <body>
 
-<header>
-
-<div class="logo">XIMERMJ</div>
-
-<div class="subtitle">
-TRANSMISSION ACTIVE
+<div class="window time glitch">
+<div class="header">SYSTEM</div>
+11:27 PM<br>
+BUFFALO, NY
 </div>
 
-<nav>
-<a href="#">HOME.EXE</a>
-<a href="#">MUSIC.EXE</a>
-<a href="#">ARCHIVE.EXE</a>
-<a href="#">VISUALS.EXE</a>
-<a href="#">CONTACT.EXE</a>
-</nav>
+<div class="window album">
+<div class="header">IMG_4821.JPG</div>
 
-</header>
-
-<div class="banner">
-SIGNAL DETECTED // CURRENT TRANSMISSION: BIOMETRICS.MP3
-</div>
-
-<div class="container">
-
-<!-- SIDEBAR -->
-
-<div class="panel">
-
-<div class="panel-title">
-SYSTEM STATUS
-</div>
-
-<div class="stat online">● ONLINE</div>
-<div class="stat">USER: XIMERMJ</div>
-<div class="stat">LOCATION: UNKNOWN</div>
-<div class="stat">SIGNAL: ACTIVE</div>
-<div class="stat">NETWORK: CONNECTED</div>
-
-<div class="counter">
-004298
-</div>
+<img src="https://images.unsplash.com/photo-1519501025264-65ba15a82390?auto=format&fit=crop&w=900&q=80">
 
 <br>
 
-<div class="panel-title">
-METRICS
+last modified:
+03.18.2011
 </div>
 
-<div class="stat">FOLLOWERS: 163</div>
-<div class="stat">LISTENERS: 1.2K</div>
-<div class="stat">CATALOG: ACTIVE</div>
+<div class="window player">
+<div class="header">NOW PLAYING</div>
 
-</div>
+XIMERMJ<br>
+HEADWAY
 
-<!-- MAIN -->
-
-<div>
-
-<div class="panel terminal">
-
-<div>
-XIMERMJ TERMINAL v3.0
-</div>
+<div class="progress"></div>
 
 <br>
 
-<div>
-STATUS.......... ONLINE
+03:21 / 04:48
 </div>
 
-<div>
-SIGNAL.......... ACTIVE
+<div class="window away">
+<div class="header">STATUS</div>
+
+listening to:<br>
+sleepover (opb. dreamfone)
 </div>
 
-<div>
-LOCATION........ UNKNOWN
+<div class="window archive">
+<div class="header">ARCHIVE</div>
+
+IMG_3818.JPG<br>
+EXIT_23.PNG<br>
+PLAYLIST_11PM.M3U<br>
+UNTITLED.TXT<br>
+VOICEMAIL_07.MP3
 </div>
 
-<div>
-LAST UPDATE..... 06.17.26
-</div>
-
-<div>
-CURRENT FILE.... BIOMETRICS.MP3
-</div>
-
-<div>
-STREAM STATUS... TRANSMITTING
-</div>
-
-<br>
-
-<div>
-████████████████████░░░░░░░░ 73%
-</div>
-
-<br>
-
-<div class="prompt">
-> play biometrics.mp3
-</div>
-
-<div>
-loading<span class="cursor">█</span>
-</div>
-
-<div class="files">
-
-<div class="panel-title">
-recent_files/
-</div>
-
-<div class="file">headway.wav</div>
-<div class="file">surging.wav</div>
-<div class="file">biometrics.mp3</div>
-<div class="file">trivial_truths.zip</div>
-<div class="file">signature_search.iso</div>
-
-</div>
-
-</div>
-
-<div class="panel player">
-
-<div class="panel-title">
-NOW PLAYING
-</div>
-
-<div class="visualizer"></div>
-
-<button>PLAY</button>
-<button>SHARE</button>
-<button>ADD TO FAVORITES</button>
-
-</div>
-
-<div class="panel" style="margin-top:20px;">
-
-<div class="panel-title">
-USER COMMENTS
-</div>
-
-<div class="comment">
-digitalghost.exe: "This feels like finding a hidden server at 2AM."
-</div>
-
-<div class="comment">
-archivekid04: "Biometrics is unreal."
-</div>
-
-<div class="comment">
-signal_lost: "I don't know how I got here but I'm staying."
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-<footer>
-© XIMERMJ // SIGNAL REMAINS ACTIVE
-</footer>
-<script>
-
-// RANDOM BLUE SCREEN GLITCH
-
-function triggerBlueScreen(){
-
-    const bsod = document.createElement("div");
-
-    bsod.id = "bsod";
-
-    bsod.innerHTML = `
-<pre>
-A problem has been detected and Windows has been shut down.
-
-*** STOP: 0x0000007B
-
-SYSTEM ERROR
-
-SIGNAL INTERRUPTION DETECTED
-
-USER: XIMERMJ
-STATUS: TRANSMISSION LOST
-
-Collecting data...
-
-████████████████ 100%
-
-Reconnecting...
-</pre>
-`;
-
-    bsod.style.position = "fixed";
-    bsod.style.inset = "0";
-    bsod.style.background = "#0018a8";
-    bsod.style.color = "#ffffff";
-    bsod.style.fontFamily = "Courier New, monospace";
-    bsod.style.padding = "60px";
-    bsod.style.zIndex = "999999";
-    bsod.style.fontSize = "20px";
-    bsod.style.display = "flex";
-    bsod.style.alignItems = "center";
-
-    document.body.appendChild(bsod);
-
-    setTimeout(() => {
-        bsod.remove();
-    }, 2500);
-}
-
-function randomGlitch(){
-
-    const delay =
-        Math.floor(Math.random() * 30000) + 30000;
-
-    setTimeout(() => {
-
-        triggerBlueScreen();
-
-        randomGlitch();
-
-    }, delay);
-}
-
-randomGlitch();
-
-</script>
 </body>
 </html>

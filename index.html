@@ -1,95 +1,483 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>XIMERMJ | Independent Artist</title>
+  <title>XIMERMJ / Richner Records</title>
+  <link rel="preconnect" href="https://api.fontshare.com">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://api.fontshare.com/v2/css?f[]=boska@400,500,700&f[]=satoshi@400,500,700&display=swap" rel="stylesheet">
   <style>
+    :root, [data-theme="light"] {
+      --text-xs: clamp(0.75rem, 0.7rem + 0.25vw, 0.875rem);
+      --text-sm: clamp(0.875rem, 0.8rem + 0.35vw, 1rem);
+      --text-base: clamp(1rem, 0.95rem + 0.25vw, 1.125rem);
+      --text-lg: clamp(1.125rem, 1rem + 0.75vw, 1.5rem);
+      --text-xl: clamp(1.5rem, 1.2rem + 1.25vw, 2.25rem);
+      --text-2xl: clamp(2rem, 1.2rem + 2.5vw, 3.5rem);
+      --text-3xl: clamp(2.5rem, 1rem + 4vw, 5rem);
+      --space-1: 0.25rem;
+      --space-2: 0.5rem;
+      --space-3: 0.75rem;
+      --space-4: 1rem;
+      --space-6: 1.5rem;
+      --space-8: 2rem;
+      --space-10: 2.5rem;
+      --space-12: 3rem;
+      --space-16: 4rem;
+      --space-20: 5rem;
+      --radius-sm: 0.375rem;
+      --radius-md: 0.5rem;
+      --radius-lg: 0.75rem;
+      --radius-full: 9999px;
+      --color-bg: #f7f6f2;
+      --color-surface: #f9f8f5;
+      --color-surface-2: #fbfbf9;
+      --color-border: #d4d1ca;
+      --color-text: #28251d;
+      --color-text-muted: #6d6a63;
+      --color-text-faint: #b5b1aa;
+      --color-primary: #111111;
+      --color-primary-hover: #000000;
+      --color-text-inverse: #f9f8f4;
+      --shadow-sm: 0 1px 2px rgba(0,0,0,0.08);
+      --shadow-lg: 0 18px 48px rgba(0,0,0,0.18);
+      --font-display: 'Boska', Georgia, serif;
+      --font-body: 'Satoshi', Arial, sans-serif;
+      --transition-interactive: 180ms cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    [data-theme="dark"] {
+      --color-bg: #050505;
+      --color-surface: #0e0e0e;
+      --color-surface-2: #151515;
+      --color-border: rgba(255,255,255,0.14);
+      --color-text: #f3f0ea;
+      --color-text-muted: rgba(243,240,234,0.72);
+      --color-text-faint: rgba(243,240,234,0.4);
+      --color-primary: #f3f0ea;
+      --color-primary-hover: #ffffff;
+      --color-text-inverse: #050505;
+      --shadow-sm: 0 1px 2px rgba(0,0,0,0.3);
+      --shadow-lg: 0 18px 48px rgba(0,0,0,0.55);
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html {
+      -moz-text-size-adjust: none;
+      -webkit-text-size-adjust: none;
+      text-size-adjust: none;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      text-rendering: optimizeLegibility;
+      scroll-behavior: smooth;
+    }
     body {
-      margin: 0;
-      background: #000;
-      color: #fff;
-      font-family: Arial, sans-serif;
+      min-height: 100dvh;
+      line-height: 1.6;
+      font-family: var(--font-body, sans-serif);
+      font-size: var(--text-base);
+      color: var(--color-text);
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.03), transparent 12%),
+        repeating-linear-gradient(90deg, rgba(255,255,255,0.035) 0 1px, transparent 1px 88px),
+        linear-gradient(180deg, #000000 0%, #030303 46%, #080808 100%);
+      overflow-x: hidden;
+      position: relative;
     }
-
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      opacity: 0.16;
+      background-image:
+        radial-gradient(circle at 20% 20%, rgba(255,255,255,0.08), transparent 18%),
+        radial-gradient(circle at 80% 0%, rgba(255,255,255,0.05), transparent 14%),
+        linear-gradient(transparent 0%, rgba(255,255,255,0.02) 50%, transparent 100%);
+      mix-blend-mode: screen;
+    }
+    body::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      opacity: 0.1;
+      background: repeating-linear-gradient(180deg, rgba(255,255,255,0.04) 0 1px, transparent 1px 4px);
+    }
+    img, svg { display: block; max-width: 100%; height: auto; }
+    a, button {
+      transition: color var(--transition-interactive), background var(--transition-interactive), border-color var(--transition-interactive), transform var(--transition-interactive);
+    }
+    a { color: inherit; text-decoration: none; }
+    :focus-visible {
+      outline: 2px solid var(--color-primary);
+      outline-offset: 3px;
+      border-radius: var(--radius-sm);
+    }
+    .skip-link {
+      position: absolute;
+      left: var(--space-4);
+      top: -100%;
+      background: var(--color-text);
+      color: var(--color-text-inverse);
+      padding: var(--space-2) var(--space-3);
+      z-index: 10;
+    }
+    .skip-link:focus { top: var(--space-4); }
+    .shell {
+      width: min(100% - 2rem, 1180px);
+      margin: 0 auto;
+    }
     header {
-      padding: 80px 20px 40px;
-      text-align: center;
-      border-bottom: 1px solid rgba(255,255,255,0.15);
+      padding: var(--space-4) 0;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      backdrop-filter: blur(8px);
+      position: sticky;
+      top: 0;
+      background: rgba(5,5,5,0.78);
+      z-index: 5;
     }
-
-    h1 {
-      font-size: 4rem;
-      margin: 0;
-      letter-spacing: 2px;
+    .header-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-4);
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+      letter-spacing: 0.08em;
       text-transform: uppercase;
+      font-size: var(--text-sm);
     }
-
-    .tagline {
-      margin-top: 15px;
-      font-size: 1.1rem;
-      color: rgba(255,255,255,0.75);
+    .brand svg {
+      width: 38px;
+      height: 38px;
+      color: var(--color-text);
     }
-
-    section {
-      padding: 60px 20px;
-      max-width: 1000px;
-      margin: auto;
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-4);
     }
-
-    .photos {
+    nav a {
+      color: var(--color-text-muted);
+      font-size: var(--text-sm);
+      min-height: 44px;
+      display: inline-flex;
+      align-items: center;
+    }
+    nav a:hover, nav a:focus-visible { color: var(--color-text); }
+    main {
+      padding: clamp(var(--space-12), 8vw, 7rem) 0 var(--space-16);
+    }
+    .hero {
+      min-height: calc(100dvh - 5rem);
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 16px;
+      align-items: center;
     }
-
-    .photos img {
-      width: 100%;
-      display: block;
-      object-fit: cover;
-      height: 320px;
-      border: 1px solid rgba(255,255,255,0.12);
+    .hero-grid {
+      display: grid;
+      gap: var(--space-12);
+      grid-template-columns: 1fr;
+      align-items: end;
     }
-
-    .socials a {
-      color: white;
-      margin-right: 16px;
-      text-decoration: none;
-      border-bottom: 1px solid rgba(255,255,255,0.4);
-    }
-
-    .teaser {
-      font-size: 1.4rem;
+    .eyebrow {
+      display: inline-block;
+      padding: var(--space-2) var(--space-3);
+      border: 1px solid rgba(255,255,255,0.14);
+      border-radius: var(--radius-full);
+      color: var(--color-text-muted);
       text-transform: uppercase;
-      letter-spacing: 1px;
+      letter-spacing: 0.18em;
+      font-size: var(--text-xs);
+      margin-bottom: var(--space-6);
+    }
+    h1 {
+      font-family: var(--font-display, serif);
+      font-size: clamp(3.6rem, 9vw, 8rem);
+      line-height: 0.92;
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+      max-width: 8ch;
+      text-wrap: balance;
+    }
+    .slash { color: var(--color-text-faint); }
+    .hero-copy {
+      margin-top: var(--space-6);
+      max-width: 38rem;
+      color: var(--color-text-muted);
+      font-size: var(--text-lg);
+    }
+    .hero-meta {
+      display: grid;
+      gap: var(--space-4);
+      padding: var(--space-8);
+      border: 1px solid rgba(255,255,255,0.18);
+      background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.015));
+      box-shadow: var(--shadow-lg);
+      position: relative;
+      transform: rotate(-1deg);
+    }
+    .hero-meta::before {
+      content: "";
+      position: absolute;
+      inset: 12px;
+      border: 1px solid rgba(255,255,255,0.08);
+      pointer-events: none;
+    }
+    .label {
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      font-size: var(--text-xs);
+      color: var(--color-text-faint);
+    }
+    .meta-line {
+      font-size: var(--text-xl);
+      line-height: 1.15;
+      font-family: var(--font-display, serif);
+    }
+    .section {
+      padding: clamp(var(--space-10), 6vw, var(--space-16)) 0;
+      border-top: 1px solid rgba(255,255,255,0.08);
+    }
+    .section-grid {
+      display: grid;
+      grid-template-columns: 0.72fr 1.28fr;
+      gap: var(--space-10);
+      align-items: start;
+    }
+    .section-title {
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      font-size: var(--text-xs);
+      color: var(--color-text-faint);
+    }
+    .statement {
+      font-size: var(--text-xl);
+      line-height: 1.2;
+      max-width: 24ch;
+      font-family: var(--font-display, serif);
+    }
+    .body-copy {
+      color: var(--color-text-muted);
+      max-width: 58ch;
+    }
+    .teaser-box {
+      margin-top: var(--space-6);
+      padding: var(--space-8);
+      border-left: 3px solid rgba(255,255,255,0.7);
+      background: rgba(255,255,255,0.03);
+      box-shadow: inset 0 0 0 1px rgba(255,255,255,0.08);
+    }
+    .embed-shell {
+      margin-top: var(--space-8);
+      padding: var(--space-4);
+      border: 1px solid rgba(255,255,255,0.18);
+      background: rgba(255,255,255,0.02);
+      box-shadow: var(--shadow-lg);
+    }
+    .embed-shell iframe {
+      width: 100%;
+      min-height: 166px;
+      border: 0;
+      filter: grayscale(1) contrast(1.25) brightness(0.9);
+    }
+    .teaser-title {
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      font-size: var(--text-xs);
+      color: var(--color-text-faint);
+      margin-bottom: var(--space-3);
+    }
+    .teaser-text {
+      font-size: clamp(1.5rem, 4vw, 3rem);
+      line-height: 1;
+      font-family: var(--font-display, serif);
+      text-transform: uppercase;
+    }
+    .link-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: var(--space-4);
+      margin-top: var(--space-4);
+    }
+    .social-card {
+      min-height: 120px;
+      padding: var(--space-6);
+      border: 1px solid rgba(255,255,255,0.18);
+      background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.01));
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      box-shadow: var(--shadow-sm);
+      position: relative;
+      overflow: hidden;
+    }
+    .social-card::after {
+      content: "";
+      position: absolute;
+      inset: auto 0 0 0;
+      height: 1px;
+      background: rgba(255,255,255,0.6);
+      transform: scaleX(0.3);
+      transform-origin: left center;
+      transition: transform var(--transition-interactive);
+    }
+    .social-card:hover, .social-card:focus-visible {
+      transform: translateY(-3px);
+      border-color: rgba(255,255,255,0.38);
+      color: var(--color-primary-hover);
+    }
+    .social-card:hover::after, .social-card:focus-visible::after {
+      transform: scaleX(1);
+    }
+    .social-name {
+      font-size: var(--text-lg);
+      font-family: var(--font-display, serif);
+      text-transform: uppercase;
+    }
+    .social-handle {
+      color: var(--color-text-faint);
+      font-size: var(--text-sm);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    footer {
+      padding: var(--space-10) 0 var(--space-12);
+      border-top: 1px solid rgba(255,255,255,0.08);
+      color: var(--color-text-faint);
+      font-size: var(--text-sm);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+    }
+    @media (max-width: 860px) {
+      .header-row, .hero-grid, .section-grid { grid-template-columns: 1fr; display: grid; }
+      .header-row { gap: var(--space-3); }
+      nav { gap: var(--space-3); }
+      h1 { max-width: 100%; }
+      .hero { min-height: auto; }
+      .link-grid { grid-template-columns: 1fr; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
     }
   </style>
 </head>
 <body>
+  <a class="skip-link" href="#content">Skip to content</a>
   <header>
-    <h1>XIMERMJ</h1>
-    <p class="tagline">Independent artist. Self-owned. Built through Richner Records LLC.</p>
+    <div class="shell header-row">
+      <div class="brand" aria-label="XIMERMJ Richner Records brand">
+        <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.75" aria-hidden="true">
+          <path d="M13 14L32 32L13 50" />
+          <path d="M51 14L32 32L51 50" />
+          <path d="M22 10H42" />
+          <path d="M22 54H42" />
+        </svg>
+        <span>XIMERMJ <span class="slash">/</span> Richner Records</span>
+      </div>
+      <nav aria-label="Primary">
+        <a href="#identity">Identity</a>
+        <a href="#teaser">Teaser</a>
+        <a href="#player">Player</a>
+        <a href="#links">Links</a>
+      </nav>
+    </div>
   </header>
 
-  <section>
-    <h2>About</h2>
-    <p>
-      I’m building on my own terms — creating independently, owning the work,
-      and moving through my LLC with full creative control.
-    </p>
-  </section>
+  <main id="content">
+    <section class="hero shell" aria-labelledby="hero-title">
+      <div class="hero-grid">
+        <div>
+          <span class="eyebrow">Independent artist / self-owned label</span>
+          <h1 id="hero-title">XIMERMJ <span class="slash">/</span> Richner Records</h1>
+          <p class="hero-copy">Dark electronic pressure from Buffalo, released independently through Richner Records LLC.</p>
+        </div>
+        
+      </div>
+    </section>
 
+    <section class="section" id="identity">
+      <div class="shell section-grid">
+        <div>
+          <p class="section-title">Identity</p>
+        </div>
+        <div>
+          <p class="statement">XIMERMJ is the artist identity. Richner Records LLC is the ownership behind every release.</p>
+          <p class="body-copy" style="margin-top: var(--space-4);">This version keeps the page focused on control, tension, and authorship. Instead of filling the screen with distractions, the layout puts the name, the label, and the underground tone right at the surface.</p>
+        </div>
+      </div>
+    </section>
 
-  <section>
-    <h2>Teaser</h2>
-    <p class="teaser">New work coming soon.</p>
-  </section>
+    <section class="section" id="teaser">
+      <div class="shell section-grid">
+        <div>
+          <p class="section-title">Teaser</p>
+        </div>
+        <div>
+          <p class="body-copy">This line can later become a project title, release date, or active drop notice. For now, it works as a hard teaser and keeps the page moving without overexplaining.</p>
+          <div class="teaser-box">
+            <p class="teaser-title">Current transmission</p>
+            <p class="teaser-text">Signal incoming.</p>
+          </div>
+        </div>
+      </div>
+    </section>
 
-  <section class="socials">
-    <h2>Links</h2>
-    <a href="www.instagram.com/ximermj">Instagram</a>
-    <a href="https://open.spotify.com/artist/3HF0pRkcW2264iFUOstWv4">Spotify</a>
-    <a href="www.soundcloud.com/ximermj">Soundcloud</a>
-  </section>
+    <section class="section" id="player">
+      <div class="shell section-grid">
+        <div>
+          <p class="section-title">Newest track</p>
+        </div>
+        <div>
+          <p class="statement">Headway is currently presented as the newest XIMERMJ single on SoundCloud.</p>
+          <p class="body-copy" style="margin-top: var(--space-4);">The embed below points to the SoundCloud player for the single so the site works like a direct listening surface, not just a link hub.</p>
+          <div class="embed-shell">
+            <iframe title="SoundCloud player for Headway by XIMERMJ" scrolling="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/2112261669&color=%23000000&auto_play=false&hide_related=false&show_comments=false&show_user=true&show_reposts=false&show_teaser=false&visual=false"></iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="links">
+      <div class="shell section-grid">
+        <div>
+          <p class="section-title">Social links</p>
+        </div>
+        <div>
+          <p class="body-copy">Every selected platform points back to the same XIMERMJ identity, keeping the site lean and consistent.</p>
+          <div class="link-grid">
+            <a class="social-card" href="https://www.tiktok.com/@ximermj" target="_blank" rel="noopener noreferrer" aria-label="Open XIMERMJ on TikTok">
+              <span class="social-name">TikTok</span>
+              <span class="social-handle">@XIMERMJ</span>
+            </a>
+            <a class="social-card" href="https://www.instagram.com/ximermj/" target="_blank" rel="noopener noreferrer" aria-label="Open XIMERMJ on Instagram">
+              <span class="social-name">Instagram</span>
+              <span class="social-handle">@XIMERMJ</span>
+            </a>
+            <a class="social-card" href="https://open.spotify.com/artist/3HF0pRkcW2264iFUOstWv4" target="_blank" rel="noopener noreferrer" aria-label="Open XIMERMJ on Spotify">
+              <span class="social-name">Spotify</span>
+              <span class="social-handle">XIMERMJ</span>
+            </a>
+            <a class="social-card" href="https://soundcloud.com/ximermj" target="_blank" rel="noopener noreferrer" aria-label="Open XIMERMJ on SoundCloud">
+              <span class="social-name">SoundCloud</span>
+              <span class="social-handle">XIMERMJ</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="shell">© XIMERMJ / Richner Records LLC</div>
+  </footer>
 </body>
 </html>

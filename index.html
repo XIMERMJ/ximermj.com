@@ -1,154 +1,103 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>XIMERMJ | Independent Artist</title>
+  <style>
+    body {
+      margin: 0;
+      background: #000;
+      color: #fff;
+      font-family: Arial, sans-serif;
+    }
 
-<title>XIMERMJ</title>
+    header {
+      padding: 80px 20px 40px;
+      text-align: center;
+      border-bottom: 1px solid rgba(255,255,255,0.15);
+    }
 
-<style>
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
+    h1 {
+      font-size: 4rem;
+      margin: 0;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
 
-body{
-    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
-    background:#ffffff;
-    color:#111;
-    line-height:1.8;
-    max-width:750px;
-    margin:auto;
-    padding:60px 30px;
-}
+    .tagline {
+      margin-top: 15px;
+      font-size: 1.1rem;
+      color: rgba(255,255,255,0.75);
+    }
 
-h1{
-    font-size:42px;
-    font-weight:600;
-    margin-bottom:5px;
-    letter-spacing:2px;
-}
+    section {
+      padding: 60px 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
 
-.subtitle{
-    color:#666;
-    margin-bottom:40px;
-}
+    .photos {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 16px;
+    }
 
-section{
-    margin-bottom:45px;
-}
+    .photos img {
+      width: 100%;
+      display: block;
+      object-fit: cover;
+      height: 320px;
+      border: 1px solid rgba(255,255,255,0.12);
+    }
 
-h2{
-    font-size:18px;
-    margin-bottom:15px;
-    font-weight:600;
-}
+    .socials a {
+      color: white;
+      margin-right: 16px;
+      text-decoration: none;
+      border-bottom: 1px solid rgba(255,255,255,0.4);
+    }
 
-p{
-    margin-bottom:15px;
-}
-
-a{
-    color:#111;
-    text-decoration:none;
-    border-bottom:1px solid #ccc;
-    transition:.2s;
-}
-
-a:hover{
-    color:#777;
-    border-color:#111;
-}
-
-.links{
-    display:flex;
-    flex-direction:column;
-    gap:12px;
-}
-
-footer{
-    margin-top:60px;
-    font-size:14px;
-    color:#777;
-}
-</style>
-
+    .teaser {
+      font-size: 1.4rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+  </style>
 </head>
-
 <body>
+  <header>
+    <h1>XIMERMJ</h1>
+    <p class="tagline">Independent artist. Self-owned. Built through Richner Records LLC.</p>
+  </header>
 
-<h1>XIMERMJ</h1>
+  <section>
+    <h2>About</h2>
+    <p>
+      I’m building on my own terms — creating independently, owning the work,
+      and moving through my LLC with full creative control.
+    </p>
+  </section>
 
-<div class="subtitle">
-Electronic Artist • Producer
-</div>
+  <section>
+    <h2>Visuals</h2>
+    <div class="photos">
+      <img src="photo1.jpg" alt="Artist photo 1">
+      <img src="photo2.jpg" alt="Artist photo 2">
+      <img src="photo3.jpg" alt="Artist photo 3">
+    </div>
+  </section>
 
-<section>
+  <section>
+    <h2>Teaser</h2>
+    <p class="teaser">New work coming soon.</p>
+  </section>
 
-<p>
-Creating instrumental electronic music inspired by nostalgia,
-late-night drives, and digital spaces.
-</p>
-
-</section>
-
-<section>
-
-<h2>Listen</h2>
-
-<div class="links">
-<a href="https://open.spotify.com/artist/3HF0pRkcW2264iFUOstWv4">Spotify</a>
-<a href="https://music.apple.com/us/artist/ximermj/1701039590">Apple Music</a>
-<a href="https://www.youtube.com/channel/UC7W-Q-kfBMyTpIhkD4o3WNg">YouTube</a>
-<a href="https://ximermj15.bandcamp.com/album/trivial-truths-ep">Bandcamp</a>
-</div>
-
-</section>
-
-<section>
-
-<h2>Support</h2>
-
-<div class="links">
-<a href="https://elasticstage.com/ximermj/releases/signature-search-album">Buy Vinyl</a>
-<a href="https://elasticstage.com/ximermj/releases/signature-search-album">Merch</a>
-<a href="https://www.grammy.com/advocacy/act/">Donate</a>
-<a href="https://www.grammy.com/advocacy/act/">Support the Project</a>
-</div>
-
-</section>
-
-<section>
-
-<h2>Follow</h2>
-
-<div class="links">
-<a href="https://www.instagram.com/ximermj/">Instagram</a>
-<a href="https://www.tiktok.com/@ximermj">TikTok</a>
-<a href="https://www.threads.com/@ximermj">Threads</a>
-<a href="https://www.facebook.com/jmr1596/">Facebook</a>
-</div>
-
-</section>
-
-<section>
-
-<h2>Contact</h2>
-
-<div class="links">
-<a href="jmr7100@icloud.com">
-jmr7100@icloud.com
-</a>
-</div>
-
-</section>
-
-<footer>
-
-© 2026 XIMERMJ
-
-</footer>
-
+  <section class="socials">
+    <h2>Links</h2>
+    <a href="www.instagram.com/ximermj">Instagram</a>
+    <a href="https://open.spotify.com/artist/3HF0pRkcW2264iFUOstWv4">Spotify</a>
+    <a href="www.soundcloud.com/ximermj">Soundcloud</a>
+  </section>
 </body>
 </html>

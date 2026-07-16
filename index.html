@@ -3,15 +3,14 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="XIMERMJ — minimalist black-and-white artist site for Hollow Habits and Richner Records LLC." />
-  <title>XIMERMJ | Hollow Habits</title>
+  <meta name="description" content="XIMERMJ / Richner Records LLC — Hollow Habits preorder, music, and links." />
+  <title>XIMERMJ / Richner Records LLC</title>
   <style>
     :root {
-      --bg: #050505;
-      --fg: #f2f2f2;
-      --muted: #9a9a9a;
-      --line: rgba(255,255,255,0.12);
-      --accent: #ffffff;
+      --bg: #000;
+      --fg: #fff;
+      --muted: rgba(255,255,255,0.72);
+      --line: rgba(255,255,255,0.22);
     }
 
     * {
@@ -28,120 +27,58 @@
     }
 
     body {
-      background:
-        radial-gradient(circle at top, rgba(255,255,255,0.06), transparent 35%),
-        linear-gradient(180deg, #060606 0%, #000 100%);
+      line-height: 1.5;
+      letter-spacing: 0.02em;
     }
 
     .wrap {
-      max-width: 920px;
+      width: min(980px, calc(100% - 32px));
       margin: 0 auto;
-      padding: 40px 20px 64px;
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
+      padding: 28px 0 40px;
     }
 
-    .panel {
-      width: 100%;
-      border: 1px solid var(--line);
-      background: rgba(255,255,255,0.02);
-      backdrop-filter: blur(2px);
-      padding: 28px;
+    header {
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 18px;
+      margin-bottom: 30px;
     }
 
-    .topline {
-      display: flex;
-      justify-content: space-between;
-      gap: 16px;
-      flex-wrap: wrap;
-      font-size: 12px;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      color: var(--muted);
-      margin-bottom: 28px;
-    }
-
-    h1 {
+    .brand {
       margin: 0;
-      font-size: clamp(42px, 10vw, 108px);
-      line-height: 0.92;
-      letter-spacing: 0.08em;
+      font-size: clamp(2rem, 5vw, 4.25rem);
+      font-weight: 700;
+      letter-spacing: 0.12em;
       text-transform: uppercase;
-      font-weight: 800;
-      word-break: break-word;
     }
 
-    .glitch {
-      position: relative;
-      display: inline-block;
-    }
-
-    .glitch::before,
-    .glitch::after {
-      content: attr(data-text);
-      position: absolute;
-      left: 0;
-      top: 0;
-      width: 100%;
-      overflow: hidden;
-      clip: rect(0, 900px, 0, 0);
-    }
-
-    .glitch::before {
-      transform: translate(1px, 0);
-      color: #fff;
-      animation: glitch1 3s infinite linear alternate-reverse;
-    }
-
-    .glitch::after {
-      transform: translate(-1px, 0);
-      color: #ccc;
-      animation: glitch2 2.4s infinite linear alternate-reverse;
-    }
-
-    @keyframes glitch1 {
-      0% { clip: rect(12px, 9999px, 18px, 0); }
-      20% { clip: rect(48px, 9999px, 62px, 0); }
-      40% { clip: rect(8px, 9999px, 22px, 0); }
-      60% { clip: rect(36px, 9999px, 56px, 0); }
-      80% { clip: rect(2px, 9999px, 10px, 0); }
-      100% { clip: rect(28px, 9999px, 44px, 0); }
-    }
-
-    @keyframes glitch2 {
-      0% { clip: rect(6px, 9999px, 14px, 0); }
-      20% { clip: rect(30px, 9999px, 40px, 0); }
-      40% { clip: rect(16px, 9999px, 28px, 0); }
-      60% { clip: rect(44px, 9999px, 60px, 0); }
-      80% { clip: rect(0px, 9999px, 8px, 0); }
-      100% { clip: rect(22px, 9999px, 34px, 0); }
+    .subbrand {
+      margin: 10px 0 0;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      font-size: 0.82rem;
     }
 
     .grid {
       display: grid;
-      grid-template-columns: 1.3fr 0.9fr;
-      gap: 24px;
-      margin-top: 28px;
+      gap: 18px;
     }
 
-    .box {
-      border-top: 1px solid var(--line);
-      padding-top: 18px;
+    .card {
+      border: 1px solid var(--line);
+      padding: 22px;
+      background: transparent;
     }
 
-    .label {
-      font-size: 11px;
-      letter-spacing: 0.24em;
+    .card h2 {
+      margin: 0 0 12px;
       text-transform: uppercase;
-      color: var(--muted);
-      margin-bottom: 10px;
+      letter-spacing: 0.14em;
+      font-size: 1rem;
     }
 
-    p {
-      margin: 0;
-      font-size: 15px;
-      line-height: 1.7;
+    .card p {
+      margin: 0 0 10px;
       color: var(--fg);
     }
 
@@ -149,119 +86,135 @@
       color: var(--muted);
     }
 
-    .release {
-      font-size: 20px;
-      line-height: 1.35;
+    .preorder {
+      border-color: rgba(255,255,255,0.42);
+    }
+
+    .preorder .release {
+      font-size: 1.05rem;
       text-transform: uppercase;
-      letter-spacing: 0.08em;
+      letter-spacing: 0.1em;
     }
 
-    .links {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 10px;
-      margin-top: 16px;
-    }
-
-    .link {
-      display: block;
-      padding: 14px 12px;
-      border: 1px solid var(--line);
+    .btn {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 12px 18px;
+      border: 1px solid var(--fg);
       color: var(--fg);
       text-decoration: none;
-      font-size: 13px;
-      letter-spacing: 0.12em;
       text-transform: uppercase;
+      letter-spacing: 0.14em;
+      font-size: 0.82rem;
       transition: 0.2s ease;
     }
 
-    .link:hover {
-      background: #fff;
-      color: #000;
+    .btn:hover {
+      background: var(--fg);
+      color: var(--bg);
     }
 
-    .footer {
-      margin-top: 22px;
+    .links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .links a {
+      color: var(--fg);
+      text-decoration: none;
+      border: 1px solid var(--line);
+      padding: 10px 14px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      font-size: 0.8rem;
+    }
+
+    .links a:hover {
+      border-color: var(--fg);
+    }
+
+    footer {
+      margin-top: 28px;
       padding-top: 16px;
       border-top: 1px solid var(--line);
-      display: flex;
-      justify-content: space-between;
-      gap: 12px;
-      flex-wrap: wrap;
-      font-size: 12px;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
       color: var(--muted);
+      font-size: 0.82rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
     }
 
-    @media (max-width: 760px) {
-      .panel {
-        padding: 20px;
+    @media (max-width: 640px) {
+      .wrap {
+        width: min(100% - 20px, 980px);
+        padding-top: 18px;
       }
 
-      .grid {
-        grid-template-columns: 1fr;
+      .card {
+        padding: 18px;
       }
 
       .links {
-        grid-template-columns: 1fr;
+        flex-direction: column;
+      }
+
+      .links a {
+        width: 100%;
+        text-align: center;
       }
     }
   </style>
 </head>
 <body>
-  <main class="wrap">
-    <section class="panel">
-      <div class="topline">
-        <div>Richner Records LLC 2026</div>
-        <div>Buffalo, NY</div>
-        <div>Independent / Self-Owned</div>
-      </div>
+  <div class="wrap">
+    <header>
+      <h1 class="brand">XIMERMJ</h1>
+      <p class="subbrand">Richner Records LLC © 2026</p>
+    </header>
 
-      <h1 class="glitch" data-text="XIMERMJ">XIMERMJ</h1>
+    <main class="grid">
+      <section class="card">
+        <h2>Identity</h2>
+        <p>XIMERMJ is an independent electronic artist operating through Richner Records LLC.</p>
+        <p class="muted">Minimal. Underground. Self-owned.</p>
+      </section>
 
-      <div class="grid">
-        <div class="box">
-          <div class="label">About</div>
-          <p>
-            XIMERMJ is a minimalist electronic artist and label owner working in stark
-            black-and-white space. Owns all masters, operates through Richner Records LLC,
-            and has charted on the iTunes Dance USA Charts while continuing to build a body
-            of work that stays visible, self-contained, and direct.
-          </p>
-          <p class="muted" style="margin-top: 14px;">
-          2026
-          </p>
-        </div>
+      <section class="card preorder">
+        <h2>New EP</h2>
+        <p class="release">Hollow Habits</p>
+        <p>Preorder the vinyl now through Elastic Stage.</p>
+        <a class="btn" href="https://elasticstage.com/ximermj/releases/hollow-habits-album" target="_blank" rel="noopener noreferrer">Preorder Vinyl</a>
+      </section>
 
-        <div class="box">
-          <div class="label">New EP</div>
-          <p class="release">Hollow Habits</p>
-          <p style="margin-top: 10px;">
-            Out 4/27/26
-            <br />
-            Released under Richner Records LLC 2026
-          </p>
-        </div>
-      </div>
-
-      <div class="box" style="margin-top: 24px;">
-        <div class="label">Links</div>
+      <section class="card">
+        <h2>Listen</h2>
+        <p>Stream the latest music and releases.</p>
         <div class="links">
-          <a class="link" href="https://instagram.com/ximermj" target="_blank" rel="noopener">Instagram</a>
-          <a class="link" href="https://tiktok.com/ximermj" target="_blank" rel="noopener">TikTok</a>
-          <a class="link" href="https://soundcloud.com/ximermj" target="_blank" rel="noopener">SoundCloud</a>
-          <a class="link" href="https://open.spotify.com/artist/3HF0pRkcW2264iFUOstWv4?si=fmBLrWSzQ9SxH9vng7Lq6g" target="_blank" rel="noopener">Spotify</a>
-          <a class="link" href="mailto:jmr7100@icloud.com">Contact</a>
+          <a href="https://soundcloud.com/ximermj" target="_blank" rel="noopener noreferrer">SoundCloud</a>
+          <a href="https://open.spotify.com/artist/3HF0pRkcW2264iFUOstWv4" target="_blank" rel="noopener noreferrer">Spotify</a>
+          <a href="https://music.apple.com/us/artist/ximermj/1701039590" target="_blank" rel="noopener noreferrer">Apple Music</a>
+          <a href="https://music.youtube.com/@richnerrecords" target="_blank" rel="noopener noreferrer">YouTube Music</a>
         </div>
-      </div>
+      </section>
 
-      <div class="footer">
-        <div>Hollow Habits</div>
-        <div>XIMERMJ</div>
-        <div>2026</div>
-      </div>
-    </section>
-  </main>
+      <section class="card">
+        <h2>Social</h2>
+        <p>Follow the project across social platforms.</p>
+        <div class="links">
+          <a href="https://linktr.ee/ximermj" target="_blank" rel="noopener noreferrer">Linktree</a>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2>Contact</h2>
+        <p>For inquiries, bookings, and press.</p>
+        <p class="muted">ximermj1@gmail.com</p>
+      </section>
+    </main>
+
+    <footer>
+      © 2026 XIMERMJ / Richner Records LLC
+    </footer>
+  </div>
 </body>
 </html>

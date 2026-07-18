@@ -3,271 +3,157 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="XIMERMJ / Richner Records LLC — Hollow Habits preorder, music, and links." />
+  <meta name="description" content="XIMERMJ / Richner Records LLC — independent music and contact." />
   <title>XIMERMJ / Richner Records LLC</title>
   <style>
     :root {
       --bg: #000;
       --fg: #fff;
-      --muted: rgba(255,255,255,0.72);
-      --line: rgba(255,255,255,0.22);
-      --glitch-1: #ff2bd6;
-      --glitch-2: #00e5ff;
+      --muted: #a0a0a0;
+      --line: rgba(255,255,255,0.14);
+      --cyan: rgba(0, 255, 255, 0.7);
+      --magenta: rgba(255, 0, 140, 0.7);
     }
-
     * { box-sizing: border-box; }
-
-    html, body {
+    body {
       margin: 0;
-      padding: 0;
       background: var(--bg);
       color: var(--fg);
       font-family: Arial, Helvetica, sans-serif;
-      min-height: 100%;
-    }
-
-    body {
-      line-height: 1.5;
       letter-spacing: 0.02em;
+      overflow-x: hidden;
     }
-
     .wrap {
-      width: min(980px, calc(100% - 32px));
+      max-width: 960px;
       margin: 0 auto;
-      padding: 28px 0 40px;
+      padding: 32px 20px 40px;
     }
-
     header {
+      padding-bottom: 24px;
       border-bottom: 1px solid var(--line);
-      padding-bottom: 18px;
-      margin-bottom: 30px;
+      margin-bottom: 28px;
     }
-
     .brand {
       position: relative;
-      margin: 0;
       display: inline-block;
-      font-size: clamp(2rem, 5vw, 4.25rem);
-      font-weight: 700;
-      letter-spacing: 0.12em;
+      margin: 0;
+      font-size: clamp(2.2rem, 6vw, 5rem);
+      line-height: 0.95;
       text-transform: uppercase;
-      animation: glitch-skew 2.2s infinite linear alternate-reverse;
+      letter-spacing: 0.08em;
+      animation: glitch 3s infinite steps(1, end);
     }
-
     .brand::before,
     .brand::after {
-      content: "XIMERMJ";
+      content: attr(data-text);
       position: absolute;
-      left: 0;
       top: 0;
+      left: 0;
       width: 100%;
       overflow: hidden;
-      background: transparent;
-      pointer-events: none;
+      background: var(--bg);
     }
-
     .brand::before {
       transform: translate(2px, 0);
-      text-shadow: -2px 0 var(--glitch-1);
-      animation: glitch-1 2.4s infinite linear alternate-reverse;
+      color: var(--cyan);
+      clip-path: inset(0 0 60% 0);
+      animation: glitchTop 2.5s infinite linear alternate-reverse;
     }
-
     .brand::after {
       transform: translate(-2px, 0);
-      text-shadow: 2px 0 var(--glitch-2);
-      animation: glitch-2 1.8s infinite linear alternate-reverse;
+      color: var(--magenta);
+      clip-path: inset(40% 0 0 0);
+      animation: glitchBottom 2s infinite linear alternate-reverse;
     }
-
-    .subbrand {
-      margin: 10px 0 0;
+    .subhead {
+      margin-top: 14px;
       color: var(--muted);
       text-transform: uppercase;
       letter-spacing: 0.18em;
-      font-size: 0.82rem;
+      font-size: 0.78rem;
     }
-
-    .grid {
-      display: grid;
-      gap: 18px;
-    }
-
-    .card {
+    main { display: grid; gap: 18px; }
+    section {
       border: 1px solid var(--line);
-      padding: 22px;
-      background: transparent;
+      padding: 20px;
     }
-
-    .card h2 {
+    h2 {
       margin: 0 0 12px;
+      font-size: 0.92rem;
       text-transform: uppercase;
-      letter-spacing: 0.14em;
-      font-size: 1rem;
+      letter-spacing: 0.16em;
     }
-
-    .card p {
-      margin: 0 0 10px;
-      color: var(--fg);
+    p {
+      margin: 0 0 12px;
+      max-width: 68ch;
+      line-height: 1.7;
     }
-
+    p:last-child { margin-bottom: 0; }
+    .links { display: grid; gap: 10px; }
+    a { color: var(--fg); text-decoration: none; }
+    a:hover { text-decoration: underline; }
     .muted { color: var(--muted); }
-
-    .preorder { border-color: rgba(255,255,255,0.42); }
-
-    .preorder .release {
-      font-size: 1.05rem;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-    }
-
-    .btn {
-      display: inline-block;
-      margin-top: 10px;
-      padding: 12px 18px;
-      border: 1px solid var(--fg);
-      color: var(--fg);
-      text-decoration: none;
-      text-transform: uppercase;
-      letter-spacing: 0.14em;
-      font-size: 0.82rem;
-      transition: 0.2s ease;
-    }
-
-    .btn:hover {
-      background: var(--fg);
-      color: var(--bg);
-    }
-
-    .links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-    }
-
-    .links a {
-      color: var(--fg);
-      text-decoration: none;
-      border: 1px solid var(--line);
-      padding: 10px 14px;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      font-size: 0.8rem;
-    }
-
-    .links a:hover { border-color: var(--fg); }
-
     footer {
       margin-top: 28px;
-      padding-top: 16px;
+      padding-top: 18px;
       border-top: 1px solid var(--line);
       color: var(--muted);
       font-size: 0.82rem;
+      letter-spacing: 0.08em;
       text-transform: uppercase;
-      letter-spacing: 0.12em;
     }
-
-    @keyframes glitch-1 {
-      0% { clip-path: inset(0 0 80% 0); }
-      10% { clip-path: inset(10% 0 65% 0); }
-      20% { clip-path: inset(45% 0 35% 0); }
-      30% { clip-path: inset(80% 0 5% 0); }
-      40% { clip-path: inset(20% 0 55% 0); }
-      50% { clip-path: inset(60% 0 20% 0); }
-      60% { clip-path: inset(35% 0 45% 0); }
-      70% { clip-path: inset(5% 0 75% 0); }
-      80% { clip-path: inset(55% 0 25% 0); }
-      90% { clip-path: inset(15% 0 60% 0); }
-      100% { clip-path: inset(0 0 80% 0); }
+    @keyframes glitch {
+      0%, 100% { transform: translate(0); }
+      20% { transform: translate(-1px, 1px); }
+      40% { transform: translate(1px, -1px); }
+      60% { transform: translate(-2px, 0); }
+      80% { transform: translate(2px, 1px); }
     }
-
-    @keyframes glitch-2 {
-      0% { clip-path: inset(75% 0 0 0); }
-      10% { clip-path: inset(55% 0 20% 0); }
-      20% { clip-path: inset(25% 0 45% 0); }
-      30% { clip-path: inset(5% 0 70% 0); }
-      40% { clip-path: inset(40% 0 35% 0); }
-      50% { clip-path: inset(15% 0 55% 0); }
-      60% { clip-path: inset(65% 0 10% 0); }
-      70% { clip-path: inset(30% 0 40% 0); }
-      80% { clip-path: inset(50% 0 20% 0); }
-      90% { clip-path: inset(10% 0 65% 0); }
-      100% { clip-path: inset(75% 0 0 0); }
+    @keyframes glitchTop {
+      0% { clip-path: inset(0 0 60% 0); }
+      25% { clip-path: inset(0 0 45% 0); }
+      50% { clip-path: inset(0 0 70% 0); }
+      75% { clip-path: inset(0 0 55% 0); }
+      100% { clip-path: inset(0 0 62% 0); }
     }
-
-    @keyframes glitch-skew {
-      0% { transform: skew(0deg); }
-      20% { transform: skew(0.5deg); }
-      40% { transform: skew(-0.5deg); }
-      60% { transform: skew(0.25deg); }
-      80% { transform: skew(-0.25deg); }
-      100% { transform: skew(0deg); }
+    @keyframes glitchBottom {
+      0% { clip-path: inset(40% 0 0 0); }
+      25% { clip-path: inset(55% 0 0 0); }
+      50% { clip-path: inset(35% 0 0 0); }
+      75% { clip-path: inset(50% 0 0 0); }
+      100% { clip-path: inset(42% 0 0 0); }
     }
-
-    @media (max-width: 640px) {
-      .wrap {
-        width: min(100% - 20px, 980px);
-        padding-top: 18px;
-      }
-
-      .card { padding: 18px; }
-
-      .links { flex-direction: column; }
-
-      .links a {
-        width: 100%;
-        text-align: center;
-      }
-    }
-
     @media (prefers-reduced-motion: reduce) {
-      .brand,
-      .brand::before,
-      .brand::after {
-        animation: none;
-      }
+      .brand, .brand::before, .brand::after { animation: none; }
     }
   </style>
 </head>
 <body>
   <div class="wrap">
     <header>
-      <h1 class="brand" data-text="XIMERMJ">XIMERMJ</h1>
-      <p class="subbrand">Richner Records LLC © 2026</p>
+      <h1 class="brand" data-text="XIMERMJ / Richner Records">XIMERMJ / Richner Records</h1>
+      <div class="subhead">Independent music / underground signal / Rochester, NY</div>
     </header>
 
-    <main class="grid">
-      <section class="card">
+    <main>
+      <section>
         <h2>Identity</h2>
-        <p>XIMERMJ is an independent electronic artist operating through Richner Records LLC.</p>
-        <p class="muted">Minimal. Underground. Self-owned.</p>
+        <p>XIMERMJ is an independent artist operating under Richner Records LLC.</p>
+        <p class="muted">Hard underground. Minimal. Glitch-driven.</p>
       </section>
 
-      <section class="card preorder">
-        <h2>New EP</h2>
-        <p class="release">Hollow Habits</p>
-        <p>Preorder the vinyl now through Elastic Stage.</p>
-        <a class="btn" href="https://elasticstage.com/ximermj/releases/hollow-habits-album" target="_blank" rel="noopener noreferrer">Preorder Vinyl</a>
-      </section>
-
-      <section class="card">
-        <h2>Listen</h2>
-        <p>Stream the latest music and releases.</p>
+      <section>
+        <h2>Links</h2>
         <div class="links">
+          <a href="https://instagram.com/ximermj" target="_blank" rel="noopener noreferrer">Instagram</a>
+          <a href="https://www.tiktok.com/@ximermj" target="_blank" rel="noopener noreferrer">TikTok</a>
           <a href="https://soundcloud.com/ximermj" target="_blank" rel="noopener noreferrer">SoundCloud</a>
-          <a href="https://open.spotify.com/artist/3HF0pRkcW2264iFUOstWv4" target="_blank" rel="noopener noreferrer">Spotify</a>
+          <a href="https://open.spotify.com/artist/3HF0pRkcW2264iFUOstWv4?si=h7nXc4pRTKmAKPhjMHmnJQ" target="_blank" rel="noopener noreferrer">Spotify</a>
           <a href="https://music.apple.com/us/artist/ximermj/1701039590" target="_blank" rel="noopener noreferrer">Apple Music</a>
-          <a href="https://music.youtube.com/@richnerrecords" target="_blank" rel="noopener noreferrer">YouTube Music</a>
         </div>
       </section>
 
-      <section class="card">
-        <h2>Social</h2>
-        <p>Follow the project across social platforms.</p>
-        <div class="links">
-          <a href="https://linktr.ee/ximermj" target="_blank" rel="noopener noreferrer">Linktree</a>
-        </div>
-      </section>
-
-      <section class="card">
+      <section>
         <h2>Contact</h2>
         <p>For inquiries, bookings, and press.</p>
         <p class="muted">jmr7100@icloud.com</p>

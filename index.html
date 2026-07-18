@@ -11,11 +11,11 @@
       --fg: #fff;
       --muted: rgba(255,255,255,0.72);
       --line: rgba(255,255,255,0.22);
+      --glitch-1: #ff2bd6;
+      --glitch-2: #00e5ff;
     }
 
-    * {
-      box-sizing: border-box;
-    }
+    * { box-sizing: border-box; }
 
     html, body {
       margin: 0;
@@ -44,11 +44,38 @@
     }
 
     .brand {
+      position: relative;
       margin: 0;
+      display: inline-block;
       font-size: clamp(2rem, 5vw, 4.25rem);
       font-weight: 700;
       letter-spacing: 0.12em;
       text-transform: uppercase;
+      animation: glitch-skew 2.2s infinite linear alternate-reverse;
+    }
+
+    .brand::before,
+    .brand::after {
+      content: "XIMERMJ";
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      overflow: hidden;
+      background: transparent;
+      pointer-events: none;
+    }
+
+    .brand::before {
+      transform: translate(2px, 0);
+      text-shadow: -2px 0 var(--glitch-1);
+      animation: glitch-1 2.4s infinite linear alternate-reverse;
+    }
+
+    .brand::after {
+      transform: translate(-2px, 0);
+      text-shadow: 2px 0 var(--glitch-2);
+      animation: glitch-2 1.8s infinite linear alternate-reverse;
     }
 
     .subbrand {
@@ -82,13 +109,9 @@
       color: var(--fg);
     }
 
-    .muted {
-      color: var(--muted);
-    }
+    .muted { color: var(--muted); }
 
-    .preorder {
-      border-color: rgba(255,255,255,0.42);
-    }
+    .preorder { border-color: rgba(255,255,255,0.42); }
 
     .preorder .release {
       font-size: 1.05rem;
@@ -130,9 +153,7 @@
       font-size: 0.8rem;
     }
 
-    .links a:hover {
-      border-color: var(--fg);
-    }
+    .links a:hover { border-color: var(--fg); }
 
     footer {
       margin-top: 28px;
@@ -144,23 +165,64 @@
       letter-spacing: 0.12em;
     }
 
+    @keyframes glitch-1 {
+      0% { clip-path: inset(0 0 80% 0); }
+      10% { clip-path: inset(10% 0 65% 0); }
+      20% { clip-path: inset(45% 0 35% 0); }
+      30% { clip-path: inset(80% 0 5% 0); }
+      40% { clip-path: inset(20% 0 55% 0); }
+      50% { clip-path: inset(60% 0 20% 0); }
+      60% { clip-path: inset(35% 0 45% 0); }
+      70% { clip-path: inset(5% 0 75% 0); }
+      80% { clip-path: inset(55% 0 25% 0); }
+      90% { clip-path: inset(15% 0 60% 0); }
+      100% { clip-path: inset(0 0 80% 0); }
+    }
+
+    @keyframes glitch-2 {
+      0% { clip-path: inset(75% 0 0 0); }
+      10% { clip-path: inset(55% 0 20% 0); }
+      20% { clip-path: inset(25% 0 45% 0); }
+      30% { clip-path: inset(5% 0 70% 0); }
+      40% { clip-path: inset(40% 0 35% 0); }
+      50% { clip-path: inset(15% 0 55% 0); }
+      60% { clip-path: inset(65% 0 10% 0); }
+      70% { clip-path: inset(30% 0 40% 0); }
+      80% { clip-path: inset(50% 0 20% 0); }
+      90% { clip-path: inset(10% 0 65% 0); }
+      100% { clip-path: inset(75% 0 0 0); }
+    }
+
+    @keyframes glitch-skew {
+      0% { transform: skew(0deg); }
+      20% { transform: skew(0.5deg); }
+      40% { transform: skew(-0.5deg); }
+      60% { transform: skew(0.25deg); }
+      80% { transform: skew(-0.25deg); }
+      100% { transform: skew(0deg); }
+    }
+
     @media (max-width: 640px) {
       .wrap {
         width: min(100% - 20px, 980px);
         padding-top: 18px;
       }
 
-      .card {
-        padding: 18px;
-      }
+      .card { padding: 18px; }
 
-      .links {
-        flex-direction: column;
-      }
+      .links { flex-direction: column; }
 
       .links a {
         width: 100%;
         text-align: center;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .brand,
+      .brand::before,
+      .brand::after {
+        animation: none;
       }
     }
   </style>
@@ -168,7 +230,7 @@
 <body>
   <div class="wrap">
     <header>
-      <h1 class="brand">XIMERMJ</h1>
+      <h1 class="brand" data-text="XIMERMJ">XIMERMJ</h1>
       <p class="subbrand">Richner Records LLC © 2026</p>
     </header>
 

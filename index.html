@@ -9,10 +9,11 @@
     :root {
       --bg: #000;
       --fg: #fff;
-      --muted: #a0a0a0;
+      --muted: #a8adb4;
       --line: rgba(255,255,255,0.14);
-      --cyan: rgba(0, 255, 255, 0.7);
-      --magenta: rgba(255, 0, 140, 0.7);
+      --blue: rgba(85, 145, 255, 0.8);
+      --blue2: rgba(36, 105, 255, 0.75);
+      --grey: rgba(180, 185, 195, 0.75);
     }
     * { box-sizing: border-box; }
     body {
@@ -55,13 +56,13 @@
     }
     .brand::before {
       transform: translate(2px, 0);
-      color: var(--cyan);
+      color: var(--blue);
       clip-path: inset(0 0 60% 0);
       animation: glitchTop 2.5s infinite linear alternate-reverse;
     }
     .brand::after {
       transform: translate(-2px, 0);
-      color: var(--magenta);
+      color: var(--grey);
       clip-path: inset(40% 0 0 0);
       animation: glitchBottom 2s infinite linear alternate-reverse;
     }

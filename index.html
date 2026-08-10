@@ -1,663 +1,1109 @@
 <!DOCTYPE html>
+
 <html lang="en">
 
 <head>
+
 <meta charset="UTF-8">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>XIMERMJ | Richner Records</title>
+<title>XIMERMJ — Richner Records</title>
 
-<meta
-name="description"
-content="XIMERMJ — independent electronic artist and flagship artist of Richner Records LLC.">
+<meta name="description" content="XIMERMJ — independent electronic artist and Richner Records LLC.">
 
 <style>
 
-/* ================================
-   BASE
-================================ */
-
 :root{
-  --black:#050505;
-  --white:#f3f3f0;
-  --gray:#858585;
-  --blue:#2457ff;
-  --line:#262626;
+
+  --bg:#050505;
+
+  --text:#f1f1ee;
+
+  --muted:#777;
+
+  --line:#242424;
+
+  --blue:#345cff;
+
 }
 
 *{
-  margin:0;
-  padding:0;
+
   box-sizing:border-box;
+
+  margin:0;
+
+  padding:0;
+
 }
 
 html{
+
   scroll-behavior:smooth;
+
 }
 
 body{
-  background:var(--black);
-  color:var(--white);
+
+  background:var(--bg);
+
+  color:var(--text);
+
   font-family:Arial,Helvetica,sans-serif;
+
   overflow-x:hidden;
-}
 
-body::after{
-  content:"";
-  position:fixed;
-  inset:0;
-  pointer-events:none;
-  z-index:100;
-  opacity:.10;
-
-  background:
-  repeating-linear-gradient(
-    to bottom,
-    transparent 0px,
-    transparent 2px,
-    rgba(255,255,255,.07) 3px
-  );
 }
 
 a{
+
   color:inherit;
+
+  text-decoration:none;
+
 }
 
-/* ================================
-   TOP BAR
-================================ */
+/* SCANLINES */
+
+body::after{
+
+  content:"";
+
+  position:fixed;
+
+  inset:0;
+
+  pointer-events:none;
+
+  z-index:999;
+
+  opacity:.08;
+
+  background:
+
+    repeating-linear-gradient(
+
+      to bottom,
+
+      transparent 0,
+
+      transparent 2px,
+
+      rgba(255,255,255,.08) 3px
+
+    );
+
+}
+
+/* HEADER */
 
 header{
-  width:100%;
-  min-height:58px;
+
+  height:56px;
+
   padding:0 4vw;
 
   display:flex;
-  justify-content:space-between;
+
   align-items:center;
 
+  justify-content:space-between;
+
   border-bottom:1px solid var(--line);
-
-  font-family:"Courier New",monospace;
-  font-size:10px;
-  letter-spacing:.15em;
-  text-transform:uppercase;
-}
-
-header a{
-  text-decoration:none;
-}
-
-.signal{
-  color:var(--blue);
-}
-
-/* ================================
-   HERO
-================================ */
-
-.hero{
-  min-height:70vh;
-
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-
-  padding:8vw 4vw 6vw;
-
-  position:relative;
-  overflow:hidden;
-}
-
-.hero-label{
-  font-family:"Courier New",monospace;
-  font-size:10px;
-  color:var(--gray);
-  letter-spacing:.22em;
-  margin-bottom:25px;
-  text-transform:uppercase;
-}
-
-.glitch{
-  position:relative;
-  display:inline-block;
-
-  width:max-content;
-  max-width:100%;
-
-  font-size:clamp(4.2rem,16vw,13rem);
-  line-height:.78;
-
-  font-weight:900;
-  letter-spacing:-.075em;
-
-  text-transform:uppercase;
-}
-
-.glitch::before,
-.glitch::after{
-  content:attr(data-text);
-  position:absolute;
-  inset:0;
-  pointer-events:none;
-  opacity:0;
-}
-
-.glitch::before{
-  color:var(--blue);
-  clip-path:polygon(0 18%,100% 18%,100% 37%,0 37%);
-  animation:glitch-one 6s infinite;
-}
-
-.glitch::after{
-  color:#fff;
-  clip-path:polygon(0 63%,100% 63%,100% 74%,0 74%);
-  animation:glitch-two 6s infinite;
-}
-
-.hero-data{
-  margin-top:34px;
-
-  display:flex;
-  flex-wrap:wrap;
-  gap:12px 30px;
-
-  font-family:"Courier New",monospace;
-  color:var(--gray);
-
-  font-size:10px;
-  letter-spacing:.15em;
-  text-transform:uppercase;
-}
-
-.hero-data span::before{
-  content:"[ ";
-  color:var(--blue);
-}
-
-.hero-data span::after{
-  content:" ]";
-  color:var(--blue);
-}
-
-/* ================================
-   PHOTO
-================================ */
-
-.visual{
-  height:72vh;
-  min-height:500px;
-
-  position:relative;
-  overflow:hidden;
-
-  border-top:1px solid var(--line);
-  border-bottom:1px solid var(--line);
-}
-
-.visual img{
-  position:absolute;
-  inset:0;
-
-  width:100%;
-  height:100%;
-
-  object-fit:cover;
-  object-position:center;
-
-  filter:
-    grayscale(.20)
-    contrast(1.28)
-    brightness(.68);
-}
-
-.visual::before{
-  content:"";
-  position:absolute;
-  inset:0;
-
-  z-index:2;
-
-  background:
-    linear-gradient(
-      to bottom,
-      rgba(0,0,0,.30),
-      transparent 35%,
-      rgba(0,0,0,.10),
-      rgba(0,0,0,.80)
-    );
-}
-
-.visual::after{
-  content:"";
-  position:absolute;
-
-  z-index:3;
-
-  width:100%;
-  height:5px;
-
-  left:0;
-  top:45%;
-
-  opacity:0;
-
-  background:rgba(36,87,255,.7);
-
-  animation:image-glitch 8s infinite;
-}
-
-.photo-code{
-  position:absolute;
-  z-index:4;
-
-  top:25px;
-  left:4vw;
 
   font-family:"Courier New",monospace;
 
   font-size:9px;
+
   letter-spacing:.18em;
 
   text-transform:uppercase;
 
-  color:rgba(255,255,255,.7);
 }
 
-.photo-title{
-  position:absolute;
-  z-index:4;
+.status{
 
-  bottom:40px;
-  left:4vw;
-  right:4vw;
+  color:var(--blue);
 
-  font-size:clamp(2.8rem,8vw,7rem);
-  font-weight:900;
-
-  letter-spacing:-.06em;
-  line-height:.84;
-
-  text-transform:uppercase;
 }
 
-/* ================================
-   LABEL INFO
-================================ */
+/* HERO */
 
-.info{
-  padding:80px 4vw;
+.hero{
+
+  min-height:72vh;
+
+  padding:10vh 4vw 8vh;
+
+  display:flex;
+
+  flex-direction:column;
+
+  justify-content:center;
+
+  overflow:hidden;
+
 }
 
-.info-grid{
-  max-width:1400px;
-  margin:auto;
+.hero-code{
 
-  display:grid;
-  grid-template-columns:1fr 1fr;
+  margin-bottom:24px;
 
-  border-top:1px solid var(--line);
-}
-
-.info-block{
-  min-height:280px;
-  padding:32px 30px 35px 0;
-
-  border-bottom:1px solid var(--line);
-}
-
-.info-block:nth-child(even){
-  padding-left:35px;
-  border-left:1px solid var(--line);
-}
-
-.code{
   font-family:"Courier New",monospace;
 
   font-size:9px;
-  letter-spacing:.20em;
+
+  letter-spacing:.2em;
+
+  color:var(--muted);
+
+  text-transform:uppercase;
+
+}
+
+.title{
+
+  position:relative;
+
+  display:inline-block;
+
+  width:max-content;
+
+  max-width:100%;
+
+  font-size:clamp(4rem,16vw,13rem);
+
+  line-height:.78;
+
+  font-weight:900;
+
+  letter-spacing:-.075em;
+
+  text-transform:uppercase;
+
+}
+
+.title::before,
+
+.title::after{
+
+  content:"XIMERMJ";
+
+  position:absolute;
+
+  inset:0;
+
+  opacity:0;
+
+  pointer-events:none;
+
+}
+
+.title::before{
+
+  color:var(--blue);
+
+  clip-path:
+
+    polygon(
+
+      0 20%,
+
+      100% 20%,
+
+      100% 37%,
+
+      0 37%
+
+    );
+
+  animation:titleGlitchA 7s infinite;
+
+}
+
+.title::after{
+
+  color:#fff;
+
+  clip-path:
+
+    polygon(
+
+      0 62%,
+
+      100% 62%,
+
+      100% 76%,
+
+      0 76%
+
+    );
+
+  animation:titleGlitchB 7s infinite;
+
+}
+
+.hero-meta{
+
+  margin-top:32px;
+
+  display:flex;
+
+  flex-wrap:wrap;
+
+  gap:10px 26px;
+
+  font-family:"Courier New",monospace;
+
+  font-size:9px;
+
+  letter-spacing:.16em;
+
+  color:var(--muted);
+
+  text-transform:uppercase;
+
+}
+
+.hero-meta span::before{
+
+  content:"[";
+
+  color:var(--blue);
+
+  margin-right:5px;
+
+}
+
+.hero-meta span::after{
+
+  content:"]";
+
+  color:var(--blue);
+
+  margin-left:5px;
+
+}
+
+/* PHOTO */
+
+.photo{
+
+  position:relative;
+
+  height:78vh;
+
+  min-height:520px;
+
+  overflow:hidden;
+
+  border-top:1px solid var(--line);
+
+  border-bottom:1px solid var(--line);
+
+  background:#000;
+
+}
+
+.photo-main{
+
+  position:absolute;
+
+  inset:-2%;
+
+  width:104%;
+
+  height:104%;
+
+  object-fit:cover;
+
+  object-position:center;
+
+  filter:
+
+    grayscale(.12)
+
+    contrast(1.32)
+
+    brightness(.68);
+
+  animation:photoGlitch 10s infinite;
+
+}
+
+/* DUPLICATE GLITCH LAYERS */
+
+.photo-glitch-one,
+
+.photo-glitch-two{
+
+  position:absolute;
+
+  left:-3%;
+
+  width:106%;
+
+  object-fit:cover;
+
+  object-position:center;
+
+  opacity:0;
+
+  pointer-events:none;
+
+}
+
+.photo-glitch-one{
+
+  top:18%;
+
+  height:18%;
+
+  filter:
+
+    contrast(1.8)
+
+    brightness(.85);
+
+  animation:photoSliceOne 10s infinite;
+
+}
+
+.photo-glitch-two{
+
+  top:60%;
+
+  height:10%;
+
+  filter:
+
+    grayscale(1)
+
+    contrast(2)
+
+    brightness(.8);
+
+  animation:photoSliceTwo 10s infinite;
+
+}
+
+.photo-overlay{
+
+  position:absolute;
+
+  inset:0;
+
+  z-index:4;
+
+  background:
+
+    linear-gradient(
+
+      to bottom,
+
+      rgba(0,0,0,.15),
+
+      transparent 40%,
+
+      rgba(0,0,0,.15),
+
+      rgba(0,0,0,.82)
+
+    );
+
+  animation:photoFlash 10s infinite;
+
+}
+
+.photo-code{
+
+  position:absolute;
+
+  z-index:5;
+
+  top:24px;
+
+  left:4vw;
+
+  font-family:"Courier New",monospace;
+
+  font-size:9px;
+
+  letter-spacing:.18em;
+
+  text-transform:uppercase;
+
+  color:rgba(255,255,255,.65);
+
+}
+
+.photo-caption{
+
+  position:absolute;
+
+  z-index:5;
+
+  left:4vw;
+
+  right:4vw;
+
+  bottom:38px;
+
+  font-size:clamp(2.7rem,7vw,6.5rem);
+
+  line-height:.84;
+
+  letter-spacing:-.06em;
+
+  font-weight:900;
+
+  text-transform:uppercase;
+
+}
+
+/* INFO */
+
+.info{
+
+  padding:90px 4vw 110px;
+
+}
+
+.info-wrap{
+
+  max-width:1400px;
+
+  margin:auto;
+
+  border-top:1px solid var(--line);
+
+}
+
+.row{
+
+  display:grid;
+
+  grid-template-columns:180px 1fr;
+
+  padding:28px 0;
+
+  border-bottom:1px solid var(--line);
+
+}
+
+.row-label{
+
+  padding-top:6px;
+
+  font-family:"Courier New",monospace;
+
+  font-size:9px;
+
+  letter-spacing:.18em;
 
   color:var(--blue);
 
   text-transform:uppercase;
 
-  margin-bottom:30px;
 }
 
-.info h2{
-  font-size:clamp(2.5rem,6vw,5rem);
-  line-height:.85;
+.row-main{
 
-  letter-spacing:-.055em;
+  max-width:820px;
+
+}
+
+.row-main h2{
+
+  font-size:clamp(2rem,5vw,4.6rem);
+
+  line-height:.9;
+
+  letter-spacing:-.05em;
 
   text-transform:uppercase;
+
 }
 
-.info p{
-  max-width:510px;
+.row-main p{
 
-  margin-top:26px;
+  max-width:650px;
+
+  margin-top:17px;
+
+  color:#858585;
 
   font-size:13px;
+
   line-height:1.8;
 
-  color:#8a8a8a;
 }
 
-/* ================================
-   ROSTER
-================================ */
+/* ARTIST */
 
-.roster-line{
-  margin-top:32px;
+.artist-line{
 
-  border-top:1px solid var(--line);
-  border-bottom:1px solid var(--line);
-}
+  margin-top:18px;
 
-.artist{
-  display:grid;
-  grid-template-columns:65px 1fr auto;
+  display:flex;
 
   align-items:center;
 
-  padding:19px 0;
+  justify-content:space-between;
 
-  font-family:"Courier New",monospace;
-  text-transform:uppercase;
-}
+  gap:25px;
 
-.artist-number{
-  color:var(--blue);
-  font-size:9px;
+  padding:17px 0;
+
+  border-top:1px solid var(--line);
+
 }
 
 .artist-name{
-  font-family:Arial,Helvetica,sans-serif;
+
+  font-size:clamp(1.8rem,4vw,3.4rem);
 
   font-weight:900;
 
-  font-size:clamp(1.8rem,4vw,3.2rem);
-
   letter-spacing:-.04em;
-}
-
-.artist-role{
-  font-size:9px;
-  color:var(--gray);
-  letter-spacing:.15em;
-}
-
-/* ================================
-   SUBMISSIONS
-================================ */
-
-.open{
-  color:var(--white);
-  font-family:"Courier New",monospace;
-
-  font-size:10px;
-  letter-spacing:.13em;
 
   text-transform:uppercase;
 
-  margin-top:26px;
+}
+
+.artist-type{
+
+  font-family:"Courier New",monospace;
+
+  font-size:9px;
+
+  letter-spacing:.15em;
+
+  color:var(--muted);
+
+  text-transform:uppercase;
+
+}
+
+/* SUBMISSIONS */
+
+.open{
+
+  margin-top:18px;
+
+  font-family:"Courier New",monospace;
+
+  font-size:9px;
+
+  letter-spacing:.15em;
+
+  text-transform:uppercase;
+
 }
 
 .open::before{
+
   content:"●";
-  color:var(--blue);
+
   margin-right:10px;
+
+  color:var(--blue);
+
 }
 
-.submit-link{
+.submit{
+
   display:inline-block;
 
-  margin-top:28px;
+  margin-top:24px;
 
   padding-bottom:7px;
 
   border-bottom:1px solid var(--blue);
 
-  text-decoration:none;
-
   font-family:"Courier New",monospace;
 
-  font-size:11px;
-  letter-spacing:.15em;
+  font-size:10px;
+
+  letter-spacing:.14em;
 
   text-transform:uppercase;
+
 }
 
-.submit-link:hover{
+.submit:hover{
+
   color:var(--blue);
+
 }
 
-/* ================================
-   LINKS / FOOTER
-================================ */
+/* SOCIAL LINKS */
 
 .links{
+
   padding:0 4vw 55px;
+
 }
 
-.link-line{
+.links-inner{
+
   max-width:1400px;
+
   margin:auto;
 
-  display:flex;
-  flex-wrap:wrap;
-
-  gap:14px 28px;
-
-  padding-top:30px;
+  padding-top:25px;
 
   border-top:1px solid var(--line);
+
+  display:flex;
+
+  flex-wrap:wrap;
+
+  gap:16px 28px;
+
 }
 
-.link-line a{
+.links a{
+
   font-family:"Courier New",monospace;
 
   font-size:9px;
 
   letter-spacing:.17em;
 
-  color:#8d8d8d;
+  color:#797979;
 
   text-transform:uppercase;
 
-  text-decoration:none;
 }
 
-.link-line a:hover{
+.links a:hover{
+
   color:white;
+
 }
+
+/* FOOTER */
 
 footer{
-  padding:30px 4vw;
+
+  padding:28px 4vw;
 
   border-top:1px solid var(--line);
 
   display:flex;
+
   justify-content:space-between;
+
   gap:20px;
 
   font-family:"Courier New",monospace;
 
   font-size:8px;
 
-  letter-spacing:.18em;
+  letter-spacing:.16em;
+
+  color:#555;
 
   text-transform:uppercase;
 
-  color:#555;
 }
 
-/* ================================
-   GLITCH ANIMATION
-================================ */
+/* ANIMATION */
 
-@keyframes glitch-one{
+@keyframes titleGlitchA{
+
+  0%,85%,100%{
+
+    opacity:0;
+
+    transform:translate(0);
+
+  }
+
+  86%{
+
+    opacity:.85;
+
+    transform:translate(-10px,-1px);
+
+  }
+
+  87%{
+
+    opacity:.35;
+
+    transform:translate(8px,1px);
+
+  }
+
+  88%{
+
+    opacity:0;
+
+  }
+
+}
+
+@keyframes titleGlitchB{
 
   0%,88%,100%{
+
     opacity:0;
+
     transform:translate(0);
+
   }
 
   89%{
-    opacity:.9;
-    transform:translate(-10px,-2px);
+
+    opacity:.8;
+
+    transform:translate(8px,1px);
+
   }
 
   90%{
-    opacity:.3;
-    transform:translate(8px,2px);
+
+    opacity:.25;
+
+    transform:translate(-7px,-1px);
+
   }
 
   91%{
-    opacity:0;
-  }
 
-  96%{
-    opacity:.6;
-    transform:translate(-6px,1px);
-  }
-
-  97%{
     opacity:0;
+
   }
 
 }
 
-@keyframes glitch-two{
+@keyframes photoGlitch{
 
-  0%,91%,100%{
-    opacity:0;
-    transform:translate(0);
+  0%,80%,100%{
+
+    transform:translate(0,0) scale(1);
+
+  }
+
+  81%{
+
+    transform:translate(-8px,1px) scale(1.015);
+
+  }
+
+  82%{
+
+    transform:translate(11px,-2px) scale(1.02);
+
+  }
+
+  83%{
+
+    transform:translate(-5px,0) scale(1.01);
+
+  }
+
+  84%{
+
+    transform:translate(0,0) scale(1);
+
   }
 
   92%{
-    opacity:.8;
-    transform:translate(8px,2px);
+
+    transform:translate(0,0);
+
+  }
+
+  92.5%{
+
+    transform:translate(6px,0);
+
   }
 
   93%{
-    opacity:.3;
-    transform:translate(-7px,-1px);
+
+    transform:translate(-4px,0);
+
   }
 
-  94%{
-    opacity:0;
+  93.5%{
+
+    transform:translate(0,0);
+
   }
 
 }
 
-@keyframes image-glitch{
+@keyframes photoSliceOne{
 
-  0%,88%,100%{
+  0%,80%,100%{
+
     opacity:0;
-    transform:translateY(0);
+
+    transform:translateX(0);
+
   }
 
-  89%{
+  81%{
+
+    opacity:.9;
+
+    transform:translateX(-30px);
+
+  }
+
+  82%{
+
     opacity:.7;
-    transform:translateY(-100px);
+
+    transform:translateX(45px);
+
   }
 
-  90%{
-    opacity:.2;
-    transform:translateY(80px);
+  83%{
+
+    opacity:.45;
+
+    transform:translateX(-20px);
+
   }
 
-  91%{
+  84%{
+
     opacity:0;
+
   }
 
 }
 
-/* ================================
-   MOBILE
-================================ */
+@keyframes photoSliceTwo{
+
+  0%,91%,100%{
+
+    opacity:0;
+
+    transform:translateX(0);
+
+  }
+
+  92%{
+
+    opacity:.8;
+
+    transform:translateX(28px);
+
+  }
+
+  92.5%{
+
+    opacity:.65;
+
+    transform:translateX(-22px);
+
+  }
+
+  93%{
+
+    opacity:0;
+
+  }
+
+}
+
+@keyframes photoFlash{
+
+  0%,80%,100%{
+
+    background:
+
+      linear-gradient(
+
+        to bottom,
+
+        rgba(0,0,0,.15),
+
+        transparent 40%,
+
+        rgba(0,0,0,.15),
+
+        rgba(0,0,0,.82)
+
+      );
+
+  }
+
+  81%{
+
+    background:
+
+      linear-gradient(
+
+        rgba(52,92,255,.15),
+
+        rgba(0,0,0,.2)
+
+      );
+
+  }
+
+  82%{
+
+    background:
+
+      linear-gradient(
+
+        rgba(255,255,255,.07),
+
+        rgba(0,0,0,.35)
+
+      );
+
+  }
+
+  83%{
+
+    background:
+
+      linear-gradient(
+
+        rgba(52,92,255,.08),
+
+        rgba(0,0,0,.42)
+
+      );
+
+  }
+
+}
+
+/* MOBILE */
 
 @media(max-width:760px){
 
   header{
+
     padding:0 20px;
+
   }
 
-  header .right{
+  .status{
+
     display:none;
+
   }
 
   .hero{
+
     min-height:64vh;
-    padding:100px 20px 65px;
+
+    padding:
+
+      100px
+
+      20px
+
+      65px;
+
   }
 
-  .glitch{
+  .title{
+
     font-size:clamp(4rem,20vw,7rem);
+
   }
 
-  .hero-data{
-    gap:10px;
+  .hero-meta{
+
     flex-direction:column;
+
+    gap:8px;
+
   }
 
-  .visual{
-    height:62vh;
-    min-height:440px;
+  .photo{
+
+    height:64vh;
+
+    min-height:450px;
+
   }
 
-  .visual img{
+  .photo-main,
+
+  .photo-glitch-one,
+
+  .photo-glitch-two{
+
     object-position:45% center;
+
   }
 
   .photo-code{
+
     left:20px;
+
   }
 
-  .photo-title{
+  .photo-caption{
+
     left:20px;
+
     right:20px;
+
     bottom:28px;
+
   }
 
   .info{
-    padding:60px 20px;
+
+    padding:
+
+      65px
+
+      20px
+
+      80px;
+
   }
 
-  .info-grid{
+  .row{
+
     grid-template-columns:1fr;
+
+    gap:18px;
+
+    padding:30px 0;
+
   }
 
-  .info-block,
-  .info-block:nth-child(even){
-    min-height:auto;
+  .artist-line{
 
-    padding:35px 0;
+    align-items:flex-start;
 
-    border-left:none;
-  }
+    flex-direction:column;
 
-  .artist{
-    grid-template-columns:42px 1fr;
-  }
-
-  .artist-role{
-    grid-column:2;
-    margin-top:6px;
   }
 
   .links{
+
     padding-left:20px;
+
     padding-right:20px;
+
   }
 
   footer{
+
     padding-left:20px;
+
     padding-right:20px;
 
     flex-direction:column;
+
   }
 
 }
@@ -665,14 +1111,19 @@ footer{
 @media(prefers-reduced-motion:reduce){
 
   *,
+
   *::before,
+
   *::after{
+
     animation:none !important;
+
   }
 
 }
 
 </style>
+
 </head>
 
 <body>
@@ -680,36 +1131,36 @@ footer{
 <header>
 
   <a href="#top">
-    RICHNER RECORDS
+
+    Richner Records
+
   </a>
 
-  <div class="right">
-    RR / NY / 2026
-    &nbsp;&nbsp;
-    <span class="signal">SIGNAL ACTIVE</span>
+  <div class="status">
+
+    Signal Active / NY / 2026
+
   </div>
 
 </header>
 
-
 <main id="top">
-
-
-<!-- HERO -->
 
 <section class="hero">
 
-  <div class="hero-label">
-    RR–001 / Independent Recording Artist
+  <div class="hero-code">
+
+    RR-001 / Independent Recording Artist
+
   </div>
 
-  <h1
-    class="glitch"
-    data-text="XIMERMJ">
+  <h1 class="title">
+
     XIMERMJ
+
   </h1>
 
-  <div class="hero-data">
+  <div class="hero-meta">
 
     <span>Electronic</span>
 
@@ -723,78 +1174,112 @@ footer{
 
 </section>
 
-
-<!-- DESERT PHOTO -->
-
-<section class="visual">
+<section class="photo">
 
   <img
+
+    class="photo-main"
+
     src="desert.jpg"
-    alt="XIMERMJ desert landscape">
+
+    alt="XIMERMJ desert visual">
+
+  <img
+
+    class="photo-glitch-one"
+
+    src="desert.jpg"
+
+    alt="">
+
+  <img
+
+    class="photo-glitch-two"
+
+    src="desert.jpg"
+
+    alt="">
+
+  <div class="photo-overlay"></div>
 
   <div class="photo-code">
-    XIMERMJ / VISUAL ARCHIVE / 001
+
+    Visual Archive / XMR / 001
+
   </div>
 
-  <div class="photo-title">
+  <div class="photo-caption">
+
     Find Your<br>
+
     Own Direction.
+
   </div>
 
 </section>
 
-
-<!-- LABEL / ARTIST INFO -->
-
 <section class="info">
 
-<div class="info-grid">
+<div class="info-wrap">
 
+  <div class="row">
 
-  <div class="info-block">
+    <div class="row-label">
 
-    <div class="code">
-      RR / LABEL
+      01 / Label
+
     </div>
 
-    <h2>
-      Richner<br>
-      Records
-    </h2>
+    <div class="row-main">
 
-    <p>
-      Independent record label based in New York.
-      Artist-led and built around electronic,
-      experimental, alternative and forward-thinking sound.
-    </p>
+      <h2>
+
+        Richner Records
+
+      </h2>
+
+      <p>
+
+        Independent New York record label focused on
+
+        electronic, experimental, alternative and
+
+        forward-thinking music.
+
+      </p>
+
+    </div>
 
   </div>
 
+  <div class="row">
 
-  <div class="info-block">
+    <div class="row-label">
 
-    <div class="code">
-      RR / ROSTER
+      02 / Artist
+
     </div>
 
-    <h2>
-      Artists
-    </h2>
+    <div class="row-main">
 
-    <div class="roster-line">
+      <h2>
 
-      <div class="artist">
+        Roster
 
-        <div class="artist-number">
-          001
-        </div>
+      </h2>
+
+      <div class="artist-line">
 
         <div class="artist-name">
+
           XIMERMJ
+
         </div>
 
-        <div class="artist-role">
-          Recording Artist / Founder
+        <div class="artist-type">
+
+          RR-001 / Recording Artist
+
         </div>
 
       </div>
@@ -803,122 +1288,148 @@ footer{
 
   </div>
 
+  <div class="row">
 
-  <div class="info-block">
+    <div class="row-label">
 
-    <div class="code">
-      RR / IDENTITY
+      03 / Identity
+
     </div>
 
-    <h2>
-      XIMERMJ
-    </h2>
+    <div class="row-main">
 
-    <p>
-      Independent electronic artist working through
-      atmosphere, distortion, movement and sound design.
-      Released through Richner Records LLC.
-    </p>
+      <h2>
+
+        XIMERMJ
+
+      </h2>
+
+      <p>
+
+        Independent electronic artist exploring
+
+        atmosphere, distortion, movement and
+
+        experimental sound design.
+
+      </p>
+
+    </div>
 
   </div>
 
+  <div class="row">
 
-  <div class="info-block">
+    <div class="row-label">
 
-    <div class="code">
-      RR / INCOMING
+      04 / Incoming
+
     </div>
 
-    <h2>
-      Submissions
-    </h2>
+    <div class="row-main">
 
-    <div class="open">
-      Artist submissions open
+      <h2>
+
+        Submissions
+
+      </h2>
+
+      <div class="open">
+
+        Artist submissions open
+
+      </div>
+
+      <p>
+
+        Richner Records is interested in artists with
+
+        a developed sound, visual identity and
+
+        individual point of view.
+
+      </p>
+
+      <a
+
+        class="submit"
+
+        href="mailto:jmr7100@icloud.com?subject=Richner%20Records%20Artist%20Submission">
+
+        Submit Music →
+
+      </a>
+
     </div>
-
-    <p>
-      Richner Records is interested in artists with a
-      developed sound, visual identity and individual
-      point of view.
-    </p>
-
-    <a
-      class="submit-link"
-      href="mailto:jmr7100@icloud.com?subject=Artist%20Submission%20-%20Richner%20Records">
-
-      Submit Music →
-
-    </a>
 
   </div>
-
 
 </div>
 
 </section>
 
-
-<!-- LINKS -->
-
 <section class="links">
 
-  <div class="link-line">
+  <div class="links-inner">
 
-    <a
-      href="https://open.spotify.com/artist/3HF0pRkcW2264iFUOstWv4"
-      target="_blank">
+    <a href="https://open.spotify.com/artist/3HF0pRkcW2264iFUOstWv4" target="_blank">
+
       Spotify
+
     </a>
 
-    <a
-      href="https://music.apple.com/us/artist/ximermj/1701039590"
-      target="_blank">
+    <a href="https://music.apple.com/us/artist/ximermj/1701039590" target="_blank">
+
       Apple Music
+
     </a>
 
-    <a
-      href="https://soundcloud.com/ximermj"
-      target="_blank">
+    <a href="https://soundcloud.com/ximermj" target="_blank">
+
       SoundCloud
+
     </a>
 
-    <a
-      href="https://www.youtube.com/channel/UC7W-Q-kfBMyTpIhkD4o3WNg"
-      target="_blank">
+    <a href="https://www.youtube.com/channel/UC7W-Q-kfBMyTpIhkD4o3WNg" target="_blank">
+
       YouTube
+
     </a>
 
-    <a
-      href="https://www.instagram.com/ximermj/"
-      target="_blank">
+    <a href="https://www.instagram.com/ximermj/" target="_blank">
+
       Instagram
+
     </a>
 
     <a href="mailto:jmr7100@icloud.com">
+
       Contact
+
     </a>
 
   </div>
 
 </section>
 
-
 </main>
-
 
 <footer>
 
   <div>
-    © 2026 RICHNER RECORDS LLC
+
+    © 2026 Richner Records LLC
+
   </div>
 
   <div>
-    XIMERMJ / RR–001 / NY
+
+    XIMERMJ / RR-001
+
   </div>
 
 </footer>
 
-
 </body>
+
 </html>

@@ -1,98 +1,2777 @@
+<!DOCTYPE html>
 
-XIMERMJ
-MUSIC
-ABOUT
-PRESS
-CONTACT
-INDEPENDENT ELECTRONIC ARTIST / BUFFALO, NY
-XIMERMJ
-Atmosphere. Texture. Fractured rhythm.
-ENTER THE SOUND ↘
-LISTEN ON SPOTIFY ↗
-SOUND OUTSIDE THE USUAL STRUCTURE.
-Instrumental electronic music
-Producer / Composer
-Richner Records LLC
+<html lang="en">
 
-EXPERIMENTAL ELECTRONIC NO. 1 U.S. ITUNES DANCE ALBUMS SELF-MANAGED BUFFALO, NY RICHNER RECORDS LLC INSTRUMENTAL EXPERIMENTAL ELECTRONIC NO. 1 U.S. ITUNES DANCE ALBUMS SELF-MANAGED BUFFALO, NY RICHNER RECORDS LLC INSTRUMENTAL
-01
-CURRENT SIGNAL
-INVALUABLE
-SINGLE
-2026
-RICHNER RECORDS LLC
-Compact electronic motion without a fixed destination.
-A current snapshot of the XIMERMJ project: concise, atmospheric and structured around movement, repetition and tension rather than conventional pop form.
-6,341
-7-DAY STREAMS
-+39%
-810
-MONTHLY ACTIVE LISTENERS
-+25%
-13.7
-STREAMS / LISTENER
-+91%
-Spotify for Artists — 7-day snapshot supplied September 4, 2026. Metrics are time-sensitive.
-NO. 1
-U.S. ITUNES DANCE ALBUMS
-Signature Search (2026) reached No. 1 on the U.S. iTunes Dance Albums chart twice, following earlier chart momentum from debut EP Trivial Truths.
-02
-XIMERMJ
-BUILT INDEPENDENTLY. DESIGNED AS A WORLD.
-XIMERMJ is an independent electronic artist, producer and composer from the Buffalo, New York area. The project moves between experimental dance, dark atmosphere and conceptual art, placing texture and sonic storytelling ahead of conventional song structure. Music, visual direction and catalog development are handled independently through Richner Records LLC.
-POSITIONING
-Instrumental electronic music shaped by atmosphere, experimentation and a deliberately nontraditional sense of structure.
-2026
-Invaluable
-SINGLE
-Current release; independent press coverage and growing listener engagement.
-2026
-Headway
-SINGLE
-Cinematic electronic single following Signature Search.
-2026
-Signature Search
-EP
-Seven-track project; No. 1 U.S. iTunes Dance Albums.
-2025
-Trivial Truths
-EP
-Debut EP and the beginning of the current XIMERMJ catalog.
-03
-INDEPENDENT INFRASTRUCTURE
-RICHNER RECORDS LLC
-Artist releases, creative direction, catalog administration and label development are operated independently. The Richner Records identity now extends beyond releases into music, art and culture editorial.
-100%
-SELF-MANAGED / INDEPENDENT
-04
-PRESS / ARCHIVE
-PRESS TRAIL.
-Independent coverage across multiple release eras.
-2026
-TUNE PICAL
-Coverage of Invaluable and Headway, focusing on electronic motion, atmosphere and creative independence.
-2026
-DAILY MUSIC SPIN
-Invaluable feature focused on experimentation, tension, rhythm and Richner Records LLC.
-2026
-CERTIFIED BOP
-Invaluable feature highlighting cinematic tension and unconventional structure.
-2025
-LONDON DAILY POST
-Long-form Trivial Truths interview on independence, rollout strategy and artistic intent.
-2024
-STEREO STICKMAN
-Early interview on production, influences, visual identity and the XIMERMJ project.
-CURRENT DISCOVERY
-Invaluable is beginning to surface through Spotify recommendation environments alongside direct listener growth.
-05
-CONTACT / BUSINESS
-TALK TO US.
-RICHNER RECORDS LLC
-jmr7100@icloud.com
-SPOTIFY ↗
-APPLE MUSIC ↗
-INSTAGRAM ↗
-EPK PDF ↗
-XIMERMJ / RICHNER RECORDS LLC
-INDEPENDENT ELECTRONIC ARTIST / 2026
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>XIMERMJ — Independent Electronic Artist</title>
+
+  <meta
+
+    name="description"
+
+    content="XIMERMJ — independent electronic artist, producer and composer from Buffalo, NY."
+
+  >
+
+  <link rel="canonical" href="https://ximermj.com/">
+
+  <meta property="og:title" content="XIMERMJ — Independent Electronic Artist">
+
+  <meta
+
+    property="og:description"
+
+    content="Atmosphere. Texture. Fractured rhythm."
+
+  >
+
+  <meta property="og:type" content="website">
+
+  <meta property="og:url" content="https://ximermj.com/">
+
+  <style>
+
+    /* =========================
+
+       ROOT
+
+       ========================= */
+
+    :root {
+
+      --black: #080808;
+
+      --white: #ffffff;
+
+      --off-white: #f4f4f1;
+
+      --grey: #b8b8b8;
+
+      --dark-grey: #252525;
+
+      --line: #454545;
+
+      --acid: #c8ff00;
+
+      --max-width: 1280px;
+
+    }
+
+    * {
+
+      box-sizing: border-box;
+
+    }
+
+    html {
+
+      scroll-behavior: smooth;
+
+    }
+
+    body {
+
+      margin: 0;
+
+      background: var(--black);
+
+      color: var(--white);
+
+      font-family: Arial, Helvetica, sans-serif;
+
+      overflow-x: hidden;
+
+    }
+
+    a {
+
+      color: inherit;
+
+    }
+
+    /* =========================
+
+       SUBTLE PAGE TEXTURE
+
+       ========================= */
+
+    .noise {
+
+      position: fixed;
+
+      inset: 0;
+
+      pointer-events: none;
+
+      z-index: 100;
+
+      opacity: 0.055;
+
+      background-image:
+
+        repeating-linear-gradient(
+
+          115deg,
+
+          transparent 0,
+
+          transparent 2px,
+
+          rgba(255,255,255,0.035) 3px,
+
+          transparent 4px
+
+        );
+
+      mix-blend-mode: screen;
+
+    }
+
+    /* =========================
+
+       NAVIGATION
+
+       ========================= */
+
+    .topbar {
+
+      position: sticky;
+
+      top: 0;
+
+      z-index: 50;
+
+      display: flex;
+
+      justify-content: space-between;
+
+      align-items: center;
+
+      padding: 23px 30px;
+
+      background: rgba(12,12,12,0.95);
+
+      border-bottom: 1px solid #292929;
+
+      backdrop-filter: blur(12px);
+
+    }
+
+    .brand {
+
+      font-size: 15px;
+
+      font-weight: 900;
+
+      letter-spacing: 0.2em;
+
+      text-decoration: none;
+
+    }
+
+    .nav {
+
+      display: flex;
+
+      align-items: center;
+
+      gap: 30px;
+
+    }
+
+    .nav a {
+
+      font-size: 11px;
+
+      text-transform: uppercase;
+
+      letter-spacing: 0.18em;
+
+      color: #dddddd;
+
+      text-decoration: none;
+
+      transition: 0.2s ease;
+
+    }
+
+    .nav a:hover {
+
+      color: var(--acid);
+
+    }
+
+    /* =========================
+
+       HERO
+
+       ========================= */
+
+    .hero {
+
+      min-height: calc(100vh - 68px);
+
+      width: min(
+
+        var(--max-width),
+
+        calc(100% - 60px)
+
+      );
+
+      margin: 0 auto;
+
+      padding-top: 125px;
+
+      padding-bottom: 80px;
+
+      display: flex;
+
+      flex-direction: column;
+
+    }
+
+    .eyebrow {
+
+      margin: 0 0 22px;
+
+      color: var(--acid);
+
+      font-size: 11px;
+
+      font-weight: 900;
+
+      letter-spacing: 0.22em;
+
+      text-transform: uppercase;
+
+    }
+
+    /* =========================
+
+       LARGE XIMERMJ WORDMARK
+
+       ========================= */
+
+    .artist-name {
+
+      position: relative;
+
+      margin: 0;
+
+      font-size: clamp(
+
+        75px,
+
+        15vw,
+
+        210px
+
+      );
+
+      line-height: 0.76;
+
+      font-weight: 1000;
+
+      letter-spacing: -0.075em;
+
+      user-select: none;
+
+    }
+
+    .artist-name::before {
+
+      content: "XIMERMJ";
+
+      position: absolute;
+
+      inset: 0;
+
+      transform: translate(6px, -2px);
+
+      opacity: 0.17;
+
+      clip-path: inset(
+
+        16% 0 58% 0
+
+      );
+
+    }
+
+    .artist-name::after {
+
+      content: "XIMERMJ";
+
+      position: absolute;
+
+      inset: 0;
+
+      transform: translate(-7px, 4px);
+
+      opacity: 0.17;
+
+      clip-path: inset(
+
+        62% 0 12% 0
+
+      );
+
+    }
+
+    /* =========================
+
+       TAGLINE
+
+       ========================= */
+
+    .tagline {
+
+      margin: 32px 0 45px;
+
+      font-family:
+
+        Georgia,
+
+        "Times New Roman",
+
+        serif;
+
+      font-size: clamp(
+
+        27px,
+
+        4.3vw,
+
+        55px
+
+      );
+
+      font-style: italic;
+
+      line-height: 1.05;
+
+      letter-spacing: -0.03em;
+
+    }
+
+    /* =========================
+
+       HERO BUTTONS
+
+       ========================= */
+
+    .hero-actions {
+
+      display: flex;
+
+      flex-wrap: wrap;
+
+      gap: 16px;
+
+      margin-bottom: 125px;
+
+    }
+
+    .button {
+
+      display: inline-flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+      min-height: 62px;
+
+      padding: 0 28px;
+
+      border: 1px solid var(--white);
+
+      font-size: 10px;
+
+      font-weight: 900;
+
+      letter-spacing: 0.18em;
+
+      text-transform: uppercase;
+
+      text-decoration: none;
+
+      transition: 0.2s ease;
+
+    }
+
+    .button.primary {
+
+      background: var(--white);
+
+      color: var(--black);
+
+    }
+
+    .button.secondary {
+
+      background: transparent;
+
+      color: var(--white);
+
+    }
+
+    .button:hover {
+
+      background: var(--acid);
+
+      color: var(--black);
+
+      border-color: var(--acid);
+
+    }
+
+    /* =========================
+
+       ARTIST POSITIONING
+
+       ========================= */
+
+    .hero-info {
+
+      border-top: 1px solid var(--line);
+
+      padding-top: 38px;
+
+      max-width: 650px;
+
+    }
+
+    .hero-info h2 {
+
+      margin: 0 0 24px;
+
+      font-size: 13px;
+
+      letter-spacing: 0.19em;
+
+      text-transform: uppercase;
+
+    }
+
+    .hero-info p {
+
+      margin: 0;
+
+      color: #cccccc;
+
+      font-size: 17px;
+
+      line-height: 1.75;
+
+    }
+
+    /* =========================
+
+       TICKER
+
+       ========================= */
+
+    .ticker {
+
+      width: 100%;
+
+      overflow: hidden;
+
+      white-space: nowrap;
+
+      border-top: 1px solid #282828;
+
+      border-bottom: 1px solid #282828;
+
+      padding: 16px 0;
+
+    }
+
+    .ticker-track {
+
+      display: inline-block;
+
+      animation: ticker 27s linear infinite;
+
+      font-size: 10px;
+
+      letter-spacing: 0.2em;
+
+      text-transform: uppercase;
+
+      color: #aaaaaa;
+
+    }
+
+    .ticker-track span {
+
+      margin-right: 50px;
+
+    }
+
+    .ticker-track b {
+
+      color: var(--acid);
+
+    }
+
+    @keyframes ticker {
+
+      from {
+
+        transform: translateX(0);
+
+      }
+
+      to {
+
+        transform: translateX(-50%);
+
+      }
+
+    }
+
+    /* =========================
+
+       GENERAL SECTION
+
+       ========================= */
+
+    .section {
+
+      width: min(
+
+        var(--max-width),
+
+        calc(100% - 60px)
+
+      );
+
+      margin: 0 auto;
+
+      padding: 110px 0;
+
+      border-bottom: 1px solid #333333;
+
+    }
+
+    .section-label {
+
+      display: flex;
+
+      align-items: center;
+
+      gap: 13px;
+
+      margin-bottom: 38px;
+
+      font-size: 10px;
+
+      font-weight: 900;
+
+      letter-spacing: 0.19em;
+
+      text-transform: uppercase;
+
+      color: #8d8d8d;
+
+    }
+
+    .section-label span {
+
+      color: var(--acid);
+
+    }
+
+    /* =========================
+
+       CURRENT RELEASE
+
+       ========================= */
+
+    .current-grid {
+
+      display: grid;
+
+      grid-template-columns:
+
+        1.2fr
+
+        0.8fr;
+
+      gap: 60px;
+
+      align-items: start;
+
+    }
+
+    .release-title {
+
+      margin: 0;
+
+      font-size: clamp(
+
+        60px,
+
+        10vw,
+
+        145px
+
+      );
+
+      line-height: 0.82;
+
+      letter-spacing: -0.065em;
+
+      text-transform: uppercase;
+
+    }
+
+    .release-meta {
+
+      display: flex;
+
+      flex-wrap: wrap;
+
+      gap: 16px;
+
+      margin-top: 25px;
+
+      color: #888888;
+
+      font-size: 10px;
+
+      letter-spacing: 0.17em;
+
+      text-transform: uppercase;
+
+    }
+
+    .release-card {
+
+      padding: 30px;
+
+      border: 1px solid #3d3d3d;
+
+      background: #111111;
+
+    }
+
+    .release-card blockquote {
+
+      margin: 0 0 25px;
+
+      font-family:
+
+        Georgia,
+
+        "Times New Roman",
+
+        serif;
+
+      font-style: italic;
+
+      font-size: 26px;
+
+      line-height: 1.28;
+
+    }
+
+    .release-card p {
+
+      margin: 0;
+
+      color: #aaaaaa;
+
+      font-size: 13px;
+
+      line-height: 1.7;
+
+    }
+
+    /* =========================
+
+       STATS
+
+       ========================= */
+
+    .stats {
+
+      display: grid;
+
+      grid-template-columns:
+
+        repeat(3, 1fr);
+
+      gap: 1px;
+
+      margin-top: 75px;
+
+      background: #333333;
+
+      border: 1px solid #333333;
+
+    }
+
+    .stat {
+
+      position: relative;
+
+      min-height: 170px;
+
+      padding: 30px;
+
+      background: var(--off-white);
+
+      color: var(--black);
+
+    }
+
+    .stat-number {
+
+      font-size: clamp(
+
+        45px,
+
+        6vw,
+
+        78px
+
+      );
+
+      font-weight: 1000;
+
+      letter-spacing: -0.055em;
+
+    }
+
+    .stat-label {
+
+      margin-top: 14px;
+
+      color: #666666;
+
+      font-size: 9px;
+
+      font-weight: 900;
+
+      letter-spacing: 0.17em;
+
+      text-transform: uppercase;
+
+    }
+
+    .stat-growth {
+
+      position: absolute;
+
+      top: 32px;
+
+      right: 25px;
+
+      font-size: 12px;
+
+      font-weight: 900;
+
+    }
+
+    .metric-note {
+
+      margin-top: 12px;
+
+      color: #777777;
+
+      font-size: 10px;
+
+      line-height: 1.5;
+
+    }
+
+    /* =========================
+
+       CHART FEATURE
+
+       ========================= */
+
+    .chart-feature {
+
+      display: grid;
+
+      grid-template-columns:
+
+        300px
+
+        1fr;
+
+      gap: 60px;
+
+      align-items: center;
+
+      margin-top: 75px;
+
+      padding-top: 55px;
+
+      border-top: 1px solid #444444;
+
+    }
+
+    .chart-number {
+
+      font-size: 82px;
+
+      font-weight: 1000;
+
+      line-height: 0.8;
+
+      letter-spacing: -0.06em;
+
+    }
+
+    .chart-number span {
+
+      display: block;
+
+      margin-top: 20px;
+
+      color: #888888;
+
+      font-size: 9px;
+
+      font-weight: 900;
+
+      line-height: 1.5;
+
+      letter-spacing: 0.17em;
+
+      text-transform: uppercase;
+
+    }
+
+    .chart-copy {
+
+      max-width: 690px;
+
+      color: #d0d0d0;
+
+      font-size: 17px;
+
+      line-height: 1.7;
+
+    }
+
+    /* =========================
+
+       ABOUT
+
+       ========================= */
+
+    .about-heading {
+
+      margin: 0 0 60px;
+
+      font-size: clamp(
+
+        48px,
+
+        8vw,
+
+        110px
+
+      );
+
+      line-height: 0.88;
+
+      letter-spacing: -0.06em;
+
+      text-transform: uppercase;
+
+    }
+
+    .about-grid {
+
+      display: grid;
+
+      grid-template-columns:
+
+        1fr
+
+        1fr;
+
+      gap: 75px;
+
+      align-items: start;
+
+    }
+
+    .about-copy {
+
+      color: #cccccc;
+
+      font-size: 16px;
+
+      line-height: 1.8;
+
+    }
+
+    .positioning {
+
+      padding: 32px;
+
+      border: 1px solid #333333;
+
+      background: #101010;
+
+    }
+
+    .positioning strong {
+
+      display: block;
+
+      margin-bottom: 18px;
+
+      color: var(--acid);
+
+      font-size: 9px;
+
+      letter-spacing: 0.18em;
+
+      text-transform: uppercase;
+
+    }
+
+    .positioning p {
+
+      margin: 0;
+
+      font-family:
+
+        Georgia,
+
+        "Times New Roman",
+
+        serif;
+
+      font-style: italic;
+
+      font-size: 25px;
+
+      line-height: 1.35;
+
+    }
+
+    /* =========================
+
+       DISCOGRAPHY
+
+       ========================= */
+
+    .catalog {
+
+      margin-top: 90px;
+
+      border-top: 1px solid #333333;
+
+    }
+
+    .catalog-row {
+
+      display: grid;
+
+      grid-template-columns:
+
+        80px
+
+        1fr
+
+        120px
+
+        1.5fr;
+
+      gap: 25px;
+
+      align-items: center;
+
+      padding: 27px 0;
+
+      border-bottom: 1px solid #333333;
+
+    }
+
+    .catalog-year,
+
+    .catalog-type {
+
+      color: #777777;
+
+      font-size: 9px;
+
+      font-weight: 900;
+
+      letter-spacing: 0.15em;
+
+      text-transform: uppercase;
+
+    }
+
+    .catalog-name {
+
+      font-size: 21px;
+
+      font-weight: 900;
+
+    }
+
+    .catalog-description {
+
+      color: #999999;
+
+      font-size: 12px;
+
+      line-height: 1.6;
+
+    }
+
+    /* =========================
+
+       RICHNER RECORDS
+
+       ========================= */
+
+    .label-section {
+
+      display: grid;
+
+      grid-template-columns:
+
+        1fr
+
+        280px;
+
+      gap: 60px;
+
+      margin-top: 95px;
+
+    }
+
+    .label-section h3 {
+
+      margin: 0 0 18px;
+
+      font-size: 30px;
+
+    }
+
+    .label-section p {
+
+      max-width: 720px;
+
+      margin: 0;
+
+      color: #aaaaaa;
+
+      font-size: 14px;
+
+      line-height: 1.75;
+
+    }
+
+    .independent-box {
+
+      min-height: 190px;
+
+      display: grid;
+
+      place-items: center;
+
+      text-align: center;
+
+      border: 1px solid #333333;
+
+      background: #101010;
+
+    }
+
+    .independent-box b {
+
+      display: block;
+
+      font-size: 62px;
+
+      line-height: 0.9;
+
+    }
+
+    .independent-box span {
+
+      display: block;
+
+      margin-top: 14px;
+
+      color: #777777;
+
+      font-size: 9px;
+
+      letter-spacing: 0.17em;
+
+      text-transform: uppercase;
+
+    }
+
+    /* =========================
+
+       PRESS
+
+       ========================= */
+
+    .press-heading {
+
+      display: flex;
+
+      justify-content: space-between;
+
+      align-items: end;
+
+      gap: 40px;
+
+      margin-bottom: 50px;
+
+    }
+
+    .press-heading h2 {
+
+      margin: 0;
+
+      font-size: clamp(
+
+        55px,
+
+        9vw,
+
+        125px
+
+      );
+
+      line-height: 0.82;
+
+      letter-spacing: -0.065em;
+
+      text-transform: uppercase;
+
+    }
+
+    .press-heading p {
+
+      max-width: 350px;
+
+      margin: 0;
+
+      color: #cccccc;
+
+      font-family:
+
+        Georgia,
+
+        "Times New Roman",
+
+        serif;
+
+      font-style: italic;
+
+      font-size: 21px;
+
+      line-height: 1.4;
+
+    }
+
+    .press-list {
+
+      border-top: 1px solid #444444;
+
+    }
+
+    .press-item {
+
+      display: grid;
+
+      grid-template-columns:
+
+        80px
+
+        250px
+
+        1fr;
+
+      gap: 20px;
+
+      padding: 26px 0;
+
+      border-bottom: 1px solid #333333;
+
+    }
+
+    .press-year {
+
+      color: #777777;
+
+      font-size: 9px;
+
+      font-weight: 900;
+
+    }
+
+    .press-outlet {
+
+      font-weight: 900;
+
+      letter-spacing: 0.04em;
+
+    }
+
+    .press-description {
+
+      color: #9c9c9c;
+
+      font-size: 12px;
+
+      line-height: 1.6;
+
+    }
+
+    /* =========================
+
+       CONTACT
+
+       ========================= */
+
+    .contact {
+
+      background: var(--acid);
+
+      color: var(--black);
+
+      padding: 100px 30px;
+
+    }
+
+    .contact-inner {
+
+      width: min(
+
+        var(--max-width),
+
+        100%
+
+      );
+
+      margin: 0 auto;
+
+      display: grid;
+
+      grid-template-columns:
+
+        1.2fr
+
+        0.8fr;
+
+      gap: 70px;
+
+      align-items: end;
+
+    }
+
+    .contact-heading {
+
+      margin: 0;
+
+      font-size: clamp(
+
+        65px,
+
+        11vw,
+
+        165px
+
+      );
+
+      line-height: 0.76;
+
+      letter-spacing: -0.07em;
+
+      text-transform: uppercase;
+
+    }
+
+    .contact-side {
+
+      padding-left: 30px;
+
+      border-left: 1px solid rgba(
+
+        0,
+
+        0,
+
+        0,
+
+        0.4
+
+      );
+
+    }
+
+    .contact-side p {
+
+      margin: 0 0 12px;
+
+      font-size: 10px;
+
+      font-weight: 900;
+
+      letter-spacing: 0.16em;
+
+      text-transform: uppercase;
+
+    }
+
+    .contact-email {
+
+      display: block;
+
+      font-size: clamp(
+
+        20px,
+
+        3vw,
+
+        36px
+
+      );
+
+      font-weight: 900;
+
+      text-decoration: none;
+
+      word-break: break-word;
+
+    }
+
+    .contact-links {
+
+      display: flex;
+
+      flex-wrap: wrap;
+
+      gap: 12px;
+
+      margin-top: 32px;
+
+    }
+
+    .contact-links a {
+
+      padding: 11px 14px;
+
+      border: 1px solid var(--black);
+
+      font-size: 9px;
+
+      font-weight: 900;
+
+      letter-spacing: 0.14em;
+
+      text-transform: uppercase;
+
+      text-decoration: none;
+
+      transition: 0.2s ease;
+
+    }
+
+    .contact-links a:hover {
+
+      background: var(--black);
+
+      color: var(--acid);
+
+    }
+
+    /* =========================
+
+       FOOTER
+
+       ========================= */
+
+    footer {
+
+      display: flex;
+
+      justify-content: space-between;
+
+      gap: 20px;
+
+      padding: 23px 30px;
+
+      background: #080808;
+
+      color: #777777;
+
+      font-size: 8px;
+
+      letter-spacing: 0.15em;
+
+      text-transform: uppercase;
+
+    }
+
+    /* =========================
+
+       REVEAL ANIMATION
+
+       ========================= */
+
+    .reveal {
+
+      opacity: 0;
+
+      transform: translateY(30px);
+
+      transition:
+
+        opacity 0.7s ease,
+
+        transform 0.7s ease;
+
+    }
+
+    .reveal.visible {
+
+      opacity: 1;
+
+      transform: translateY(0);
+
+    }
+
+    /* =========================
+
+       TABLET / MOBILE
+
+       ========================= */
+
+    @media (max-width: 850px) {
+
+      .hero {
+
+        padding-top: 100px;
+
+      }
+
+      .current-grid,
+
+      .about-grid,
+
+      .label-section,
+
+      .contact-inner {
+
+        grid-template-columns: 1fr;
+
+      }
+
+      .stats {
+
+        grid-template-columns: 1fr;
+
+      }
+
+      .chart-feature {
+
+        grid-template-columns: 1fr;
+
+      }
+
+      .catalog-row {
+
+        grid-template-columns:
+
+          65px
+
+          1fr;
+
+      }
+
+      .catalog-type,
+
+      .catalog-description {
+
+        grid-column: 2;
+
+      }
+
+      .press-heading {
+
+        flex-direction: column;
+
+        align-items: flex-start;
+
+      }
+
+      .press-item {
+
+        grid-template-columns:
+
+          60px
+
+          1fr;
+
+      }
+
+      .press-description {
+
+        grid-column: 2;
+
+      }
+
+      .contact-side {
+
+        padding-left: 0;
+
+        padding-top: 30px;
+
+        border-left: 0;
+
+        border-top: 1px solid rgba(
+
+          0,
+
+          0,
+
+          0,
+
+          0.4
+
+        );
+
+      }
+
+    }
+
+    /* =========================
+
+       SMALL MOBILE
+
+       ========================= */
+
+    @media (max-width: 560px) {
+
+      .topbar {
+
+        padding: 20px 16px;
+
+      }
+
+      .brand {
+
+        font-size: 13px;
+
+      }
+
+      .nav {
+
+        gap: 22px;
+
+      }
+
+      .nav a {
+
+        font-size: 10px;
+
+      }
+
+      .nav a:nth-child(2),
+
+      .nav a:nth-child(3) {
+
+        display: none;
+
+      }
+
+      .hero,
+
+      .section {
+
+        width: calc(100% - 32px);
+
+      }
+
+      .hero {
+
+        min-height: calc(100vh - 65px);
+
+        padding-top: 95px;
+
+      }
+
+      .artist-name {
+
+        font-size: 20vw;
+
+      }
+
+      .tagline {
+
+        margin-top: 28px;
+
+        font-size: 7.4vw;
+
+      }
+
+      .hero-actions {
+
+        margin-bottom: 95px;
+
+      }
+
+      .button {
+
+        min-height: 58px;
+
+        padding: 0 20px;
+
+        font-size: 9px;
+
+      }
+
+      .hero-info h2 {
+
+        line-height: 1.5;
+
+      }
+
+      .hero-info p {
+
+        font-size: 16px;
+
+      }
+
+      .section {
+
+        padding: 80px 0;
+
+      }
+
+      .release-card {
+
+        padding: 23px;
+
+      }
+
+      .press-item {
+
+        gap: 14px;
+
+      }
+
+      footer {
+
+        flex-direction: column;
+
+      }
+
+    }
+
+    /* =========================
+
+       ACCESSIBILITY
+
+       ========================= */
+
+    @media (prefers-reduced-motion: reduce) {
+
+      html {
+
+        scroll-behavior: auto;
+
+      }
+
+      .ticker-track {
+
+        animation: none;
+
+      }
+
+      .reveal {
+
+        opacity: 1;
+
+        transform: none;
+
+        transition: none;
+
+      }
+
+    }
+
+  </style>
+
+</head>
+
+<body>
+
+  <div class="noise" aria-hidden="true"></div>
+
+  <!-- =========================
+
+       NAV
+
+       ========================= -->
+
+  <header class="topbar">
+
+    <a
+
+      href="#top"
+
+      class="brand"
+
+    >
+
+      XIMERMJ
+
+    </a>
+
+    <nav class="nav">
+
+      <a href="#music">
+
+        Music
+
+      </a>
+
+      <a href="#about">
+
+        About
+
+      </a>
+
+      <a href="#press">
+
+        Press
+
+      </a>
+
+      <a href="#contact">
+
+        Contact
+
+      </a>
+
+    </nav>
+
+  </header>
+
+  <main id="top">
+
+    <!-- =========================
+
+         HERO
+
+         ========================= -->
+
+    <section class="hero">
+
+      <p class="eyebrow">
+
+        Independent Electronic Artist / Buffalo, NY
+
+      </p>
+
+      <h1 class="artist-name">
+
+        XIMERMJ
+
+      </h1>
+
+      <p class="tagline">
+
+        Atmosphere. Texture. Fractured rhythm.
+
+      </p>
+
+      <div class="hero-actions">
+
+        <a
+
+          href="#music"
+
+          class="button primary"
+
+        >
+
+          Enter The Sound ↘
+
+        </a>
+
+        <a
+
+          href="https://open.spotify.com/artist/3HF0pRkcW2264iFUOstWv4"
+
+          target="_blank"
+
+          rel="noopener"
+
+          class="button secondary"
+
+        >
+
+          Listen On Spotify ↗
+
+        </a>
+
+      </div>
+
+      <div class="hero-info">
+
+        <h2>
+
+          Sound outside the usual structure.
+
+        </h2>
+
+        <p>
+
+          Instrumental electronic music<br>
+
+          Producer / Composer<br>
+
+          Richner Records LLC
+
+        </p>
+
+      </div>
+
+    </section>
+
+    <!-- =========================
+
+         TICKER
+
+         ========================= -->
+
+    <div class="ticker">
+
+      <div class="ticker-track">
+
+        <span>
+
+          Experimental Electronic
+
+        </span>
+
+        <span>
+
+          <b>No. 1</b> U.S. iTunes Dance Albums
+
+        </span>
+
+        <span>
+
+          Buffalo, NY
+
+        </span>
+
+        <span>
+
+          Independent
+
+        </span>
+
+        <span>
+
+          Richner Records LLC
+
+        </span>
+
+        <span>
+
+          Instrumental
+
+        </span>
+
+        <span>
+
+          Experimental Electronic
+
+        </span>
+
+        <span>
+
+          <b>No. 1</b> U.S. iTunes Dance Albums
+
+        </span>
+
+        <span>
+
+          Buffalo, NY
+
+        </span>
+
+        <span>
+
+          Independent
+
+        </span>
+
+        <span>
+
+          Richner Records LLC
+
+        </span>
+
+        <span>
+
+          Instrumental
+
+        </span>
+
+      </div>
+
+    </div>
+
+    <!-- =========================
+
+         CURRENT MUSIC
+
+         ========================= -->
+
+    <section
+
+      class="section reveal"
+
+      id="music"
+
+    >
+
+      <div class="section-label">
+
+        <span>01</span>
+
+        Current Signal
+
+      </div>
+
+      <div class="current-grid">
+
+        <div>
+
+          <h2 class="release-title">
+
+            Invaluable
+
+          </h2>
+
+          <div class="release-meta">
+
+            <span>
+
+              Single
+
+            </span>
+
+            <span>
+
+              2026
+
+            </span>
+
+            <span>
+
+              Richner Records LLC
+
+            </span>
+
+          </div>
+
+        </div>
+
+        <div class="release-card">
+
+          <blockquote>
+
+            Compact electronic motion without a fixed destination.
+
+          </blockquote>
+
+          <p>
+
+            A current snapshot of the XIMERMJ project:
+
+            concise, atmospheric and built around movement,
+
+            repetition and tension rather than conventional
+
+            pop structure.
+
+          </p>
+
+        </div>
+
+      </div>
+
+      <!-- CURRENT SPOTIFY STATS -->
+
+      <div class="stats">
+
+        <div class="stat">
+
+          <div class="stat-number">
+
+            6,341
+
+          </div>
+
+          <div class="stat-label">
+
+            7-Day Streams
+
+          </div>
+
+          <div class="stat-growth">
+
+            +39%
+
+          </div>
+
+        </div>
+
+        <div class="stat">
+
+          <div class="stat-number">
+
+            810
+
+          </div>
+
+          <div class="stat-label">
+
+            Monthly Active Listeners
+
+          </div>
+
+          <div class="stat-growth">
+
+            +25%
+
+          </div>
+
+        </div>
+
+        <div class="stat">
+
+          <div class="stat-number">
+
+            13.7
+
+          </div>
+
+          <div class="stat-label">
+
+            Streams / Listener
+
+          </div>
+
+          <div class="stat-growth">
+
+            +91%
+
+          </div>
+
+        </div>
+
+      </div>
+
+      <p class="metric-note">
+
+        Spotify for Artists — 7-day snapshot,
+
+        September 2026. Metrics are time-sensitive.
+
+      </p>
+
+      <div class="chart-feature">
+
+        <div class="chart-number">
+
+          NO. 1
+
+          <span>
+
+            U.S. iTunes<br>
+
+            Dance Albums
+
+          </span>
+
+        </div>
+
+        <div class="chart-copy">
+
+          <em>Signature Search</em> reached No. 1
+
+          on the U.S. iTunes Dance Albums chart,
+
+          following earlier chart momentum from
+
+          debut EP <em>Trivial Truths</em>.
+
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- =========================
+
+         ABOUT
+
+         ========================= -->
+
+    <section
+
+      class="section reveal"
+
+      id="about"
+
+    >
+
+      <div class="section-label">
+
+        <span>02</span>
+
+        XIMERMJ
+
+      </div>
+
+      <h2 class="about-heading">
+
+        Built independently.<br>
+
+        Designed as a world.
+
+      </h2>
+
+      <div class="about-grid">
+
+        <div class="about-copy">
+
+          XIMERMJ is an independent electronic artist,
+
+          producer and composer from the Buffalo,
+
+          New York area.
+
+          <br><br>
+
+          The project moves between experimental dance,
+
+          dark atmosphere and conceptual art, placing
+
+          texture and sonic storytelling ahead of
+
+          conventional song structure.
+
+          <br><br>
+
+          Music, visual direction and catalog development
+
+          are handled independently through
+
+          Richner Records LLC.
+
+        </div>
+
+        <div class="positioning">
+
+          <strong>
+
+            Positioning
+
+          </strong>
+
+          <p>
+
+            Instrumental electronic music shaped by
+
+            atmosphere, experimentation and a deliberately
+
+            nontraditional sense of structure.
+
+          </p>
+
+        </div>
+
+      </div>
+
+      <!-- CATALOG -->
+
+      <div class="catalog">
+
+        <div class="catalog-row">
+
+          <div class="catalog-year">
+
+            2026
+
+          </div>
+
+          <div class="catalog-name">
+
+            Invaluable
+
+          </div>
+
+          <div class="catalog-type">
+
+            Single
+
+          </div>
+
+          <div class="catalog-description">
+
+            Current release with growing listener engagement
+
+            and independent press coverage.
+
+          </div>
+
+        </div>
+
+        <div class="catalog-row">
+
+          <div class="catalog-year">
+
+            2026
+
+          </div>
+
+          <div class="catalog-name">
+
+            Headway
+
+          </div>
+
+          <div class="catalog-type">
+
+            Single
+
+          </div>
+
+          <div class="catalog-description">
+
+            Cinematic electronic single following
+
+            <em>Signature Search</em>.
+
+          </div>
+
+        </div>
+
+        <div class="catalog-row">
+
+          <div class="catalog-year">
+
+            2026
+
+          </div>
+
+          <div class="catalog-name">
+
+            Signature Search
+
+          </div>
+
+          <div class="catalog-type">
+
+            EP
+
+          </div>
+
+          <div class="catalog-description">
+
+            Seven-track project reaching No. 1
+
+            on the U.S. iTunes Dance Albums chart.
+
+          </div>
+
+        </div>
+
+        <div class="catalog-row">
+
+          <div class="catalog-year">
+
+            2025
+
+          </div>
+
+          <div class="catalog-name">
+
+            Trivial Truths
+
+          </div>
+
+          <div class="catalog-type">
+
+            EP
+
+          </div>
+
+          <div class="catalog-description">
+
+            Debut EP and the beginning of the
+
+            current XIMERMJ catalog.
+
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- LABEL -->
+
+      <div class="label-section">
+
+        <div>
+
+          <div class="section-label">
+
+            <span>03</span>
+
+            Independent Infrastructure
+
+          </div>
+
+          <h3>
+
+            RICHNER RECORDS LLC
+
+          </h3>
+
+          <p>
+
+            Artist releases, creative direction,
+
+            catalog administration and label development
+
+            are operated independently.
+
+            The Richner Records identity extends beyond
+
+            releases into music, art and culture editorial.
+
+          </p>
+
+        </div>
+
+        <div class="independent-box">
+
+          <div>
+
+            <b>
+
+              100%
+
+            </b>
+
+            <span>
+
+              Self-Managed / Independent
+
+            </span>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- =========================
+
+         PRESS
+
+         ========================= -->
+
+    <section
+
+      class="section reveal"
+
+      id="press"
+
+    >
+
+      <div class="section-label">
+
+        <span>04</span>
+
+        Press / Archive
+
+      </div>
+
+      <div class="press-heading">
+
+        <h2>
+
+          Press<br>
+
+          Trail.
+
+        </h2>
+
+        <p>
+
+          Independent coverage across
+
+          multiple release eras.
+
+        </p>
+
+      </div>
+
+      <div class="press-list">
+
+        <div class="press-item">
+
+          <div class="press-year">
+
+            2026
+
+          </div>
+
+          <div class="press-outlet">
+
+            TUNE PICAL
+
+          </div>
+
+          <div class="press-description">
+
+            Coverage of <em>Invaluable</em> and
+
+            <em>Headway</em>, focusing on electronic
+
+            motion, atmosphere and creative independence.
+
+          </div>
+
+        </div>
+
+        <div class="press-item">
+
+          <div class="press-year">
+
+            2026
+
+          </div>
+
+          <div class="press-outlet">
+
+            DAILY MUSIC SPIN
+
+          </div>
+
+          <div class="press-description">
+
+            Feature discussing experimentation,
+
+            tension, rhythm and the independent
+
+            Richner Records structure.
+
+          </div>
+
+        </div>
+
+        <div class="press-item">
+
+          <div class="press-year">
+
+            2026
+
+          </div>
+
+          <div class="press-outlet">
+
+            CERTIFIED BOP
+
+          </div>
+
+          <div class="press-description">
+
+            Coverage highlighting cinematic tension
+
+            and unconventional electronic structure.
+
+          </div>
+
+        </div>
+
+        <div class="press-item">
+
+          <div class="press-year">
+
+            2025
+
+          </div>
+
+          <div class="press-outlet">
+
+            LONDON DAILY POST
+
+          </div>
+
+          <div class="press-description">
+
+            Interview surrounding <em>Trivial Truths</em>,
+
+            independence, rollout strategy and artistic intent.
+
+          </div>
+
+        </div>
+
+        <div class="press-item">
+
+          <div class="press-year">
+
+            2024
+
+          </div>
+
+          <div class="press-outlet">
+
+            STEREO STICKMAN
+
+          </div>
+
+          <div class="press-description">
+
+            Interview covering production,
+
+            influences and the developing
+
+            visual identity of XIMERMJ.
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- =========================
+
+         CONTACT
+
+         ========================= -->
+
+    <section
+
+      class="contact"
+
+      id="contact"
+
+    >
+
+      <div class="contact-inner">
+
+        <div>
+
+          <div class="section-label">
+
+            <span>05</span>
+
+            Contact / Business
+
+          </div>
+
+          <h2 class="contact-heading">
+
+            Talk<br>
+
+            To Us.
+
+          </h2>
+
+        </div>
+
+        <div class="contact-side">
+
+          <p>
+
+            Richner Records LLC
+
+          </p>
+
+          <a
+
+            class="contact-email"
+
+            href="mailto:jmr7100@icloud.com"
+
+          >
+
+            jmr7100@icloud.com
+
+          </a>
+
+          <div class="contact-links">
+
+            <a
+
+              href="https://open.spotify.com/artist/3HF0pRkcW2264iFUOstWv4"
+
+              target="_blank"
+
+              rel="noopener"
+
+            >
+
+              Spotify ↗
+
+            </a>
+
+            <a
+
+              href="https://music.apple.com/us/artist/ximermj/1701039590"
+
+              target="_blank"
+
+              rel="noopener"
+
+            >
+
+              Apple Music ↗
+
+            </a>
+
+            <a
+
+              href="https://www.instagram.com/ximermj/"
+
+              target="_blank"
+
+              rel="noopener"
+
+            >
+
+              Instagram ↗
+
+            </a>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+  <!-- =========================
+
+       FOOTER
+
+       ========================= -->
+
+  <footer>
+
+    <span>
+
+      XIMERMJ / Richner Records LLC
+
+    </span>
+
+    <span>
+
+      Independent Electronic Artist / 2026
+
+    </span>
+
+  </footer>
+
+  <!-- =========================
+
+       JAVASCRIPT
+
+       ========================= -->
+
+  <script>
+
+    const observer =
+
+      new IntersectionObserver(
+
+        (entries) => {
+
+          entries.forEach(
+
+            (entry) => {
+
+              if (entry.isIntersecting) {
+
+                entry.target.classList.add(
+
+                  "visible"
+
+                );
+
+              }
+
+            }
+
+          );
+
+        },
+
+        {
+
+          threshold: 0.1
+
+        }
+
+      );
+
+    document
+
+      .querySelectorAll(".reveal")
+
+      .forEach(
+
+        (element) => {
+
+          observer.observe(
+
+            element
+
+          );
+
+        }
+
+      );
+
+  </script>
+
+</body>
+
+</html>

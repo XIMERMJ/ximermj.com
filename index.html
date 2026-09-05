@@ -1,655 +1,677 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta
-    name="description"
-    content="Richner Records — independent music, art, culture, releases, editorial, and absolutely unnecessary drama."
-  />
+  <meta name="description" content="Richner Records — independent music, art, culture, releases, editorial, and absolutely unnecessary drama." />
   <title>Richner Records — Music. Art. Allegations.</title>
+
   <style>
-    :root {
-      --ink: #050505;
-      --paper: #fffdf7;
-      --hot: #ff2e88;
-      --red: #ff2a2a;
-      --blue: #1d5cff;
-      --yellow: #ffe657;
-      --muted: #6f6f6f;
-      --line: #101010;
+    :root{
+      --ink:#050505;
+      --paper:#fffdf7;
+      --hot:#ff2e88;
+      --red:#ff2a2a;
+      --blue:#1d5cff;
+      --yellow:#ffe657;
+      --muted:#6f6f6f;
+      --line:#101010;
     }
-    * {
-      box-sizing: border-box;
-    }
-    html {
-      scroll-behavior: smooth;
-    }
-    body {
-      margin: 0;
+
+    *{box-sizing:border-box;}
+
+    html{scroll-behavior:smooth;}
+
+    body{
+      margin:0;
       background:
-        radial-gradient(
-          circle at 12% 8%,
-          rgba(255, 46, 136, 0.10),
-          transparent 22%
-        ),
-        radial-gradient(
-          circle at 88% 18%,
-          rgba(29, 92, 255, 0.09),
-          transparent 20%
-        ),
+        radial-gradient(circle at 12% 8%, rgba(255,46,136,.10), transparent 22%),
+        radial-gradient(circle at 88% 18%, rgba(29,92,255,.09), transparent 20%),
         var(--paper);
-      color: var(--ink);
+      color:var(--ink);
       font-family: Arial, Helvetica, sans-serif;
-      overflow-x: hidden;
+      overflow-x:hidden;
     }
-    a {
-      color: inherit;
-      text-decoration: none;
+
+    a{color:inherit;text-decoration:none;}
+
+    img{
+      width:100%;
+      display:block;
+      object-fit:cover;
     }
-    img {
-      width: 100%;
-      display: block;
-      object-fit: cover;
+
+    .page{
+      width:min(1180px, 94%);
+      margin:0 auto;
     }
-    .page {
-      width: min(1180px, 94%);
-      margin: 0 auto;
-    }
+
     /* TOP TICKER */
-    .ticker-wrap {
-      background: var(--ink);
-      color: white;
-      overflow: hidden;
-      border-bottom: 4px solid var(--hot);
-      white-space: nowrap;
+    .ticker-wrap{
+      background:var(--ink);
+      color:white;
+      overflow:hidden;
+      border-bottom:4px solid var(--hot);
+      white-space:nowrap;
     }
-    .ticker {
-      display: inline-block;
-      padding: 10px 0;
-      min-width: 200%;
-      animation: ticker 22s linear infinite;
-      font-weight: 900;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      font-size: 0.82rem;
+
+    .ticker{
+      display:inline-block;
+      padding:10px 0;
+      min-width:200%;
+      animation:ticker 22s linear infinite;
+      font-weight:900;
+      text-transform:uppercase;
+      letter-spacing:.08em;
+      font-size:.82rem;
     }
-    .ticker span {
-      margin-right: 42px;
+
+    .ticker span{margin-right:42px;}
+
+    @keyframes ticker{
+      from{transform:translateX(0);}
+      to{transform:translateX(-50%);}
     }
-    @keyframes ticker {
-      from {
-        transform: translateX(0);
-      }
-      to {
-        transform: translateX(-50%);
-      }
-    }
+
     /* MASTHEAD */
-    header {
-      padding: 24px 0 14px;
-      border-bottom: 5px solid var(--line);
-      position: relative;
+    header{
+      padding:24px 0 14px;
+      border-bottom:5px solid var(--line);
+      position:relative;
     }
-    .masthead-row {
-      display: flex;
-      align-items: flex-end;
-      justify-content: space-between;
-      gap: 20px;
-      flex-wrap: wrap;
+
+    .masthead-row{
+      display:flex;
+      align-items:flex-end;
+      justify-content:space-between;
+      gap:20px;
+      flex-wrap:wrap;
     }
-    .brand {
-      position: relative;
-      display: inline-block;
+
+    .brand{
+      position:relative;
+      display:inline-block;
     }
-    .brand h1 {
-      margin: 0;
-      font-size: clamp(3rem, 8vw, 7.6rem);
-      line-height: 0.8;
-      letter-spacing: -0.07em;
-      text-transform: uppercase;
-      font-weight: 1000;
+
+    .brand h1{
+      margin:0;
+      font-size:clamp(3rem, 8vw, 7.6rem);
+      line-height:.8;
+      letter-spacing:-.07em;
+      text-transform:uppercase;
+      font-weight:1000;
     }
-    .brand .scribble {
-      position: absolute;
-      right: -20px;
-      top: -20px;
-      transform: rotate(-8deg);
-      color: var(--hot);
-      font-size: 1rem;
-      font-weight: 900;
-      text-transform: uppercase;
-      border: 3px solid var(--hot);
-      border-radius: 50%;
-      padding: 7px 10px;
-      background: var(--paper);
+
+    .brand .scribble{
+      position:absolute;
+      right:-20px;
+      top:-20px;
+      transform:rotate(-8deg);
+      color:var(--hot);
+      font-size:1rem;
+      font-weight:900;
+      text-transform:uppercase;
+      border:3px solid var(--hot);
+      border-radius:50%;
+      padding:7px 10px;
+      background:var(--paper);
     }
-    .tagline {
-      max-width: 320px;
-      text-align: right;
-      font-weight: 900;
-      text-transform: uppercase;
-      line-height: 1.15;
-      font-size: 1rem;
+
+    .tagline{
+      max-width:320px;
+      text-align:right;
+      font-weight:900;
+      text-transform:uppercase;
+      line-height:1.15;
+      font-size:1rem;
     }
-    .tagline strong {
-      display: block;
-      color: var(--hot);
-      font-size: 1.3rem;
+
+    .tagline strong{
+      display:block;
+      color:var(--hot);
+      font-size:1.3rem;
     }
-    nav {
-      margin-top: 18px;
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
-      align-items: center;
+
+    nav{
+      margin-top:18px;
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      align-items:center;
     }
-    nav a {
-      border: 2px solid var(--ink);
-      padding: 7px 10px 6px;
-      font-size: 0.78rem;
-      font-weight: 900;
-      text-transform: uppercase;
-      background: white;
-      box-shadow: 3px 3px 0 var(--ink);
-      transition: 0.18s ease;
+
+    nav a{
+      border:2px solid var(--ink);
+      padding:7px 10px 6px;
+      font-size:.78rem;
+      font-weight:900;
+      text-transform:uppercase;
+      background:white;
+      box-shadow:3px 3px 0 var(--ink);
+      transition:.18s ease;
     }
-    nav a:hover {
-      transform: translate(-2px, -2px);
-      box-shadow: 5px 5px 0 var(--hot);
-      color: var(--hot);
+
+    nav a:hover{
+      transform:translate(-2px,-2px);
+      box-shadow:5px 5px 0 var(--hot);
+      color:var(--hot);
     }
+
     /* HERO */
-    .hero {
-      display: grid;
-      grid-template-columns: 1.55fr 0.75fr;
-      gap: 20px;
-      padding: 24px 0;
-      border-bottom: 4px solid var(--ink);
+    .hero{
+      display:grid;
+      grid-template-columns:1.55fr .75fr;
+      gap:20px;
+      padding:24px 0;
+      border-bottom:4px solid var(--ink);
     }
-    .hero-main {
-      position: relative;
-      min-height: 580px;
-      background: #ddd;
-      overflow: hidden;
-      border: 3px solid var(--ink);
-      box-shadow: 10px 10px 0 var(--hot);
+
+    .hero-main{
+      position:relative;
+      min-height:580px;
+      background:#ddd;
+      overflow:hidden;
+      border:3px solid var(--ink);
+      box-shadow:10px 10px 0 var(--hot);
     }
-    .hero-main img {
-      height: 100%;
-      filter: contrast(1.05) saturate(0.9);
+
+    .hero-main img{
+      height:100%;
+      filter:contrast(1.05) saturate(.9);
     }
-    .hero-overlay {
-      position: absolute;
-      inset: auto 0 0 0;
-      padding: 28px;
-      background: linear-gradient(
-        transparent,
-        rgba(0, 0, 0, 0.88) 35%
-      );
-      color: white;
+
+    .hero-overlay{
+      position:absolute;
+      inset:auto 0 0 0;
+      padding:28px;
+      background:linear-gradient(transparent, rgba(0,0,0,.88) 35%);
+      color:white;
     }
-    .stamp {
-      display: inline-block;
-      background: var(--yellow);
-      color: var(--ink);
-      font-weight: 1000;
-      text-transform: uppercase;
-      transform: rotate(-2deg);
-      padding: 8px 12px;
-      border: 3px solid var(--ink);
-      box-shadow: 4px 4px 0 var(--red);
-      margin-bottom: 14px;
-      font-size: 0.82rem;
-      letter-spacing: 0.07em;
+
+    .stamp{
+      display:inline-block;
+      background:var(--yellow);
+      color:var(--ink);
+      font-weight:1000;
+      text-transform:uppercase;
+      transform:rotate(-2deg);
+      padding:8px 12px;
+      border:3px solid var(--ink);
+      box-shadow:4px 4px 0 var(--red);
+      margin-bottom:14px;
+      font-size:.82rem;
+      letter-spacing:.07em;
     }
-    .hero-title {
-      font-size: clamp(2.5rem, 5vw, 5.9rem);
-      line-height: 0.9;
-      letter-spacing: -0.05em;
-      text-transform: uppercase;
-      margin: 0;
-      max-width: 900px;
+
+    .hero-title{
+      font-size:clamp(2.5rem, 5vw, 5.9rem);
+      line-height:.9;
+      letter-spacing:-.05em;
+      text-transform:uppercase;
+      margin:0;
+      max-width:900px;
     }
-    .hero-deck {
-      margin: 14px 0 0;
-      max-width: 700px;
-      font-size: 1rem;
-      line-height: 1.4;
-      color: #eee;
-      font-weight: 700;
+
+    .hero-deck{
+      margin:14px 0 0;
+      max-width:700px;
+      font-size:1rem;
+      line-height:1.4;
+      color:#eee;
+      font-weight:700;
     }
-    .annotation {
-      position: absolute;
-      right: 22px;
-      top: 38px;
-      color: white;
-      transform: rotate(7deg);
-      font-size: 1.5rem;
-      font-weight: 1000;
-      text-transform: uppercase;
-      text-shadow: 2px 2px 0 var(--hot);
+
+    .annotation{
+      position:absolute;
+      right:22px;
+      top:38px;
+      color:white;
+      transform:rotate(7deg);
+      font-size:1.5rem;
+      font-weight:1000;
+      text-transform:uppercase;
+      text-shadow:2px 2px 0 var(--hot);
     }
-    .arrow {
-      position: absolute;
-      top: 85px;
-      right: 135px;
-      width: 110px;
-      height: 70px;
-      border-top: 4px solid white;
-      transform: rotate(-18deg);
+
+    .arrow{
+      position:absolute;
+      top:85px;
+      right:135px;
+      width:110px;
+      height:70px;
+      border-top:4px solid white;
+      transform:rotate(-18deg);
     }
-    .arrow::after {
-      content: "";
-      position: absolute;
-      left: -2px;
-      top: -11px;
-      width: 18px;
-      height: 18px;
-      border-left: 4px solid white;
-      border-bottom: 4px solid white;
-      transform: rotate(45deg);
+
+    .arrow::after{
+      content:"";
+      position:absolute;
+      left:-2px;
+      top:-11px;
+      width:18px;
+      height:18px;
+      border-left:4px solid white;
+      border-bottom:4px solid white;
+      transform:rotate(45deg);
     }
+
     /* SIDEBAR */
-    .side-stack {
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
+    .side-stack{
+      display:flex;
+      flex-direction:column;
+      gap:16px;
     }
-    .side-card {
-      border: 3px solid var(--ink);
-      background: white;
-      padding: 16px;
-      position: relative;
-      box-shadow: 7px 7px 0 var(--ink);
+
+    .side-card{
+      border:3px solid var(--ink);
+      background:white;
+      padding:16px;
+      position:relative;
+      box-shadow:7px 7px 0 var(--ink);
     }
-    .side-card.hot {
-      box-shadow: 7px 7px 0 var(--blue);
+
+    .side-card.hot{box-shadow:7px 7px 0 var(--blue);}
+    .side-card.red{box-shadow:7px 7px 0 var(--red);}
+
+    .eyebrow{
+      font-size:.72rem;
+      letter-spacing:.09em;
+      text-transform:uppercase;
+      font-weight:1000;
+      color:var(--hot);
+      margin-bottom:8px;
     }
-    .side-card.red {
-      box-shadow: 7px 7px 0 var(--red);
+
+    .side-card h3{
+      margin:0;
+      font-size:1.7rem;
+      line-height:.95;
+      text-transform:uppercase;
+      letter-spacing:-.03em;
     }
-    .eyebrow {
-      font-size: 0.72rem;
-      letter-spacing: 0.09em;
-      text-transform: uppercase;
-      font-weight: 1000;
-      color: var(--hot);
-      margin-bottom: 8px;
+
+    .side-card p{
+      margin:10px 0 0;
+      color:#333;
+      line-height:1.35;
+      font-size:.94rem;
     }
-    .side-card h3 {
-      margin: 0;
-      font-size: 1.7rem;
-      line-height: 0.95;
-      text-transform: uppercase;
-      letter-spacing: -0.03em;
+
+    .tiny{
+      font-size:.68rem;
+      text-transform:uppercase;
+      font-weight:900;
+      margin-top:12px;
+      color:var(--muted);
     }
-    .side-card p {
-      margin: 10px 0 0;
-      color: #333;
-      line-height: 1.35;
-      font-size: 0.94rem;
+
+    /* SECTION GENERIC */
+    section{
+      padding:32px 0;
+      border-bottom:4px solid var(--ink);
     }
-    .tiny {
-      font-size: 0.68rem;
-      text-transform: uppercase;
-      font-weight: 900;
-      margin-top: 12px;
-      color: var(--muted);
+
+    .section-head{
+      display:flex;
+      justify-content:space-between;
+      gap:20px;
+      align-items:flex-end;
+      margin-bottom:18px;
+      flex-wrap:wrap;
     }
-    /* SECTIONS */
-    section {
-      padding: 32px 0;
-      border-bottom: 4px solid var(--ink);
+
+    .section-head h2{
+      margin:0;
+      font-size:clamp(2.2rem, 5vw, 4.8rem);
+      line-height:.9;
+      letter-spacing:-.055em;
+      text-transform:uppercase;
     }
-    .section-head {
-      display: flex;
-      justify-content: space-between;
-      gap: 20px;
-      align-items: flex-end;
-      margin-bottom: 18px;
-      flex-wrap: wrap;
+
+    .section-note{
+      font-size:.82rem;
+      text-transform:uppercase;
+      font-weight:900;
+      max-width:340px;
+      text-align:right;
     }
-    .section-head h2 {
-      margin: 0;
-      font-size: clamp(2.2rem, 5vw, 4.8rem);
-      line-height: 0.9;
-      letter-spacing: -0.055em;
-      text-transform: uppercase;
-    }
-    .section-note {
-      font-size: 0.82rem;
-      text-transform: uppercase;
-      font-weight: 900;
-      max-width: 340px;
-      text-align: right;
-    }
+
     /* LATEST DIRT */
-    .news-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
+    .news-grid{
+      display:grid;
+      grid-template-columns:repeat(3, 1fr);
+      gap:18px;
     }
-    .story {
-      border: 3px solid var(--ink);
-      background: white;
-      position: relative;
-      overflow: hidden;
-      transition: 0.18s ease;
+
+    .story{
+      border:3px solid var(--ink);
+      background:white;
+      position:relative;
+      overflow:hidden;
+      transition:.18s ease;
     }
-    .story:hover {
-      transform: translateY(-4px) rotate(-0.3deg);
-      box-shadow: 8px 8px 0 var(--hot);
+
+    .story:hover{
+      transform:translateY(-4px) rotate(-.3deg);
+      box-shadow:8px 8px 0 var(--hot);
     }
-    .story img {
-      height: 250px;
-      filter: grayscale(0.2) contrast(1.05);
+
+    .story img{
+      height:250px;
+      filter:grayscale(.2) contrast(1.05);
     }
-    .story-body {
-      padding: 15px;
+
+    .story-body{padding:15px;}
+
+    .story h3{
+      margin:0;
+      text-transform:uppercase;
+      font-size:1.65rem;
+      line-height:1;
+      letter-spacing:-.03em;
     }
-    .story h3 {
-      margin: 0;
-      text-transform: uppercase;
-      font-size: 1.65rem;
-      line-height: 1;
-      letter-spacing: -0.03em;
+
+    .story p{
+      margin:10px 0 0;
+      color:#353535;
+      line-height:1.38;
     }
-    .story p {
-      margin: 10px 0 0;
-      color: #353535;
-      line-height: 1.38;
+
+    .label{
+      position:absolute;
+      left:10px;
+      top:10px;
+      padding:6px 8px;
+      background:var(--hot);
+      color:white;
+      border:2px solid var(--ink);
+      font-weight:1000;
+      text-transform:uppercase;
+      font-size:.7rem;
+      transform:rotate(-4deg);
     }
-    .label {
-      position: absolute;
-      left: 10px;
-      top: 10px;
-      padding: 6px 8px;
-      background: var(--hot);
-      color: white;
-      border: 2px solid var(--ink);
-      font-weight: 1000;
-      text-transform: uppercase;
-      font-size: 0.7rem;
-      transform: rotate(-4deg);
-    }
+
     /* RECEIPTS */
-    .receipts {
-      display: grid;
-      grid-template-columns: 1fr 1fr 1fr 1fr;
-      gap: 14px;
+    .receipts{
+      display:grid;
+      grid-template-columns:1fr 1fr 1fr 1fr;
+      gap:14px;
     }
-    .receipt {
-      background: var(--ink);
-      color: white;
-      padding: 18px;
-      min-height: 160px;
-      position: relative;
-      overflow: hidden;
-      border: 3px solid var(--ink);
+
+    .receipt{
+      background:var(--ink);
+      color:white;
+      padding:18px;
+      min-height:160px;
+      position:relative;
+      overflow:hidden;
+      border:3px solid var(--ink);
     }
-    .receipt::after {
-      content: "RECEIPT";
-      position: absolute;
-      right: -18px;
-      top: 15px;
-      transform: rotate(90deg);
-      color: rgba(255, 255, 255, 0.14);
-      font-size: 2rem;
-      font-weight: 1000;
-      letter-spacing: 0.08em;
+
+    .receipt::after{
+      content:"RECEIPT";
+      position:absolute;
+      right:-18px;
+      top:15px;
+      transform:rotate(90deg);
+      color:rgba(255,255,255,.14);
+      font-size:2rem;
+      font-weight:1000;
+      letter-spacing:.08em;
     }
-    .receipt strong {
-      display: block;
-      font-size: 2.35rem;
-      color: var(--yellow);
-      line-height: 1;
-      margin-bottom: 9px;
+
+    .receipt strong{
+      display:block;
+      font-size:2.35rem;
+      color:var(--yellow);
+      line-height:1;
+      margin-bottom:9px;
     }
-    .receipt span {
-      font-size: 0.82rem;
-      line-height: 1.35;
-      text-transform: uppercase;
-      font-weight: 900;
+
+    .receipt span{
+      font-size:.82rem;
+      line-height:1.35;
+      text-transform:uppercase;
+      font-weight:900;
     }
+
     /* ARTISTS */
-    .artist-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 20px;
+    .artist-grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:20px;
     }
-    .artist {
-      border: 3px solid var(--ink);
-      background: white;
-      display: grid;
-      grid-template-columns: 42% 58%;
-      min-height: 320px;
-      box-shadow: 8px 8px 0 var(--blue);
+
+    .artist{
+      border:3px solid var(--ink);
+      background:white;
+      display:grid;
+      grid-template-columns:42% 58%;
+      min-height:320px;
+      box-shadow:8px 8px 0 var(--blue);
     }
-    .artist:nth-child(2) {
-      box-shadow: 8px 8px 0 var(--hot);
+
+    .artist:nth-child(2){box-shadow:8px 8px 0 var(--hot);}
+
+    .artist img{height:100%;}
+
+    .artist-copy{
+      padding:18px;
+      display:flex;
+      flex-direction:column;
+      justify-content:space-between;
     }
-    .artist img {
-      height: 100%;
+
+    .artist h3{
+      font-size:2.5rem;
+      text-transform:uppercase;
+      margin:0;
+      line-height:.9;
+      letter-spacing:-.05em;
     }
-    .artist-copy {
-      padding: 18px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
+
+    .artist p{
+      line-height:1.4;
+      color:#333;
     }
-    .artist h3 {
-      font-size: 2.5rem;
-      text-transform: uppercase;
-      margin: 0;
-      line-height: 0.9;
-      letter-spacing: -0.05em;
+
+    .btn{
+      display:inline-block;
+      align-self:flex-start;
+      border:2px solid var(--ink);
+      padding:8px 11px;
+      font-weight:1000;
+      text-transform:uppercase;
+      font-size:.75rem;
+      background:var(--yellow);
+      box-shadow:4px 4px 0 var(--ink);
     }
-    .artist p {
-      line-height: 1.4;
-      color: #333;
-    }
-    .btn {
-      display: inline-block;
-      align-self: flex-start;
-      border: 2px solid var(--ink);
-      padding: 8px 11px;
-      font-weight: 1000;
-      text-transform: uppercase;
-      font-size: 0.75rem;
-      background: var(--yellow);
-      box-shadow: 4px 4px 0 var(--ink);
-    }
+
     /* EDITORIAL */
-    .editorial-grid {
-      display: grid;
-      grid-template-columns: 1.15fr 0.85fr;
-      gap: 20px;
+    .editorial-grid{
+      display:grid;
+      grid-template-columns:1.15fr .85fr;
+      gap:20px;
     }
-    .feature {
-      border: 3px solid var(--ink);
-      background: white;
-      padding: 22px;
-      position: relative;
+
+    .feature{
+      border:3px solid var(--ink);
+      background:white;
+      padding:22px;
+      position:relative;
     }
-    .feature h3 {
-      font-size: clamp(2.3rem, 4vw, 4rem);
-      line-height: 0.95;
-      letter-spacing: -0.04em;
-      margin: 0 0 12px;
-      text-transform: uppercase;
-      max-width: 900px;
+
+    .feature h3{
+      font-size:clamp(2.3rem, 4vw, 4rem);
+      line-height:.95;
+      letter-spacing:-.04em;
+      margin:0 0 12px;
+      text-transform:uppercase;
+      max-width:900px;
     }
-    .feature p {
-      font-family: Georgia, "Times New Roman", serif;
-      font-size: 1.05rem;
-      line-height: 1.6;
-      max-width: 780px;
+
+    .feature p{
+      font-family:Georgia, "Times New Roman", serif;
+      font-size:1.05rem;
+      line-height:1.6;
+      max-width:780px;
     }
-    .pullquote {
-      border-left: 7px solid var(--hot);
-      padding-left: 16px;
-      margin-top: 20px;
-      font-weight: 900;
-      text-transform: uppercase;
-      font-size: 1.2rem;
-      line-height: 1.2;
+
+    .pullquote{
+      border-left:7px solid var(--hot);
+      padding-left:16px;
+      margin-top:20px;
+      font-weight:900;
+      text-transform:uppercase;
+      font-size:1.2rem;
+      line-height:1.2;
     }
-    .editorial-side {
-      border: 3px solid var(--ink);
-      background: var(--yellow);
-      padding: 20px;
-      transform: rotate(0.4deg);
+
+    .editorial-side{
+      border:3px solid var(--ink);
+      background:var(--yellow);
+      padding:20px;
+      transform:rotate(.4deg);
     }
-    .editorial-side h3 {
-      margin: 0;
-      font-size: 2rem;
-      text-transform: uppercase;
-      line-height: 0.95;
+
+    .editorial-side h3{
+      margin:0;
+      font-size:2rem;
+      text-transform:uppercase;
+      line-height:.95;
     }
-    .editorial-side ul {
-      padding-left: 18px;
-      margin-bottom: 0;
+
+    .editorial-side ul{
+      padding-left:18px;
+      margin-bottom:0;
     }
-    .editorial-side li {
-      margin: 10px 0;
-      font-weight: 800;
-      line-height: 1.25;
+
+    .editorial-side li{
+      margin:10px 0;
+      font-weight:800;
+      line-height:1.25;
     }
+
     /* ABOUT */
-    .about {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 30px;
-      align-items: start;
+    .about{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:30px;
+      align-items:start;
     }
-    .about-copy {
-      font-family: Georgia, "Times New Roman", serif;
-      font-size: 1.1rem;
-      line-height: 1.7;
+
+    .about-copy{
+      font-family:Georgia, "Times New Roman", serif;
+      font-size:1.1rem;
+      line-height:1.7;
     }
-    .about-card {
-      background: var(--blue);
-      color: white;
-      border: 3px solid var(--ink);
-      padding: 22px;
-      box-shadow: 9px 9px 0 var(--ink);
-      transform: rotate(-0.5deg);
+
+    .about-card{
+      background:var(--blue);
+      color:white;
+      border:3px solid var(--ink);
+      padding:22px;
+      box-shadow:9px 9px 0 var(--ink);
+      transform:rotate(-.5deg);
     }
-    .about-card h3 {
-      margin: 0 0 12px;
-      font-size: 2rem;
-      text-transform: uppercase;
-      line-height: 1;
+
+    .about-card h3{
+      margin:0 0 12px;
+      font-size:2rem;
+      text-transform:uppercase;
+      line-height:1;
     }
-    .about-card p {
-      line-height: 1.45;
-    }
+
+    .about-card p{line-height:1.45;}
+
     /* FOOTER */
-    footer {
-      padding: 28px 0 40px;
-      background: var(--ink);
-      color: white;
-      margin-top: 0;
+    footer{
+      padding:28px 0 40px;
+      background:var(--ink);
+      color:white;
+      margin-top:0;
     }
-    .footer-grid {
-      display: grid;
-      grid-template-columns: 2fr 1fr 1fr;
-      gap: 25px;
+
+    .footer-grid{
+      display:grid;
+      grid-template-columns:2fr 1fr 1fr;
+      gap:25px;
     }
-    footer h2 {
-      margin: 0;
-      font-size: clamp(2.3rem, 5vw, 5rem);
-      line-height: 0.85;
-      text-transform: uppercase;
-      letter-spacing: -0.055em;
+
+    footer h2{
+      margin:0;
+      font-size:clamp(2.3rem, 5vw, 5rem);
+      line-height:.85;
+      text-transform:uppercase;
+      letter-spacing:-.055em;
     }
-    footer p {
-      color: #ddd;
-      max-width: 560px;
-      line-height: 1.45;
+
+    footer p{
+      color:#ddd;
+      max-width:560px;
+      line-height:1.45;
     }
-    footer a {
-      display: block;
-      margin: 7px 0;
-      text-transform: uppercase;
-      font-size: 0.82rem;
-      font-weight: 900;
+
+    footer a{
+      display:block;
+      margin:7px 0;
+      text-transform:uppercase;
+      font-size:.82rem;
+      font-weight:900;
     }
-    footer a:hover {
-      color: var(--hot);
+
+    footer a:hover{color:var(--hot);}
+
+    .copyright{
+      border-top:1px solid #3d3d3d;
+      margin-top:24px;
+      padding-top:14px;
+      color:#aaa;
+      font-size:.72rem;
+      text-transform:uppercase;
     }
-    .copyright {
-      border-top: 1px solid #3d3d3d;
-      margin-top: 24px;
-      padding-top: 14px;
-      color: #aaa;
-      font-size: 0.72rem;
-      text-transform: uppercase;
-    }
+
     /* MOBILE */
-    @media (max-width: 900px) {
+    @media(max-width:900px){
       .hero,
       .editorial-grid,
-      .about {
-        grid-template-columns: 1fr;
+      .about{
+        grid-template-columns:1fr;
       }
-      .hero-main {
-        min-height: 500px;
-      }
-      .news-grid {
-        grid-template-columns: 1fr 1fr;
-      }
-      .receipts {
-        grid-template-columns: 1fr 1fr;
-      }
-      .artist-grid {
-        grid-template-columns: 1fr;
-      }
-      .footer-grid {
-        grid-template-columns: 1fr 1fr;
-      }
-      .tagline {
-        text-align: left;
-      }
+
+      .hero-main{min-height:500px;}
+      .news-grid{grid-template-columns:1fr 1fr;}
+      .receipts{grid-template-columns:1fr 1fr;}
+      .artist-grid{grid-template-columns:1fr;}
+      .footer-grid{grid-template-columns:1fr 1fr;}
+      .tagline{text-align:left;}
     }
-    @media (max-width: 620px) {
-      .brand .scribble {
-        display: none;
-      }
-      .hero-main {
-        min-height: 500px;
-      }
-      .hero-overlay {
-        padding: 18px;
-      }
-      .annotation,
-      .arrow {
-        display: none;
-      }
+
+    @media(max-width:620px){
+      .brand .scribble{display:none;}
+      .hero-main{min-height:500px;}
+      .hero-overlay{padding:18px;}
+      .annotation,.arrow{display:none;}
       .news-grid,
       .receipts,
       .artist-grid,
-      .footer-grid {
-        grid-template-columns: 1fr;
+      .footer-grid{
+        grid-template-columns:1fr;
       }
-      .artist {
-        grid-template-columns: 1fr;
+
+      .artist{
+        grid-template-columns:1fr;
       }
-      .artist img {
-        height: 260px;
-      }
-      .section-note {
-        text-align: left;
-      }
-      .story img {
-        height: 220px;
-      }
+
+      .artist img{height:260px;}
+      .section-note{text-align:left;}
+      .story img{height:220px;}
     }
   </style>
 </head>
+
 <body>
+
   <div class="ticker-wrap">
     <div class="ticker">
       <span>Breaking: somebody is probably mastering something</span>
@@ -662,6 +684,7 @@
       <span>No publicist was harmed in the making of this website</span>
     </div>
   </div>
+
   <div class="page">
     <header>
       <div class="masthead-row">
@@ -669,11 +692,13 @@
           <h1>Richner<br>Records</h1>
           <div class="scribble">exclusive-ish</div>
         </div>
+
         <div class="tagline">
           Independent music, art + culture
           <strong>Music. Art. Allegations.</strong>
         </div>
       </div>
+
       <nav>
         <a href="#latest">Latest Dirt</a>
         <a href="#receipts">The Receipts</a>
@@ -683,316 +708,279 @@
         <a href="#contact">Contact</a>
       </nav>
     </header>
+
     <main>
+
       <section class="hero">
         <article class="hero-main">
-          <!-- Replace this image URL with your own Joshua Tree or artist image -->
-          <img
-            src="https://images.unsplash.com/photo-1509316785289-025f5b846b35?auto=format&fit=crop&w=1600&q=85"
-            alt="Desert landscape"
-          />
+          <!-- Replace this image URL with your own Joshua Tree / artist image -->
+          <img src="https://images.unsplash.com/photo-1509316785289-025f5b846b35?auto=format&fit=crop&w=1600&q=85" alt="Desert landscape">
+
           <div class="annotation">seen in the desert??</div>
           <div class="arrow"></div>
+
           <div class="hero-overlay">
             <div class="stamp">Spotted</div>
-            <h2 class="hero-title">
-              XIMERMJ DISAPPEARS INTO THE DESERT. AGAIN.
-            </h2>
+            <h2 class="hero-title">XIMERMJ DISAPPEARS INTO THE DESERT. AGAIN.</h2>
             <p class="hero-deck">
-              New music, camera footage, suspiciously good lighting and
-              absolutely no explanation. Richner Records sources remain
-              dramatically unhelpful.
+              New music, camera footage, suspiciously good lighting and absolutely no explanation.
+              Richner Records sources remain dramatically unhelpful.
             </p>
           </div>
         </article>
+
         <aside class="side-stack">
           <article class="side-card hot">
             <div class="eyebrow">Currently causing problems</div>
             <h3>EP III IS APPARENTLY REAL</h3>
             <p>
-              Studio activity has increased. Files exist. Nobody has confirmed
-              a sensible release schedule.
+              Studio activity has increased. Files exist. Nobody has confirmed a sensible release schedule.
             </p>
             <div class="tiny">Developing story · unfortunately</div>
           </article>
+
           <article class="side-card red">
             <div class="eyebrow">Label insider</div>
             <h3>RICHNER RECORDS HAS ENTERED THE CHAT</h3>
             <p>
-              Independent releases, editorial, visual projects and whatever
-              else seemed like a good idea at 2:14 AM.
+              Independent releases, editorial, visual projects and whatever else seemed like a good idea at 2:14 AM.
             </p>
             <div class="tiny">Buffalo, NY · Independent since 2026</div>
           </article>
+
           <article class="side-card">
             <div class="eyebrow">Today's emergency</div>
             <h3>THE WEBSITE HAS BEEN REDESIGNED</h3>
             <p>
-              Sources describe the new aesthetic as “questionable, loud, and
-              legally still a website.”
+              Sources describe the new aesthetic as “questionable, loud, and legally still a website.”
             </p>
             <div class="tiny">Comments are currently being ignored</div>
           </article>
         </aside>
       </section>
+
       <section id="latest">
         <div class="section-head">
           <h2>Latest Dirt</h2>
-          <div class="section-note">
-            Actual label updates presented with completely unnecessary urgency.
-          </div>
+          <div class="section-note">Actual label updates presented with completely unnecessary urgency.</div>
         </div>
+
         <div class="news-grid">
+
           <article class="story">
             <div class="label">Exclusive</div>
-            <img
-              src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?auto=format&fit=crop&w=900&q=80"
-              alt="Artist performing"
-            />
+            <img src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?auto=format&fit=crop&w=900&q=80" alt="Artist performing">
             <div class="story-body">
               <div class="eyebrow">Music</div>
               <h3>Something is being recorded. Nobody panic.</h3>
               <p>
-                Richner Records confirms continued activity behind closed
-                doors, cables and several badly named audio files.
+                Richner Records confirms continued activity behind closed doors, cables and several badly named audio files.
               </p>
               <div class="tiny">Posted irresponsibly recently</div>
             </div>
           </article>
+
           <article class="story">
-            <div class="label" style="background: var(--blue);">
-              Spotted
-            </div>
-            <img
-              src="https://images.unsplash.com/photo-1516280440614-37939bbacd81?auto=format&fit=crop&w=900&q=80"
-              alt="DJ equipment"
-            />
+            <div class="label" style="background:var(--blue)">Spotted</div>
+            <img src="https://images.unsplash.com/photo-1516280440614-37939bbacd81?auto=format&fit=crop&w=900&q=80" alt="DJ equipment">
             <div class="story-body">
               <div class="eyebrow">Artist File</div>
               <h3>Frank Chambers enters the Richner Records orbit.</h3>
               <p>
-                DJ history, remix culture and a catalog with stories of its
-                own. More when there is actually something to announce.
+                DJ history, remix culture and a catalog with stories of its own. More when there is actually something to announce.
               </p>
               <div class="tiny">No fake countdown required</div>
             </div>
           </article>
+
           <article class="story">
-            <div class="label" style="background: var(--red);">
-              Culture
-            </div>
-            <img
-              src="https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&w=900&q=80"
-              alt="Cinema marquee"
-            />
+            <div class="label" style="background:var(--red)">Culture</div>
+            <img src="https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&w=900&q=80" alt="Cinema marquee">
             <div class="story-body">
               <div class="eyebrow">Editorial</div>
               <h3>Remember when Friday night took effort?</h3>
               <p>
-                A look at overconsumption, disappearing anticipation and the
-                era when choosing a movie was somehow an event.
+                A look at overconsumption, disappearing anticipation and the era when choosing a movie was somehow an event.
               </p>
               <div class="tiny">Read slowly for maximum irony</div>
             </div>
           </article>
+
         </div>
       </section>
+
       <section id="receipts">
         <div class="section-head">
           <h2>The Receipts</h2>
-          <div class="section-note">
-            The part where the gossip site reluctantly provides facts.
-          </div>
+          <div class="section-note">The part where the gossip site reluctantly provides facts.</div>
         </div>
+
         <div class="receipts">
           <div class="receipt">
             <strong>#1</strong>
-            <span>
-              U.S. iTunes Dance Albums peak for XIMERMJ's second EP.
-            </span>
+            <span>U.S. iTunes Dance Albums peak for XIMERMJ's second EP.</span>
           </div>
+
           <div class="receipt">
             <strong>2×</strong>
-            <span>
-              Reported No. 1 appearances on the U.S. iTunes Dance Albums chart.
-            </span>
+            <span>Reported No. 1 appearances on the U.S. iTunes Dance Albums chart.</span>
           </div>
+
           <div class="receipt">
             <strong>100%</strong>
-            <span>
-              Independent. Self-managed. Own label environment.
-            </span>
+            <span>Independent. Self-managed. Own label environment.</span>
           </div>
+
           <div class="receipt">
             <strong>NY</strong>
-            <span>
-              Richner Records operates independently from Buffalo, New York.
-            </span>
+            <span>Richner Records operates independently from Buffalo, New York.</span>
           </div>
         </div>
       </section>
+
       <section id="artists">
         <div class="section-head">
           <h2>People We Know</h2>
-          <div class="section-note">
-            Also known in certain circles as “artists.”
-          </div>
+          <div class="section-note">Also known in certain circles as “artists.”</div>
         </div>
+
         <div class="artist-grid">
+
           <article class="artist">
-            <img
-              src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=900&q=80"
-              alt="Abstract performance lighting"
-            />
+            <img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=900&q=80" alt="Abstract performance lighting">
             <div class="artist-copy">
               <div>
                 <div class="eyebrow">Artist / Producer</div>
                 <h3>XIMERMJ</h3>
                 <p>
-                  Independent electronic artist blending dark atmosphere,
-                  fractured emotion, surrealist visuals and experimental
-                  production.
+                  Independent electronic artist blending dark atmosphere, fractured emotion, surrealist visuals and experimental production.
                 </p>
               </div>
-              <a class="btn" href="https://ximermj.com">
-                Open File
-              </a>
+              <a class="btn" href="https://ximermj.com">Open File</a>
             </div>
           </article>
+
           <article class="artist">
-            <img
-              src="https://images.unsplash.com/photo-1571266028243-d220c6c4edbf?auto=format&fit=crop&w=900&q=80"
-              alt="DJ setup"
-            />
-            <div class="artist-copy">
-              <div>
-                <div class="eyebrow">DJ / Artist</div>
-                <h3>Frank Chambers</h3>
-                <p>
-                  Veteran DJ and remix figure with a history crossing dance
-                  music, club culture and international play.
-                </p>
-              </div>
-              <a class="btn" href="#contact">
-                More Soon
-              </a>
-            </div>
-          </article>
+  <img src="frank-chambers.png" alt="Frank Chambers">
+
+  <div class="artist-copy">
+    <div>
+      <div class="eyebrow">DJ / Artist</div>
+      <h3>Frank Chambers</h3>
+
+      <p>
+        Veteran DJ and remix figure with a history crossing dance music,
+        club culture and international play.
+      </p>
+    </div>
+
+    <a class="btn" href="#contact">More Soon</a>
+  </div>
+</article>
+          
         </div>
       </section>
+
       <section id="editorial">
         <div class="section-head">
           <h2>Suddenly Serious</h2>
-          <div class="section-note">
-            Richner Records editorial. Same website, suspicious increase in
-            reading comprehension.
-          </div>
+          <div class="section-note">Richner Records editorial. Same website, suspicious increase in reading comprehension.</div>
         </div>
+
         <div class="editorial-grid">
           <article class="feature">
             <div class="eyebrow">Featured Essay</div>
             <h3>We've Forgotten How to Experience</h3>
             <p>
-              Somewhere between endless scrolling, instant access and always
-              having another thing waiting, anticipation quietly disappeared.
-              There was a time when a Friday night movie took negotiation, a
-              trip somewhere, a physical choice and a little patience.
+              Somewhere between endless scrolling, instant access and always having another thing waiting,
+              anticipation quietly disappeared. There was a time when a Friday night movie took negotiation,
+              a trip somewhere, a physical choice and a little patience.
             </p>
+
             <p>
-              Richner Records editorial looks at music, art, culture and the
-              strange speed at which we now consume all three.
+              Richner Records editorial looks at music, art, culture and the strange speed at which we now consume all three.
             </p>
+
             <div class="pullquote">
-              Because maybe the only way to understand how quickly we're
-              consuming everything is to stop for a minute and actually listen
-              to one another.
+              Because maybe the only way to understand how quickly we're consuming everything is to stop for a minute and actually listen to one another.
             </div>
           </article>
+
           <aside class="editorial-side">
-            <div class="eyebrow" style="color: #000;">
-              Coming up
-            </div>
+            <div class="eyebrow" style="color:#000;">Coming up</div>
             <h3>Things We Are Nosy About</h3>
             <ul>
-              <li>
-                Artist conversations without corporate PR language.
-              </li>
-              <li>
-                Electronic music history that still feels alive.
-              </li>
-              <li>
-                Visual culture, old media and digital nostalgia.
-              </li>
-              <li>
-                Independent labels doing interesting things quietly.
-              </li>
-              <li>
-                Why everything suddenly needs content before it can simply
-                exist.
-              </li>
+              <li>Artist conversations without corporate PR language.</li>
+              <li>Electronic music history that still feels alive.</li>
+              <li>Visual culture, old media and digital nostalgia.</li>
+              <li>Independent labels doing interesting things quietly.</li>
+              <li>Why everything suddenly needs content before it can simply exist.</li>
             </ul>
           </aside>
         </div>
       </section>
+
       <section id="about">
         <div class="section-head">
           <h2>About This Mess</h2>
-          <div class="section-note">
-            Yes, there is an actual company behind the headlines.
-          </div>
+          <div class="section-note">Yes, there is an actual company behind the headlines.</div>
         </div>
+
         <div class="about">
           <div class="about-copy">
             <p>
-              Richner Records is an independent boutique music and culture
-              company based in Buffalo, New York. The label supports
-              independent releases, music production, mastering, catalog
-              administration, physical media and editorial projects.
+              Richner Records is an independent boutique music and culture company based in Buffalo, New York.
+              The label supports independent releases, music production, mastering, catalog administration,
+              physical media and editorial projects.
             </p>
+
             <p>
-              Its flagship catalog includes XIMERMJ, with continued expansion
-              into artist releases, interviews, cultural essays and original
-              visual work.
+              Its flagship catalog includes XIMERMJ, with continued expansion into artist releases, interviews,
+              cultural essays and original visual work.
             </p>
+
             <p>
               The presentation may be unserious. The work is not.
             </p>
           </div>
+
           <div class="about-card">
             <h3>Submissions / Contact</h3>
             <p>
-              Music, editorial ideas, collaboration inquiries and other
-              reasonably interesting business can be sent here.
+              Music, editorial ideas, collaboration inquiries and other reasonably interesting business can be sent here.
             </p>
             <p>
-              <strong>Email:</strong><br />
+              <strong>Email:</strong><br>
               jmr7100@icloud.com
             </p>
             <p>
-              <strong>Location:</strong><br />
+              <strong>Location:</strong><br>
               Buffalo, NY
             </p>
           </div>
         </div>
       </section>
+
     </main>
   </div>
+
   <footer id="contact">
     <div class="page">
       <div class="footer-grid">
         <div>
           <h2>Richner Records</h2>
           <p>
-            Independent music, art + culture. Occasionally credible.
-            Frequently overdesigned.
+            Independent music, art + culture. Occasionally credible. Frequently overdesigned.
           </p>
         </div>
+
         <div>
           <a href="#latest">Latest Dirt</a>
           <a href="#artists">Artists</a>
           <a href="#editorial">Editorial</a>
           <a href="#about">About</a>
         </div>
+
         <div>
           <a href="mailto:jmr7100@icloud.com">Email</a>
           <a href="https://ximermj.com">XIMERMJ</a>
@@ -1000,11 +988,12 @@
           <a href="#">Spotify</a>
         </div>
       </div>
+
       <div class="copyright">
-        © 2026 Richner Records LLC. All rights reserved. Allegations mostly
-        exaggerated.
+        © 2026 Richner Records LLC. All rights reserved. Allegations mostly exaggerated.
       </div>
     </div>
   </footer>
+
 </body>
 </html>

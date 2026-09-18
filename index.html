@@ -3,18 +3,23 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="XIMERMJ — music, art, allegations." />
+  <meta
+    name="description"
+    content="XIMERMJ — music, art, allegations."
+  />
+
   <title>XIMERMJ — Music. Art. Allegations.</title>
 
   <style>
     :root{
-      --black:#0a0a0a;
-      --paper:#f4ead7;
-      --hot:#ff2f91;
-      --yellow:#ffd91f;
-      --red:#e93030;
-      --blue:#204bff;
-      --white:#fffaf2;
+      --black:#090909;
+      --paper:#f3ead8;
+      --white:#fffdf6;
+      --pink:#ff2c8e;
+      --yellow:#ffe126;
+      --red:#e62f2f;
+      --blue:#244cff;
+      --muted:#6c675f;
     }
 
     *{
@@ -27,226 +32,325 @@
 
     body{
       margin:0;
-      background:
-        radial-gradient(circle at 20% 10%, rgba(255,47,145,.08), transparent 20%),
-        radial-gradient(circle at 85% 25%, rgba(32,75,255,.08), transparent 22%),
-        #111;
+      background:#111;
       color:var(--black);
-      font-family: Arial, Helvetica, sans-serif;
+      font-family:Arial, Helvetica, sans-serif;
       overflow-x:hidden;
     }
 
-    body:before{
+    body::before{
       content:"";
       position:fixed;
       inset:0;
       pointer-events:none;
-      opacity:.18;
-      background-image:
-        linear-gradient(rgba(255,255,255,.04) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,.03) 1px, transparent 1px);
-      background-size:3px 3px;
-      mix-blend-mode:screen;
+      opacity:.13;
       z-index:999;
+      background:
+        repeating-linear-gradient(
+          0deg,
+          rgba(255,255,255,.05) 0px,
+          rgba(255,255,255,.05) 1px,
+          transparent 1px,
+          transparent 3px
+        );
     }
 
     .page{
-      width:min(1450px, 96vw);
+      width:min(1440px, 96vw);
       margin:22px auto;
       background:var(--paper);
       border:5px solid var(--black);
-      box-shadow:0 20px 60px rgba(0,0,0,.45);
+      box-shadow:0 25px 70px rgba(0,0,0,.45);
+      overflow:hidden;
+      position:relative;
+    }
+
+    .topline{
+      background:#000;
+      color:white;
+      display:flex;
+      justify-content:space-between;
+      gap:20px;
+      flex-wrap:wrap;
+      padding:10px 16px;
+      font-size:.82rem;
+      font-weight:900;
+      letter-spacing:.11em;
+      text-transform:uppercase;
+    }
+
+    .masthead{
+      padding:26px 20px 12px;
+      text-align:center;
+      border-bottom:5px solid #000;
       position:relative;
       overflow:hidden;
     }
 
-    .top-strip{
-      background:var(--black);
-      color:white;
-      padding:10px 18px;
-      display:flex;
-      justify-content:space-between;
-      gap:20px;
-      font-size:.85rem;
-      letter-spacing:.12em;
-      text-transform:uppercase;
-      flex-wrap:wrap;
-    }
-
-    .masthead{
-      padding:18px 20px 2px;
-      text-align:center;
-      border-bottom:5px solid var(--black);
-      position:relative;
+    .masthead::after{
+      content:"SCANDALS • RUMORS • MUSIC • NO COMMENT •";
+      position:absolute;
+      left:-30px;
+      right:-30px;
+      bottom:7px;
+      color:rgba(0,0,0,.08);
+      font-size:2rem;
+      font-weight:1000;
+      letter-spacing:.08em;
+      white-space:nowrap;
+      transform:rotate(-2deg);
     }
 
     .masthead h1{
       margin:0;
-      font-size:clamp(4rem, 12vw, 11rem);
-      line-height:.8;
-      font-weight:1000;
-      color:var(--hot);
+      font-size:clamp(4.5rem, 14vw, 12rem);
+      line-height:.78;
+      letter-spacing:-.075em;
+      color:var(--pink);
       text-transform:uppercase;
-      letter-spacing:-.07em;
+      font-weight:1000;
       -webkit-text-stroke:4px var(--yellow);
       text-shadow:
-        5px 5px 0 #000,
+        6px 6px 0 #000,
         -2px -2px 0 #000;
       transform:rotate(-1deg);
+      position:relative;
+      z-index:2;
     }
 
-    .masthead .sub{
-      margin:8px 0 12px;
-      font-family: "Courier New", monospace;
+    .masthead .tagline{
+      margin:18px 0 0;
+      font-family:"Courier New", monospace;
       font-size:1rem;
-      letter-spacing:.15em;
+      letter-spacing:.14em;
       text-transform:lowercase;
+      position:relative;
+      z-index:2;
     }
 
     .scribble{
       position:absolute;
       font-family:"Comic Sans MS", "Marker Felt", cursive;
-      font-size:1.1rem;
-      line-height:1.15;
-      transform:rotate(-7deg);
+      font-size:1rem;
+      line-height:1.1;
+      z-index:4;
     }
 
     .scribble.left{
-      left:15px;
-      top:24px;
+      left:24px;
+      top:28px;
+      transform:rotate(-8deg);
     }
 
     .scribble.right{
-      right:20px;
-      top:28px;
-      transform:rotate(6deg);
+      right:24px;
+      top:30px;
       text-align:right;
+      transform:rotate(7deg);
     }
 
-    .hero-grid{
+    .ticker{
+      background:#000;
+      color:#fff;
+      border-bottom:5px solid #000;
+      overflow:hidden;
+      white-space:nowrap;
+    }
+
+    .ticker-track{
+      display:inline-block;
+      padding:11px 0;
+      animation:ticker 22s linear infinite;
+      font-weight:1000;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+    }
+
+    .ticker-track span{
+      margin-right:65px;
+    }
+
+    @keyframes ticker{
+      from{ transform:translateX(0); }
+      to{ transform:translateX(-50%); }
+    }
+
+    .hero{
       display:grid;
-      grid-template-columns:1fr 1.7fr 1fr;
-      gap:10px;
-      padding:10px;
+      grid-template-columns:1.65fr .75fr;
+      gap:12px;
+      padding:12px;
       background:var(--paper);
     }
 
-    .panel{
+    .lead-story{
+      border:5px solid #000;
+      background:
+        radial-gradient(circle at 15% 10%, rgba(255,44,142,.14), transparent 22%),
+        radial-gradient(circle at 85% 80%, rgba(36,76,255,.1), transparent 24%),
+        var(--white);
+      min-height:650px;
+      padding:30px;
       position:relative;
-      border:4px solid var(--black);
       overflow:hidden;
-      background:#ddd;
-      min-height:250px;
     }
 
-    .panel img{
-      width:100%;
-      height:100%;
-      object-fit:cover;
-      display:block;
-      filter:contrast(1.08) saturate(.9);
-    }
-
-    .hero-main{
-      min-height:720px;
-    }
-
-    .hero-main img{
-      height:720px;
-    }
-
-    .side-stack{
-      display:grid;
-      gap:10px;
-    }
-
-    .side-stack .panel{
-      min-height:340px;
-    }
-
-    .label{
+    .lead-story::before{
+      content:"CONFIDENTIAL";
       position:absolute;
-      left:16px;
-      bottom:16px;
+      right:-65px;
+      top:55px;
+      font-size:5rem;
+      font-weight:1000;
+      color:rgba(0,0,0,.055);
+      transform:rotate(22deg);
+    }
+
+    .stamp{
       display:inline-block;
-      padding:8px 12px;
       background:var(--yellow);
-      border:3px solid #000;
+      border:4px solid #000;
+      padding:9px 14px;
       font-weight:1000;
       text-transform:uppercase;
-      transform:rotate(-3deg);
-      box-shadow:4px 4px 0 #000;
+      box-shadow:5px 5px 0 #000;
+      transform:rotate(-4deg);
+      margin-bottom:22px;
     }
 
-    .headline-wrap{
-      position:absolute;
-      inset:auto 6% 7% 6%;
-      z-index:3;
-    }
-
-    .headline{
-      display:inline;
-      background:var(--yellow);
-      padding:.02em .1em;
-      font-size:clamp(2.4rem, 6vw, 7rem);
-      line-height:.9;
+    .lead-story h2{
+      margin:0;
+      font-size:clamp(3rem,7vw,7rem);
+      line-height:.84;
+      letter-spacing:-.055em;
       text-transform:uppercase;
       font-weight:1000;
+      max-width:950px;
+    }
+
+    .headline-yellow{
+      background:var(--yellow);
+      padding:.02em .08em;
       box-decoration-break:clone;
       -webkit-box-decoration-break:clone;
-      box-shadow:8px 0 0 var(--yellow), -8px 0 0 var(--yellow);
-      text-shadow:3px 3px 0 rgba(255,255,255,.4);
     }
 
     .again{
       display:block;
-      margin-top:10px;
-      color:var(--hot);
-      font-family:"Comic Sans MS", cursive;
-      font-size:clamp(2.5rem, 5vw, 6rem);
-      line-height:.8;
-      transform:rotate(-6deg);
-      text-shadow:3px 3px 0 #000;
+      color:var(--pink);
+      font-family:"Comic Sans MS", "Marker Felt", cursive;
+      font-size:clamp(3rem,6vw,6rem);
+      line-height:.9;
+      transform:rotate(-5deg);
+      margin-top:12px;
       -webkit-text-stroke:1px #000;
+      text-shadow:3px 3px 0 #000;
     }
 
-    .badge{
-      position:absolute;
-      top:22px;
-      right:20px;
-      background:var(--yellow);
-      border:3px solid #000;
-      padding:9px 12px;
+    .deck{
+      margin:30px 0 0;
+      max-width:760px;
+      font-family:Georgia, "Times New Roman", serif;
+      font-size:1.15rem;
+      line-height:1.55;
+    }
+
+    .pullquote{
+      margin:34px 0;
+      max-width:620px;
+      background:#000;
+      color:white;
+      padding:18px 20px;
+      font-size:1.9rem;
       font-weight:1000;
+      transform:rotate(-1.5deg);
+      box-shadow:8px 8px 0 var(--pink);
+    }
+
+    .leak-box{
+      border:4px dashed #000;
+      padding:18px;
+      max-width:640px;
+      font-family:"Courier New", monospace;
+      background:#fffdf5;
+      transform:rotate(.5deg);
+    }
+
+    .leak-box strong{
+      display:block;
+      font-size:1.1rem;
       text-transform:uppercase;
-      transform:rotate(-8deg);
-      box-shadow:5px 5px 0 #000;
-      z-index:4;
+      margin-bottom:8px;
     }
 
-    .arrow{
-      position:absolute;
-      right:65px;
-      top:95px;
-      font-size:5rem;
-      color:var(--hot);
-      transform:rotate(18deg);
-      z-index:4;
-      font-family:"Comic Sans MS", cursive;
-    }
-
-    .cards{
+    .sidebar{
       display:grid;
-      grid-template-columns:repeat(3, 1fr);
+      gap:12px;
+    }
+
+    .side-card{
+      border:5px solid #000;
+      padding:20px;
+      min-height:195px;
+      position:relative;
+      overflow:hidden;
+    }
+
+    .side-card h3{
+      margin:0 0 12px;
+      font-size:clamp(1.9rem,3.4vw,3.3rem);
+      line-height:.9;
+      text-transform:uppercase;
+      font-weight:1000;
+    }
+
+    .side-card p{
+      margin:0;
+      font-family:"Courier New", monospace;
+      line-height:1.4;
+    }
+
+    .side-card.blue{
+      background:var(--blue);
+      color:white;
+    }
+
+    .side-card.yellow{
+      background:var(--yellow);
+    }
+
+    .side-card.pink{
+      background:var(--pink);
+      color:white;
+    }
+
+    .side-card.white{
+      background:#fff;
+    }
+
+    .side-card::after{
+      content:"↘";
+      position:absolute;
+      right:14px;
+      bottom:8px;
+      font-family:"Comic Sans MS", cursive;
+      font-size:3rem;
+      transform:rotate(10deg);
+      opacity:.7;
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
       gap:12px;
       padding:12px;
-      border-top:5px solid var(--black);
+      border-top:5px solid #000;
     }
 
     .card{
-      border:4px solid #000;
-      padding:18px;
-      min-height:240px;
+      border:5px solid #000;
+      min-height:280px;
+      padding:20px;
       position:relative;
       overflow:hidden;
     }
@@ -265,10 +369,10 @@
       color:white;
     }
 
-    .card h2{
-      margin:0 0 10px;
-      font-size:clamp(2rem, 4vw, 4rem);
-      line-height:.9;
+    .card h3{
+      margin:0 0 12px;
+      font-size:clamp(2rem,4vw,4rem);
+      line-height:.88;
       text-transform:uppercase;
       font-weight:1000;
       letter-spacing:-.04em;
@@ -276,184 +380,134 @@
 
     .card p{
       margin:0;
-      font-size:1rem;
-      line-height:1.35;
       font-family:"Courier New", monospace;
+      line-height:1.45;
     }
 
     .wave{
-      margin-top:16px;
+      margin-top:24px;
+      white-space:nowrap;
+      overflow:hidden;
       font-size:1.8rem;
-      letter-spacing:.08em;
-      white-space:nowrap;
-      overflow:hidden;
+      letter-spacing:.06em;
     }
 
-    .ticker{
-      border-top:5px solid #000;
-      border-bottom:5px solid #000;
-      background:#000;
-      color:white;
-      overflow:hidden;
-      white-space:nowrap;
-    }
-
-    .ticker-track{
+    .marker{
       display:inline-block;
-      padding:11px 0;
-      animation:ticker 22s linear infinite;
-      font-weight:900;
-      text-transform:uppercase;
-      letter-spacing:.08em;
+      margin-top:18px;
+      font-family:"Comic Sans MS", cursive;
+      font-size:1.35rem;
+      transform:rotate(-5deg);
+      border-bottom:5px solid currentColor;
     }
 
-    .ticker span{
-      margin-right:70px;
+    .documents{
+      padding:12px;
+      border-top:5px solid #000;
     }
 
-    @keyframes ticker{
-      from{transform:translateX(0);}
-      to{transform:translateX(-50%);}
-    }
-
-    .editorial{
+    .documents-inner{
+      border:5px solid #000;
+      background:#fffdf5;
+      padding:25px;
       display:grid;
       grid-template-columns:1.3fr .7fr;
-      gap:12px;
-      padding:12px;
+      gap:30px;
     }
 
-    .story{
-      border:4px solid #000;
-      background:#f7f0df;
-      padding:22px;
-      position:relative;
-    }
-
-    .story h3{
-      margin:0 0 14px;
-      font-size:clamp(2rem,4vw,4rem);
+    .documents h3{
+      margin:0 0 20px;
+      font-size:clamp(2.4rem,5vw,5rem);
       text-transform:uppercase;
-      line-height:.95;
+      line-height:.9;
     }
 
-    .story p{
+    .documents p{
       font-family:Georgia, serif;
       font-size:1.05rem;
-      line-height:1.55;
-      max-width:75ch;
+      line-height:1.6;
     }
 
-    .pullquote{
-      background:var(--black);
-      color:white;
-      padding:18px;
-      font-size:1.5rem;
+    .file-list{
+      border-left:4px solid #000;
+      padding-left:20px;
+      font-family:"Courier New", monospace;
+    }
+
+    .file-item{
+      border-bottom:2px solid #000;
+      padding:10px 0;
       font-weight:800;
-      transform:rotate(-1deg);
-      margin:20px 0;
     }
 
-    .sidebar{
-      display:grid;
-      gap:12px;
-    }
-
-    .sidebar-box{
-      border:4px solid #000;
-      padding:18px;
-      background:var(--yellow);
-    }
-
-    .sidebar-box:nth-child(2){
-      background:var(--hot);
-      color:white;
-    }
-
-    .sidebar-box:nth-child(3){
-      background:white;
-    }
-
-    .sidebar-box h4{
-      margin:0 0 8px;
-      font-size:1.7rem;
-      text-transform:uppercase;
+    .file-item span{
+      float:right;
+      color:var(--muted);
+      font-weight:400;
     }
 
     footer{
-      background:var(--black);
+      border-top:5px solid #000;
+      background:#000;
       color:white;
-      padding:30px 20px;
       text-align:center;
+      padding:34px 18px;
       font-family:"Courier New", monospace;
-      border-top:5px solid var(--black);
     }
 
     footer strong{
-      color:var(--hot);
+      color:var(--pink);
+      font-size:1.35rem;
       text-transform:uppercase;
     }
 
-    .tiny{
+    footer .small{
       opacity:.7;
+      margin-top:8px;
       font-size:.8rem;
-      margin-top:6px;
     }
 
-    @media (max-width: 900px){
+    @media(max-width:900px){
       .scribble{
         display:none;
       }
 
-      .hero-grid{
+      .hero{
         grid-template-columns:1fr;
       }
 
-      .hero-main,
-      .hero-main img{
-        min-height:560px;
-        height:560px;
-      }
-
-      .side-stack{
-        grid-template-columns:1fr 1fr;
-      }
-
-      .cards{
+      .grid{
         grid-template-columns:1fr;
       }
 
-      .editorial{
+      .documents-inner{
         grid-template-columns:1fr;
+      }
+
+      .lead-story{
+        min-height:auto;
       }
     }
 
-    @media (max-width: 600px){
+    @media(max-width:600px){
       .page{
         width:100%;
         margin:0;
-        border-width:0;
+        border-left:0;
+        border-right:0;
       }
 
       .masthead h1{
         -webkit-text-stroke:2px var(--yellow);
       }
 
-      .hero-main,
-      .hero-main img{
-        height:500px;
+      .topline{
+        justify-content:center;
+        text-align:center;
       }
 
-      .side-stack{
-        grid-template-columns:1fr;
-      }
-
-      .headline{
-        font-size:2.6rem;
-      }
-
-      .again{
-        font-size:3rem;
+      .lead-story{
+        padding:22px;
       }
     }
   </style>
@@ -463,13 +517,14 @@
 
   <main class="page">
 
-    <div class="top-strip">
+    <div class="topline">
       <span>Richner Records</span>
       <span>Music • Art • Allegations</span>
-      <span>No publicist was harmed</span>
+      <span>No Comment</span>
     </div>
 
     <header class="masthead">
+
       <div class="scribble left">
         some artists<br>
         leave clues...
@@ -478,157 +533,101 @@
       <h1>XIMERMJ</h1>
 
       <div class="scribble right">
-        music<br>
-        scandals<br>
-        mystery
+        rumor?<br>
+        campaign?<br>
+        who knows
       </div>
 
-      <div class="sub">independent music, art + culture</div>
+      <div class="tagline">
+        independent music, art + culture
+      </div>
+
     </header>
-
-    <section class="hero-grid">
-
-      <div class="side-stack">
-
-        <div class="panel">
-          <img src="joshua-tree.jpg" alt="Joshua Tree desert">
-          <div class="label">Joshua Tree — 18 mi</div>
-        </div>
-
-        <div class="panel">
-          <img src="flash-photo.jpg" alt="Flash photography aesthetic">
-          <div class="label">same place? different story.</div>
-        </div>
-
-      </div>
-
-      <div class="panel hero-main">
-        <img src="desert-main.jpg" alt="XIMERMJ desert editorial">
-
-        <div class="badge">Spotted</div>
-        <div class="arrow">↘</div>
-
-        <div class="headline-wrap">
-          <div class="headline">
-            XIMERMJ DISAPPEARS<br>
-            INTO THE DESERT.
-          </div>
-          <span class="again">AGAIN.</span>
-        </div>
-      </div>
-
-      <div class="side-stack">
-
-        <div class="panel">
-          <img src="motel.jpg" alt="Palm Springs motel">
-          <div class="label">good music. bad decisions.</div>
-        </div>
-
-        <div class="panel">
-          <img src="car-window.jpg" alt="Nighttime car photography">
-          <div class="label">gone again?</div>
-        </div>
-
-      </div>
-
-    </section>
-
-    <section class="cards">
-
-      <article class="card red">
-        <h2>New Audio Has Surfaced</h2>
-        <p>
-          Unverified materials continue to circulate.
-          Richner Records has declined to provide context.
-        </p>
-        <div class="wave">
-          ▂▃▆▇▅▃▂▅▆▃▇▂▅▆▇▃▂▅▇▆▂
-        </div>
-      </article>
-
-      <article class="card yellow">
-        <h2>Richner Records:<br>No Comment</h2>
-        <p>
-          Management remains unusually unavailable.
-          Sources claim this is deliberate.
-        </p>
-      </article>
-
-      <article class="card blue">
-        <h2>EP III Rumors Continue</h2>
-        <p>
-          New material is allegedly in circulation.
-          Confirmation has not been provided.
-        </p>
-      </article>
-
-    </section>
 
     <div class="ticker">
       <div class="ticker-track">
         <span>NO COMMENT</span>
         <span>RICHNER RECORDS REMAINS INDEPENDENT</span>
         <span>XIMERMJ ALLEGEDLY HAS ANOTHER PROJECT</span>
-        <span>NO PUBLICIST WAS HARMED IN THE MAKING OF THIS WEBSITE</span>
+        <span>NEW AUDIO HAS SURFACED</span>
+        <span>EP III RUMORS CONTINUE</span>
 
         <span>NO COMMENT</span>
         <span>RICHNER RECORDS REMAINS INDEPENDENT</span>
         <span>XIMERMJ ALLEGEDLY HAS ANOTHER PROJECT</span>
-        <span>NO PUBLICIST WAS HARMED IN THE MAKING OF THIS WEBSITE</span>
+        <span>NEW AUDIO HAS SURFACED</span>
+        <span>EP III RUMORS CONTINUE</span>
       </div>
     </div>
 
-    <section class="editorial">
+    <section class="hero">
 
-      <article class="story">
-        <h3>So What Exactly Is Going On?</h3>
+      <article class="lead-story">
 
-        <p>
-          XIMERMJ has once again disappeared into a familiar mix of desert roads,
-          studio sessions, strange files and increasingly vague statements.
-          Officially, nothing has been announced.
+        <div class="stamp">
+          Spotted
+        </div>
+
+        <h2>
+          <span class="headline-yellow">
+            XIMERMJ DISAPPEARS INTO THE DESERT.
+          </span>
+
+          <span class="again">
+            AGAIN.
+          </span>
+        </h2>
+
+        <p class="deck">
+          Another suspiciously quiet stretch of activity has begun.
+          New audio exists. Project files have surfaced. Richner Records
+          continues to provide no useful explanation.
         </p>
 
         <div class="pullquote">
           “No comment.”
         </div>
 
-        <p>
-          Unofficially, activity continues. New audio has appeared.
-          Equipment has been moved. Project files exist.
-          Richner Records remains independent and seemingly unconcerned
-          with explaining any of it.
-        </p>
-
-        <p>
-          Whether this becomes another single, another EP, or simply more
-          unnecessary speculation remains to be seen.
-        </p>
+        <div class="leak-box">
+          <strong>Internal memo</strong>
+          Status: active<br>
+          Location: undisclosed<br>
+          Project: allegedly real<br>
+          Publicist: unavailable<br>
+          Explanation: none
+        </div>
 
       </article>
 
+
       <aside class="sidebar">
 
-        <div class="sidebar-box">
-          <h4>EP III Is Apparently Real</h4>
+        <div class="side-card blue">
+          <h3>EP III Is Apparently Real</h3>
           <p>
-            People familiar with the situation have provided absolutely
-            no useful information.
+            People familiar with the situation remain deeply unhelpful.
           </p>
         </div>
 
-        <div class="sidebar-box">
-          <h4>Richner Records Has Entered The Chat</h4>
+        <div class="side-card yellow">
+          <h3>New Audio Has Surfaced</h3>
           <p>
-            The label continues to exist despite repeated attempts
-            to make things unnecessarily dramatic.
+            File origins remain unclear.
+            Nobody seems especially concerned.
           </p>
         </div>
 
-        <div class="sidebar-box">
-          <h4>The Website Has Been Redesigned</h4>
+        <div class="side-card pink">
+          <h3>Richner Records Has Entered The Chat</h3>
           <p>
-            Again.
+            The independent label has declined to explain anything.
+          </p>
+        </div>
+
+        <div class="side-card white">
+          <h3>No Comment</h3>
+          <p>
+            Still.
           </p>
         </div>
 
@@ -636,11 +635,110 @@
 
     </section>
 
+
+    <section class="grid">
+
+      <article class="card red">
+        <h3>Good Music. Bad Decisions.</h3>
+        <p>
+          A familiar pattern continues:
+          silence, strange files, late-night studio activity,
+          and absolutely no explanation.
+        </p>
+
+        <div class="marker">
+          allegedly ♡
+        </div>
+      </article>
+
+
+      <article class="card yellow">
+        <h3>Desert Activity Continues</h3>
+        <p>
+          Location data unavailable.
+          Equipment activity confirmed.
+          Context remains nonexistent.
+        </p>
+
+        <div class="marker">
+          sounds suspicious
+        </div>
+      </article>
+
+
+      <article class="card blue">
+        <h3>EP III Rumors Continue</h3>
+        <p>
+          Confirmation has not been provided.
+          Denial has also not been provided.
+        </p>
+
+        <div class="wave">
+          ▂▃▆▇▅▃▂▅▆▃▇▂▅▆▇▃
+        </div>
+      </article>
+
+    </section>
+
+
+    <section class="documents">
+
+      <div class="documents-inner">
+
+        <div>
+          <h3>What Exactly Is Going On?</h3>
+
+          <p>
+            XIMERMJ appears to be entering another period of unexplained activity.
+            There are files. There are fragments. There are rumors.
+            There is, notably, no official statement.
+          </p>
+
+          <p>
+            Whether this becomes another single, another EP,
+            or an elaborate refusal to answer basic questions remains unclear.
+          </p>
+        </div>
+
+        <div class="file-list">
+
+          <div class="file-item">
+            PROJECT_03
+            <span>active</span>
+          </div>
+
+          <div class="file-item">
+            NEW_AUDIO.wav
+            <span>unverified</span>
+          </div>
+
+          <div class="file-item">
+            DESERT_NOTES.txt
+            <span>classified</span>
+          </div>
+
+          <div class="file-item">
+            STATEMENT.doc
+            <span>no comment</span>
+          </div>
+
+          <div class="file-item">
+            EP_III
+            <span>allegedly</span>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
     <footer>
-      <strong>RICHNER RECORDS</strong><br>
+      <strong>Richner Records</strong><br>
       Music. Art. Allegations.
 
-      <div class="tiny">
+      <div class="small">
         © 2026 Richner Records LLC
       </div>
     </footer>

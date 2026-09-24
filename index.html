@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#090909">
+
+  <title>XIMERMJ — Afterburn · October 2, 2026</title>
+
+  <meta
+    name="description"
+    content="Independent electronic music by XIMERMJ. Afterburn arrives October 2, 2026. Explore the new era, pre-save the single, and listen to the catalog."
+  >
+
+  <link rel="canonical" href="https://ximermj.com/">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="XIMERMJ — Afterburn">
+  <meta
+    property="og:description"
+    content="Desert heat. Damaged color. Afterburn arrives October 2, 2026."
+  >
+  <meta property="og:url" content="https://ximermj.com/">
+  <meta
+    property="og:image"
+    content="https://ximermj.com/afterburn-cover.jpg"
+  >
+
+  <style>
+    :root {
+      color-scheme: dark;
+      --background: #090909;
+      --text: #f5f3ed;
+      --muted: #b2afa7;
+      --line: rgba(255, 255, 255, 0.16);
+      --accent: #e0b83e;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      min-height: 100%;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: var(--background);
+      color: var(--text);
+      font-family:
+        -apple-system,
+        BlinkMacSystemFont,
+        "Helvetica Neue",
+        Arial,
+        sans-serif;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    a:focus-visible {
+      outline: 3px solid var(--accent);
+      outline-offset: 6px;
+    }
+
+    .background {
+      position: fixed;
+      inset: 0;
+      overflow: hidden;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .background::before {
+      content: "";
+      position: absolute;
+      inset: -8%;
+      background:
+        linear-gradient(
+          180deg,
+          rgba(0, 0, 0, 0.35),
+          rgba(0, 0, 0, 0.7)
+        ),
+        url("afterburn-cover.jpg") center / cover no-repeat;
+      filter: blur(20px) brightness(0.42) saturate(0.7);
+      animation: drift 18s ease-in-out infinite alternate;
+    }
+
+    .background::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        180deg,
+        rgba(9, 9, 9, 0.15),
+        rgba(9, 9, 9, 0.65)
+      );
+    }
+
+    .grain {
+      position: fixed;
+      inset: 0;
+      z-index: 1;
+      pointer-events: none;
+      opacity: 0.045;
+      background-image:
+        radial-gradient(
+          circle at 20% 20%,
+          #fff 0 0.55px,
+          transparent 0.7px
+        ),
+        radial-gradient(
+          circle at 80% 55%,
+          #fff 0 0.45px,
+          transparent 0.65px
+        );
+      background-size: 5px 5px, 7px 7px;
+    }
+
+    .page {
+      position: relative;
+      z-index: 2;
+      display: grid;
+      grid-template-rows: auto 1fr auto;
+      min-height: 100vh;
+      max-width: 1800px;
+      margin: 0 auto;
+      padding: 32px clamp(20px, 4vw, 72px);
+    }
+
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 20px;
+    }
+
+    .brand {
+      font-size: clamp(26px, 3vw, 42px);
+      font-weight: 800;
+      letter-spacing: -0.055em;
+      text-decoration: none;
+      line-height: 1.1;
+    }
+
+    .artist-description {
+      max-width: 210px;
+      color: var(--muted);
+      font-size: 0.75rem;
+      line-height: 1.5;
+      text-align: right;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns:
+        minmax(0, 1.35fr)
+        minmax(0, 1fr);
+      align-items: center;
+      gap: 5vw;
+      padding: 9vh 0 7vh;
+    }
+
+    .hero-copy {
+      min-width: 0;
+    }
+
+    .eyebrow {
+      margin: 0 0 18px;
+      color: var(--accent);
+      font-size: 0.75rem;
+      font-weight: 600;
+      line-height: 1.6;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(54px, 7.2vw, 116px);
+      line-height: 1;
+      font-weight: 800;
+      letter-spacing: -0.06em;
+      text-transform: uppercase;
+      overflow-wrap: anywhere;
+    }
+
+    .release-date {
+      margin: 20px 0 0;
+      font-size: 0.875rem;
+      line-height: 1.5;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    .intro {
+      margin: 24px 0 0;
+      color: #dedbd4;
+      font-size: clamp(18px, 1.65vw, 24px);
+      line-height: 1.5;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 18px;
+      margin-top: 28px;
+    }
+
+    .button {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 54px;
+      padding: 16px 24px;
+      background: var(--accent);
+      color: #090909;
+      font-size: 0.875rem;
+      font-weight: 800;
+      line-height: 1.4;
+      letter-spacing: 0.04em;
+      text-align: center;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition:
+        background 0.2s ease,
+        transform 0.2s ease;
+    }
+
+    .button:hover {
+      background: #f5f3ed;
+      transform: translateY(-2px);
+    }
+
+    .secondary-link {
+      display: inline-block;
+      padding: 16px 4px;
+      border-bottom: 1px solid var(--line);
+      font-size: 0.875rem;
+      line-height: 1.5;
+      letter-spacing: 0.03em;
+      text-decoration: none;
+    }
+
+    .secondary-link:hover {
+      color: var(--accent);
+      border-color: var(--accent);
+    }
+
+    .release-info {
+      max-width: 640px;
+      margin-top: 34px;
+      padding-top: 22px;
+      border-top: 1px solid var(--line);
+    }
+
+    .release-info h2 {
+      margin: 0 0 14px;
+      color: var(--accent);
+      font-size: 0.75rem;
+      font-weight: 600;
+      line-height: 1.5;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .release-info p {
+      margin: 0 0 14px;
+      color: #ccc9c2;
+      font-size: 1rem;
+      line-height: 1.65;
+    }
+
+    .release-info p:last-child {
+      margin-bottom: 0;
+    }
+
+    .artwork {
+      min-width: 0;
+      margin: 0;
+    }
+
+    .artwork img {
+      display: block;
+      width: 100%;
+      height: auto;
+      aspect-ratio: 1;
+      object-fit: cover;
+    }
+
+    .artwork figcaption {
+      padding-top: 16px;
+      color: var(--muted);
+      font-size: 0.75rem;
+      line-height: 1.6;
+      letter-spacing: 0.08em;
+    }
+
+    .footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 24px;
+      padding-top: 16px;
+      border-top: 1px solid var(--line);
+    }
+
+    .copyright {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.75rem;
+      line-height: 1.6;
+      letter-spacing: 0.04em;
+    }
+
+    .streaming-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      gap: 8px 20px;
+    }
+
+    .streaming-links a {
+      display: inline-block;
+      padding: 10px 0;
+      color: var(--muted);
+      font-size: 0.875rem;
+      line-height: 1.5;
+      text-decoration: none;
+    }
+
+    .streaming-links a:hover {
+      color: var(--text);
+    }
+
+    @keyframes drift {
+      from {
+        transform: scale(1.02) translate(-1%, 0);
+      }
+      to {
+        transform: scale(1.08) translate(1%, -1%);
+      }
+    }
+
+    @media (max-width: 800px) {
+      .page {
+        padding: 22px;
+      }
+
+      .artist-description {
+        max-width: 145px;
+      }
+
+      .hero {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 34px;
+        padding: 54px 0 40px;
+      }
+
+      h1 {
+        font-size: clamp(44px, 12.9vw, 94px);
+      }
+
+      .button {
+        width: 100%;
+      }
+
+      .secondary-link {
+        width: 100%;
+        text-align: center;
+      }
+
+      .artwork {
+        width: 100%;
+        max-width: 500px;
+        justify-self: center;
+      }
+
+      .footer {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+      }
+
+      .streaming-links {
+        justify-content: flex-start;
+      }
+    }
+
+    @media (max-width: 360px) {
+      .header {
+        flex-wrap: wrap;
+        gap: 12px;
+      }
+
+      .artist-description {
+        max-width: none;
+        text-align: left;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .background::before {
+        animation: none;
+      }
+
+      .button {
+        transition: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="background" aria-hidden="true"></div>
+  <div class="grain" aria-hidden="true"></div>
+
+  <div class="page">
+    <header class="header">
+      <a class="brand" href="./" aria-label="XIMERMJ home">
+        XIMERMJ
+      </a>
+
+      <div class="artist-description">
+        Independent electronic music
+      </div>
+    </header>
+
+    <main class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">
+          The next release · XIMERMJ
+        </p>
+
+        <h1>Afterburn</h1>
+
+        <p class="release-date">
+          <time datetime="2026-10-02">October 2, 2026</time>
+        </p>
+
+        <p class="intro">
+          Tense, warped electronic music.<br>
+          A new chapter in desert heat and damaged color.
+        </p>
+
+        <div class="actions">
+          <a
+            class="button"
+            href="https://distrokid.com/hyperfollow/ximermj/afterburn"
+          >
+            Pre-save Afterburn
+          </a>
+
+          <a
+            class="secondary-link"
+            href="https://open.spotify.com/artist/3HF0pRkcW2264iFUOstWv4"
+          >
+            Listen &amp; follow on Spotify
+          </a>
+        </div>
+
+        <section
+          class="release-info"
+          aria-labelledby="release-heading"
+        >
+          <h2 id="release-heading">
+            The world of Afterburn
+          </h2>
+
+          <p>
+            “Afterburn” is the start of a new XIMERMJ era built
+            around Palm Springs modernism after the shine wears
+            off — empty pools, desert heat, mid-century
+            architecture, damaged color, and digital decay.
+          </p>
+
+          <p>
+            The track has a tense, warped electronic feel and
+            sets up the darker visual world of the next EP,
+            planned for late October or early November 2026.
+          </p>
+        </section>
+      </div>
+
+      <figure class="artwork">
+        <img
+          src="afterburn-cover.jpg"
+          alt="Afterburn artwork: inverted palms and a mid-century desert home beneath an amber sky"
+          width="600"
+          height="600"
+          fetchpriority="high"
+        >
+
+        <figcaption>
+          AFTERBURN / XIMERMJ / 02 OCT 2026
+        </figcaption>
+      </figure>
+    </main>
+
+    <footer class="footer">
+      <p class="copyright">
+        © 2026 XIMERMJ · Richner Records LLC
+      </p>
+
+      <nav class="streaming-links" aria-label="Streaming platforms">
+        <a href="https://open.spotify.com/artist/3HF0pRkcW2264iFUOstWv4">
+          Spotify
+        </a>
+
+        <a href="https://music.apple.com/us/artist/ximermj/1701039590">
+          Apple Music
+        </a>
+
+        <a href="https://music.youtube.com/@richnerrecords">
+          YouTube
+        </a>
+
+        <a href="https://soundcloud.com/ximermj">
+          SoundCloud
+        </a>
+      </nav>
+    </footer>
+  </div>
+</body>
+</html>

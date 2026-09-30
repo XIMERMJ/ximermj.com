@@ -1,29 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>DESERT DISTORTION — XIMERMJ</title>
 
 <meta name="description"
-content="Desert Distortion — the third EP from XIMERMJ. Richner Records. November 2026.">
+content="Desert Distortion — the third EP from XIMERMJ. November 2026 via Richner Records.">
 
 <style>
 
 /* =========================================================
-   XIMERMJ — DESERT DISTORTION
-   EP III / 2026
+   DESERT DISTORTION
+   XIMERMJ
+   RICHNER RECORDS
+   2026
    ========================================================= */
 
 :root {
-    --blue: #dbe5f5;
-    --blue2: #ccd9ed;
-    --pink: #f3dfe5;
-    --white: #f7f8fa;
-    --black: #08090b;
-    --muted: rgba(8,9,11,.55);
-    --line: rgba(8,9,11,.18);
+    --black: #080808;
+    --white: #f6f4ef;
+    --sand: #d8c2a7;
+    --muted: rgba(255,255,255,.68);
+    --dark-muted: rgba(0,0,0,.55);
 }
 
 * {
@@ -37,8 +39,8 @@ html {
 }
 
 body {
-    background: var(--blue);
-    color: var(--black);
+    background: var(--black);
+    color: var(--white);
     font-family: Arial, Helvetica, sans-serif;
     overflow-x: hidden;
 }
@@ -53,115 +55,8 @@ img {
 }
 
 ::selection {
-    background: #000;
-    color: #fff;
-}
-
-
-/* =========================================================
-   SUBTLE SCREEN TEXTURE
-   ========================================================= */
-
-body::after {
-    content: "";
-    position: fixed;
-    inset: 0;
-    pointer-events: none;
-    z-index: 9999;
-
-    background:
-        repeating-linear-gradient(
-            to bottom,
-            transparent 0px,
-            transparent 3px,
-            rgba(255,255,255,.06) 4px
-        );
-
-    opacity: .45;
-}
-
-
-/* =========================================================
-   CURSOR LIGHT
-   ========================================================= */
-
-.cursor-light {
-    position: fixed;
-    width: 600px;
-    height: 600px;
-    border-radius: 50%;
-    pointer-events: none;
-    z-index: 0;
-
-    transform: translate(-50%, -50%);
-
-    background:
-        radial-gradient(
-            circle,
-            rgba(255,224,230,.65) 0%,
-            rgba(255,240,243,.3) 25%,
-            transparent 68%
-        );
-
-    filter: blur(30px);
-}
-
-
-/* =========================================================
-   NAVIGATION
-   ========================================================= */
-
-nav {
-    position: absolute;
-    top: 0;
-    left: 0;
-
-    width: 100%;
-    height: 105px;
-
-    padding: 0 5vw;
-
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-
-    z-index: 100;
-}
-
-.logo {
-    font-size: 25px;
-    font-weight: 900;
-    letter-spacing: -.08em;
-}
-
-.nav-links {
-    display: flex;
-    gap: 45px;
-}
-
-.nav-links a {
-    font-size: 11px;
-    text-transform: uppercase;
-    position: relative;
-}
-
-.nav-links a::after {
-    content: "";
-    position: absolute;
-
-    left: 0;
-    bottom: -7px;
-
-    width: 0;
-    height: 1px;
-
-    background: #000;
-
-    transition: width .3s ease;
-}
-
-.nav-links a:hover::after {
-    width: 100%;
+    background: white;
+    color: black;
 }
 
 
@@ -170,556 +65,785 @@ nav {
    ========================================================= */
 
 .hero {
+
     position: relative;
 
     width: 100%;
     height: 100svh;
-    min-height: 720px;
+    min-height: 650px;
 
     overflow: hidden;
 
-    background:
-        radial-gradient(
-            circle at 48% 12%,
-            rgba(255,226,231,.82),
-            transparent 20%
-        ),
+    background: #827361;
 
-        radial-gradient(
-            circle at 78% 75%,
-            rgba(255,231,236,.55),
-            transparent 24%
-        ),
-
-        linear-gradient(
-            110deg,
-            #d3e0f3 0%,
-            #e3e7f1 48%,
-            #d4dff0 100%
-        );
 }
 
 
-/* =========================================================
-   HERO TITLE
-   NOTHING OVERLAPS THIS.
-   ========================================================= */
+/* HERO IMAGE */
 
-.hero-title {
+.hero-image {
+
     position: absolute;
+    inset: -2%;
 
-    top: 27%;
-    left: -1.4vw;
+    width: 104%;
+    height: 104%;
 
-    width: 105vw;
+    object-fit: cover;
 
-    z-index: 10;
+    transform: scale(1.02);
 
-    pointer-events: none;
-}
+    transition:
+        filter .12s linear,
+        transform 8s ease;
 
-.title-line {
-    position: relative;
-
-    font-size: clamp(100px, 16vw, 275px);
-    font-weight: 400;
-
-    line-height: .76;
-
-    letter-spacing: -.085em;
-
-    text-transform: uppercase;
-
-    white-space: nowrap;
-}
-
-.title-desert {
-    transform: translateX(0);
-}
-
-.title-distortion {
-    transform: translateX(8vw);
 }
 
 
-/* =========================================================
-   GLITCH COPIES
+/* very slow movement */
 
-   These stay BEHIND the actual title.
-   ========================================================= */
+.hero.loaded .hero-image {
+    transform: scale(1.07);
+}
 
-.title-line::before,
-.title-line::after {
-    content: attr(data-text);
+
+/* DARK CINEMATIC GRADIENT */
+
+.hero-overlay {
 
     position: absolute;
     inset: 0;
 
-    z-index: -1;
-
-    opacity: 0;
-
-    pointer-events: none;
-}
-
-.title-line::before {
-    color: #78d8ff;
-}
-
-.title-line::after {
-    color: #ff92ae;
-}
-
-body.glitch .title-line::before {
-    opacity: .45;
-
-    transform: translate(-8px, 1px);
-
-    clip-path: polygon(
-        0 18%,
-        100% 18%,
-        100% 32%,
-        0 32%
-    );
-}
-
-body.glitch .title-line::after {
-    opacity: .4;
-
-    transform: translate(8px, -1px);
-
-    clip-path: polygon(
-        0 66%,
-        100% 66%,
-        100% 81%,
-        0 81%
-    );
-}
-
-
-/* =========================================================
-   HERO INFORMATION
-   ========================================================= */
-
-.hero-left {
-    position: absolute;
-
-    left: 5vw;
-    bottom: 5vh;
-
-    z-index: 20;
-
-    font-size: 9px;
-    line-height: 1.8;
-
-    letter-spacing: .18em;
-
-    text-transform: uppercase;
-}
-
-.hero-right {
-    position: absolute;
-
-    right: 5vw;
-    bottom: 5vh;
-
-    width: 250px;
-
-    z-index: 20;
-
-    font-size: 12px;
-    line-height: 1.4;
-}
-
-.hero-right span {
-    display: block;
-
-    margin-bottom: 12px;
-
-    font-size: 8px;
-    letter-spacing: .2em;
-}
-
-
-/* =========================================================
-   ABSTRACT OBJECTS
-   NO ALBUM ART.
-   ========================================================= */
-
-.glass-object {
-    position: absolute;
-    z-index: 5;
-
-    border: 1px solid rgba(255,255,255,.65);
+    z-index: 2;
 
     background:
         linear-gradient(
-            135deg,
-            rgba(255,255,255,.42),
-            rgba(255,255,255,.05)
+            to bottom,
+            rgba(0,0,0,.26) 0%,
+            rgba(0,0,0,.05) 28%,
+            rgba(0,0,0,.02) 55%,
+            rgba(0,0,0,.30) 100%
         );
 
-    box-shadow:
-        inset 0 0 25px rgba(255,255,255,.35),
-        0 20px 50px rgba(70,85,120,.1);
-
-    backdrop-filter: blur(9px);
-
-    transition: .4s ease;
-}
-
-.object-one {
-    width: 35px;
-    height: 160px;
-
-    left: 15%;
-    top: 16%;
-
-    transform: rotate(8deg);
-}
-
-.object-two {
-    width: 55px;
-    height: 250px;
-
-    right: 21%;
-    bottom: 3%;
-
-    transform: rotate(-2deg);
-}
-
-.object-three {
-    width: 75px;
-    height: 75px;
-
-    right: 12%;
-    top: 20%;
-
-    transform: rotate(15deg);
 }
 
 
-/* small interior cubes */
+/* subtle grain */
 
-.object-three::before {
-    content: "";
+.hero-grain {
 
     position: absolute;
+    inset: 0;
 
-    width: 35px;
-    height: 35px;
+    z-index: 3;
 
-    left: -20px;
-    top: 25px;
+    pointer-events: none;
 
-    border: 1px solid rgba(255,255,255,.7);
+    opacity: .18;
 
-    background: rgba(255,255,255,.28);
+    background-image:
+        url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='.18'/%3E%3C/svg%3E");
 
-    backdrop-filter: blur(8px);
+    mix-blend-mode: soft-light;
+
 }
 
 
 /* =========================================================
-   GLITCH BARS
+   NAVIGATION
    ========================================================= */
 
-.glitch-bar {
+nav {
+
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+
+    z-index: 20;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 30px 4vw;
+
+    color: white;
+
+}
+
+
+.logo {
+
+    font-size: 19px;
+
+    font-weight: 800;
+
+    letter-spacing: .18em;
+
+}
+
+
+.nav-links {
+
+    display: flex;
+
+    gap: 34px;
+
+}
+
+
+.nav-links a {
+
+    font-size: 9px;
+
+    letter-spacing: .16em;
+
+    text-transform: uppercase;
+
+    opacity: .8;
+
+    transition: opacity .25s;
+
+}
+
+
+.nav-links a:hover {
+
+    opacity: 1;
+
+}
+
+
+/* =========================================================
+   HERO CONTENT
+   ========================================================= */
+
+.hero-content {
+
+    position: relative;
+
+    z-index: 10;
+
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+
+    padding: 100px 20px 60px;
+
+}
+
+
+/* tiny EP marker */
+
+.hero-kicker {
+
+    margin-bottom: 30px;
+
+    font-size: 9px;
+
+    font-weight: 600;
+
+    letter-spacing: .42em;
+
+    text-transform: uppercase;
+
+    text-shadow:
+        0 2px 20px rgba(0,0,0,.35);
+
+}
+
+
+/* =========================================================
+   MAIN TITLE
+   ========================================================= */
+
+.hero-title {
+
+    font-family:
+        "Arial Narrow",
+        "Helvetica Neue Condensed",
+        "Arial Narrow Bold",
+        Impact,
+        sans-serif;
+
+    font-size: clamp(70px, 11vw, 180px);
+
+    font-weight: 700;
+
+    line-height: .85;
+
+    letter-spacing: .09em;
+
+    text-transform: uppercase;
+
+    transform: scaleX(.72);
+
+    transform-origin: center;
+
+    white-space: nowrap;
+
+    text-shadow:
+        0 3px 30px rgba(0,0,0,.22);
+
+}
+
+
+.hero-title span {
+
+    display: block;
+
+}
+
+
+/* =========================================================
+   HERO SUBTITLE
+   ========================================================= */
+
+.hero-subtitle {
+
+    margin-top: 35px;
+
+    font-size: 10px;
+
+    letter-spacing: .34em;
+
+    text-transform: uppercase;
+
+    line-height: 2;
+
+    text-shadow:
+        0 2px 18px rgba(0,0,0,.5);
+
+}
+
+
+.hero-date {
+
+    margin-top: 10px;
+
+    font-size: 8px;
+
+    letter-spacing: .3em;
+
+    opacity: .75;
+
+}
+
+
+/* =========================================================
+   EXPLORE BUTTON
+   ========================================================= */
+
+.explore {
+
+    position: absolute;
+
+    bottom: 35px;
+
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    gap: 9px;
+
+    font-size: 8px;
+
+    letter-spacing: .25em;
+
+    text-transform: uppercase;
+
+    opacity: .85;
+
+}
+
+
+.explore-arrow {
+
+    font-size: 17px;
+
+    animation: floatArrow 2s ease-in-out infinite;
+
+}
+
+
+@keyframes floatArrow {
+
+    0%,100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(6px);
+    }
+
+}
+
+
+/* =========================================================
+   GLITCH / IMAGE TEAR
+
+   This is intentionally subtle.
+   ========================================================= */
+
+.image-tear {
+
     position: absolute;
 
     z-index: 15;
 
-    height: 7px;
+    left: 0;
 
-    background: rgba(255,255,255,.42);
+    width: 100%;
 
-    backdrop-filter: blur(8px);
+    height: 16px;
 
     opacity: 0;
 
-    pointer-events: none;
-}
-
-.bar-one {
-    top: 42%;
-    left: 0;
-
-    width: 37%;
-}
-
-.bar-two {
-    top: 62%;
-    right: 0;
-
-    width: 48%;
-}
-
-body.glitch .glitch-bar {
-    opacity: 1;
-}
-
-body.glitch .bar-one {
-    transform: translateX(45px);
-}
-
-body.glitch .bar-two {
-    transform: translateX(-70px);
-}
-
-
-/* =========================================================
-   SCROLL INDICATOR
-   ========================================================= */
-
-.scroll {
-    position: absolute;
-
-    left: 50%;
-    bottom: 4vh;
-
-    transform: translateX(-50%);
-
-    font-size: 8px;
-    letter-spacing: .22em;
-
-    z-index: 20;
-}
-
-
-/* =========================================================
-   TICKER
-   ========================================================= */
-
-.ticker {
-    height: 45px;
-
-    border-top: 1px solid var(--line);
-    border-bottom: 1px solid var(--line);
-
-    background: rgba(255,255,255,.18);
-
     overflow: hidden;
 
-    display: flex;
-    align-items: center;
+    pointer-events: none;
 
-    white-space: nowrap;
 }
 
-.ticker-track {
-    display: inline-block;
 
-    animation: ticker 26s linear infinite;
+.image-tear img {
+
+    position: absolute;
+
+    left: 0;
+
+    width: 100vw;
+
+    height: 100vh;
+
+    object-fit: cover;
+
 }
 
-.ticker span {
-    margin-right: 90px;
 
-    font-size: 9px;
-    letter-spacing: .2em;
+.tear-one {
 
-    text-transform: uppercase;
+    top: 38%;
+
 }
 
-@keyframes ticker {
 
-    from {
-        transform: translateX(0);
-    }
+.tear-one img {
 
-    to {
-        transform: translateX(-50%);
-    }
+    top: -38vh;
+
+}
+
+
+.tear-two {
+
+    top: 67%;
+
+    height: 9px;
+
+}
+
+
+.tear-two img {
+
+    top: -67vh;
+
+}
+
+
+body.glitch .image-tear {
+
+    opacity: .75;
+
+}
+
+
+body.glitch .tear-one {
+
+    transform: translateX(17px);
+
+}
+
+
+body.glitch .tear-two {
+
+    transform: translateX(-12px);
+
+}
+
+
+body.negative .hero-image {
+
+    filter:
+        invert(1)
+        hue-rotate(170deg)
+        contrast(1.08);
 
 }
 
 
 /* =========================================================
-   CONCEPT
+   INTRO / CONCEPT
    ========================================================= */
 
-.concept {
-    position: relative;
+.intro {
 
     min-height: 100vh;
 
-    padding: 12vw 6vw;
+    position: relative;
+
+    background: #e5dfd5;
+
+    color: #111;
+
+    padding: 11vw 8vw;
 
     display: grid;
 
-    grid-template-columns: 1fr 3fr;
+    grid-template-columns: 1fr 2.4fr;
 
-    gap: 8vw;
+    gap: 9vw;
 
-    background:
-        radial-gradient(
-            circle at 80% 45%,
-            rgba(255,217,225,.65),
-            transparent 27%
-        ),
-        #e0e7f2;
 }
 
-.section-id {
-    font-size: 8px;
-    line-height: 1.8;
 
-    letter-spacing: .2em;
+.section-number {
+
+    font-size: 8px;
+
+    line-height: 1.9;
+
+    letter-spacing: .24em;
 
     text-transform: uppercase;
+
+    color: rgba(0,0,0,.55);
+
 }
 
-.concept-main h2 {
-    max-width: 1200px;
 
-    font-size: clamp(50px, 8vw, 135px);
+.intro-main {
 
-    font-weight: 400;
+    max-width: 1000px;
 
-    line-height: .9;
-
-    letter-spacing: -.07em;
 }
 
-.concept-main h2 em {
-    font-family: Georgia, "Times New Roman", serif;
 
-    font-weight: 400;
+.intro-location {
+
+    margin-bottom: 45px;
+
+    font-size: 9px;
+
+    letter-spacing: .35em;
+
+    text-transform: uppercase;
+
 }
 
-.concept-main h2 .ghost {
-    color: rgba(0,0,0,.23);
+
+.intro h2 {
+
+    font-family:
+        "Arial Narrow",
+        "Helvetica Neue Condensed",
+        Impact,
+        sans-serif;
+
+    font-size: clamp(58px, 8vw, 125px);
+
+    line-height: .88;
+
+    font-weight: 600;
+
+    letter-spacing: -.02em;
+
+    text-transform: uppercase;
+
 }
 
-.concept-copy {
-    max-width: 620px;
 
-    margin-top: 70px;
-    margin-left: 25%;
+.intro h2 .light {
+
+    color: rgba(0,0,0,.28);
+
+}
+
+
+.intro-copy {
+
+    max-width: 570px;
+
+    margin-top: 65px;
+
+    margin-left: 28%;
 
     font-size: 17px;
-    line-height: 1.55;
+
+    line-height: 1.6;
+
 }
 
 
 /* =========================================================
-   ARTWORK REVEAL
-
-   THIS IS THE FIRST TIME THE EP ARTWORK APPEARS.
+   PHOTOGRAPHIC BREAK
    ========================================================= */
 
-.artwork-section {
+.photo-break {
+
     position: relative;
 
-    min-height: 115vh;
+    height: 90vh;
 
-    padding: 8vw 6vw;
+    min-height: 650px;
 
     overflow: hidden;
 
-    background:
-        linear-gradient(
-            130deg,
-            #d0dcec,
-            #ebe4eb
-        );
 }
 
-.artwork-heading {
+
+.photo-break img {
+
+    width: 100%;
+    height: 110%;
+
+    object-fit: cover;
+
     position: absolute;
 
-    left: -1vw;
-    top: 8vw;
+    top: -5%;
 
-    z-index: 1;
+}
 
-    font-size: clamp(80px, 14vw, 230px);
 
-    font-weight: 400;
+.photo-break-overlay {
+
+    position: absolute;
+    inset: 0;
+
+    background:
+        linear-gradient(
+            to bottom,
+            rgba(0,0,0,.05),
+            rgba(0,0,0,.36)
+        );
+
+}
+
+
+.photo-quote {
+
+    position: absolute;
+
+    z-index: 5;
+
+    left: 7vw;
+    bottom: 8vh;
+
+    max-width: 800px;
+
+    font-family: Georgia, "Times New Roman", serif;
+
+    font-size: clamp(32px, 4vw, 65px);
+
+    line-height: 1.08;
+
+    font-style: italic;
+
+    letter-spacing: -.025em;
+
+    color: white;
+
+}
+
+
+.photo-index {
+
+    position: absolute;
+
+    z-index: 5;
+
+    right: 5vw;
+    bottom: 5vh;
+
+    text-align: right;
+
+    font-size: 8px;
+
+    line-height: 1.8;
+
+    letter-spacing: .22em;
+
+    color: rgba(255,255,255,.75);
+
+}
+
+
+/* =========================================================
+   RECORD
+   ========================================================= */
+
+.record {
+
+    background: #111;
+
+    color: white;
+
+    padding: 10vw 7vw;
+
+}
+
+
+.record-top {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: flex-start;
+
+    margin-bottom: 9vw;
+
+}
+
+
+.record-label {
+
+    font-size: 8px;
+
+    line-height: 1.8;
+
+    letter-spacing: .24em;
+
+    text-transform: uppercase;
+
+    color: rgba(255,255,255,.55);
+
+}
+
+
+.record-title {
+
+    font-family:
+        "Arial Narrow",
+        "Helvetica Neue Condensed",
+        Impact,
+        sans-serif;
+
+    font-size: clamp(80px, 13vw, 200px);
 
     line-height: .75;
 
-    letter-spacing: -.085em;
+    font-weight: 600;
+
+    letter-spacing: .02em;
 
     text-transform: uppercase;
+
 }
 
-.artwork-wrap {
-    position: absolute;
 
-    width: min(48vw, 680px);
+/* =========================================================
+   ARTWORK + INFO
+   ========================================================= */
 
-    right: 8vw;
-    top: 19vw;
+.record-grid {
 
-    z-index: 5;
+    display: grid;
+
+    grid-template-columns: 1.1fr 1fr;
+
+    gap: 8vw;
+
+    align-items: center;
+
+    margin-top: 9vw;
+
 }
 
-.artwork-wrap img {
+
+.cover {
+
     width: 100%;
+
+    max-width: 650px;
+
+}
+
+
+.cover img {
+
+    width: 100%;
+
     aspect-ratio: 1;
 
     object-fit: cover;
 
-    box-shadow:
-        0 35px 100px rgba(35,45,70,.15);
 }
 
-.artwork-meta {
-    margin-top: 12px;
+
+.cover-meta {
 
     display: flex;
+
     justify-content: space-between;
 
-    font-size: 8px;
+    margin-top: 12px;
 
-    letter-spacing: .18em;
+    font-size: 7px;
 
-    text-transform: uppercase;
-}
+    letter-spacing: .2em;
 
-.artwork-copy {
-    position: absolute;
+    color: rgba(255,255,255,.55);
 
-    left: 7vw;
-    bottom: 9vw;
-
-    width: 320px;
-
-    font-size: 14px;
-    line-height: 1.5;
 }
 
 
-/* =========================================================
-   DISTORTED IMAGE STRIP
-   ========================================================= */
+.record-copy {
 
-.image-slice {
-    position: absolute;
+    max-width: 470px;
 
-    width: 80px;
-    height: 300px;
-
-    left: 41%;
-    bottom: 6vw;
-
-    z-index: 7;
-
-    overflow: hidden;
-
-    border: 1px solid rgba(255,255,255,.55);
-
-    backdrop-filter: blur(5px);
 }
 
-.image-slice img {
-    width: 500px;
-    height: 500px;
 
-    object-fit: cover;
+.record-copy h3 {
 
-    transform: translate(-180px,-70px);
+    font-size: 13px;
+
+    font-weight: 500;
+
+    letter-spacing: .24em;
+
+    margin-bottom: 40px;
+
+}
+
+
+.record-copy p {
+
+    font-size: 18px;
+
+    line-height: 1.55;
+
+    color: rgba(255,255,255,.72);
+
 }
 
 
@@ -727,107 +851,97 @@ body.glitch .bar-two {
    TRACKLIST
    ========================================================= */
 
-.tracks {
-    padding: 11vw 6vw;
+.tracklist {
 
-    background:
-        radial-gradient(
-            circle at 18% 15%,
-            rgba(255,215,224,.65),
-            transparent 24%
-        ),
-        #e7e8ef;
+    margin-top: 11vw;
+
 }
 
-.track-heading {
+
+.tracklist-header {
+
     display: flex;
+
     justify-content: space-between;
 
-    margin-bottom: 7vw;
+    margin-bottom: 25px;
+
+    font-size: 8px;
+
+    letter-spacing: .2em;
+
+    color: rgba(255,255,255,.5);
+
 }
 
-.track-title {
-    font-size: clamp(75px, 13vw, 220px);
-
-    font-weight: 400;
-
-    line-height: .75;
-
-    letter-spacing: -.085em;
-}
-
-.track-list {
-    margin-top: 7vw;
-}
 
 .track {
-    position: relative;
 
-    min-height: 95px;
+    min-height: 86px;
 
     display: grid;
 
-    grid-template-columns: 80px 1fr auto;
+    grid-template-columns: 65px 1fr auto;
 
     align-items: center;
 
-    border-top: 1px solid rgba(0,0,0,.22);
+    border-top: 1px solid rgba(255,255,255,.18);
 
-    overflow: hidden;
+    transition:
+        padding .25s,
+        background .25s,
+        color .25s;
+
 }
+
 
 .track:last-child {
-    border-bottom: 1px solid rgba(0,0,0,.22);
+
+    border-bottom:
+        1px solid rgba(255,255,255,.18);
+
 }
 
-.track::before {
-    content: "";
 
-    position: absolute;
+.track:hover {
 
-    left: 0;
-    bottom: 0;
+    padding-left: 15px;
 
-    width: 100%;
-    height: 0;
+    background: white;
 
-    background: #08090b;
+    color: black;
 
-    transition: height .35s cubic-bezier(.2,.8,.2,1);
 }
 
-.track:hover::before {
-    height: 100%;
-}
-
-.track > * {
-    position: relative;
-
-    z-index: 2;
-
-    transition: color .25s;
-}
-
-.track:hover > * {
-    color: white;
-}
 
 .track-number {
-    font-size: 9px;
-}
 
-.track-name {
-    font-size: clamp(28px,4.2vw,65px);
-
-    letter-spacing: -.055em;
-}
-
-.track-detail {
     font-size: 8px;
 
-    letter-spacing: .17em;
+    letter-spacing: .2em;
+
+}
+
+
+.track-name {
+
+    font-size: clamp(25px, 3.2vw, 50px);
+
+    font-weight: 400;
+
+    letter-spacing: -.035em;
+
+}
+
+
+.track-info {
+
+    font-size: 7px;
+
+    letter-spacing: .2em;
 
     text-transform: uppercase;
+
 }
 
 
@@ -836,142 +950,203 @@ body.glitch .bar-two {
    ========================================================= */
 
 .afterburn {
+
     position: relative;
 
     min-height: 100vh;
 
-    padding: 7vw;
-
     overflow: hidden;
 
-    display: flex;
-    align-items: center;
+    color: white;
+
+}
+
+
+.afterburn-bg {
+
+    position: absolute;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+}
+
+
+.afterburn-overlay {
+
+    position: absolute;
+
+    inset: 0;
 
     background:
-        radial-gradient(
-            circle at 75% 40%,
-            rgba(255,220,221,.9),
-            transparent 35%
-        ),
-        #d9e3f1;
+        linear-gradient(
+            90deg,
+            rgba(0,0,0,.72) 0%,
+            rgba(0,0,0,.38) 45%,
+            rgba(0,0,0,.08) 100%
+        );
+
 }
 
-.afterburn-copy {
+
+.afterburn-content {
+
     position: relative;
 
-    z-index: 10;
+    z-index: 5;
+
+    min-height: 100vh;
+
+    padding: 8vw 7vw;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
 }
 
-.afterburn-label {
+
+.afterburn-kicker {
+
     margin-bottom: 30px;
+
+    font-size: 8px;
+
+    letter-spacing: .25em;
+
+    text-transform: uppercase;
+
+}
+
+
+.afterburn h2 {
+
+    font-family:
+        "Arial Narrow",
+        "Helvetica Neue Condensed",
+        Impact,
+        sans-serif;
+
+    font-size: clamp(90px, 15vw, 230px);
+
+    line-height: .72;
+
+    letter-spacing: .03em;
+
+}
+
+
+.afterburn p {
+
+    max-width: 440px;
+
+    margin-top: 50px;
+
+    font-size: 15px;
+
+    line-height: 1.6;
+
+}
+
+
+.listen-button {
+
+    display: inline-block;
+
+    width: fit-content;
+
+    margin-top: 35px;
+
+    padding: 15px 25px;
+
+    border: 1px solid rgba(255,255,255,.7);
 
     font-size: 8px;
 
     letter-spacing: .2em;
 
     text-transform: uppercase;
-}
-
-.afterburn h2 {
-    font-size: clamp(90px,16vw,260px);
-
-    font-weight: 400;
-
-    line-height: .69;
-
-    letter-spacing: -.095em;
-}
-
-.afterburn p {
-    width: 370px;
-
-    margin-top: 60px;
-
-    font-size: 15px;
-    line-height: 1.5;
-}
-
-.afterburn a {
-    display: inline-block;
-
-    margin-top: 30px;
-
-    padding: 14px 22px;
-
-    border: 1px solid #000;
-
-    font-size: 8px;
-
-    letter-spacing: .18em;
 
     transition: .25s;
+
 }
 
-.afterburn a:hover {
-    background: #000;
-    color: white;
-}
 
-.afterburn-art {
-    position: absolute;
+.listen-button:hover {
 
-    right: 7vw;
-    top: 14vh;
+    background: white;
 
-    width: min(38vw, 560px);
-}
+    color: black;
 
-.afterburn-art img {
-    width: 100%;
 }
 
 
 /* =========================================================
-   MANIFESTO
+   CLOSING
    ========================================================= */
 
-.manifesto {
+.closing {
+
     min-height: 100vh;
 
     padding: 8vw;
 
     display: flex;
+
     align-items: center;
+
     justify-content: center;
 
     text-align: center;
 
-    background:
-        radial-gradient(
-            circle at 50% 45%,
-            rgba(255,214,224,.8),
-            transparent 30%
-        ),
-        #dbe5f4;
+    background: #d6c3ac;
+
+    color: #111;
+
 }
 
-.manifesto-inner {
+
+.closing-inner {
+
     max-width: 1050px;
+
 }
 
-.manifesto-label {
-    margin-bottom: 65px;
+
+.closing-label {
+
+    margin-bottom: 60px;
 
     font-size: 8px;
 
-    letter-spacing: .25em;
+    letter-spacing: .3em;
+
+    text-transform: uppercase;
+
 }
 
-.manifesto blockquote {
-    font-family: Georgia, "Times New Roman", serif;
+
+.closing blockquote {
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size: clamp(37px, 5vw, 75px);
+
+    line-height: 1.08;
 
     font-style: italic;
 
-    font-size: clamp(35px,5.5vw,82px);
+    letter-spacing: -.03em;
 
-    line-height: 1.05;
-
-    letter-spacing: -.04em;
 }
 
 
@@ -980,54 +1155,45 @@ body.glitch .bar-two {
    ========================================================= */
 
 footer {
-    min-height: 270px;
 
-    padding: 55px 5vw;
+    min-height: 230px;
 
-    background: #08090b;
+    padding: 50px 5vw;
 
-    color: #eee;
+    background: #080808;
 
     display: flex;
-    align-items: flex-end;
+
     justify-content: space-between;
+
+    align-items: flex-end;
+
 }
+
 
 .footer-logo {
-    font-size: 42px;
 
-    font-weight: 900;
+    font-size: 29px;
 
-    letter-spacing: -.08em;
+    font-weight: 800;
+
+    letter-spacing: .12em;
+
 }
 
-.footer-right {
+
+.footer-info {
+
     text-align: right;
 
-    font-size: 8px;
+    font-size: 7px;
 
     line-height: 2;
 
-    letter-spacing: .18em;
+    letter-spacing: .2em;
 
-    color: #aaa;
-}
+    color: rgba(255,255,255,.55);
 
-
-/* =========================================================
-   GLITCH STATE
-   ========================================================= */
-
-body.glitch .object-one {
-    transform: translateX(10px) rotate(8deg);
-}
-
-body.glitch .object-two {
-    transform: translateX(-12px) rotate(-2deg);
-}
-
-body.glitch .object-three {
-    transform: translateY(8px) rotate(15deg);
 }
 
 
@@ -1037,235 +1203,305 @@ body.glitch .object-three {
 
 @media (max-width: 800px) {
 
-    nav {
-        height: 80px;
 
-        padding: 0 20px;
+    nav {
+
+        padding: 25px 20px;
+
     }
+
 
     .logo {
-        font-size: 20px;
+
+        font-size: 15px;
+
     }
+
 
     .nav-links {
-        gap: 18px;
+
+        gap: 17px;
+
     }
+
 
     .nav-links a {
-        font-size: 8px;
+
+        font-size: 7px;
+
     }
 
+
     .nav-links a:nth-child(2) {
+
         display: none;
+
     }
 
 
     /* HERO */
 
     .hero {
+
         min-height: 100svh;
+
     }
+
+
+    .hero-image {
+
+        inset: 0;
+
+        width: 100%;
+        height: 100%;
+
+    }
+
 
     .hero-title {
-        top: 30%;
 
-        left: -2vw;
+        font-size: 19vw;
+
+        line-height: .87;
+
+        transform: scaleX(.78);
+
     }
 
-    .title-line {
-        font-size: 24vw;
 
-        line-height: .8;
-    }
-
-    .title-distortion {
-        transform: translateX(3vw);
-    }
-
-    .object-one {
-        top: 17%;
-        left: 14%;
-    }
-
-    .object-two {
-        right: 9%;
-
-        height: 160px;
-        width: 35px;
-    }
-
-    .object-three {
-        display: none;
-    }
-
-    .hero-left {
-        left: 20px;
-        bottom: 25px;
+    .hero-kicker {
 
         font-size: 7px;
-    }
 
-    .hero-right {
-        right: 20px;
-        bottom: 25px;
+        letter-spacing: .3em;
 
-        width: 170px;
-
-        font-size: 9px;
-    }
-
-    .scroll {
-        display: none;
     }
 
 
-    /* CONCEPT */
+    .hero-subtitle {
 
-    .concept {
-        padding: 100px 20px;
+        font-size: 8px;
+
+        letter-spacing: .22em;
+
+    }
+
+
+    /* INTRO */
+
+    .intro {
+
+        padding: 100px 25px;
 
         display: block;
+
     }
 
-    .section-id {
-        margin-bottom: 55px;
+
+    .section-number {
+
+        margin-bottom: 60px;
+
     }
 
-    .concept-main h2 {
-        font-size: 13vw;
+
+    .intro h2 {
+
+        font-size: 14vw;
+
     }
 
-    .concept-copy {
+
+    .intro-copy {
+
         margin-left: 0;
+
         margin-top: 45px;
 
         font-size: 15px;
+
     }
 
 
-    /* ARTWORK */
+    /* PHOTO */
 
-    .artwork-section {
-        min-height: 900px;
+    .photo-break {
 
-        padding: 80px 20px;
+        height: 80vh;
+
     }
 
-    .artwork-heading {
-        position: relative;
 
-        left: 0;
-        top: 0;
+    .photo-quote {
 
-        font-size: 20vw;
-    }
+        left: 25px;
+        right: 25px;
 
-    .artwork-wrap {
-        width: 78vw;
-
-        top: 300px;
-        right: 0;
-    }
-
-    .artwork-copy {
-        left: 20px;
         bottom: 70px;
 
-        width: 240px;
+        font-size: 9vw;
 
-        font-size: 12px;
     }
 
-    .image-slice {
+
+    .photo-index {
+
         display: none;
+
     }
 
 
-    /* TRACKS */
+    /* RECORD */
 
-    .tracks {
+    .record {
+
         padding: 100px 20px;
+
     }
 
-    .track-title {
-        font-size: 20vw;
+
+    .record-title {
+
+        font-size: 21vw;
+
     }
+
+
+    .record-grid {
+
+        grid-template-columns: 1fr;
+
+        gap: 60px;
+
+    }
+
+
+    .record-copy p {
+
+        font-size: 15px;
+
+    }
+
+
+    /* TRACKLIST */
+
+    .tracklist {
+
+        margin-top: 100px;
+
+    }
+
 
     .track {
-        grid-template-columns: 40px 1fr;
 
-        min-height: 72px;
+        min-height: 70px;
+
+        grid-template-columns: 38px 1fr;
+
     }
+
+
+    .track-info {
+
+        display: none;
+
+    }
+
 
     .track-name {
-        font-size: 8vw;
-    }
 
-    .track-detail {
-        display: none;
+        font-size: 7vw;
+
     }
 
 
     /* AFTERBURN */
 
-    .afterburn {
-        min-height: 900px;
+    .afterburn-overlay {
 
-        padding: 80px 20px;
+        background:
+            linear-gradient(
+                to bottom,
+                rgba(0,0,0,.2),
+                rgba(0,0,0,.72)
+            );
 
-        align-items: flex-start;
     }
+
+
+    .afterburn-content {
+
+        padding: 80px 25px;
+
+        justify-content: flex-end;
+
+    }
+
 
     .afterburn h2 {
-        font-size: 24vw;
-    }
 
-    .afterburn p {
-        width: 80%;
+        font-size: 22vw;
 
-        font-size: 13px;
-    }
-
-    .afterburn-art {
-        width: 72vw;
-
-        right: 0;
-        top: auto;
-        bottom: 0;
     }
 
 
-    /* MANIFESTO */
+    /* CLOSING */
 
-    .manifesto {
+    .closing {
+
         padding: 100px 25px;
+
     }
 
 
     /* FOOTER */
 
     footer {
-        padding: 45px 20px;
 
         display: block;
+
+        padding: 45px 25px;
+
     }
 
-    .footer-right {
+
+    .footer-info {
+
         margin-top: 60px;
 
         text-align: left;
+
+    }
+
+}
+
+
+/* =========================================================
+   ACCESSIBILITY — REDUCE MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    html {
+        scroll-behavior: auto;
+    }
+
+    .hero-image {
+        transition: none;
+    }
+
+    .explore-arrow {
+        animation: none;
     }
 
 }
 
 </style>
+
 </head>
 
 
 <body>
-
-
-<div class="cursor-light" id="cursorLight"></div>
 
 
 <!-- =====================================================
@@ -1275,199 +1511,237 @@ body.glitch .object-three {
 <section class="hero" id="top">
 
 
+<!--
+UPLOAD YOUR HERO PHOTO AS:
+
+desert-hero.jpg
+-->
+
+<img
+class="hero-image"
+src="desert-hero.jpg"
+alt="Desert landscape">
+
+
+<div class="hero-overlay"></div>
+
+<div class="hero-grain"></div>
+
+
+
+<!-- NAVIGATION -->
+
 <nav>
 
-    <a href="#top" class="logo">
-        XIMERMJ
-    </a>
+
+<a class="logo" href="#top">
+XIMERMJ
+</a>
 
 
-    <div class="nav-links">
+<div class="nav-links">
 
-        <a href="#concept">
-            CONCEPT
-        </a>
+<a href="#concept">
+CONCEPT
+</a>
 
-        <a href="#artwork">
-            ARTWORK
-        </a>
+<a href="#record">
+THE RECORD
+</a>
 
-        <a href="#tracks">
-            TRACKS
-        </a>
+<a href="#afterburn">
+AFTERBURN
+</a>
 
-        <a href="#afterburn">
-            LISTEN
-        </a>
+<a href="#info">
+INFO
+</a>
 
-    </div>
+</div>
+
 
 </nav>
 
 
 
+<!-- HERO TEXT -->
+
+<div class="hero-content">
+
+
+<div class="hero-kicker">
+
+XIMERMJ / EP III
+
+</div>
+
+
+<h1 class="hero-title">
+
+<span>
+DESERT
+</span>
+
+<span>
+DISTORTION
+</span>
+
+</h1>
+
+
+<div class="hero-subtitle">
+
+PALM SPRINGS AFTER THE FANTASY COLLAPSES
+
+<div class="hero-date">
+
+NOVEMBER 2026 / RICHNER RECORDS
+
+</div>
+
+</div>
+
+
+<a class="explore" href="#concept">
+
+EXPLORE
+
+<span class="explore-arrow">
+↓
+</span>
+
+</a>
+
+
+</div>
+
+
+
+<!-- SMALL IMAGE TEARS -->
+
+<div class="image-tear tear-one">
+
+<img
+src="desert-hero.jpg"
+alt="">
+
+</div>
+
+
+<div class="image-tear tear-two">
+
+<img
+src="desert-hero.jpg"
+alt="">
+
+</div>
+
+
+</section>
+
+
+
+<!-- =====================================================
+     INTRO
+     ===================================================== -->
+
+<section class="intro" id="concept">
+
+
+<div class="section-number">
+
+01 / DESERT DISTORTION<br>
+PALM SPRINGS, CALIFORNIA<br>
+2026
+
+</div>
+
+
+
+<div class="intro-main">
+
+
+<div class="intro-location">
+
+33.8303° N / 116.5453° W
+
+</div>
+
+
+<h2>
+
+THE FANTASY WASN'T
+SUPPOSED TO
+
+<span class="light">
+SURVIVE THE HEAT.
+</span>
+
+</h2>
+
+
+<div class="intro-copy">
+
+Mid-century houses, empty pools, palms and desert heat.
+
+<br><br>
+
+DESERT DISTORTION imagines Palm Springs after the
+shine wears off — scorched, abandoned, chemically altered
+and digitally corrupted.
+
+<br><br>
+
+The architecture remains. The color remains.
+Enough of the fantasy survives to understand why
+anyone wanted to stay.
+
+</div>
+
+
+</div>
+
+
+</section>
+
+
+
+<!-- =====================================================
+     PHOTOGRAPHIC BREAK
+     ===================================================== -->
+
+<section class="photo-break">
+
+
 <!--
-     CLEAN TITLE AREA.
-     NOTHING VISUAL SITS ON TOP OF THIS.
+You can use another Palm Springs image here.
+
+Upload it as:
+
+desert-world.jpg
 -->
 
-<div class="hero-title">
-
-    <div
-    class="title-line title-desert"
-    data-text="DESERT">
-
-        DESERT
-
-    </div>
+<img
+src="desert-world.jpg"
+alt="Palm Springs desert landscape">
 
 
-    <div
-    class="title-line title-distortion"
-    data-text="DISTORTION">
+<div class="photo-break-overlay"></div>
 
-        DISTORTION
 
-    </div>
+<div class="photo-quote">
+
+“everything should still be beautiful enough
+that you understand why people stayed.”
 
 </div>
 
 
+<div class="photo-index">
 
-<!-- ABSTRACT GLASS FORMS -->
-
-<div class="glass-object object-one"></div>
-
-<div class="glass-object object-two"></div>
-
-<div class="glass-object object-three"></div>
-
-
-
-<!-- GLITCH STRIPS -->
-
-<div class="glitch-bar bar-one"></div>
-
-<div class="glitch-bar bar-two"></div>
-
-
-
-<div class="hero-left">
-
-    XIMERMJ<br>
-    THIRD EXTENDED PLAY<br>
-    NOVEMBER 2026
-
-</div>
-
-
-<div class="hero-right">
-
-    <span>
-        RICHNER RECORDS / EP III
-    </span>
-
-    Palm Springs after the fantasy collapses.
-    Empty pools, damaged color, desert heat
-    and digital decay.
-
-</div>
-
-
-<div class="scroll">
-    SCROLL ↓
-</div>
-
-
-</section>
-
-
-
-<!-- =====================================================
-     TICKER
-     ===================================================== -->
-
-<div class="ticker">
-
-<div class="ticker-track">
-
-    <span>
-        DESERT DISTORTION / XIMERMJ / 2026
-    </span>
-
-    <span>
-        PALM SPRINGS AFTER THE FANTASY COLLAPSES
-    </span>
-
-    <span>
-        RICHNER RECORDS / THIRD EXTENDED PLAY
-    </span>
-
-    <span>
-        DESERT DISTORTION / XIMERMJ / 2026
-    </span>
-
-    <span>
-        PALM SPRINGS AFTER THE FANTASY COLLAPSES
-    </span>
-
-    <span>
-        RICHNER RECORDS / THIRD EXTENDED PLAY
-    </span>
-
-</div>
-
-</div>
-
-
-
-<!-- =====================================================
-     CONCEPT
-     ===================================================== -->
-
-<section class="concept" id="concept">
-
-
-<div class="section-id">
-
-    01 / THE CONCEPT<br>
-    PALM SPRINGS, CA<br>
-    2026
-
-</div>
-
-
-<div class="concept-main">
-
-    <h2>
-
-        EVERYTHING LOOKED
-
-        <em>
-            PERFECT
-        </em>
-
-        <span class="ghost">
-            UNTIL THE IMAGE STARTED TO FAIL.
-        </span>
-
-    </h2>
-
-
-    <div class="concept-copy">
-
-        Mid-century houses, empty pools, palms and desert heat.
-        DESERT DISTORTION imagines Palm Springs after the shine
-        wears off — scorched, abandoned, chemically altered and
-        digitally corrupted.
-
-        <br><br>
-
-        The architecture remains. The color remains.
-        Enough of the fantasy survives to understand
-        why anyone wanted it in the first place.
-
-    </div>
+DESERT DISTORTION<br>
+VISUAL STUDY 01<br>
+XIMERMJ / 2026
 
 </div>
 
@@ -1477,129 +1751,127 @@ body.glitch .object-three {
 
 
 <!-- =====================================================
-     ARTWORK
+     THE RECORD
      ===================================================== -->
 
-<section class="artwork-section" id="artwork">
+<section class="record" id="record">
 
 
-<h2 class="artwork-heading">
-
-    THE<br>
-    OBJECT
-
-</h2>
+<div class="record-top">
 
 
-<div class="artwork-wrap">
+<div class="record-label">
 
-    <!--
-        Upload your EP cover into the same GitHub folder
-        and name it:
+02 / THE RECORD<br>
+THIRD EXTENDED PLAY
 
-        desert-distortion.jpg
-    -->
-
-    <img
-    src="desert-distortion.jpg"
-    alt="Desert Distortion — XIMERMJ">
+</div>
 
 
-    <div class="artwork-meta">
+<div class="record-label">
 
-        <span>
-            DESERT DISTORTION
-        </span>
+08 TRACKS<br>
+RICHNER RECORDS
 
-        <span>
-            XIMERMJ / 2026
-        </span>
+</div>
 
-    </div>
 
 </div>
 
 
 
-<div class="image-slice">
+<h2 class="record-title">
 
-    <img
-    src="desert-distortion.jpg"
-    alt="">
-
-</div>
-
-
-
-<div class="artwork-copy">
-
-    DESERT DISTORTION<br><br>
-
-    Third extended play by XIMERMJ.<br>
-    Eight tracks.<br>
-    Richner Records.<br>
-    November 2026.
-
-</div>
-
-
-</section>
-
-
-
-<!-- =====================================================
-     TRACKS
-     ===================================================== -->
-
-<section class="tracks" id="tracks">
-
-
-<div class="track-heading">
-
-    <div class="section-id">
-
-        02 / TRACK INDEX<br>
-        08 RECORDINGS
-
-    </div>
-
-
-    <div class="section-id">
-
-        XIMERMJ<br>
-        RICHNER RECORDS
-
-    </div>
-
-</div>
-
-
-
-<h2 class="track-title">
-
-    THE<br>
-    RECORD
+DESERT<br>
+DISTORTION
 
 </h2>
 
 
 
-<div class="track-list">
+<div class="record-grid">
 
 
-<div class="track">
+<div class="cover">
 
-    <div class="track-number">
-        01
-    </div>
 
-    <div class="track-name">
-        HEADWAY
-    </div>
+<!--
+Upload the final EP artwork as:
 
-    <div class="track-detail">
-        XIMERMJ
-    </div>
+desert-distortion.jpg
+-->
+
+<img
+src="desert-distortion.jpg"
+alt="Desert Distortion by XIMERMJ">
+
+
+<div class="cover-meta">
+
+<span>
+DESERT DISTORTION
+</span>
+
+<span>
+XIMERMJ / 2026
+</span>
+
+</div>
+
+
+</div>
+
+
+
+<div class="record-copy">
+
+
+<h3>
+XIMERMJ / EP III
+</h3>
+
+
+<p>
+
+DESERT DISTORTION is the third extended play
+from XIMERMJ.
+
+<br><br>
+
+Built around a distorted interpretation of Palm Springs,
+the record moves through desert heat, damaged architecture,
+inverted color and the remains of mid-century optimism.
+
+<br><br>
+
+Released independently through Richner Records.
+
+</p>
+
+
+</div>
+
+
+</div>
+
+
+
+<!-- =====================================================
+     TRACKLIST
+     ===================================================== -->
+
+<div class="tracklist">
+
+
+<div class="tracklist-header">
+
+<span>
+TRACK INDEX
+</span>
+
+<span>
+08 RECORDINGS
+</span>
 
 </div>
 
@@ -1607,17 +1879,17 @@ body.glitch .object-three {
 
 <div class="track">
 
-    <div class="track-number">
-        02
-    </div>
+<div class="track-number">
+01
+</div>
 
-    <div class="track-name">
-        INVALUABLE
-    </div>
+<div class="track-name">
+HEADWAY
+</div>
 
-    <div class="track-detail">
-        XIMERMJ
-    </div>
+<div class="track-info">
+XIMERMJ
+</div>
 
 </div>
 
@@ -1625,17 +1897,17 @@ body.glitch .object-three {
 
 <div class="track">
 
-    <div class="track-number">
-        03
-    </div>
+<div class="track-number">
+02
+</div>
 
-    <div class="track-name">
-        AFTERBURN
-    </div>
+<div class="track-name">
+INVALUABLE
+</div>
 
-    <div class="track-detail">
-        SINGLE / 02 OCT 2026
-    </div>
+<div class="track-info">
+XIMERMJ
+</div>
 
 </div>
 
@@ -1643,17 +1915,17 @@ body.glitch .object-three {
 
 <div class="track">
 
-    <div class="track-number">
-        04
-    </div>
+<div class="track-number">
+03
+</div>
 
-    <div class="track-name">
-        NO COMMENT
-    </div>
+<div class="track-name">
+AFTERBURN
+</div>
 
-    <div class="track-detail">
-        XIMERMJ
-    </div>
+<div class="track-info">
+SINGLE / OCTOBER 2
+</div>
 
 </div>
 
@@ -1661,17 +1933,17 @@ body.glitch .object-three {
 
 <div class="track">
 
-    <div class="track-number">
-        05
-    </div>
+<div class="track-number">
+04
+</div>
 
-    <div class="track-name">
-        UNTITLED
-    </div>
+<div class="track-name">
+NO COMMENT
+</div>
 
-    <div class="track-detail">
-        DESERT DISTORTION
-    </div>
+<div class="track-info">
+XIMERMJ
+</div>
 
 </div>
 
@@ -1679,17 +1951,17 @@ body.glitch .object-three {
 
 <div class="track">
 
-    <div class="track-number">
-        06
-    </div>
+<div class="track-number">
+05
+</div>
 
-    <div class="track-name">
-        UNTITLED
-    </div>
+<div class="track-name">
+UNTITLED
+</div>
 
-    <div class="track-detail">
-        DESERT DISTORTION
-    </div>
+<div class="track-info">
+DESERT DISTORTION
+</div>
 
 </div>
 
@@ -1697,17 +1969,17 @@ body.glitch .object-three {
 
 <div class="track">
 
-    <div class="track-number">
-        07
-    </div>
+<div class="track-number">
+06
+</div>
 
-    <div class="track-name">
-        UNTITLED
-    </div>
+<div class="track-name">
+UNTITLED
+</div>
 
-    <div class="track-detail">
-        DESERT DISTORTION
-    </div>
+<div class="track-info">
+DESERT DISTORTION
+</div>
 
 </div>
 
@@ -1715,22 +1987,41 @@ body.glitch .object-three {
 
 <div class="track">
 
-    <div class="track-number">
-        08
-    </div>
+<div class="track-number">
+07
+</div>
 
-    <div class="track-name">
-        UNTITLED
-    </div>
+<div class="track-name">
+UNTITLED
+</div>
 
-    <div class="track-detail">
-        DESERT DISTORTION
-    </div>
+<div class="track-info">
+DESERT DISTORTION
+</div>
+
+</div>
+
+
+
+<div class="track">
+
+<div class="track-number">
+08
+</div>
+
+<div class="track-name">
+UNTITLED
+</div>
+
+<div class="track-info">
+DESERT DISTORTION
+</div>
 
 </div>
 
 
 </div>
+
 
 </section>
 
@@ -1743,57 +2034,63 @@ body.glitch .object-three {
 <section class="afterburn" id="afterburn">
 
 
-<div class="afterburn-copy">
+<!--
+Upload an Afterburn visual or artwork as:
+
+afterburn.jpg
+-->
+
+<img
+class="afterburn-bg"
+src="afterburn.jpg"
+alt="Afterburn by XIMERMJ">
 
 
-<div class="afterburn-label">
+<div class="afterburn-overlay"></div>
 
-    FINAL SINGLE /
-    02 OCTOBER 2026
+
+
+<div class="afterburn-content">
+
+
+<div class="afterburn-kicker">
+
+FINAL SINGLE / OCTOBER 2, 2026
 
 </div>
 
 
 <h2>
 
-    AFTER<br>
-    BURN
+AFTER<br>
+BURN
 
 </h2>
 
 
 <p>
 
-    The final single before DESERT DISTORTION.
-    Written, composed and recorded by XIMERMJ.
-    Released through Richner Records.
+The final single before DESERT DISTORTION.
+
+Written, composed and recorded by XIMERMJ.
+Released through Richner Records.
 
 </p>
 
 
-<!-- Replace # with your streaming URL -->
+<!--
+Replace # with the final streaming URL.
+-->
 
-<a href="#" target="_blank">
+<a
+class="listen-button"
+href="#"
+target="_blank">
 
-    LISTEN →
+LISTEN TO AFTERBURN →
 
 </a>
 
-
-</div>
-
-
-
-<!--
-     Upload Afterburn artwork as:
-     afterburn.jpg
--->
-
-<div class="afterburn-art">
-
-    <img
-    src="afterburn.jpg"
-    alt="Afterburn — XIMERMJ">
 
 </div>
 
@@ -1803,29 +2100,29 @@ body.glitch .object-three {
 
 
 <!-- =====================================================
-     MANIFESTO
+     CLOSING
      ===================================================== -->
 
-<section class="manifesto">
+<section class="closing" id="info">
 
 
-<div class="manifesto-inner">
+<div class="closing-inner">
 
 
-<div class="manifesto-label">
+<div class="closing-label">
 
-    DESERT DISTORTION /
-    XIMERMJ /
-    2026
+DESERT DISTORTION /
+XIMERMJ /
+RICHNER RECORDS /
+2026
 
 </div>
 
 
 <blockquote>
 
-    everything should still be beautiful
-    enough that you understand why
-    people stayed.
+everything should still be beautiful enough
+that you understand why people stayed.
 
 </blockquote>
 
@@ -1846,20 +2143,23 @@ body.glitch .object-three {
 
 <div class="footer-logo">
 
-    XIMERMJ
+XIMERMJ
 
 </div>
 
 
-<div class="footer-right">
+<div class="footer-info">
 
-    DESERT DISTORTION / EP III<br>
-    RICHNER RECORDS LLC<br>
-    © 2026<br><br>
+DESERT DISTORTION / EP III<br>
+RICHNER RECORDS LLC<br>
+© 2026<br><br>
 
-    <a href="#top">
-        RETURN TO TOP ↑
-    </a>
+<a href="#top">
+
+RETURN TO THE DESERT ↑
+
+</a>
+
 
 </div>
 
@@ -1871,70 +2171,64 @@ body.glitch .object-three {
 <script>
 
 /* =========================================================
-   CURSOR LIGHT
+   HERO LOAD
    ========================================================= */
 
-const cursor =
-document.getElementById("cursorLight");
+window.addEventListener("load", function () {
 
-document.addEventListener("mousemove", function(e){
-
-    cursor.style.left =
-    e.clientX + "px";
-
-    cursor.style.top =
-    e.clientY + "px";
+    document
+    .querySelector(".hero")
+    .classList.add("loaded");
 
 });
 
 
 /* =========================================================
-   GLITCH
+   SUBTLE RANDOM IMAGE TEAR
 
-   Short + occasional.
-   It should feel like the website malfunctioned,
-   not like a permanent visual effect.
+   Not constant.
+   Very short.
    ========================================================= */
 
-function glitch(){
+function glitch() {
 
     document.body.classList.add("glitch");
 
 
-    setTimeout(function(){
+    setTimeout(function () {
 
         document.body.classList.remove("glitch");
 
-    }, 90);
+    }, 85);
 
 
-    if(Math.random() > .55){
+    if (Math.random() > .65) {
 
-        setTimeout(function(){
+        setTimeout(function () {
 
             document.body.classList.add("glitch");
 
 
-            setTimeout(function(){
+            setTimeout(function () {
 
                 document.body.classList.remove("glitch");
 
-            }, 55);
+            }, 45);
 
-        }, 140);
+        }, 130);
 
     }
 
 }
 
 
-function scheduleGlitch(){
+function scheduleGlitch() {
 
     const delay =
-    3000 + Math.random() * 6000;
+        4500 + Math.random() * 9000;
 
 
-    setTimeout(function(){
+    setTimeout(function () {
 
         glitch();
 
@@ -1948,41 +2242,84 @@ function scheduleGlitch(){
 scheduleGlitch();
 
 
-/* =========================================================
-   GLITCH ON TITLE CLICK
-   ========================================================= */
-
-document
-.querySelector(".hero-title")
-.addEventListener("click", glitch);
-
 
 /* =========================================================
-   VERY LIGHT SCROLL MOVEMENT
+   VERY RARE NEGATIVE FLASH
    ========================================================= */
 
-const objects =
-document.querySelectorAll(".glass-object");
+function negativeFlash() {
+
+    document.body.classList.add("negative");
 
 
-window.addEventListener("scroll", function(){
+    setTimeout(function () {
 
-    const y =
-    window.scrollY;
+        document.body.classList.remove("negative");
 
+    }, 70);
 
-    objects.forEach(function(object, index){
-
-        const speed =
-        (index + 1) * .018;
+}
 
 
-        object.style.translate =
-        "0 " + (y * speed) + "px";
+function scheduleNegative() {
 
-    });
+    const delay =
+        12000 + Math.random() * 18000;
+
+
+    setTimeout(function () {
+
+        negativeFlash();
+
+        scheduleNegative();
+
+    }, delay);
+
+}
+
+
+scheduleNegative();
+
+
+
+/* =========================================================
+   SMALL PARALLAX ON PHOTO SECTION
+   ========================================================= */
+
+const photo =
+document.querySelector(".photo-break img");
+
+
+window.addEventListener("scroll", function () {
+
+
+    if (!photo) return;
+
+
+    const section =
+        document.querySelector(".photo-break");
+
+
+    const rect =
+        section.getBoundingClientRect();
+
+
+    if (
+        rect.bottom > 0 &&
+        rect.top < window.innerHeight
+    ) {
+
+        const movement =
+            rect.top * .035;
+
+
+        photo.style.transform =
+            "translateY(" + movement + "px)";
+
+    }
 
 });
+
 
 </script>
 

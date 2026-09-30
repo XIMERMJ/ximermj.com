@@ -1,1135 +1,1991 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- =====================================================
-       XIMERMJ / AFTERBURN — PRIMARY SEO
-       ===================================================== -->
+<title>DESERT DISTORTION — XIMERMJ</title>
 
-  <title>XIMERMJ — Afterburn | New Single October 2, 2026</title>
+<meta name="description"
+content="Desert Distortion — the third EP from XIMERMJ. Richner Records. November 2026.">
 
-  <meta
-    name="description"
-    content="XIMERMJ releases Afterburn on October 2, 2026 through Richner Records. The experimental electronic single introduces the next era of XIMERMJ ahead of his third EP."
-  >
+<style>
 
-  <meta name="author" content="XIMERMJ">
-  <meta name="robots" content="index, follow">
+/* =========================================================
+   XIMERMJ — DESERT DISTORTION
+   EP III / 2026
+   ========================================================= */
 
-  <link rel="canonical" href="https://ximermj.com/">
+:root {
+    --blue: #dbe5f5;
+    --blue2: #ccd9ed;
+    --pink: #f3dfe5;
+    --white: #f7f8fa;
+    --black: #08090b;
+    --muted: rgba(8,9,11,.55);
+    --line: rgba(8,9,11,.18);
+}
 
-  <!-- =====================================================
-       OPEN GRAPH / FACEBOOK / DISCORD / MESSAGES
-       ===================================================== -->
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-  <meta property="og:type" content="music.song">
-  <meta property="og:site_name" content="XIMERMJ">
+html {
+    scroll-behavior: smooth;
+}
 
-  <meta
-    property="og:title"
-    content="XIMERMJ — Afterburn"
-  >
+body {
+    background: var(--blue);
+    color: var(--black);
+    font-family: Arial, Helvetica, sans-serif;
+    overflow-x: hidden;
+}
 
-  <meta
-    property="og:description"
-    content="Afterburn, the new experimental electronic single from XIMERMJ, arrives October 2, 2026 through Richner Records."
-  >
+a {
+    color: inherit;
+    text-decoration: none;
+}
 
-  <meta property="og:url" content="https://ximermj.com/">
+img {
+    display: block;
+}
 
-  <meta
-    property="og:image"
-    content="https://ximermj.com/afterburn-cover.png"
-  >
-
-  <meta
-    property="og:image:alt"
-    content="Afterburn by XIMERMJ — official single artwork"
-  >
-
-  <meta
-    property="music:musician"
-    content="https://ximermj.com/"
-  >
-
-
-  <!-- =====================================================
-       X / TWITTER SHARING
-       ===================================================== -->
-
-  <meta name="twitter:card" content="summary_large_image">
-
-  <meta
-    name="twitter:title"
-    content="XIMERMJ — Afterburn"
-  >
-
-  <meta
-    name="twitter:description"
-    content="Afterburn, the new experimental electronic single from XIMERMJ, arrives October 2, 2026 through Richner Records."
-  >
-
-  <meta
-    name="twitter:image"
-    content="https://ximermj.com/afterburn-cover.png"
-  >
+::selection {
+    background: #000;
+    color: #fff;
+}
 
 
-  <!-- =====================================================
-       STRUCTURED DATA
-       XIMERMJ / AFTERBURN / JOHN RICHNER / RICHNER RECORDS
-       ===================================================== -->
+/* =========================================================
+   SUBTLE SCREEN TEXTURE
+   ========================================================= */
 
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "MusicRecording",
-    "name": "Afterburn",
-    "alternateName": "Afterburn by XIMERMJ",
-    "url": "https://ximermj.com/",
-    "datePublished": "2026-10-02",
-    "image": "https://ximermj.com/afterburn-cover.png",
-    "genre": [
-      "Electronic",
-      "Experimental Electronic"
-    ],
-    "isrcCode": "QT9XP2655625",
+body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 9999;
 
-    "byArtist": {
-      "@type": "MusicGroup",
-      "name": "XIMERMJ",
-      "url": "https://ximermj.com/",
-      "sameAs": [
-        "https://open.spotify.com/artist/3HF0pRkcW2264iFUOstWv4",
-        "https://music.apple.com/us/artist/ximermj/1701039590",
-        "https://instagram.com/ximermj",
-        "https://www.youtube.com/ximermj",
-        "https://soundcloud.com/ximermj"
-      ]
-    },
-
-    "recordingOf": {
-      "@type": "MusicComposition",
-      "name": "Afterburn",
-      "composer": {
-        "@type": "Person",
-        "name": "John Richner"
-      }
-    },
-
-    "publisher": {
-      "@type": "Organization",
-      "name": "Richner Records LLC"
-    }
-  }
-  </script>
-
-
-  <style>
-
-    :root {
-      --black: #050505;
-      --white: #f2f0ea;
-      --grey: #9b9993;
-      --yellow: #e4bb22;
-      --line: rgba(255,255,255,.15);
-    }
-
-    * {
-      box-sizing: border-box;
-    }
-
-    html {
-      background: var(--black);
-      scroll-behavior: smooth;
-    }
-
-    body {
-      margin: 0;
-      background: var(--black);
-      color: var(--white);
-      font-family: Arial, Helvetica, sans-serif;
-      -webkit-font-smoothing: antialiased;
-      overflow-x: hidden;
-    }
-
-
-    /* =====================================================
-       SUBTLE TEXTURE
-       ===================================================== */
-
-    body::before {
-      content: "";
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-      z-index: 999;
-
-      background-image:
-        linear-gradient(
-          rgba(255,255,255,.014) 1px,
-          transparent 1px
-        ),
-        linear-gradient(
-          90deg,
-          rgba(255,255,255,.014) 1px,
-          transparent 1px
+    background:
+        repeating-linear-gradient(
+            to bottom,
+            transparent 0px,
+            transparent 3px,
+            rgba(255,255,255,.06) 4px
         );
 
-      background-size: 4px 4px;
-      opacity: .3;
+    opacity: .45;
+}
+
+
+/* =========================================================
+   CURSOR LIGHT
+   ========================================================= */
+
+.cursor-light {
+    position: fixed;
+    width: 600px;
+    height: 600px;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 0;
+
+    transform: translate(-50%, -50%);
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(255,224,230,.65) 0%,
+            rgba(255,240,243,.3) 25%,
+            transparent 68%
+        );
+
+    filter: blur(30px);
+}
+
+
+/* =========================================================
+   NAVIGATION
+   ========================================================= */
+
+nav {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 105px;
+
+    padding: 0 5vw;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    z-index: 100;
+}
+
+.logo {
+    font-size: 25px;
+    font-weight: 900;
+    letter-spacing: -.08em;
+}
+
+.nav-links {
+    display: flex;
+    gap: 45px;
+}
+
+.nav-links a {
+    font-size: 11px;
+    text-transform: uppercase;
+    position: relative;
+}
+
+.nav-links a::after {
+    content: "";
+    position: absolute;
+
+    left: 0;
+    bottom: -7px;
+
+    width: 0;
+    height: 1px;
+
+    background: #000;
+
+    transition: width .3s ease;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+
+/* =========================================================
+   HERO
+   ========================================================= */
+
+.hero {
+    position: relative;
+
+    width: 100%;
+    height: 100svh;
+    min-height: 720px;
+
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            circle at 48% 12%,
+            rgba(255,226,231,.82),
+            transparent 20%
+        ),
+
+        radial-gradient(
+            circle at 78% 75%,
+            rgba(255,231,236,.55),
+            transparent 24%
+        ),
+
+        linear-gradient(
+            110deg,
+            #d3e0f3 0%,
+            #e3e7f1 48%,
+            #d4dff0 100%
+        );
+}
+
+
+/* =========================================================
+   HERO TITLE
+   NOTHING OVERLAPS THIS.
+   ========================================================= */
+
+.hero-title {
+    position: absolute;
+
+    top: 27%;
+    left: -1.4vw;
+
+    width: 105vw;
+
+    z-index: 10;
+
+    pointer-events: none;
+}
+
+.title-line {
+    position: relative;
+
+    font-size: clamp(100px, 16vw, 275px);
+    font-weight: 400;
+
+    line-height: .76;
+
+    letter-spacing: -.085em;
+
+    text-transform: uppercase;
+
+    white-space: nowrap;
+}
+
+.title-desert {
+    transform: translateX(0);
+}
+
+.title-distortion {
+    transform: translateX(8vw);
+}
+
+
+/* =========================================================
+   GLITCH COPIES
+
+   These stay BEHIND the actual title.
+   ========================================================= */
+
+.title-line::before,
+.title-line::after {
+    content: attr(data-text);
+
+    position: absolute;
+    inset: 0;
+
+    z-index: -1;
+
+    opacity: 0;
+
+    pointer-events: none;
+}
+
+.title-line::before {
+    color: #78d8ff;
+}
+
+.title-line::after {
+    color: #ff92ae;
+}
+
+body.glitch .title-line::before {
+    opacity: .45;
+
+    transform: translate(-8px, 1px);
+
+    clip-path: polygon(
+        0 18%,
+        100% 18%,
+        100% 32%,
+        0 32%
+    );
+}
+
+body.glitch .title-line::after {
+    opacity: .4;
+
+    transform: translate(8px, -1px);
+
+    clip-path: polygon(
+        0 66%,
+        100% 66%,
+        100% 81%,
+        0 81%
+    );
+}
+
+
+/* =========================================================
+   HERO INFORMATION
+   ========================================================= */
+
+.hero-left {
+    position: absolute;
+
+    left: 5vw;
+    bottom: 5vh;
+
+    z-index: 20;
+
+    font-size: 9px;
+    line-height: 1.8;
+
+    letter-spacing: .18em;
+
+    text-transform: uppercase;
+}
+
+.hero-right {
+    position: absolute;
+
+    right: 5vw;
+    bottom: 5vh;
+
+    width: 250px;
+
+    z-index: 20;
+
+    font-size: 12px;
+    line-height: 1.4;
+}
+
+.hero-right span {
+    display: block;
+
+    margin-bottom: 12px;
+
+    font-size: 8px;
+    letter-spacing: .2em;
+}
+
+
+/* =========================================================
+   ABSTRACT OBJECTS
+   NO ALBUM ART.
+   ========================================================= */
+
+.glass-object {
+    position: absolute;
+    z-index: 5;
+
+    border: 1px solid rgba(255,255,255,.65);
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255,255,255,.42),
+            rgba(255,255,255,.05)
+        );
+
+    box-shadow:
+        inset 0 0 25px rgba(255,255,255,.35),
+        0 20px 50px rgba(70,85,120,.1);
+
+    backdrop-filter: blur(9px);
+
+    transition: .4s ease;
+}
+
+.object-one {
+    width: 35px;
+    height: 160px;
+
+    left: 15%;
+    top: 16%;
+
+    transform: rotate(8deg);
+}
+
+.object-two {
+    width: 55px;
+    height: 250px;
+
+    right: 21%;
+    bottom: 3%;
+
+    transform: rotate(-2deg);
+}
+
+.object-three {
+    width: 75px;
+    height: 75px;
+
+    right: 12%;
+    top: 20%;
+
+    transform: rotate(15deg);
+}
+
+
+/* small interior cubes */
+
+.object-three::before {
+    content: "";
+
+    position: absolute;
+
+    width: 35px;
+    height: 35px;
+
+    left: -20px;
+    top: 25px;
+
+    border: 1px solid rgba(255,255,255,.7);
+
+    background: rgba(255,255,255,.28);
+
+    backdrop-filter: blur(8px);
+}
+
+
+/* =========================================================
+   GLITCH BARS
+   ========================================================= */
+
+.glitch-bar {
+    position: absolute;
+
+    z-index: 15;
+
+    height: 7px;
+
+    background: rgba(255,255,255,.42);
+
+    backdrop-filter: blur(8px);
+
+    opacity: 0;
+
+    pointer-events: none;
+}
+
+.bar-one {
+    top: 42%;
+    left: 0;
+
+    width: 37%;
+}
+
+.bar-two {
+    top: 62%;
+    right: 0;
+
+    width: 48%;
+}
+
+body.glitch .glitch-bar {
+    opacity: 1;
+}
+
+body.glitch .bar-one {
+    transform: translateX(45px);
+}
+
+body.glitch .bar-two {
+    transform: translateX(-70px);
+}
+
+
+/* =========================================================
+   SCROLL INDICATOR
+   ========================================================= */
+
+.scroll {
+    position: absolute;
+
+    left: 50%;
+    bottom: 4vh;
+
+    transform: translateX(-50%);
+
+    font-size: 8px;
+    letter-spacing: .22em;
+
+    z-index: 20;
+}
+
+
+/* =========================================================
+   TICKER
+   ========================================================= */
+
+.ticker {
+    height: 45px;
+
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+
+    background: rgba(255,255,255,.18);
+
+    overflow: hidden;
+
+    display: flex;
+    align-items: center;
+
+    white-space: nowrap;
+}
+
+.ticker-track {
+    display: inline-block;
+
+    animation: ticker 26s linear infinite;
+}
+
+.ticker span {
+    margin-right: 90px;
+
+    font-size: 9px;
+    letter-spacing: .2em;
+
+    text-transform: uppercase;
+}
+
+@keyframes ticker {
+
+    from {
+        transform: translateX(0);
     }
 
-
-    /* =====================================================
-       RELEASE BAR
-       ===================================================== */
-
-    .release-bar {
-      background: var(--yellow);
-      color: #050505;
-      text-align: center;
-      padding: 9px 15px;
-
-      font-size: 9px;
-      font-weight: 900;
-      letter-spacing: 2.5px;
+    to {
+        transform: translateX(-50%);
     }
 
-
-    /* =====================================================
-       PAGE
-       ===================================================== */
-
-    .container {
-      width: min(1400px, calc(100% - 70px));
-      margin: auto;
-    }
+}
 
 
-    /* =====================================================
-       NAVIGATION
-       ===================================================== */
+/* =========================================================
+   CONCEPT
+   ========================================================= */
+
+.concept {
+    position: relative;
+
+    min-height: 100vh;
+
+    padding: 12vw 6vw;
+
+    display: grid;
+
+    grid-template-columns: 1fr 3fr;
+
+    gap: 8vw;
+
+    background:
+        radial-gradient(
+            circle at 80% 45%,
+            rgba(255,217,225,.65),
+            transparent 27%
+        ),
+        #e0e7f2;
+}
+
+.section-id {
+    font-size: 8px;
+    line-height: 1.8;
+
+    letter-spacing: .2em;
+
+    text-transform: uppercase;
+}
+
+.concept-main h2 {
+    max-width: 1200px;
+
+    font-size: clamp(50px, 8vw, 135px);
+
+    font-weight: 400;
+
+    line-height: .9;
+
+    letter-spacing: -.07em;
+}
+
+.concept-main h2 em {
+    font-family: Georgia, "Times New Roman", serif;
+
+    font-weight: 400;
+}
+
+.concept-main h2 .ghost {
+    color: rgba(0,0,0,.23);
+}
+
+.concept-copy {
+    max-width: 620px;
+
+    margin-top: 70px;
+    margin-left: 25%;
+
+    font-size: 17px;
+    line-height: 1.55;
+}
+
+
+/* =========================================================
+   ARTWORK REVEAL
+
+   THIS IS THE FIRST TIME THE EP ARTWORK APPEARS.
+   ========================================================= */
+
+.artwork-section {
+    position: relative;
+
+    min-height: 115vh;
+
+    padding: 8vw 6vw;
+
+    overflow: hidden;
+
+    background:
+        linear-gradient(
+            130deg,
+            #d0dcec,
+            #ebe4eb
+        );
+}
+
+.artwork-heading {
+    position: absolute;
+
+    left: -1vw;
+    top: 8vw;
+
+    z-index: 1;
+
+    font-size: clamp(80px, 14vw, 230px);
+
+    font-weight: 400;
+
+    line-height: .75;
+
+    letter-spacing: -.085em;
+
+    text-transform: uppercase;
+}
+
+.artwork-wrap {
+    position: absolute;
+
+    width: min(48vw, 680px);
+
+    right: 8vw;
+    top: 19vw;
+
+    z-index: 5;
+}
+
+.artwork-wrap img {
+    width: 100%;
+    aspect-ratio: 1;
+
+    object-fit: cover;
+
+    box-shadow:
+        0 35px 100px rgba(35,45,70,.15);
+}
+
+.artwork-meta {
+    margin-top: 12px;
+
+    display: flex;
+    justify-content: space-between;
+
+    font-size: 8px;
+
+    letter-spacing: .18em;
+
+    text-transform: uppercase;
+}
+
+.artwork-copy {
+    position: absolute;
+
+    left: 7vw;
+    bottom: 9vw;
+
+    width: 320px;
+
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+
+/* =========================================================
+   DISTORTED IMAGE STRIP
+   ========================================================= */
+
+.image-slice {
+    position: absolute;
+
+    width: 80px;
+    height: 300px;
+
+    left: 41%;
+    bottom: 6vw;
+
+    z-index: 7;
+
+    overflow: hidden;
+
+    border: 1px solid rgba(255,255,255,.55);
+
+    backdrop-filter: blur(5px);
+}
+
+.image-slice img {
+    width: 500px;
+    height: 500px;
+
+    object-fit: cover;
+
+    transform: translate(-180px,-70px);
+}
+
+
+/* =========================================================
+   TRACKLIST
+   ========================================================= */
+
+.tracks {
+    padding: 11vw 6vw;
+
+    background:
+        radial-gradient(
+            circle at 18% 15%,
+            rgba(255,215,224,.65),
+            transparent 24%
+        ),
+        #e7e8ef;
+}
+
+.track-heading {
+    display: flex;
+    justify-content: space-between;
+
+    margin-bottom: 7vw;
+}
+
+.track-title {
+    font-size: clamp(75px, 13vw, 220px);
+
+    font-weight: 400;
+
+    line-height: .75;
+
+    letter-spacing: -.085em;
+}
+
+.track-list {
+    margin-top: 7vw;
+}
+
+.track {
+    position: relative;
+
+    min-height: 95px;
+
+    display: grid;
+
+    grid-template-columns: 80px 1fr auto;
+
+    align-items: center;
+
+    border-top: 1px solid rgba(0,0,0,.22);
+
+    overflow: hidden;
+}
+
+.track:last-child {
+    border-bottom: 1px solid rgba(0,0,0,.22);
+}
+
+.track::before {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    bottom: 0;
+
+    width: 100%;
+    height: 0;
+
+    background: #08090b;
+
+    transition: height .35s cubic-bezier(.2,.8,.2,1);
+}
+
+.track:hover::before {
+    height: 100%;
+}
+
+.track > * {
+    position: relative;
+
+    z-index: 2;
+
+    transition: color .25s;
+}
+
+.track:hover > * {
+    color: white;
+}
+
+.track-number {
+    font-size: 9px;
+}
+
+.track-name {
+    font-size: clamp(28px,4.2vw,65px);
+
+    letter-spacing: -.055em;
+}
+
+.track-detail {
+    font-size: 8px;
+
+    letter-spacing: .17em;
+
+    text-transform: uppercase;
+}
+
+
+/* =========================================================
+   AFTERBURN
+   ========================================================= */
+
+.afterburn {
+    position: relative;
+
+    min-height: 100vh;
+
+    padding: 7vw;
+
+    overflow: hidden;
+
+    display: flex;
+    align-items: center;
+
+    background:
+        radial-gradient(
+            circle at 75% 40%,
+            rgba(255,220,221,.9),
+            transparent 35%
+        ),
+        #d9e3f1;
+}
+
+.afterburn-copy {
+    position: relative;
+
+    z-index: 10;
+}
+
+.afterburn-label {
+    margin-bottom: 30px;
+
+    font-size: 8px;
+
+    letter-spacing: .2em;
+
+    text-transform: uppercase;
+}
+
+.afterburn h2 {
+    font-size: clamp(90px,16vw,260px);
+
+    font-weight: 400;
+
+    line-height: .69;
+
+    letter-spacing: -.095em;
+}
+
+.afterburn p {
+    width: 370px;
+
+    margin-top: 60px;
+
+    font-size: 15px;
+    line-height: 1.5;
+}
+
+.afterburn a {
+    display: inline-block;
+
+    margin-top: 30px;
+
+    padding: 14px 22px;
+
+    border: 1px solid #000;
+
+    font-size: 8px;
+
+    letter-spacing: .18em;
+
+    transition: .25s;
+}
+
+.afterburn a:hover {
+    background: #000;
+    color: white;
+}
+
+.afterburn-art {
+    position: absolute;
+
+    right: 7vw;
+    top: 14vh;
+
+    width: min(38vw, 560px);
+}
+
+.afterburn-art img {
+    width: 100%;
+}
+
+
+/* =========================================================
+   MANIFESTO
+   ========================================================= */
+
+.manifesto {
+    min-height: 100vh;
+
+    padding: 8vw;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+
+    background:
+        radial-gradient(
+            circle at 50% 45%,
+            rgba(255,214,224,.8),
+            transparent 30%
+        ),
+        #dbe5f4;
+}
+
+.manifesto-inner {
+    max-width: 1050px;
+}
+
+.manifesto-label {
+    margin-bottom: 65px;
+
+    font-size: 8px;
+
+    letter-spacing: .25em;
+}
+
+.manifesto blockquote {
+    font-family: Georgia, "Times New Roman", serif;
+
+    font-style: italic;
+
+    font-size: clamp(35px,5.5vw,82px);
+
+    line-height: 1.05;
+
+    letter-spacing: -.04em;
+}
+
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+footer {
+    min-height: 270px;
+
+    padding: 55px 5vw;
+
+    background: #08090b;
+
+    color: #eee;
+
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+}
+
+.footer-logo {
+    font-size: 42px;
+
+    font-weight: 900;
+
+    letter-spacing: -.08em;
+}
+
+.footer-right {
+    text-align: right;
+
+    font-size: 8px;
+
+    line-height: 2;
+
+    letter-spacing: .18em;
+
+    color: #aaa;
+}
+
+
+/* =========================================================
+   GLITCH STATE
+   ========================================================= */
+
+body.glitch .object-one {
+    transform: translateX(10px) rotate(8deg);
+}
+
+body.glitch .object-two {
+    transform: translateX(-12px) rotate(-2deg);
+}
+
+body.glitch .object-three {
+    transform: translateY(8px) rotate(15deg);
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 800px) {
 
     nav {
-      height: 110px;
+        height: 80px;
 
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-
-      border-bottom: 1px solid var(--line);
+        padding: 0 20px;
     }
 
     .logo {
-      color: white;
-      text-decoration: none;
-
-      font-size: 31px;
-      font-weight: 900;
-
-      letter-spacing: -1.5px;
+        font-size: 20px;
     }
 
     .nav-links {
-      display: flex;
-      gap: 30px;
+        gap: 18px;
     }
 
     .nav-links a {
-      color: #888;
-      text-decoration: none;
-
-      font-size: 9px;
-      font-weight: 800;
-
-      letter-spacing: 1.7px;
+        font-size: 8px;
     }
 
-    .nav-links a:hover {
-      color: white;
+    .nav-links a:nth-child(2) {
+        display: none;
     }
 
 
-    /* =====================================================
-       HERO
-       ===================================================== */
+    /* HERO */
 
     .hero {
-      min-height: 680px;
+        min-height: 100svh;
+    }
 
-      display: grid;
+    .hero-title {
+        top: 30%;
 
-      grid-template-columns:
-        minmax(0, 1fr)
-        minmax(380px, 520px);
+        left: -2vw;
+    }
 
-      gap: clamp(60px, 9vw, 150px);
+    .title-line {
+        font-size: 24vw;
 
-      align-items: center;
+        line-height: .8;
+    }
 
-      padding: 80px 0 100px;
+    .title-distortion {
+        transform: translateX(3vw);
+    }
+
+    .object-one {
+        top: 17%;
+        left: 14%;
+    }
+
+    .object-two {
+        right: 9%;
+
+        height: 160px;
+        width: 35px;
+    }
+
+    .object-three {
+        display: none;
+    }
+
+    .hero-left {
+        left: 20px;
+        bottom: 25px;
+
+        font-size: 7px;
+    }
+
+    .hero-right {
+        right: 20px;
+        bottom: 25px;
+
+        width: 170px;
+
+        font-size: 9px;
+    }
+
+    .scroll {
+        display: none;
     }
 
 
-    /* =====================================================
-       HERO COPY
-       ===================================================== */
+    /* CONCEPT */
 
-    .release-label {
-      color: var(--yellow);
+    .concept {
+        padding: 100px 20px;
 
-      font-size: 10px;
-      font-weight: 900;
-
-      letter-spacing: 2.5px;
-
-      margin-bottom: 27px;
+        display: block;
     }
 
-    h1 {
-      margin: 0;
-
-      font-size: clamp(80px, 9vw, 145px);
-
-      line-height: .78;
-
-      letter-spacing: -7px;
-
-      font-weight: 900;
+    .section-id {
+        margin-bottom: 55px;
     }
 
-    .release-date {
-      margin-top: 38px;
-
-      color: #d0cec8;
-
-      font-size: 11px;
-      font-weight: 800;
-
-      letter-spacing: 3px;
+    .concept-main h2 {
+        font-size: 13vw;
     }
 
-    .description {
-      max-width: 620px;
+    .concept-copy {
+        margin-left: 0;
+        margin-top: 45px;
 
-      margin-top: 29px;
-
-      color: #d5d3cd;
-
-      font-size: clamp(18px, 1.5vw, 22px);
-
-      line-height: 1.5;
+        font-size: 15px;
     }
 
 
-    /* =====================================================
-       BUTTONS
-       ===================================================== */
+    /* ARTWORK */
 
-    .actions {
-      margin-top: 35px;
+    .artwork-section {
+        min-height: 900px;
 
-      display: flex;
-      align-items: center;
-
-      gap: 25px;
-
-      flex-wrap: wrap;
+        padding: 80px 20px;
     }
 
-    .button {
-      display: inline-block;
+    .artwork-heading {
+        position: relative;
 
-      padding: 18px 25px;
+        left: 0;
+        top: 0;
 
-      background: var(--yellow);
-      color: #050505;
-
-      text-decoration: none;
-
-      font-size: 10px;
-      font-weight: 900;
-
-      letter-spacing: 1px;
+        font-size: 20vw;
     }
 
-    .button:hover {
-      background: #f3cb32;
+    .artwork-wrap {
+        width: 78vw;
+
+        top: 300px;
+        right: 0;
     }
 
-    .spotify {
-      color: #999;
+    .artwork-copy {
+        left: 20px;
+        bottom: 70px;
 
-      text-decoration: none;
+        width: 240px;
 
-      font-size: 10px;
-      font-weight: 700;
-
-      letter-spacing: .8px;
-
-      border-bottom: 1px solid #444;
-
-      padding-bottom: 7px;
+        font-size: 12px;
     }
 
-    .spotify:hover {
-      color: white;
+    .image-slice {
+        display: none;
     }
 
 
-    /* =====================================================
-       ARTWORK
-       ===================================================== */
+    /* TRACKS */
 
-    .artwork-area {
-      width: 100%;
+    .tracks {
+        padding: 100px 20px;
     }
 
-    .artwork-top {
-      display: flex;
-      justify-content: space-between;
-
-      margin-bottom: 11px;
-
-      color: #777;
-
-      font-size: 8px;
-      font-weight: 700;
-
-      letter-spacing: 1.7px;
+    .track-title {
+        font-size: 20vw;
     }
 
-    /*
-      Artwork is displayed directly.
-      No filters.
-      No blur.
-      No fake overlay.
-    */
+    .track {
+        grid-template-columns: 40px 1fr;
 
-    .artwork-frame {
-      width: 100%;
-
-      padding: 7px;
-
-      background: #090909;
-
-      border: 1px solid rgba(255,255,255,.25);
+        min-height: 72px;
     }
 
-    .artwork-frame img {
-      display: block;
-
-      width: 100%;
-      height: auto;
-
-      object-fit: contain;
-
-      image-rendering: auto;
+    .track-name {
+        font-size: 8vw;
     }
 
-    .artwork-caption {
-      margin-top: 12px;
-
-      color: #666;
-
-      font-size: 8px;
-      font-weight: 700;
-
-      letter-spacing: 1.5px;
+    .track-detail {
+        display: none;
     }
 
 
-    /* =====================================================
-       STORY
-       ===================================================== */
+    /* AFTERBURN */
 
-    .story {
-      padding: 110px 0;
+    .afterburn {
+        min-height: 900px;
 
-      border-top: 1px solid var(--line);
+        padding: 80px 20px;
 
-      display: grid;
-
-      grid-template-columns: .65fr 1fr;
-
-      gap: 100px;
+        align-items: flex-start;
     }
 
-    .section-label {
-      color: var(--yellow);
-
-      font-size: 9px;
-      font-weight: 900;
-
-      letter-spacing: 2px;
-
-      margin-bottom: 18px;
+    .afterburn h2 {
+        font-size: 24vw;
     }
 
-    .story h2 {
-      margin: 0;
+    .afterburn p {
+        width: 80%;
 
-      font-size: clamp(50px, 5vw, 78px);
-
-      line-height: .9;
-
-      letter-spacing: -4px;
+        font-size: 13px;
     }
 
-    .story-copy {
-      max-width: 700px;
-    }
+    .afterburn-art {
+        width: 72vw;
 
-    .story-copy p {
-      margin: 0 0 26px;
-
-      color: #bbb9b4;
-
-      font-size: 18px;
-
-      line-height: 1.75;
-    }
-
-    .story-copy strong {
-      color: white;
+        right: 0;
+        top: auto;
+        bottom: 0;
     }
 
 
-    /* =====================================================
-       STATEMENT
-       ===================================================== */
+    /* MANIFESTO */
 
-    .statement {
-      padding: 120px 0;
-
-      border-top: 1px solid var(--line);
-      border-bottom: 1px solid var(--line);
-    }
-
-    .statement p {
-      margin: 0;
-
-      max-width: 1200px;
-
-      font-size: clamp(40px, 5.5vw, 80px);
-
-      line-height: 1.03;
-
-      letter-spacing: -3px;
-
-      font-weight: 800;
-    }
-
-    .statement .dim {
-      color: #494945;
+    .manifesto {
+        padding: 100px 25px;
     }
 
 
-    /* =====================================================
-       DETAILS
-       ===================================================== */
-
-    .details {
-      display: grid;
-
-      grid-template-columns: repeat(4, 1fr);
-
-      padding: 80px 0;
-
-      border-bottom: 1px solid var(--line);
-    }
-
-    .detail {
-      padding: 0 28px;
-
-      border-right: 1px solid var(--line);
-    }
-
-    .detail:first-child {
-      padding-left: 0;
-    }
-
-    .detail:last-child {
-      border: 0;
-    }
-
-    .detail-label {
-      margin-bottom: 14px;
-
-      color: #5e5e5a;
-
-      font-size: 8px;
-
-      letter-spacing: 2px;
-    }
-
-    .detail-value {
-      color: #dedcd6;
-
-      font-size: 12px;
-      font-weight: 800;
-
-      line-height: 1.5;
-    }
-
-
-    /* =====================================================
-       FOOTER
-       ===================================================== */
+    /* FOOTER */
 
     footer {
-      min-height: 150px;
+        padding: 45px 20px;
 
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-
-      gap: 30px;
+        display: block;
     }
 
-    .copyright {
-      color: #5f5f5b;
+    .footer-right {
+        margin-top: 60px;
 
-      font-size: 8px;
-
-      letter-spacing: 1.4px;
+        text-align: left;
     }
 
-    .socials {
-      display: flex;
+}
 
-      gap: 25px;
-
-      flex-wrap: wrap;
-    }
-
-    .socials a {
-      color: #888;
-
-      text-decoration: none;
-
-      font-size: 8px;
-      font-weight: 800;
-
-      letter-spacing: 1.5px;
-    }
-
-    .socials a:hover {
-      color: white;
-    }
-
-
-    /* =====================================================
-       MOBILE
-       ===================================================== */
-
-    @media (max-width: 900px) {
-
-      .container {
-        width: calc(100% - 36px);
-      }
-
-      nav {
-        height: 90px;
-      }
-
-      .logo {
-        font-size: 27px;
-      }
-
-      .nav-links a:not(:last-child) {
-        display: none;
-      }
-
-      .hero {
-        display: flex;
-        flex-direction: column;
-
-        gap: 50px;
-
-        min-height: auto;
-
-        padding: 55px 0 75px;
-      }
-
-      .hero-copy,
-      .artwork-area {
-        width: 100%;
-      }
-
-      h1 {
-        font-size: clamp(68px, 20vw, 105px);
-
-        letter-spacing: -4px;
-      }
-
-      .description {
-        font-size: 18px;
-      }
-
-      .artwork-frame {
-        max-width: 650px;
-        margin: auto;
-      }
-
-      .artwork-caption,
-      .artwork-top {
-        max-width: 650px;
-        margin-left: auto;
-        margin-right: auto;
-      }
-
-      .artwork-caption {
-        margin-top: 12px;
-      }
-
-      .story {
-        grid-template-columns: 1fr;
-
-        gap: 45px;
-
-        padding: 80px 0;
-      }
-
-      .story-copy p {
-        font-size: 16px;
-      }
-
-      .statement {
-        padding: 85px 0;
-      }
-
-      .statement p {
-        font-size: 40px;
-      }
-
-      .details {
-        grid-template-columns: 1fr 1fr;
-
-        padding: 50px 0;
-      }
-
-      .detail {
-        padding: 25px 20px;
-
-        border-bottom: 1px solid var(--line);
-      }
-
-      .detail:first-child {
-        padding-left: 20px;
-      }
-
-      .detail:nth-child(2) {
-        border-right: 0;
-      }
-
-      .detail:nth-child(3),
-      .detail:nth-child(4) {
-        border-bottom: 0;
-      }
-
-      footer {
-        padding: 40px 0;
-
-        flex-direction: column;
-        align-items: flex-start;
-      }
-
-    }
-
-
-    @media (max-width: 520px) {
-
-      .container {
-        width: calc(100% - 28px);
-      }
-
-      .release-bar {
-        font-size: 7px;
-
-        letter-spacing: 1.5px;
-      }
-
-      h1 {
-        font-size: 19vw;
-
-        letter-spacing: -3px;
-      }
-
-      .artwork-frame {
-        padding: 5px;
-      }
-
-      .statement p {
-        font-size: 34px;
-      }
-
-      .details {
-        grid-template-columns: 1fr;
-      }
-
-      .detail,
-      .detail:first-child {
-        padding: 22px 0;
-
-        border-right: 0;
-        border-bottom: 1px solid var(--line);
-      }
-
-      .detail:nth-child(3) {
-        border-bottom: 1px solid var(--line);
-      }
-
-      .detail:last-child {
-        border-bottom: 0;
-      }
-
-    }
-
-  </style>
-
+</style>
 </head>
 
 
 <body>
 
 
-  <!-- =====================================================
-       RELEASE BAR
-       ===================================================== -->
-
-  <div class="release-bar">
-    XIMERMJ / AFTERBURN / OCTOBER 2, 2026
-  </div>
+<div class="cursor-light" id="cursorLight"></div>
 
 
-  <div class="container">
+<!-- =====================================================
+     HERO
+     ===================================================== -->
+
+<section class="hero" id="top">
 
 
-    <!-- ===================================================
-         NAVIGATION
-         =================================================== -->
+<nav>
 
-    <nav>
-
-      <a href="#afterburn" class="logo">
+    <a href="#top" class="logo">
         XIMERMJ
-      </a>
+    </a>
 
-      <div class="nav-links">
+
+    <div class="nav-links">
+
+        <a href="#concept">
+            CONCEPT
+        </a>
+
+        <a href="#artwork">
+            ARTWORK
+        </a>
+
+        <a href="#tracks">
+            TRACKS
+        </a>
 
         <a href="#afterburn">
-          AFTERBURN
+            LISTEN
         </a>
 
-        <a href="#world">
-          THE WORLD
-        </a>
+    </div>
 
-        <a href="#listen">
-          LISTEN
-        </a>
-
-      </div>
-
-    </nav>
+</nav>
 
 
-    <!-- ===================================================
-         HERO / AFTERBURN
-         =================================================== -->
 
-    <main class="hero" id="afterburn">
+<!--
+     CLEAN TITLE AREA.
+     NOTHING VISUAL SITS ON TOP OF THIS.
+-->
 
+<div class="hero-title">
 
-      <section class="hero-copy">
+    <div
+    class="title-line title-desert"
+    data-text="DESERT">
 
-        <div class="release-label">
-          NEW SINGLE / XIMERMJ / RICHNER RECORDS
-        </div>
+        DESERT
 
-        <h1>
-          AFTER<br>BURN
-        </h1>
-
-        <div class="release-date">
-          02 OCTOBER 2026
-        </div>
-
-        <p class="description">
-          “Afterburn” is the new experimental electronic single
-          from XIMERMJ, arriving October 2, 2026 through Richner Records.
-          Palm Springs modernism after the shine wears off.
-        </p>
+    </div>
 
 
-        <div class="actions">
+    <div
+    class="title-line title-distortion"
+    data-text="DISTORTION">
 
-          <a
-            href="https://distrokid.com/hyperfollow/ximermj/afterburn"
-            class="button"
-            target="_blank"
-            rel="noopener"
-          >
-            PRE-SAVE AFTERBURN
-          </a>
+        DISTORTION
 
-          <a
-            href="https://open.spotify.com/artist/3HF0pRkcW2264iFUOstWv4"
-            class="spotify"
-            target="_blank"
-            rel="noopener"
-          >
-            FOLLOW XIMERMJ ON SPOTIFY →
-          </a>
+    </div>
 
-        </div>
-
-      </section>
+</div>
 
 
-      <!-- =================================================
-           OFFICIAL AFTERBURN ARTWORK
-           ================================================= -->
 
-      <section class="artwork-area">
+<!-- ABSTRACT GLASS FORMS -->
 
-        <div class="artwork-top">
+<div class="glass-object object-one"></div>
 
-          <span>
-            OFFICIAL ARTWORK
-          </span>
+<div class="glass-object object-two"></div>
 
-          <span>
-            2026
-          </span>
-
-        </div>
+<div class="glass-object object-three"></div>
 
 
-        <div class="artwork-frame">
 
-          <img
-            src="afterburn-cover.png"
-            alt="Afterburn by XIMERMJ — official single artwork"
-            title="XIMERMJ — Afterburn"
-          >
+<!-- GLITCH STRIPS -->
 
-        </div>
+<div class="glitch-bar bar-one"></div>
+
+<div class="glitch-bar bar-two"></div>
 
 
-        <div class="artwork-caption">
-          AFTERBURN / XIMERMJ / RICHNER RECORDS
-        </div>
 
-      </section>
+<div class="hero-left">
 
+    XIMERMJ<br>
+    THIRD EXTENDED PLAY<br>
+    NOVEMBER 2026
 
-    </main>
-
-
-    <!-- ===================================================
-         THE WORLD OF AFTERBURN
-         =================================================== -->
-
-    <section class="story" id="world">
+</div>
 
 
-      <div>
+<div class="hero-right">
 
-        <div class="section-label">
-          01 / THE WORLD OF AFTERBURN
-        </div>
+    <span>
+        RICHNER RECORDS / EP III
+    </span>
 
-        <h2>
-          AFTER<br>
-          THE<br>
-          SHINE.
-        </h2>
+    Palm Springs after the fantasy collapses.
+    Empty pools, damaged color, desert heat
+    and digital decay.
 
-      </div>
+</div>
 
 
-      <div class="story-copy">
-
-        <p>
-          <strong>“Afterburn”</strong> begins a new
-          <strong>XIMERMJ</strong> era built around Palm Springs
-          modernism after the shine wears off — empty pools,
-          desert heat, mid-century architecture,
-          damaged color and digital decay.
-        </p>
-
-        <p>
-          The polished desert fantasy is dismantled.
-          Familiar architecture is inverted and distorted,
-          turning Palm Springs into something scorched,
-          artificial and slightly unreal.
-        </p>
-
-        <p>
-          The music follows the same idea:
-          tense experimental electronic production,
-          warped textures and a darker visual language
-          leading into XIMERMJ's third EP.
-        </p>
-
-      </div>
+<div class="scroll">
+    SCROLL ↓
+</div>
 
 
-    </section>
+</section>
 
 
-    <!-- ===================================================
-         EP III STATEMENT
-         =================================================== -->
 
-    <section class="statement">
+<!-- =====================================================
+     TICKER
+     ===================================================== -->
 
-      <div class="section-label">
-        XIMERMJ / EP III / 2026
-      </div>
+<div class="ticker">
 
-      <p>
-        MID-CENTURY HOUSES.<br>
-        EMPTY POOLS.<br>
-        PALMS AND DESERT HEAT.<br>
+<div class="ticker-track">
 
-        <span class="dim">
-          THE FANTASY COLLAPSES.
+    <span>
+        DESERT DISTORTION / XIMERMJ / 2026
+    </span>
+
+    <span>
+        PALM SPRINGS AFTER THE FANTASY COLLAPSES
+    </span>
+
+    <span>
+        RICHNER RECORDS / THIRD EXTENDED PLAY
+    </span>
+
+    <span>
+        DESERT DISTORTION / XIMERMJ / 2026
+    </span>
+
+    <span>
+        PALM SPRINGS AFTER THE FANTASY COLLAPSES
+    </span>
+
+    <span>
+        RICHNER RECORDS / THIRD EXTENDED PLAY
+    </span>
+
+</div>
+
+</div>
+
+
+
+<!-- =====================================================
+     CONCEPT
+     ===================================================== -->
+
+<section class="concept" id="concept">
+
+
+<div class="section-id">
+
+    01 / THE CONCEPT<br>
+    PALM SPRINGS, CA<br>
+    2026
+
+</div>
+
+
+<div class="concept-main">
+
+    <h2>
+
+        EVERYTHING LOOKED
+
+        <em>
+            PERFECT
+        </em>
+
+        <span class="ghost">
+            UNTIL THE IMAGE STARTED TO FAIL.
         </span>
-      </p>
 
-    </section>
-
-
-    <!-- ===================================================
-         RELEASE INFORMATION
-         =================================================== -->
-
-    <section class="details" id="listen">
+    </h2>
 
 
-      <div class="detail">
+    <div class="concept-copy">
 
-        <div class="detail-label">
-          ARTIST
-        </div>
+        Mid-century houses, empty pools, palms and desert heat.
+        DESERT DISTORTION imagines Palm Springs after the shine
+        wears off — scorched, abandoned, chemically altered and
+        digitally corrupted.
 
-        <div class="detail-value">
-          XIMERMJ
-        </div>
+        <br><br>
 
-      </div>
+        The architecture remains. The color remains.
+        Enough of the fantasy survives to understand
+        why anyone wanted it in the first place.
 
+    </div>
 
-      <div class="detail">
-
-        <div class="detail-label">
-          SINGLE
-        </div>
-
-        <div class="detail-value">
-          AFTERBURN
-        </div>
-
-      </div>
+</div>
 
 
-      <div class="detail">
-
-        <div class="detail-label">
-          RELEASE
-        </div>
-
-        <div class="detail-value">
-          OCTOBER 2, 2026
-        </div>
-
-      </div>
+</section>
 
 
-      <div class="detail">
 
-        <div class="detail-label">
-          LABEL
-        </div>
+<!-- =====================================================
+     ARTWORK
+     ===================================================== -->
 
-        <div class="detail-value">
-          RICHNER RECORDS LLC
-        </div>
-
-      </div>
+<section class="artwork-section" id="artwork">
 
 
-    </section>
+<h2 class="artwork-heading">
+
+    THE<br>
+    OBJECT
+
+</h2>
 
 
-    <!-- ===================================================
-         FOOTER
-         =================================================== -->
+<div class="artwork-wrap">
 
-    <footer>
+    <!--
+        Upload your EP cover into the same GitHub folder
+        and name it:
 
-      <div class="copyright">
-        © 2026 XIMERMJ / RICHNER RECORDS LLC
-      </div>
+        desert-distortion.jpg
+    -->
 
-
-      <div class="socials">
-
-        <a
-          href="https://open.spotify.com/artist/3HF0pRkcW2264iFUOstWv4"
-          target="_blank"
-          rel="noopener"
-        >
-          SPOTIFY
-        </a>
-
-        <a
-          href="https://music.apple.com/us/artist/ximermj/1701039590"
-          target="_blank"
-          rel="noopener"
-        >
-          APPLE MUSIC
-        </a>
-
-        <a
-          href="https://instagram.com/ximermj"
-          target="_blank"
-          rel="noopener"
-        >
-          INSTAGRAM
-        </a>
-
-        <a
-          href="https://www.youtube.com/ximermj"
-          target="_blank"
-          rel="noopener"
-        >
-          YOUTUBE
-        </a>
-
-        <a
-          href="https://soundcloud.com/ximermj"
-          target="_blank"
-          rel="noopener"
-        >
-          SOUNDCLOUD
-        </a>
-
-      </div>
-
-    </footer>
+    <img
+    src="desert-distortion.jpg"
+    alt="Desert Distortion — XIMERMJ">
 
 
-  </div>
+    <div class="artwork-meta">
+
+        <span>
+            DESERT DISTORTION
+        </span>
+
+        <span>
+            XIMERMJ / 2026
+        </span>
+
+    </div>
+
+</div>
+
+
+
+<div class="image-slice">
+
+    <img
+    src="desert-distortion.jpg"
+    alt="">
+
+</div>
+
+
+
+<div class="artwork-copy">
+
+    DESERT DISTORTION<br><br>
+
+    Third extended play by XIMERMJ.<br>
+    Eight tracks.<br>
+    Richner Records.<br>
+    November 2026.
+
+</div>
+
+
+</section>
+
+
+
+<!-- =====================================================
+     TRACKS
+     ===================================================== -->
+
+<section class="tracks" id="tracks">
+
+
+<div class="track-heading">
+
+    <div class="section-id">
+
+        02 / TRACK INDEX<br>
+        08 RECORDINGS
+
+    </div>
+
+
+    <div class="section-id">
+
+        XIMERMJ<br>
+        RICHNER RECORDS
+
+    </div>
+
+</div>
+
+
+
+<h2 class="track-title">
+
+    THE<br>
+    RECORD
+
+</h2>
+
+
+
+<div class="track-list">
+
+
+<div class="track">
+
+    <div class="track-number">
+        01
+    </div>
+
+    <div class="track-name">
+        HEADWAY
+    </div>
+
+    <div class="track-detail">
+        XIMERMJ
+    </div>
+
+</div>
+
+
+
+<div class="track">
+
+    <div class="track-number">
+        02
+    </div>
+
+    <div class="track-name">
+        INVALUABLE
+    </div>
+
+    <div class="track-detail">
+        XIMERMJ
+    </div>
+
+</div>
+
+
+
+<div class="track">
+
+    <div class="track-number">
+        03
+    </div>
+
+    <div class="track-name">
+        AFTERBURN
+    </div>
+
+    <div class="track-detail">
+        SINGLE / 02 OCT 2026
+    </div>
+
+</div>
+
+
+
+<div class="track">
+
+    <div class="track-number">
+        04
+    </div>
+
+    <div class="track-name">
+        NO COMMENT
+    </div>
+
+    <div class="track-detail">
+        XIMERMJ
+    </div>
+
+</div>
+
+
+
+<div class="track">
+
+    <div class="track-number">
+        05
+    </div>
+
+    <div class="track-name">
+        UNTITLED
+    </div>
+
+    <div class="track-detail">
+        DESERT DISTORTION
+    </div>
+
+</div>
+
+
+
+<div class="track">
+
+    <div class="track-number">
+        06
+    </div>
+
+    <div class="track-name">
+        UNTITLED
+    </div>
+
+    <div class="track-detail">
+        DESERT DISTORTION
+    </div>
+
+</div>
+
+
+
+<div class="track">
+
+    <div class="track-number">
+        07
+    </div>
+
+    <div class="track-name">
+        UNTITLED
+    </div>
+
+    <div class="track-detail">
+        DESERT DISTORTION
+    </div>
+
+</div>
+
+
+
+<div class="track">
+
+    <div class="track-number">
+        08
+    </div>
+
+    <div class="track-name">
+        UNTITLED
+    </div>
+
+    <div class="track-detail">
+        DESERT DISTORTION
+    </div>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+
+<!-- =====================================================
+     AFTERBURN
+     ===================================================== -->
+
+<section class="afterburn" id="afterburn">
+
+
+<div class="afterburn-copy">
+
+
+<div class="afterburn-label">
+
+    FINAL SINGLE /
+    02 OCTOBER 2026
+
+</div>
+
+
+<h2>
+
+    AFTER<br>
+    BURN
+
+</h2>
+
+
+<p>
+
+    The final single before DESERT DISTORTION.
+    Written, composed and recorded by XIMERMJ.
+    Released through Richner Records.
+
+</p>
+
+
+<!-- Replace # with your streaming URL -->
+
+<a href="#" target="_blank">
+
+    LISTEN →
+
+</a>
+
+
+</div>
+
+
+
+<!--
+     Upload Afterburn artwork as:
+     afterburn.jpg
+-->
+
+<div class="afterburn-art">
+
+    <img
+    src="afterburn.jpg"
+    alt="Afterburn — XIMERMJ">
+
+</div>
+
+
+</section>
+
+
+
+<!-- =====================================================
+     MANIFESTO
+     ===================================================== -->
+
+<section class="manifesto">
+
+
+<div class="manifesto-inner">
+
+
+<div class="manifesto-label">
+
+    DESERT DISTORTION /
+    XIMERMJ /
+    2026
+
+</div>
+
+
+<blockquote>
+
+    everything should still be beautiful
+    enough that you understand why
+    people stayed.
+
+</blockquote>
+
+
+</div>
+
+
+</section>
+
+
+
+<!-- =====================================================
+     FOOTER
+     ===================================================== -->
+
+<footer>
+
+
+<div class="footer-logo">
+
+    XIMERMJ
+
+</div>
+
+
+<div class="footer-right">
+
+    DESERT DISTORTION / EP III<br>
+    RICHNER RECORDS LLC<br>
+    © 2026<br><br>
+
+    <a href="#top">
+        RETURN TO TOP ↑
+    </a>
+
+</div>
+
+
+</footer>
+
+
+
+<script>
+
+/* =========================================================
+   CURSOR LIGHT
+   ========================================================= */
+
+const cursor =
+document.getElementById("cursorLight");
+
+document.addEventListener("mousemove", function(e){
+
+    cursor.style.left =
+    e.clientX + "px";
+
+    cursor.style.top =
+    e.clientY + "px";
+
+});
+
+
+/* =========================================================
+   GLITCH
+
+   Short + occasional.
+   It should feel like the website malfunctioned,
+   not like a permanent visual effect.
+   ========================================================= */
+
+function glitch(){
+
+    document.body.classList.add("glitch");
+
+
+    setTimeout(function(){
+
+        document.body.classList.remove("glitch");
+
+    }, 90);
+
+
+    if(Math.random() > .55){
+
+        setTimeout(function(){
+
+            document.body.classList.add("glitch");
+
+
+            setTimeout(function(){
+
+                document.body.classList.remove("glitch");
+
+            }, 55);
+
+        }, 140);
+
+    }
+
+}
+
+
+function scheduleGlitch(){
+
+    const delay =
+    3000 + Math.random() * 6000;
+
+
+    setTimeout(function(){
+
+        glitch();
+
+        scheduleGlitch();
+
+    }, delay);
+
+}
+
+
+scheduleGlitch();
+
+
+/* =========================================================
+   GLITCH ON TITLE CLICK
+   ========================================================= */
+
+document
+.querySelector(".hero-title")
+.addEventListener("click", glitch);
+
+
+/* =========================================================
+   VERY LIGHT SCROLL MOVEMENT
+   ========================================================= */
+
+const objects =
+document.querySelectorAll(".glass-object");
+
+
+window.addEventListener("scroll", function(){
+
+    const y =
+    window.scrollY;
+
+
+    objects.forEach(function(object, index){
+
+        const speed =
+        (index + 1) * .018;
+
+
+        object.style.translate =
+        "0 " + (y * speed) + "px";
+
+    });
+
+});
+
+</script>
 
 
 </body>
-
 </html>

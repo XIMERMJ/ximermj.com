@@ -1,12 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+
+  <title>XIMERMJ — AFTERBURN</title>
+  <meta name="description" content="XIMERMJ — AFTERBURN. Listen now on Apple Music and Spotify." />
+
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
-
-    :root {
-      --safe-top: env(safe-area-inset-top, 0px);
-      --safe-right: env(safe-area-inset-right, 0px);
-      --safe-bottom: env(safe-area-inset-bottom, 0px);
-      --safe-left: env(safe-area-inset-left, 0px);
-    }
 
     * {
       box-sizing: border-box;
@@ -26,13 +28,16 @@
       overflow-x: hidden;
       background: #050505;
       color: #f5f5f5;
-      font-family: Inter, sans-serif;
+      font-family: 'Inter', sans-serif;
     }
+
+    /* BACKGROUND */
 
     .background {
       position: fixed;
-      z-index: -3;
       inset: 0;
+      z-index: -3;
+
       background:
         radial-gradient(
           ellipse 90% 55% at 50% 42%,
@@ -40,19 +45,21 @@
           rgba(255, 255, 255, 0.035) 38%,
           transparent 72%
         ),
-        linear-gradient(135deg, #171717 0%, #090909 48%, #020202 100%);
-    }
-
-    .background::before,
-    .background::after {
-      position: absolute;
-      content: "";
-      pointer-events: none;
+        linear-gradient(
+          135deg,
+          #171717 0%,
+          #090909 48%,
+          #020202 100%
+        );
     }
 
     .background::before {
+      content: "";
+      position: absolute;
       inset: 0;
+      pointer-events: none;
       opacity: 0.55;
+
       background:
         linear-gradient(
           115deg,
@@ -60,18 +67,26 @@
           rgba(255, 255, 255, 0.035) 45%,
           transparent 58%
         );
+
       transform: translateX(-20%);
       animation: light-sweep 12s ease-in-out infinite alternate;
     }
 
     .background::after {
+      content: "";
+      position: absolute;
+
       width: 70vw;
       height: 70vw;
+
       top: 12%;
       left: 50%;
+
       border: 1px solid rgba(255, 255, 255, 0.06);
       border-radius: 50%;
+
       transform: translateX(-50%);
+
       box-shadow:
         0 0 0 8vw rgba(255, 255, 255, 0.012),
         0 0 0 16vw rgba(255, 255, 255, 0.008);
@@ -81,75 +96,111 @@
       from {
         transform: translateX(-25%);
       }
+
       to {
         transform: translateX(25%);
       }
     }
 
+    /* GRAIN */
+
     .grain {
       position: fixed;
-      z-index: -1;
       inset: -50%;
+      z-index: -1;
+
       pointer-events: none;
       opacity: 0.07;
+
       background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.7'/%3E%3C/svg%3E");
+
       animation: grain 0.25s steps(2) infinite;
     }
 
     @keyframes grain {
-      0% { transform: translate(0, 0); }
-      25% { transform: translate(2%, -1%); }
-      50% { transform: translate(-1%, 2%); }
-      75% { transform: translate(1%, 1%); }
-      100% { transform: translate(0, 0); }
+      0% {
+        transform: translate(0, 0);
+      }
+
+      25% {
+        transform: translate(2%, -1%);
+      }
+
+      50% {
+        transform: translate(-1%, 2%);
+      }
+
+      75% {
+        transform: translate(1%, 1%);
+      }
+
+      100% {
+        transform: translate(0, 0);
+      }
     }
+
+    /* NAVIGATION */
 
     nav {
       position: fixed;
       z-index: 20;
+
       top: 0;
       left: 0;
-      display: flex;
+
       width: 100%;
+
+      display: flex;
       align-items: center;
       justify-content: space-between;
+
       padding:
-        calc(28px + var(--safe-top))
-        calc(28px + var(--safe-right))
-        28px
-        calc(28px + var(--safe-left));
+        calc(20px + env(safe-area-inset-top))
+        calc(20px + env(safe-area-inset-right))
+        20px
+        calc(20px + env(safe-area-inset-left));
+
       mix-blend-mode: difference;
     }
 
     .logo {
       color: #fff;
-      font-size: 15px;
+
+      font-size: 13px;
       font-weight: 900;
-      letter-spacing: 0.22em;
+      letter-spacing: 0.16em;
       line-height: 1;
+
       white-space: nowrap;
     }
 
     .nav-link {
       color: #fff;
+
       font-size: 11px;
       font-weight: 700;
       letter-spacing: 0.2em;
       line-height: 1;
+
       text-decoration: none;
       text-transform: uppercase;
     }
 
+    /* HERO */
+
     main {
       display: grid;
+
       min-height: 100vh;
       min-height: 100svh;
+
       place-items: center;
+
       padding:
-        calc(150px + var(--safe-top))
-        max(28px, calc(28px + var(--safe-right)))
-        calc(120px + var(--safe-bottom))
-        max(28px, calc(28px + var(--safe-left)));
+        calc(100px + env(safe-area-inset-top))
+        max(20px, calc(20px + env(safe-area-inset-right)))
+        calc(90px + env(safe-area-inset-bottom))
+        max(20px, calc(20px + env(safe-area-inset-left)));
     }
 
     .hero {
@@ -158,54 +209,75 @@
     }
 
     .eyebrow {
-      margin-bottom: 30px;
+      margin-bottom: 26px;
+
       color: rgba(255, 255, 255, 0.58);
+
       font-size: 11px;
       font-weight: 700;
       letter-spacing: 0.42em;
+
       text-transform: uppercase;
     }
 
     .title {
       color: #fff;
+
       font-size: clamp(76px, 16vw, 210px);
       font-weight: 900;
+
       letter-spacing: -0.095em;
       line-height: 0.76;
+
       margin-left: -0.08em;
+
       text-transform: uppercase;
+
       text-shadow:
         0 1px 0 rgba(255, 255, 255, 0.8),
         0 18px 45px rgba(0, 0, 0, 0.45);
     }
 
     .artist {
-      margin-top: 34px;
+      margin-top: 30px;
+
       color: rgba(255, 255, 255, 0.7);
+
       font-size: 12px;
       font-weight: 700;
       letter-spacing: 0.48em;
+
       text-transform: uppercase;
     }
 
+    /* RELEASE CARD */
+
     .release {
       width: min(650px, 100%);
-      margin: 68px auto 0;
+
+      margin: 54px auto 0;
       padding: 24px;
+
       border: 1px solid rgba(255, 255, 255, 0.18);
+
       background: rgba(255, 255, 255, 0.065);
+
       box-shadow:
         0 24px 80px rgba(0, 0, 0, 0.28),
         inset 0 1px 0 rgba(255, 255, 255, 0.08);
+
       backdrop-filter: blur(22px);
       -webkit-backdrop-filter: blur(22px);
     }
 
     .release-inner {
       display: flex;
+
       align-items: center;
       justify-content: space-between;
+
       gap: 28px;
+
       text-align: left;
     }
 
@@ -215,40 +287,59 @@
 
     .release-name {
       color: #fff;
+
       font-size: 17px;
       font-weight: 800;
+
       letter-spacing: -0.025em;
     }
 
     .release-meta {
       margin-top: 8px;
+
       color: rgba(255, 255, 255, 0.48);
+
       font-size: 10px;
       font-weight: 600;
+
       letter-spacing: 0.18em;
+
       text-transform: uppercase;
     }
 
+    /* STREAMING BUTTONS */
+
     .buttons {
       display: flex;
+
       flex-shrink: 0;
+
       gap: 9px;
     }
 
     .stream-button {
       display: inline-flex;
+
       min-width: 112px;
       height: 46px;
+
       align-items: center;
       justify-content: center;
+
       padding: 0 18px;
+
       border: 1px solid rgba(255, 255, 255, 0.3);
+
       color: #fff;
+
       font-size: 10px;
       font-weight: 800;
+
       letter-spacing: 0.1em;
+
       text-decoration: none;
       text-transform: uppercase;
+
       transition:
         background 0.25s ease,
         border-color 0.25s ease,
@@ -259,61 +350,89 @@
     .stream-button:hover,
     .stream-button:focus-visible {
       border-color: #fff;
+
       background: #fff;
       color: #000;
+
       outline: none;
+
       transform: translateY(-3px);
     }
+
+    /* FOOTER */
 
     footer {
       position: fixed;
       z-index: 10;
-      right: calc(28px + var(--safe-right));
-      bottom: calc(22px + var(--safe-bottom));
-      left: calc(28px + var(--safe-left));
+
+      right: calc(20px + env(safe-area-inset-right));
+      bottom: calc(18px + env(safe-area-inset-bottom));
+      left: calc(20px + env(safe-area-inset-left));
+
       display: flex;
+
       align-items: center;
       justify-content: space-between;
+
       color: rgba(255, 255, 255, 0.38);
+
       font-size: 9px;
       font-weight: 600;
       letter-spacing: 0.18em;
+
       text-transform: uppercase;
     }
 
     .status {
       display: flex;
+
       align-items: center;
+
       gap: 9px;
     }
 
     .dot {
       width: 6px;
       height: 6px;
+
       flex-shrink: 0;
+
       border-radius: 50%;
+
       background: #fff;
-      box-shadow: 0 0 14px rgba(255, 255, 255, 0.95);
+
+      box-shadow:
+        0 0 14px rgba(255, 255, 255, 0.95);
+
       animation: pulse 2s infinite;
     }
 
     @keyframes pulse {
-      0%, 100% { opacity: 0.3; }
-      50% { opacity: 1; }
+      0%,
+      100% {
+        opacity: 0.3;
+      }
+
+      50% {
+        opacity: 1;
+      }
     }
 
+    /* MOBILE */
+
     @media (max-width: 650px) {
+
       nav {
         padding:
-          calc(34px + var(--safe-top))
-          calc(24px + var(--safe-right))
-          24px
-          calc(24px + var(--safe-left));
+          calc(18px + env(safe-area-inset-top))
+          calc(18px + env(safe-area-inset-right))
+          18px
+          calc(18px + env(safe-area-inset-left));
       }
 
       .logo {
-        font-size: 14px;
-        letter-spacing: 0.18em;
+        font-size: 12px;
+        letter-spacing: 0.14em;
       }
 
       .nav-link {
@@ -322,43 +441,58 @@
 
       main {
         padding:
-          calc(150px + var(--safe-top))
-          max(20px, calc(20px + var(--safe-right)))
-          calc(110px + var(--safe-bottom))
-          max(20px, calc(20px + var(--safe-left)));
+          calc(92px + env(safe-area-inset-top))
+          max(16px, calc(16px + env(safe-area-inset-right)))
+          calc(82px + env(safe-area-inset-bottom))
+          max(16px, calc(16px + env(safe-area-inset-left)));
       }
 
       .eyebrow {
-        margin-bottom: 26px;
+        margin-bottom: 24px;
+
+        font-size: 8px;
+        letter-spacing: 0.26em;
+      }
+
+      .title {
+        width: 100%;
+
+        font-size: clamp(52px, 16.8vw, 100px);
+
+        letter-spacing: -0.085em;
+        line-height: 0.82;
+
+        white-space: nowrap;
+      }
+
+      .artist {
+        margin-top: 24px;
+
         font-size: 8px;
         letter-spacing: 0.3em;
       }
 
-      .title {
-        font-size: clamp(54px, 17.2vw, 100px);
-        letter-spacing: -0.085em;
-        line-height: 0.8;
-      }
-
-      .artist {
-        margin-top: 26px;
-        font-size: 9px;
-        letter-spacing: 0.34em;
-      }
-
       .release {
-        margin-top: 52px;
-        padding: 20px;
+        margin-top: 42px;
+        padding: 18px;
       }
 
       .release-inner {
         align-items: stretch;
+
         flex-direction: column;
-        gap: 20px;
+
+        gap: 18px;
       }
 
       .release-name {
-        font-size: 16px;
+        font-size: 15px;
+      }
+
+      .release-meta {
+        margin-top: 7px;
+
+        font-size: 9px;
       }
 
       .buttons {
@@ -367,17 +501,21 @@
 
       .stream-button {
         min-width: 0;
+
         flex: 1;
-        height: 48px;
-        padding: 0 8px;
-        font-size: 9px;
-        letter-spacing: 0.07em;
+
+        height: 46px;
+
+        padding: 0 6px;
+
+        font-size: 8px;
+        letter-spacing: 0.055em;
       }
 
       footer {
-        right: calc(20px + var(--safe-right));
-        bottom: calc(16px + var(--safe-bottom));
-        left: calc(20px + var(--safe-left));
+        right: calc(16px + env(safe-area-inset-right));
+        bottom: calc(14px + env(safe-area-inset-bottom));
+        left: calc(16px + env(safe-area-inset-left));
       }
 
       .footer-right {
@@ -385,29 +523,145 @@
       }
     }
 
+    /* VERY SMALL PHONES */
+
     @media (max-width: 380px) {
+
       nav {
-        padding-top: calc(28px + var(--safe-top));
+        padding:
+          calc(16px + env(safe-area-inset-top))
+          calc(16px + env(safe-area-inset-right))
+          16px
+          calc(16px + env(safe-area-inset-left));
       }
 
       .logo {
-        font-size: 12px;
+        font-size: 11px;
       }
 
       main {
-        padding-top: calc(135px + var(--safe-top));
+        padding:
+          calc(84px + env(safe-area-inset-top))
+          max(14px, calc(14px + env(safe-area-inset-right)))
+          calc(76px + env(safe-area-inset-bottom))
+          max(14px, calc(14px + env(safe-area-inset-left)));
       }
 
       .title {
-        font-size: 16.8vw;
+        font-size: 16.2vw;
       }
 
       .release {
-        padding: 17px;
+        padding: 16px;
       }
 
       .stream-button {
-        font-size: 8px;
+        font-size: 7.5px;
       }
     }
   </style>
+</head>
+
+<body>
+
+  <div class="background"></div>
+  <div class="grain"></div>
+
+  <nav>
+
+    <div class="logo">
+      XIMERMJ
+    </div>
+
+    <a
+      class="nav-link"
+      href="#listen"
+    >
+      Listen
+    </a>
+
+  </nav>
+
+  <main>
+
+    <section class="hero">
+
+      <div class="eyebrow">
+        New Single · 2026
+      </div>
+
+      <h1 class="title">
+        Afterburn
+      </h1>
+
+      <div class="artist">
+        XIMERMJ
+      </div>
+
+      <div
+        class="release"
+        id="listen"
+      >
+
+        <div class="release-inner">
+
+          <div class="release-info">
+
+            <div class="release-name">
+              AFTERBURN
+            </div>
+
+            <div class="release-meta">
+              Available everywhere
+            </div>
+
+          </div>
+
+          <div class="buttons">
+
+            <a
+              class="stream-button"
+              href="https://music.apple.com/us/album/afterburn/6820104032?i=6820104033"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Apple Music
+            </a>
+
+            <a
+              class="stream-button"
+              href="https://open.spotify.com/album/21fy9mn5l2QJheaA7tO4FI?si=xiKAbXi4TKaDa5uJ18mhKw"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Spotify
+            </a>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+  <footer>
+
+    <div class="status">
+
+      <span class="dot"></span>
+
+      XIMERMJ
+
+    </div>
+
+    <div class="footer-right">
+      Richner Records LLC · 2026
+    </div>
+
+  </footer>
+
+</body>
+</html>

@@ -5,16 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <title>XIMERMJ — AFTERBURN</title>
-
   <meta
     name="description"
-    content="XIMERMJ — Afterburn. Dark electronic music from Richner Records."
+    content="XIMERMJ — AFTERBURN. Listen now on Apple Music and Spotify."
   />
 
   <style>
-    /* =========================
-       RESET
-    ========================== */
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
 
     * {
       margin: 0;
@@ -27,763 +24,365 @@
     }
 
     body {
+      background: #080808;
+      color: #f5f5f5;
+      font-family: 'Inter', sans-serif;
       min-height: 100vh;
-      background:
-        radial-gradient(
-          circle at 50% 115%,
-          rgba(255,255,255,0.10),
-          transparent 35%
-        ),
-        linear-gradient(
-          180deg,
-          #050505 0%,
-          #0b0b0b 45%,
-          #101010 100%
-        );
-
-      color: #eeeeee;
-      font-family: Arial, Helvetica, sans-serif;
       overflow-x: hidden;
     }
 
+    /* BACKGROUND */
 
-    /* =========================
-       DESERT / GRAIN BACKGROUND
-    ========================== */
-
-    body::before {
-      content: "";
+    .background {
       position: fixed;
       inset: 0;
-      pointer-events: none;
       z-index: -3;
-
       background:
-        linear-gradient(
-          110deg,
-          transparent 0%,
-          transparent 43%,
-          rgba(255,255,255,0.025) 43.2%,
-          transparent 43.5%
+        radial-gradient(
+          circle at 50% 35%,
+          rgba(255,255,255,0.07),
+          transparent 38%
         ),
         linear-gradient(
-          70deg,
-          transparent 0%,
-          transparent 69%,
-          rgba(255,255,255,0.02) 69.2%,
-          transparent 69.5%
+          180deg,
+          #111 0%,
+          #080808 48%,
+          #050505 100%
         );
-
-      animation: backgroundShift 15s ease-in-out infinite alternate;
     }
 
-    body::after {
-      content: "";
+    .grain {
       position: fixed;
-      inset: 0;
+      inset: -50%;
+      z-index: -1;
       pointer-events: none;
-      z-index: 999;
-
-      opacity: 0.12;
-
-      background-image:
-        repeating-radial-gradient(
-          circle at 0 0,
-          transparent 0,
-          rgba(255,255,255,0.13) 1px,
-          transparent 2px
-        );
-
-      background-size: 6px 6px;
-
-      mix-blend-mode: soft-light;
+      opacity: 0.055;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.7'/%3E%3C/svg%3E");
+      animation: grain 0.25s steps(2) infinite;
     }
 
-    @keyframes backgroundShift {
-      from {
-        transform: scale(1);
-        opacity: 0.6;
-      }
-
-      to {
-        transform: scale(1.04);
-        opacity: 1;
-      }
+    @keyframes grain {
+      0% { transform: translate(0,0); }
+      25% { transform: translate(2%, -1%); }
+      50% { transform: translate(-1%, 2%); }
+      75% { transform: translate(1%, 1%); }
+      100% { transform: translate(0,0); }
     }
 
-
-    /* =========================
-       NAV
-    ========================== */
+    /* NAV */
 
     nav {
       position: fixed;
       top: 0;
       left: 0;
       width: 100%;
-
-      z-index: 50;
-
+      padding: 28px 42px;
       display: flex;
       justify-content: space-between;
       align-items: center;
+      z-index: 20;
+      mix-blend-mode: difference;
+    }
 
-      padding: 25px 35px;
+    .logo {
+      font-size: 14px;
+      font-weight: 800;
+      letter-spacing: 0.18em;
+    }
 
-      border-bottom: 1px solid rgba(255,255,255,0.12);
+    .nav-link {
+      color: white;
+      text-decoration: none;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      opacity: 0.8;
+    }
 
-      background: rgba(5,5,5,0.35);
+    /* HERO */
+
+    main {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 120px 24px 80px;
+    }
+
+    .hero {
+      width: min(1100px, 100%);
+      text-align: center;
+    }
+
+    .eyebrow {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.32em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.48);
+      margin-bottom: 28px;
+    }
+
+    .title {
+      font-size: clamp(70px, 15vw, 190px);
+      line-height: 0.78;
+      font-weight: 900;
+      letter-spacing: -0.075em;
+      margin-left: -0.06em;
+      background: linear-gradient(
+        180deg,
+        #ffffff 0%,
+        #d7d7d7 42%,
+        #555 100%
+      );
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      text-transform: uppercase;
+    }
+
+    .artist {
+      margin-top: 32px;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.38em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.62);
+    }
+
+    /* RELEASE CARD */
+
+    .release {
+      margin: 64px auto 0;
+      width: min(620px, 100%);
+      padding: 22px;
+      border: 1px solid rgba(255,255,255,0.11);
+      background: rgba(255,255,255,0.035);
       backdrop-filter: blur(18px);
       -webkit-backdrop-filter: blur(18px);
     }
 
-    .logo {
-      font-size: 15px;
-      letter-spacing: 0.32em;
-      font-weight: 700;
-      color: white;
-      text-decoration: none;
-    }
-
-    .nav-right {
-      font-size: 10px;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      color: #888;
-    }
-
-
-    /* =========================
-       HERO
-    ========================== */
-
-    .hero {
-      min-height: 100vh;
-
-      display: flex;
-      justify-content: center;
-      align-items: center;
-
-      padding: 120px 24px 70px;
-      position: relative;
-    }
-
-    .hero::after {
-      content: "";
-      position: absolute;
-
-      width: 900px;
-      max-width: 100%;
-
-      height: 250px;
-
-      bottom: -90px;
-      left: 50%;
-
-      transform: translateX(-50%);
-
-      background: rgba(255,255,255,0.05);
-
-      filter: blur(90px);
-
-      border-radius: 50%;
-      pointer-events: none;
-    }
-
-
-    /* =========================
-       GLASS PANEL
-    ========================== */
-
-    .glass {
-      position: relative;
-      width: min(100%, 1100px);
-
-      min-height: 650px;
-
-      padding: 70px 70px 60px;
-
-      border: 1px solid rgba(255,255,255,0.15);
-      border-radius: 6px;
-
-      background:
-        linear-gradient(
-          145deg,
-          rgba(255,255,255,0.09),
-          rgba(255,255,255,0.025)
-        );
-
-      backdrop-filter: blur(32px);
-      -webkit-backdrop-filter: blur(32px);
-
-      box-shadow:
-        0 40px 120px rgba(0,0,0,0.7),
-        inset 0 1px rgba(255,255,255,0.14);
-
-      overflow: hidden;
-    }
-
-    .glass::before {
-      content: "";
-
-      position: absolute;
-      top: -40%;
-      left: -30%;
-
-      width: 90%;
-      height: 160%;
-
-      transform: rotate(18deg);
-
-      background: linear-gradient(
-        90deg,
-        transparent,
-        rgba(255,255,255,0.05),
-        transparent
-      );
-
-      pointer-events: none;
-    }
-
-
-    /* =========================
-       RELEASE LABEL
-    ========================== */
-
-    .release-tag {
-      margin-bottom: 70px;
-
-      font-size: 10px;
-      text-transform: uppercase;
-
-      letter-spacing: 0.4em;
-
-      color: rgba(255,255,255,0.48);
-    }
-
-
-    /* =========================
-       TITLE
-    ========================== */
-
-    .artist {
-      font-size: clamp(13px, 1.3vw, 18px);
-
-      letter-spacing: 0.65em;
-      text-transform: uppercase;
-
-      margin-bottom: 15px;
-
-      color: #a5a5a5;
-    }
-
-    .title-wrapper {
-      position: relative;
-      display: inline-block;
-    }
-
-    h1 {
-      position: relative;
-
-      font-size: clamp(74px, 13vw, 190px);
-
-      line-height: 0.83;
-
-      font-weight: 700;
-
-      letter-spacing: -0.075em;
-
-      text-transform: uppercase;
-
-      color: #ededed;
-    }
-
-    h1::before,
-    h1::after {
-      content: "AFTERBURN";
-
-      position: absolute;
-      inset: 0;
-
-      pointer-events: none;
-
-      opacity: 0;
-    }
-
-    h1::before {
-      transform: translateX(-4px);
-      color: #aaa;
-
-      animation: glitch1 6s infinite;
-    }
-
-    h1::after {
-      transform: translateX(4px);
-      color: #fff;
-
-      animation: glitch2 6s infinite;
-    }
-
-    @keyframes glitch1 {
-
-      0%, 88%, 100% {
-        opacity: 0;
-        clip-path: inset(0 0 100% 0);
-      }
-
-      89% {
-        opacity: 0.4;
-        clip-path: inset(15% 0 65% 0);
-      }
-
-      90% {
-        transform: translateX(-7px);
-        clip-path: inset(65% 0 15% 0);
-      }
-
-      91% {
-        opacity: 0;
-      }
-    }
-
-    @keyframes glitch2 {
-
-      0%, 92%, 100% {
-        opacity: 0;
-      }
-
-      93% {
-        opacity: 0.3;
-        clip-path: inset(45% 0 35% 0);
-      }
-
-      94% {
-        transform: translateX(7px);
-        clip-path: inset(10% 0 70% 0);
-      }
-
-      95% {
-        opacity: 0;
-      }
-    }
-
-
-    /* =========================
-       INFO GRID
-    ========================== */
-
-    .info {
-      margin-top: 70px;
-
-      display: grid;
-
-      grid-template-columns:
-        minmax(0, 1.4fr)
-        minmax(240px, 0.6fr);
-
-      gap: 70px;
-
-      align-items: end;
-    }
-
-    .description {
-      max-width: 700px;
-
-      font-size: clamp(17px, 1.7vw, 24px);
-      line-height: 1.55;
-
-      font-weight: 300;
-
-      letter-spacing: -0.02em;
-
-      color: rgba(255,255,255,0.72);
-    }
-
-    .description strong {
-      color: white;
-      font-weight: 400;
-    }
-
-
-    /* =========================
-       SPOTIFY BUTTON
-    ========================== */
-
-    .button-area {
-      display: flex;
-      justify-content: flex-end;
-    }
-
-    .spotify-button {
-      width: 100%;
-      max-width: 280px;
-
-      min-height: 70px;
-
+    .release-inner {
       display: flex;
       align-items: center;
       justify-content: space-between;
+      gap: 24px;
+      text-align: left;
+    }
 
-      gap: 20px;
+    .release-info {
+      min-width: 0;
+    }
 
-      padding: 0 25px;
+    .release-name {
+      font-size: 16px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
 
-      border: 1px solid rgba(255,255,255,0.28);
-      border-radius: 3px;
+    .release-meta {
+      margin-top: 7px;
+      font-size: 10px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.42);
+    }
 
-      background: rgba(255,255,255,0.06);
+    /* BUTTONS */
 
+    .buttons {
+      display: flex;
+      gap: 8px;
+      flex-shrink: 0;
+    }
+
+    .stream-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      height: 44px;
+      padding: 0 19px;
+      border: 1px solid rgba(255,255,255,0.2);
       color: white;
-
       text-decoration: none;
-
       font-size: 10px;
-
-      letter-spacing: 0.23em;
+      font-weight: 700;
+      letter-spacing: 0.11em;
       text-transform: uppercase;
-
       transition:
-        background 0.3s ease,
-        color 0.3s ease,
-        transform 0.3s ease,
-        border-color 0.3s ease;
+        background 0.25s ease,
+        color 0.25s ease,
+        transform 0.25s ease,
+        border-color 0.25s ease;
     }
 
-    .spotify-button span:last-child {
-      font-size: 18px;
-      letter-spacing: 0;
-    }
-
-    .spotify-button:hover {
-      background: #f1f1f1;
-      color: #090909;
-
+    .stream-button:hover {
+      background: white;
+      color: black;
       border-color: white;
-
-      transform: translateY(-3px);
+      transform: translateY(-2px);
     }
 
-
-    /* =========================
-       STATUS BAR
-    ========================== */
-
-    .status {
-      width: min(100% - 48px, 1100px);
-      margin: -25px auto 100px;
-
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-
-      border-top: 1px solid rgba(255,255,255,0.11);
-      border-bottom: 1px solid rgba(255,255,255,0.11);
-    }
-
-    .status-item {
-      padding: 23px;
-
-      border-right: 1px solid rgba(255,255,255,0.10);
-    }
-
-    .status-item:last-child {
-      border-right: 0;
-    }
-
-    .status-label {
-      font-size: 8px;
-
-      text-transform: uppercase;
-      letter-spacing: 0.25em;
-
-      color: #555;
-
-      margin-bottom: 7px;
-    }
-
-    .status-value {
-      font-size: 10px;
-
-      text-transform: uppercase;
-      letter-spacing: 0.17em;
-
-      color: #b6b6b6;
-    }
-
-
-    /* =========================
-       EP3 SECTION
-    ========================== */
-
-    .era {
-      width: min(100% - 48px, 1100px);
-
-      margin: 0 auto;
-      padding: 100px 0 140px;
-
-      border-top: 1px solid rgba(255,255,255,0.10);
-    }
-
-    .era-number {
-      font-size: 9px;
-
-      letter-spacing: 0.35em;
-      text-transform: uppercase;
-
-      color: #555;
-
-      margin-bottom: 50px;
-    }
-
-    .era h2 {
-      max-width: 1000px;
-
-      font-size: clamp(38px, 6vw, 90px);
-
-      line-height: 0.98;
-
-      font-weight: 400;
-
-      letter-spacing: -0.055em;
-
-      text-transform: uppercase;
-    }
-
-    .era p {
-      margin-top: 55px;
-
-      max-width: 650px;
-
-      font-size: 17px;
-      line-height: 1.7;
-
-      color: #777;
-    }
-
-
-    /* =========================
-       FOOTER
-    ========================== */
+    /* FOOTER */
 
     footer {
-      padding: 35px;
-
+      position: fixed;
+      bottom: 28px;
+      left: 42px;
+      right: 42px;
       display: flex;
       justify-content: space-between;
-
-      border-top: 1px solid rgba(255,255,255,0.10);
-
+      align-items: center;
+      color: rgba(255,255,255,0.3);
       font-size: 9px;
-
-      letter-spacing: 0.2em;
+      letter-spacing: 0.16em;
       text-transform: uppercase;
-
-      color: #555;
     }
 
-    footer a {
-      color: #888;
-      text-decoration: none;
+    .status {
+      display: flex;
+      align-items: center;
+      gap: 8px;
     }
 
-    footer a:hover {
-      color: white;
+    .dot {
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: #fff;
+      box-shadow: 0 0 12px rgba(255,255,255,0.8);
+      animation: pulse 2s infinite;
     }
 
+    @keyframes pulse {
+      0%, 100% { opacity: .3; }
+      50% { opacity: 1; }
+    }
 
-    /* =========================
-       MOBILE
-    ========================== */
+    /* MOBILE */
 
-    @media (max-width: 800px) {
+    @media (max-width: 650px) {
 
       nav {
-        padding: 20px;
+        padding: 22px 20px;
       }
 
-      .nav-right {
+      .nav-link {
         display: none;
       }
 
-      .hero {
-        padding: 100px 15px 50px;
+      main {
+        padding: 100px 18px 80px;
       }
 
-      .glass {
-        min-height: auto;
-
-        padding:
-          45px 25px
-          35px;
-
-        border-radius: 3px;
-      }
-
-      .release-tag {
-        margin-bottom: 50px;
-      }
-
-      h1 {
-        font-size: clamp(62px, 20vw, 110px);
+      .title {
+        font-size: clamp(64px, 20vw, 115px);
       }
 
       .artist {
-        font-size: 10px;
+        margin-top: 25px;
+        font-size: 9px;
+        letter-spacing: 0.3em;
       }
 
-      .info {
-        grid-template-columns: 1fr;
-        gap: 40px;
-
-        margin-top: 55px;
+      .release {
+        margin-top: 48px;
+        padding: 18px;
       }
 
-      .button-area {
-        justify-content: flex-start;
+      .release-inner {
+        flex-direction: column;
+        align-items: stretch;
       }
 
-      .spotify-button {
-        max-width: none;
+      .buttons {
+        width: 100%;
       }
 
-      .status {
-        width: calc(100% - 30px);
-
-        grid-template-columns: 1fr 1fr;
-
-        margin-bottom: 60px;
-      }
-
-      .status-item:nth-child(2) {
-        border-right: 0;
-      }
-
-      .status-item:nth-child(-n+2) {
-        border-bottom: 1px solid rgba(255,255,255,0.10);
-      }
-
-      .era {
-        width: calc(100% - 30px);
-
-        padding: 70px 5px 100px;
+      .stream-button {
+        flex: 1;
       }
 
       footer {
-        padding: 25px 20px;
+        left: 20px;
+        right: 20px;
+        bottom: 18px;
+      }
 
-        flex-direction: column;
-
-        gap: 15px;
+      .footer-right {
+        display: none;
       }
     }
-
-
-    /* =========================
-       SUBTLE CURSOR REACTION
-    ========================== */
-
-    .cursor-light {
-      position: fixed;
-
-      width: 500px;
-      height: 500px;
-
-      border-radius: 50%;
-
-      background:
-        radial-gradient(
-          circle,
-          rgba(255,255,255,0.045),
-          transparent 68%
-        );
-
-      pointer-events: none;
-
-      transform: translate(-50%, -50%);
-
-      z-index: -1;
-
-      transition:
-        left 0.08s linear,
-        top 0.08s linear;
-    }
-
   </style>
 </head>
 
-
 <body>
 
-  <div class="cursor-light" id="cursorLight"></div>
+  <div class="background"></div>
+  <div class="grain"></div>
 
-
-  <!-- NAV -->
   <nav>
+    <div class="logo">XIMERMJ</div>
 
-    <a href="#" class="logo">
-      XIMERMJ
+    <a
+      class="nav-link"
+      href="#listen"
+    >
+      Listen
     </a>
-
-    <div class="nav-right">
-      Richner Records / 2026
-    </div>
-
   </nav>
 
+  <main>
 
+    <section class="hero">
 
-  <!-- HERO -->
-  <main class="hero">
-
-    <section class="glass">
-
-      <div class="release-tag">
-        New Release / Out Now
+      <div class="eyebrow">
+        New Single · 2026
       </div>
 
+      <h1 class="title">
+        Afterburn
+      </h1>
 
       <div class="artist">
         XIMERMJ
       </div>
 
+      <div class="release" id="listen">
 
-      <div class="title-wrapper">
+        <div class="release-inner">
 
-        <h1>
-          Afterburn
-        </h1>
+          <div class="release-info">
+            <div class="release-name">
+              AFTERBURN
+            </div>
 
-      </div>
+            <div class="release-meta">
+              Available everywhere
+            </div>
+          </div>
 
+          <div class="buttons">
 
-      <div class="info">
+            <a
+              class="stream-button"
+              href="https://music.apple.com/us/album/afterburn/6820104032?i=6820104033"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Apple Music
+            </a>
 
-        <div class="description">
+            <a
+              class="stream-button"
+              href="https://open.spotify.com/album/21fy9mn5l2QJheaA7tO4FI?si=xiKAbXi4TKaDa5uJ18mhKw"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Spotify
+            </a>
 
-          Palm Springs after the fantasy collapses.
-
-          <strong>
-            Empty pools, desert heat, damaged architecture
-            and digital decay.
-          </strong>
-
-          A darker electronic chapter from XIMERMJ.
-
-        </div>
-
-
-        <div class="button-area">
-
-          <a
-            class="spotify-button"
-            href="https://open.spotify.com/track/0L2pIBgdZyboNDiUEbc5Iv?si=wjGozkNMRWKQoAFJhY13og"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-
-            <span>Listen on Spotify</span>
-            <span>↗</span>
-
-          </a>
+          </div>
 
         </div>
 
@@ -793,143 +392,18 @@
 
   </main>
 
-
-
-  <!-- RELEASE STATUS -->
-  <section class="status">
-
-    <div class="status-item">
-
-      <div class="status-label">
-        Release
-      </div>
-
-      <div class="status-value">
-        Afterburn
-      </div>
-
-    </div>
-
-
-    <div class="status-item">
-
-      <div class="status-label">
-        Artist
-      </div>
-
-      <div class="status-value">
-        XIMERMJ
-      </div>
-
-    </div>
-
-
-    <div class="status-item">
-
-      <div class="status-label">
-        Label
-      </div>
-
-      <div class="status-value">
-        Richner Records
-      </div>
-
-    </div>
-
-
-    <div class="status-item">
-
-      <div class="status-label">
-        Status
-      </div>
-
-      <div class="status-value">
-        Out Now
-      </div>
-
-    </div>
-
-  </section>
-
-
-
-  <!-- EP3 -->
-  <section class="era">
-
-    <div class="era-number">
-      03 / The next era
-    </div>
-
-
-    <h2>
-      Mid-century
-      houses.<br>
-
-      Empty pools.<br>
-
-      Palms and
-      desert heat.
-    </h2>
-
-
-    <p>
-      XIMERMJ deconstructs the polished desert fantasy of
-      Palm Springs — exploring empty pools, scorched
-      modernism, distorted color and digital decay.
-
-      Afterburn marks the transition into the third
-      XIMERMJ EP era.
-    </p>
-
-  </section>
-
-
-
-  <!-- FOOTER -->
   <footer>
 
-    <div>
-      © 2026 Richner Records LLC
+    <div class="status">
+      <span class="dot"></span>
+      XIMERMJ
     </div>
 
-
-    <div>
-
-      <a
-        href="https://open.spotify.com/track/0L2pIBgdZyboNDiUEbc5Iv?si=wjGozkNMRWKQoAFJhY13og"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        Spotify ↗
-      </a>
-
+    <div class="footer-right">
+      Richner Records LLC · 2026
     </div>
 
   </footer>
-
-
-
-  <script>
-
-    /* subtle light follows desktop cursor */
-
-    const cursorLight =
-      document.getElementById("cursorLight");
-
-    document.addEventListener(
-      "mousemove",
-      (event) => {
-
-        cursorLight.style.left =
-          event.clientX + "px";
-
-        cursorLight.style.top =
-          event.clientY + "px";
-
-      }
-    );
-
-  </script>
 
 </body>
 </html>

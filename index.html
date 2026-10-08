@@ -1,172 +1,211 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <title>XIMERMJ — AFTERBURN</title>
-  <meta
-    name="description"
-    content="XIMERMJ — AFTERBURN. Listen now on Apple Music and Spotify."
-  />
-
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
 
+    :root {
+      --safe-top: env(safe-area-inset-top, 0px);
+      --safe-right: env(safe-area-inset-right, 0px);
+      --safe-bottom: env(safe-area-inset-bottom, 0px);
+      --safe-left: env(safe-area-inset-left, 0px);
+    }
+
     * {
+      box-sizing: border-box;
       margin: 0;
       padding: 0;
-      box-sizing: border-box;
     }
 
     html {
+      background: #050505;
       scroll-behavior: smooth;
     }
 
     body {
-      background: #080808;
-      color: #f5f5f5;
-      font-family: 'Inter', sans-serif;
+      min-width: 320px;
       min-height: 100vh;
+      min-height: 100svh;
       overflow-x: hidden;
+      background: #050505;
+      color: #f5f5f5;
+      font-family: Inter, sans-serif;
     }
-
-    /* BACKGROUND */
 
     .background {
       position: fixed;
-      inset: 0;
       z-index: -3;
+      inset: 0;
       background:
         radial-gradient(
-          circle at 50% 35%,
-          rgba(255,255,255,0.07),
-          transparent 38%
+          ellipse 90% 55% at 50% 42%,
+          rgba(255, 255, 255, 0.12) 0%,
+          rgba(255, 255, 255, 0.035) 38%,
+          transparent 72%
         ),
+        linear-gradient(135deg, #171717 0%, #090909 48%, #020202 100%);
+    }
+
+    .background::before,
+    .background::after {
+      position: absolute;
+      content: "";
+      pointer-events: none;
+    }
+
+    .background::before {
+      inset: 0;
+      opacity: 0.55;
+      background:
         linear-gradient(
-          180deg,
-          #111 0%,
-          #080808 48%,
-          #050505 100%
+          115deg,
+          transparent 0 35%,
+          rgba(255, 255, 255, 0.035) 45%,
+          transparent 58%
         );
+      transform: translateX(-20%);
+      animation: light-sweep 12s ease-in-out infinite alternate;
+    }
+
+    .background::after {
+      width: 70vw;
+      height: 70vw;
+      top: 12%;
+      left: 50%;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 50%;
+      transform: translateX(-50%);
+      box-shadow:
+        0 0 0 8vw rgba(255, 255, 255, 0.012),
+        0 0 0 16vw rgba(255, 255, 255, 0.008);
+    }
+
+    @keyframes light-sweep {
+      from {
+        transform: translateX(-25%);
+      }
+      to {
+        transform: translateX(25%);
+      }
     }
 
     .grain {
       position: fixed;
-      inset: -50%;
       z-index: -1;
+      inset: -50%;
       pointer-events: none;
-      opacity: 0.055;
+      opacity: 0.07;
       background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.7'/%3E%3C/svg%3E");
       animation: grain 0.25s steps(2) infinite;
     }
 
     @keyframes grain {
-      0% { transform: translate(0,0); }
+      0% { transform: translate(0, 0); }
       25% { transform: translate(2%, -1%); }
       50% { transform: translate(-1%, 2%); }
       75% { transform: translate(1%, 1%); }
-      100% { transform: translate(0,0); }
+      100% { transform: translate(0, 0); }
     }
-
-    /* NAV */
 
     nav {
       position: fixed;
+      z-index: 20;
       top: 0;
       left: 0;
-      width: 100%;
-      padding: 28px 42px;
       display: flex;
-      justify-content: space-between;
+      width: 100%;
       align-items: center;
-      z-index: 20;
+      justify-content: space-between;
+      padding:
+        calc(28px + var(--safe-top))
+        calc(28px + var(--safe-right))
+        28px
+        calc(28px + var(--safe-left));
       mix-blend-mode: difference;
     }
 
     .logo {
-      font-size: 14px;
-      font-weight: 800;
-      letter-spacing: 0.18em;
+      color: #fff;
+      font-size: 15px;
+      font-weight: 900;
+      letter-spacing: 0.22em;
+      line-height: 1;
+      white-space: nowrap;
     }
 
     .nav-link {
-      color: white;
-      text-decoration: none;
+      color: #fff;
       font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      line-height: 1;
+      text-decoration: none;
       text-transform: uppercase;
-      letter-spacing: 0.16em;
-      opacity: 0.8;
     }
 
-    /* HERO */
-
     main {
+      display: grid;
       min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 120px 24px 80px;
+      min-height: 100svh;
+      place-items: center;
+      padding:
+        calc(150px + var(--safe-top))
+        max(28px, calc(28px + var(--safe-right)))
+        calc(120px + var(--safe-bottom))
+        max(28px, calc(28px + var(--safe-left)));
     }
 
     .hero {
-      width: min(1100px, 100%);
+      width: min(100%, 1120px);
       text-align: center;
     }
 
     .eyebrow {
-      font-size: 10px;
-      font-weight: 600;
-      letter-spacing: 0.32em;
+      margin-bottom: 30px;
+      color: rgba(255, 255, 255, 0.58);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.42em;
       text-transform: uppercase;
-      color: rgba(255,255,255,0.48);
-      margin-bottom: 28px;
     }
 
     .title {
-      font-size: clamp(70px, 15vw, 190px);
-      line-height: 0.78;
+      color: #fff;
+      font-size: clamp(76px, 16vw, 210px);
       font-weight: 900;
-      letter-spacing: -0.075em;
-      margin-left: -0.06em;
-      background: linear-gradient(
-        180deg,
-        #ffffff 0%,
-        #d7d7d7 42%,
-        #555 100%
-      );
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
+      letter-spacing: -0.095em;
+      line-height: 0.76;
+      margin-left: -0.08em;
       text-transform: uppercase;
+      text-shadow:
+        0 1px 0 rgba(255, 255, 255, 0.8),
+        0 18px 45px rgba(0, 0, 0, 0.45);
     }
 
     .artist {
-      margin-top: 32px;
+      margin-top: 34px;
+      color: rgba(255, 255, 255, 0.7);
       font-size: 12px;
-      font-weight: 600;
-      letter-spacing: 0.38em;
+      font-weight: 700;
+      letter-spacing: 0.48em;
       text-transform: uppercase;
-      color: rgba(255,255,255,0.62);
     }
 
-    /* RELEASE CARD */
-
     .release {
-      margin: 64px auto 0;
-      width: min(620px, 100%);
-      padding: 22px;
-      border: 1px solid rgba(255,255,255,0.11);
-      background: rgba(255,255,255,0.035);
-      backdrop-filter: blur(18px);
-      -webkit-backdrop-filter: blur(18px);
+      width: min(650px, 100%);
+      margin: 68px auto 0;
+      padding: 24px;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      background: rgba(255, 255, 255, 0.065);
+      box-shadow:
+        0 24px 80px rgba(0, 0, 0, 0.28),
+        inset 0 1px 0 rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(22px);
+      -webkit-backdrop-filter: blur(22px);
     }
 
     .release-inner {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 24px;
+      gap: 28px;
       text-align: left;
     }
 
@@ -175,96 +214,106 @@
     }
 
     .release-name {
-      font-size: 16px;
-      font-weight: 700;
-      letter-spacing: -0.02em;
+      color: #fff;
+      font-size: 17px;
+      font-weight: 800;
+      letter-spacing: -0.025em;
     }
 
     .release-meta {
-      margin-top: 7px;
+      margin-top: 8px;
+      color: rgba(255, 255, 255, 0.48);
       font-size: 10px;
-      letter-spacing: 0.15em;
+      font-weight: 600;
+      letter-spacing: 0.18em;
       text-transform: uppercase;
-      color: rgba(255,255,255,0.42);
     }
-
-    /* BUTTONS */
 
     .buttons {
       display: flex;
-      gap: 8px;
       flex-shrink: 0;
+      gap: 9px;
     }
 
     .stream-button {
       display: inline-flex;
+      min-width: 112px;
+      height: 46px;
       align-items: center;
       justify-content: center;
-      height: 44px;
-      padding: 0 19px;
-      border: 1px solid rgba(255,255,255,0.2);
-      color: white;
-      text-decoration: none;
+      padding: 0 18px;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      color: #fff;
       font-size: 10px;
-      font-weight: 700;
-      letter-spacing: 0.11em;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      text-decoration: none;
       text-transform: uppercase;
       transition:
         background 0.25s ease,
+        border-color 0.25s ease,
         color 0.25s ease,
-        transform 0.25s ease,
-        border-color 0.25s ease;
+        transform 0.25s ease;
     }
 
-    .stream-button:hover {
-      background: white;
-      color: black;
-      border-color: white;
-      transform: translateY(-2px);
+    .stream-button:hover,
+    .stream-button:focus-visible {
+      border-color: #fff;
+      background: #fff;
+      color: #000;
+      outline: none;
+      transform: translateY(-3px);
     }
-
-    /* FOOTER */
 
     footer {
       position: fixed;
-      bottom: 28px;
-      left: 42px;
-      right: 42px;
+      z-index: 10;
+      right: calc(28px + var(--safe-right));
+      bottom: calc(22px + var(--safe-bottom));
+      left: calc(28px + var(--safe-left));
       display: flex;
-      justify-content: space-between;
       align-items: center;
-      color: rgba(255,255,255,0.3);
+      justify-content: space-between;
+      color: rgba(255, 255, 255, 0.38);
       font-size: 9px;
-      letter-spacing: 0.16em;
+      font-weight: 600;
+      letter-spacing: 0.18em;
       text-transform: uppercase;
     }
 
     .status {
       display: flex;
       align-items: center;
-      gap: 8px;
+      gap: 9px;
     }
 
     .dot {
-      width: 5px;
-      height: 5px;
+      width: 6px;
+      height: 6px;
+      flex-shrink: 0;
       border-radius: 50%;
       background: #fff;
-      box-shadow: 0 0 12px rgba(255,255,255,0.8);
+      box-shadow: 0 0 14px rgba(255, 255, 255, 0.95);
       animation: pulse 2s infinite;
     }
 
     @keyframes pulse {
-      0%, 100% { opacity: .3; }
+      0%, 100% { opacity: 0.3; }
       50% { opacity: 1; }
     }
 
-    /* MOBILE */
-
     @media (max-width: 650px) {
-
       nav {
-        padding: 22px 20px;
+        padding:
+          calc(34px + var(--safe-top))
+          calc(24px + var(--safe-right))
+          24px
+          calc(24px + var(--safe-left));
+      }
+
+      .logo {
+        font-size: 14px;
+        letter-spacing: 0.18em;
       }
 
       .nav-link {
@@ -272,27 +321,44 @@
       }
 
       main {
-        padding: 100px 18px 80px;
+        padding:
+          calc(150px + var(--safe-top))
+          max(20px, calc(20px + var(--safe-right)))
+          calc(110px + var(--safe-bottom))
+          max(20px, calc(20px + var(--safe-left)));
       }
 
-      .title {
-        font-size: clamp(64px, 20vw, 115px);
-      }
-
-      .artist {
-        margin-top: 25px;
-        font-size: 9px;
+      .eyebrow {
+        margin-bottom: 26px;
+        font-size: 8px;
         letter-spacing: 0.3em;
       }
 
+      .title {
+        font-size: clamp(54px, 17.2vw, 100px);
+        letter-spacing: -0.085em;
+        line-height: 0.8;
+      }
+
+      .artist {
+        margin-top: 26px;
+        font-size: 9px;
+        letter-spacing: 0.34em;
+      }
+
       .release {
-        margin-top: 48px;
-        padding: 18px;
+        margin-top: 52px;
+        padding: 20px;
       }
 
       .release-inner {
-        flex-direction: column;
         align-items: stretch;
+        flex-direction: column;
+        gap: 20px;
+      }
+
+      .release-name {
+        font-size: 16px;
       }
 
       .buttons {
@@ -300,110 +366,48 @@
       }
 
       .stream-button {
+        min-width: 0;
         flex: 1;
+        height: 48px;
+        padding: 0 8px;
+        font-size: 9px;
+        letter-spacing: 0.07em;
       }
 
       footer {
-        left: 20px;
-        right: 20px;
-        bottom: 18px;
+        right: calc(20px + var(--safe-right));
+        bottom: calc(16px + var(--safe-bottom));
+        left: calc(20px + var(--safe-left));
       }
 
       .footer-right {
         display: none;
       }
     }
+
+    @media (max-width: 380px) {
+      nav {
+        padding-top: calc(28px + var(--safe-top));
+      }
+
+      .logo {
+        font-size: 12px;
+      }
+
+      main {
+        padding-top: calc(135px + var(--safe-top));
+      }
+
+      .title {
+        font-size: 16.8vw;
+      }
+
+      .release {
+        padding: 17px;
+      }
+
+      .stream-button {
+        font-size: 8px;
+      }
+    }
   </style>
-</head>
-
-<body>
-
-  <div class="background"></div>
-  <div class="grain"></div>
-
-  <nav>
-    <div class="logo">XIMERMJ</div>
-
-    <a
-      class="nav-link"
-      href="#listen"
-    >
-      Listen
-    </a>
-  </nav>
-
-  <main>
-
-    <section class="hero">
-
-      <div class="eyebrow">
-        New Single · 2026
-      </div>
-
-      <h1 class="title">
-        Afterburn
-      </h1>
-
-      <div class="artist">
-        XIMERMJ
-      </div>
-
-      <div class="release" id="listen">
-
-        <div class="release-inner">
-
-          <div class="release-info">
-            <div class="release-name">
-              AFTERBURN
-            </div>
-
-            <div class="release-meta">
-              Available everywhere
-            </div>
-          </div>
-
-          <div class="buttons">
-
-            <a
-              class="stream-button"
-              href="https://music.apple.com/us/album/afterburn/6820104032?i=6820104033"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Apple Music
-            </a>
-
-            <a
-              class="stream-button"
-              href="https://open.spotify.com/album/21fy9mn5l2QJheaA7tO4FI?si=xiKAbXi4TKaDa5uJ18mhKw"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Spotify
-            </a>
-
-          </div>
-
-        </div>
-
-      </div>
-
-    </section>
-
-  </main>
-
-  <footer>
-
-    <div class="status">
-      <span class="dot"></span>
-      XIMERMJ
-    </div>
-
-    <div class="footer-right">
-      Richner Records LLC · 2026
-    </div>
-
-  </footer>
-
-</body>
-</html>

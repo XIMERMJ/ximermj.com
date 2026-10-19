@@ -1,2 +1,2 @@
 # wwww.ximermj.com
-https://www.XIMERMJ.com
+https://www.ximermj.com

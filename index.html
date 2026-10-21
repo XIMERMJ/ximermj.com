@@ -4,935 +4,1372 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>XIMERMJ — Official Artist Website</title>
+<title>XIMERMJ — Desert Distortion</title>
 
-<meta name="description"
-content="XIMERMJ is an independent electronic producer and DJ from Buffalo, New York, blending glitch, indie house, techno, dark pop and cinematic textures.">
+<meta
+  name="description"
+  content="XIMERMJ — independent electronic artist and producer from Buffalo, New York. Desert Distortion."
+>
 
-<meta property="og:title" content="XIMERMJ — Official Artist Website">
-<meta property="og:description" content="Independent electronic producer, composer and DJ.">
+<meta property="og:title" content="XIMERMJ — Desert Distortion">
+<meta
+  property="og:description"
+  content="XIMERMJ — Desert Distortion. A new era."
+>
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://ximermj.com">
 
 <style>
-/* =========================================================
-   XIMERMJ — DIGITAL EXPERIENCE
-   ========================================================= */
 
-:root {
-    --bg: #050505;
-    --text: #f2f2f2;
-    --muted: #777;
-    --line: rgba(255,255,255,.12);
-    --accent: #d7d7d7;
+:root{
+  --bg:#030303;
+  --fg:#f4f4f0;
+  --muted:#8b8b86;
+  --line:rgba(255,255,255,.13);
+  --glow:rgba(255,255,255,.12);
 }
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
 }
 
-html {
-    scroll-behavior: auto;
-    background: var(--bg);
+html{
+  background:var(--bg);
+  scroll-behavior:smooth;
 }
 
-body {
-    background: var(--bg);
-    color: var(--text);
-    font-family: Arial, Helvetica, sans-serif;
-    overflow-x: hidden;
-    cursor: default;
+body{
+  background:
+    radial-gradient(
+      circle at 50% 32%,
+      rgba(255,255,255,.055),
+      transparent 28%
+    ),
+    radial-gradient(
+      circle at 80% 80%,
+      rgba(255,255,255,.025),
+      transparent 25%
+    ),
+    var(--bg);
+
+  color:var(--fg);
+
+  font-family:
+    Arial,
+    Helvetica,
+    sans-serif;
+
+  overflow-x:hidden;
 }
 
-/* =========================================================
-   GRAIN
-   ========================================================= */
 
-body::after {
-    content: "";
-    position: fixed;
-    inset: 0;
-    pointer-events: none;
-    z-index: 9999;
-    opacity: .035;
+/* =========================
+   GRAIN / NOISE
+========================= */
 
-    background-image:
-        url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.8'/%3E%3C/svg%3E");
+body:before{
+  content:"";
+  position:fixed;
+  inset:-50%;
+  pointer-events:none;
+  z-index:9998;
+
+  opacity:.035;
+
+  background-image:url(
+    "data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"
+  );
+
+  animation:grain .18s steps(2) infinite;
 }
 
-/* =========================================================
-   NAV
-   ========================================================= */
+@keyframes grain{
 
-nav {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    padding: 22px 28px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    z-index: 1000;
+  0%{
+    transform:translate(0,0);
+  }
 
-    mix-blend-mode: difference;
+  25%{
+    transform:translate(2%,-1%);
+  }
+
+  50%{
+    transform:translate(-1%,2%);
+  }
+
+  75%{
+    transform:translate(1%,1%);
+  }
+
+  100%{
+    transform:translate(-2%,-1%);
+  }
+
 }
 
-.logo {
-    font-size: 13px;
-    font-weight: 700;
-    letter-spacing: .18em;
+
+/* =========================
+   NAVIGATION
+========================= */
+
+nav{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+
+  padding:22px 28px;
+
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+
+  z-index:1000;
+
+  mix-blend-mode:difference;
 }
 
-.nav-right {
-    display: flex;
-    gap: 24px;
+.logo{
+  font-size:13px;
+  font-weight:700;
+  letter-spacing:.18em;
 }
 
-.nav-right a {
-    color: white;
-    text-decoration: none;
-    font-size: 11px;
-    letter-spacing: .12em;
-    text-transform: uppercase;
+.nav-right{
+  display:flex;
+  gap:25px;
 }
 
-/* =========================================================
-   SCROLL PROGRESS
-   ========================================================= */
+.nav-right a{
+  color:#fff;
+  text-decoration:none;
 
-.progress {
-    position: fixed;
-    right: 25px;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 1px;
-    height: 90px;
-    background: rgba(255,255,255,.15);
-    z-index: 1000;
+  font-size:10px;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+
+  transition:.25s;
 }
 
-.progress-bar {
-    width: 100%;
-    height: 0%;
-    background: white;
+.nav-right a:hover{
+  opacity:.55;
 }
 
-/* =========================================================
+
+/* =========================
    HERO
-   ========================================================= */
+========================= */
 
-.hero {
-    height: 180vh;
-    position: relative;
+.hero{
+  min-height:100svh;
+
+  position:relative;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  overflow:hidden;
 }
 
-.hero-inner {
-    position: sticky;
-    top: 0;
-    height: 100vh;
+.hero:after{
+  content:"";
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  position:absolute;
+  inset:0;
 
-    overflow: hidden;
+  background:
+    linear-gradient(
+      transparent 60%,
+      rgba(0,0,0,.7)
+    );
+
+  pointer-events:none;
 }
 
-.hero-title {
-    position: relative;
-    z-index: 5;
+.hero-title{
+  font-size:clamp(
+    72px,
+    17vw,
+    250px
+  );
 
-    font-size: clamp(70px, 17vw, 270px);
-    font-weight: 700;
-    letter-spacing: -.08em;
-    line-height: .75;
-    white-space: nowrap;
+  font-weight:700;
 
-    transform:
-        translate3d(var(--mouse-x), var(--mouse-y), 0)
-        scale(var(--scale));
+  letter-spacing:-.095em;
 
-    transition: transform .08s linear;
+  line-height:.72;
+
+  position:relative;
+
+  z-index:2;
+
+  transform:
+    translate(
+      var(--mx),
+      var(--my)
+    );
+
+  transition:
+    transform .12s linear;
 }
 
-.hero-sub {
-    position: absolute;
-    bottom: 42px;
-    left: 28px;
+.hero-meta{
+  position:absolute;
 
-    font-size: 10px;
-    letter-spacing: .18em;
-    text-transform: uppercase;
-    color: var(--muted);
+  bottom:30px;
+  left:28px;
+  right:28px;
+
+  z-index:3;
+
+  display:flex;
+  justify-content:space-between;
+  align-items:end;
+
+  font-family:monospace;
+
+  font-size:9px;
+
+  letter-spacing:.16em;
+
+  color:var(--muted);
+
+  text-transform:uppercase;
 }
 
-.hero-scroll {
-    position: absolute;
-    bottom: 42px;
-    right: 28px;
 
-    font-size: 10px;
-    letter-spacing: .15em;
-    color: var(--muted);
+/* =========================
+   ANNOUNCEMENT
+========================= */
+
+.announcement{
+  min-height:100svh;
+
+  position:relative;
+
+  display:grid;
+  place-items:center;
+
+  padding:100px 28px;
 }
 
-/* =========================================================
-   RELEASE SECTION
-   ========================================================= */
+.announcement-inner{
+  width:min(
+    1100px,
+    100%
+  );
 
-.release {
-    min-height: 180vh;
-    position: relative;
+  position:relative;
 }
 
-.release-inner {
-    position: sticky;
-    top: 0;
-    height: 100vh;
+.kicker{
+  font-family:monospace;
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  font-size:9px;
 
-    overflow: hidden;
+  letter-spacing:.22em;
+
+  color:var(--muted);
+
+  text-transform:uppercase;
+
+  margin-bottom:20px;
 }
 
-.release-image {
-    position: absolute;
-    width: min(62vw, 720px);
-    aspect-ratio: 1 / 1;
+.announcement h2{
+  font-size:clamp(
+    60px,
+    13vw,
+    190px
+  );
 
-    background:
-        linear-gradient(
-            145deg,
-            #222,
-            #111 45%,
-            #3b3b3b
-        );
+  line-height:.76;
 
-    overflow: hidden;
+  letter-spacing:-.085em;
 
-    transform:
-        translate3d(
-            calc(var(--release-x) * 1px),
-            calc(var(--release-y) * 1px),
-            0
-        )
-        rotate(var(--release-rotate))
-        scale(var(--release-scale));
-
-    transition: transform .12s linear;
+  max-width:1000px;
 }
 
-/* Replace this later with your actual artwork */
-
-.release-image::before {
-    content: "AFTERBURN";
-
-    position: absolute;
-    inset: 0;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    font-size: clamp(40px, 9vw, 130px);
-    font-weight: 700;
-    letter-spacing: -.07em;
-
-    color: rgba(255,255,255,.08);
-
-    transform: translateX(var(--text-shift));
+.announcement h2 span{
+  display:block;
+  color:#777;
 }
 
-.release-image::after {
-    content: "";
+.announcement-copy{
+  margin-top:42px;
 
-    position: absolute;
-    inset: 0;
+  display:flex;
 
-    background:
-        repeating-linear-gradient(
-            90deg,
-            transparent 0px,
-            transparent 5px,
-            rgba(255,255,255,.035) 6px
-        );
+  justify-content:space-between;
 
-    mix-blend-mode: screen;
+  gap:30px;
+
+  align-items:end;
+
+  border-top:1px solid var(--line);
+
+  padding-top:18px;
 }
 
-.release-info {
-    position: absolute;
-    left: 28px;
-    bottom: 38px;
-    z-index: 5;
+.announcement-copy p{
+  max-width:470px;
+
+  font-family:monospace;
+
+  font-size:11px;
+
+  line-height:1.8;
+
+  color:#aaa;
 }
 
-.release-info h2 {
-    font-size: clamp(48px, 9vw, 130px);
-    letter-spacing: -.07em;
-    line-height: .8;
+.cta{
+  color:#fff;
+
+  text-decoration:none;
+
+  border:1px solid rgba(255,255,255,.35);
+
+  padding:14px 18px;
+
+  font-size:10px;
+
+  letter-spacing:.16em;
+
+  white-space:nowrap;
+
+  transition:.25s;
 }
 
-.release-info p {
-    margin-top: 18px;
-    font-family: monospace;
-    font-size: 11px;
-    color: var(--muted);
-    letter-spacing: .1em;
+.cta:hover{
+  background:#fff;
+  color:#000;
 }
 
-/* =========================================================
+
+/* =========================
+   ARTWORK
+========================= */
+
+.art{
+  min-height:100svh;
+
+  display:grid;
+
+  place-items:center;
+
+  padding:70px 28px;
+
+  overflow:hidden;
+}
+
+.artwork-link{
+  display:block;
+
+  width:min(
+    76vw,
+    760px
+  );
+
+  aspect-ratio:1/1;
+
+  text-decoration:none;
+
+  position:relative;
+
+  transform:
+    translate3d(
+      var(--ax),
+      var(--ay),
+      0
+    )
+    rotate(var(--ar));
+
+  transition:
+    transform .12s linear;
+}
+
+.artwork{
+  width:100%;
+  height:100%;
+
+  position:relative;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255,255,255,.08),
+      transparent 35%
+    ),
+    url("images/desert-distortion.webp")
+      center / cover
+      no-repeat,
+    linear-gradient(
+      145deg,
+      #242424,
+      #080808 62%,
+      #303030
+    );
+
+  box-shadow:
+    0 0 90px
+    rgba(255,255,255,.07);
+
+  overflow:hidden;
+
+  transition:
+    filter .3s ease,
+    transform .3s ease;
+}
+
+.artwork-link:hover .artwork{
+  filter:
+    brightness(1.07)
+    contrast(1.05);
+
+  transform:scale(1.008);
+}
+
+.artwork:after{
+  content:"";
+
+  position:absolute;
+  inset:0;
+
+  background:
+    repeating-linear-gradient(
+      90deg,
+      transparent 0,
+      transparent 5px,
+      rgba(255,255,255,.025) 6px
+    );
+
+  mix-blend-mode:screen;
+
+  pointer-events:none;
+}
+
+.art-label{
+  position:absolute;
+
+  left:18px;
+  bottom:18px;
+
+  z-index:2;
+
+  font-family:monospace;
+
+  font-size:9px;
+
+  letter-spacing:.16em;
+
+  color:#fff;
+}
+
+.art-note{
+  position:absolute;
+
+  right:18px;
+  top:18px;
+
+  z-index:2;
+
+  font-family:monospace;
+
+  font-size:8px;
+
+  letter-spacing:.14em;
+
+  writing-mode:vertical-rl;
+
+  color:#aaa;
+}
+
+
+/* =========================
+   TRACKLIST
+========================= */
+
+.release{
+  padding:
+    12vw
+    28px
+    16vw;
+}
+
+.section-label{
+  font-family:monospace;
+
+  font-size:9px;
+
+  letter-spacing:.2em;
+
+  color:var(--muted);
+
+  margin-bottom:55px;
+
+  text-transform:uppercase;
+}
+
+.release-row{
+  display:grid;
+
+  grid-template-columns:
+    70px
+    1fr
+    auto;
+
+  align-items:baseline;
+
+  border-top:1px solid var(--line);
+
+  padding:24px 0;
+
+  transition:.3s;
+}
+
+.release-row:last-child{
+  border-bottom:1px solid var(--line);
+}
+
+.release-row:hover{
+  padding-left:18px;
+  padding-right:18px;
+}
+
+.num,
+.year{
+  font-family:monospace;
+
+  font-size:10px;
+
+  color:var(--muted);
+}
+
+.name{
+  font-size:clamp(
+    28px,
+    5vw,
+    68px
+  );
+
+  letter-spacing:-.065em;
+}
+
+.release-row a{
+  color:inherit;
+
+  text-decoration:none;
+}
+
+.release-row a:hover{
+  text-decoration:underline;
+
+  text-underline-offset:8px;
+}
+
+
+/* =========================
    STATEMENT
-   ========================================================= */
+========================= */
 
-.statement {
-    min-height: 130vh;
-    display: flex;
-    align-items: center;
-    padding: 10vw 7vw;
+.statement{
+  min-height:95svh;
+
+  padding:
+    12vw
+    7vw;
+
+  display:flex;
+
+  align-items:center;
 }
 
-.statement-text {
-    max-width: 1400px;
+.statement-text{
+  max-width:1450px;
 
-    font-size: clamp(45px, 8vw, 125px);
-    line-height: .88;
-    letter-spacing: -.07em;
+  font-size:clamp(
+    44px,
+    8vw,
+    125px
+  );
 
-    transform: translateX(var(--statement-x));
+  line-height:.87;
+
+  letter-spacing:-.075em;
 }
 
-.statement-text span {
-    color: #555;
+.statement-text .dim{
+  color:#555;
 }
 
-/* =========================================================
-   DISCOGRAPHY
-   ========================================================= */
 
-.music {
-    min-height: 130vh;
-    padding: 15vh 28px;
+/* =========================
+   INDUSTRY / ABOUT
+========================= */
+
+.industry{
+  padding:
+    12vw
+    7vw;
+
+  min-height:80svh;
+
+  display:flex;
+
+  align-items:center;
 }
 
-.section-label {
-    font-family: monospace;
-    font-size: 10px;
-    letter-spacing: .2em;
-    color: var(--muted);
-    margin-bottom: 70px;
+.industry-inner{
+  width:100%;
+
+  border-top:1px solid var(--line);
+  border-bottom:1px solid var(--line);
+
+  padding:75px 0;
 }
 
-.track {
-    position: relative;
+.industry-title{
+  font-size:clamp(
+    54px,
+    10vw,
+    150px
+  );
 
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
+  line-height:.78;
 
-    padding: 25px 0;
-
-    border-top: 1px solid var(--line);
-
-    transition:
-        padding .4s ease,
-        transform .4s ease;
+  letter-spacing:-.085em;
 }
 
-.track:last-child {
-    border-bottom: 1px solid var(--line);
+.industry-meta{
+  margin-top:42px;
+
+  max-width:620px;
+
+  font:
+    11px/1.9
+    monospace;
+
+  color:#999;
 }
 
-.track:hover {
-    padding-left: 25px;
-    padding-right: 25px;
-}
 
-.track-number {
-    font-family: monospace;
-    color: var(--muted);
-    font-size: 11px;
-}
-
-.track-name {
-    font-size: clamp(28px, 5vw, 72px);
-    letter-spacing: -.06em;
-}
-
-.track-year {
-    font-family: monospace;
-    color: var(--muted);
-    font-size: 10px;
-}
-
-/* =========================================================
-   GRAMMY / INDUSTRY
-   ========================================================= */
-
-.industry {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    padding: 10vw 7vw;
-}
-
-.industry-inner {
-    width: 100%;
-    border-top: 1px solid var(--line);
-    border-bottom: 1px solid var(--line);
-    padding: 80px 0;
-}
-
-.industry-title {
-    font-size: clamp(50px, 10vw, 150px);
-    line-height: .8;
-    letter-spacing: -.08em;
-}
-
-.industry-meta {
-    margin-top: 40px;
-    font-family: monospace;
-    font-size: 11px;
-    color: var(--muted);
-    max-width: 600px;
-    line-height: 1.8;
-}
-
-/* =========================================================
+/* =========================
    FOOTER
-   ========================================================= */
+========================= */
 
-footer {
-    min-height: 80vh;
-    padding: 28px;
+footer{
+  min-height:80svh;
 
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+  padding:28px;
+
+  display:flex;
+
+  flex-direction:column;
+
+  justify-content:space-between;
 }
 
-.footer-title {
-    font-size: clamp(60px, 15vw, 230px);
-    letter-spacing: -.09em;
-    line-height: .75;
+.footer-title{
+  font-size:clamp(
+    70px,
+    16vw,
+    240px
+  );
+
+  letter-spacing:-.1em;
+
+  line-height:.72;
 }
 
-.footer-bottom {
-    display: flex;
-    justify-content: space-between;
-    gap: 20px;
+.footer-bottom{
+  display:flex;
 
-    font-family: monospace;
-    font-size: 10px;
-    color: var(--muted);
+  justify-content:space-between;
+
+  gap:20px;
+
+  font:
+    9px
+    monospace;
+
+  color:var(--muted);
+
+  letter-spacing:.08em;
 }
 
-.footer-links {
-    display: flex;
-    gap: 20px;
+.footer-links{
+  display:flex;
+
+  gap:20px;
+
+  flex-wrap:wrap;
 }
 
-.footer-links a {
-    color: inherit;
-    text-decoration: none;
+.footer-links a{
+  color:inherit;
+
+  text-decoration:none;
+
+  transition:.25s;
 }
 
-/* =========================================================
+.footer-links a:hover{
+  color:#fff;
+}
+
+
+/* =========================
    MOBILE
-   ========================================================= */
+========================= */
 
-@media (max-width: 700px) {
+@media(max-width:700px){
 
-    nav {
-        padding: 18px;
-    }
+  nav{
+    padding:18px;
+  }
 
-    .nav-right {
-        display: none;
-    }
+  .nav-right{
+    display:none;
+  }
 
-    .hero-title {
-        font-size: 24vw;
-    }
+  .hero-title{
+    font-size:24vw;
+  }
 
-    .release-image {
-        width: 82vw;
-    }
+  .hero-meta{
+    left:18px;
+    right:18px;
 
-    .release-info {
-        left: 18px;
-    }
+    gap:20px;
+  }
 
-    .statement {
-        padding: 20vw 18px;
-    }
+  .announcement{
+    padding:80px 18px;
+  }
 
-    .music {
-        padding: 15vh 18px;
-    }
+  .announcement h2{
+    font-size:20vw;
+  }
 
-    footer {
-        padding: 18px;
-    }
+  .announcement-copy{
+    display:block;
+  }
 
-    .footer-bottom {
-        flex-direction: column;
-    }
+  .announcement-copy p{
+    margin-bottom:28px;
+  }
+
+  .art{
+    padding:50px 18px;
+  }
+
+  .artwork-link{
+    width:92vw;
+  }
+
+  .release{
+    padding:
+      18vw
+      18px;
+  }
+
+  .release-row{
+    grid-template-columns:
+      40px
+      1fr;
+  }
+
+  .year{
+    display:none;
+  }
+
+  .statement{
+    padding:
+      20vw
+      18px;
+  }
+
+  .industry{
+    padding:
+      20vw
+      18px;
+  }
+
+  footer{
+    padding:18px;
+  }
+
+  .footer-bottom{
+    flex-direction:column;
+  }
+
 }
+
+
+/* =========================
+   REDUCED MOTION
+========================= */
+
+@media(prefers-reduced-motion:reduce){
+
+  html{
+    scroll-behavior:auto;
+  }
+
+  body:before{
+    animation:none;
+  }
+
+  .hero-title,
+  .artwork-link{
+    transform:none !important;
+  }
+
+}
+
 </style>
 </head>
 
+
 <body>
 
-<!-- =========================================================
+
+<!-- =========================
      NAVIGATION
-     ========================================================= -->
+========================= -->
 
 <nav>
 
-    <div class="logo">
-        XIMERMJ
-    </div>
+  <div class="logo">
+    XIMERMJ
+  </div>
 
-    <div class="nav-right">
-        <a href="#music">Music</a>
-        <a href="#industry">About</a>
-        <a href="mailto:contact@ximermj.com">Contact</a>
-    </div>
+  <div class="nav-right">
+
+    <a href="#desert">
+      Desert Distortion
+    </a>
+
+    <a href="#music">
+      Tracklist
+    </a>
+
+    <a href="#about">
+      About
+    </a>
+
+    <a
+      href="https://linktr.ee/ximermj"
+      target="_blank"
+      rel="noopener"
+    >
+      All Links ↗
+    </a>
+
+  </div>
 
 </nav>
 
-<div class="progress">
-    <div class="progress-bar"></div>
-</div>
 
-
-<!-- =========================================================
+<!-- =========================
      HERO
-     ========================================================= -->
+========================= -->
 
 <section class="hero">
 
-    <div class="hero-inner">
+  <h1 class="hero-title">
+    XIMERMJ
+  </h1>
 
-        <h1 class="hero-title">
-            XIMERMJ
-        </h1>
+  <div class="hero-meta">
 
-        <div class="hero-sub">
-            Independent Electronic Artist / Producer / DJ
-        </div>
+    <span>
+      Independent Electronic Artist / Producer / DJ
+    </span>
 
-        <div class="hero-scroll">
-            Scroll to enter ↓
-        </div>
+    <span>
+      Buffalo, NY — 2026
+    </span>
 
-    </div>
-
-</section>
-
-
-<!-- =========================================================
-     AFTERBURN
-     ========================================================= -->
-
-<section class="release">
-
-    <div class="release-inner">
-
-        <div class="release-image"></div>
-
-        <div class="release-info">
-
-            <h2>AFTERBURN</h2>
-
-            <p>
-                SINGLE / 02 OCT 2026
-            </p>
-
-        </div>
-
-    </div>
+  </div>
 
 </section>
 
 
-<!-- =========================================================
-     STATEMENT
-     ========================================================= -->
+<!-- =========================
+     DESERT DISTORTION
+========================= -->
+
+<section
+  class="announcement"
+  id="desert"
+>
+
+  <div class="announcement-inner">
+
+    <div class="kicker">
+      NEW ERA / 2026
+    </div>
+
+    <h2>
+      DESERT
+      <span>DISTORTION</span>
+    </h2>
+
+    <div class="announcement-copy">
+
+      <p>
+        XIMERMJ enters a new phase built around
+        desert heat, empty pools, mid-century
+        architecture, damaged color and digital decay.
+      </p>
+
+      <a
+        class="cta"
+        href="https://distrokid.com/hyperfollow/ximermj/desert-distortion-2"
+        target="_blank"
+        rel="noopener"
+      >
+        LISTEN / PRE-SAVE ↗
+      </a>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================
+     ARTWORK
+========================= -->
+
+<section
+  class="art"
+  id="artwork"
+>
+
+  <a
+    class="artwork-link"
+    href="https://distrokid.com/hyperfollow/ximermj/desert-distortion-2"
+    target="_blank"
+    rel="noopener"
+    aria-label="Open Desert Distortion release page"
+  >
+
+    <div class="artwork">
+
+      <div class="art-label">
+        XIMERMJ / DESERT DISTORTION
+      </div>
+
+      <div class="art-note">
+        NEW TRANSMISSION / 2026
+      </div>
+
+    </div>
+
+  </a>
+
+</section>
+
+
+<!-- =========================
+     TRACKLIST
+========================= -->
+
+<section
+  class="release"
+  id="music"
+>
+
+  <div class="section-label">
+    01 / DESERT DISTORTION — TRACKLIST
+  </div>
+
+
+  <div class="release-row">
+
+    <span class="num">
+      01
+    </span>
+
+    <span class="name">
+      UNDER PRESSURE
+    </span>
+
+    <span class="year">
+      2026
+    </span>
+
+  </div>
+
+
+  <div class="release-row">
+
+    <span class="num">
+      02
+    </span>
+
+    <span class="name">
+      SUN DAMAGE
+    </span>
+
+    <span class="year">
+      2026
+    </span>
+
+  </div>
+
+
+  <div class="release-row">
+
+    <span class="num">
+      03
+    </span>
+
+    <span class="name">
+      MIRAGE PROTOCOL
+    </span>
+
+    <span class="year">
+      2026
+    </span>
+
+  </div>
+
+
+  <div class="release-row">
+
+    <span class="num">
+      04
+    </span>
+
+    <span class="name">
+      INVALUABLE
+    </span>
+
+    <span class="year">
+      2026
+    </span>
+
+  </div>
+
+
+  <div class="release-row">
+
+    <span class="num">
+      05
+    </span>
+
+    <span class="name">
+      HEADWAY
+    </span>
+
+    <span class="year">
+      2026
+    </span>
+
+  </div>
+
+
+  <div class="release-row">
+
+    <span class="num">
+      06
+    </span>
+
+    <span class="name">
+      FAULT LINE
+    </span>
+
+    <span class="year">
+      2026
+    </span>
+
+  </div>
+
+
+  <div class="release-row">
+
+    <span class="num">
+      07
+    </span>
+
+    <span class="name">
+      DESERT SIGNAL
+    </span>
+
+    <span class="year">
+      2026
+    </span>
+
+  </div>
+
+
+  <div class="release-row">
+
+    <span class="num">
+      08
+    </span>
+
+    <span class="name">
+
+      <a
+        href="https://music.apple.com/us/album/afterburn/6820104032?i=6820104033"
+        target="_blank"
+        rel="noopener"
+      >
+        AFTERBURN ↗
+      </a>
+
+    </span>
+
+    <span class="year">
+      2026
+    </span>
+
+  </div>
+
+
+  <div
+    class="announcement-copy"
+    style="margin-top:45px"
+  >
+
+    <p>
+      Eight tracks. One distorted desert.
+      The official Desert Distortion release
+      hub is now live.
+    </p>
+
+    <a
+      class="cta"
+      href="https://distrokid.com/hyperfollow/ximermj/desert-distortion-2"
+      target="_blank"
+      rel="noopener"
+    >
+      DESERT DISTORTION ↗
+    </a>
+
+  </div>
+
+</section>
+
+
+<!-- =========================
+     ARTIST STATEMENT
+========================= -->
 
 <section class="statement">
 
-    <div class="statement-text">
+  <div class="statement-text">
 
-        ELECTRONIC MUSIC
-        <span>WITHOUT A FIXED SHAPE.</span>
+    ELECTRONIC MUSIC
+    <br>
 
-        GLITCH.
-        HOUSE.
-        TECHNO.
-        DARK POP.
-        CINEMATIC TEXTURES.
+    <span class="dim">
+      WITHOUT A FIXED SHAPE.
+    </span>
 
-    </div>
+    <br>
+    <br>
 
-</section>
+    GLITCH. HOUSE. TECHNO.
+    <br>
 
+    DARK POP. CINEMATIC TEXTURES.
 
-<!-- =========================================================
-     MUSIC
-     ========================================================= -->
-
-<section class="music" id="music">
-
-    <div class="section-label">
-        01 / SELECTED RELEASES
-    </div>
-
-    <div class="track">
-
-        <span class="track-number">01</span>
-
-        <span class="track-name">
-            AFTERBURN
-        </span>
-
-        <span class="track-year">
-            2026
-        </span>
-
-    </div>
-
-    <div class="track">
-
-        <span class="track-number">02</span>
-
-        <span class="track-name">
-            HEADWAY
-        </span>
-
-        <span class="track-year">
-            2026
-        </span>
-
-    </div>
-
-    <div class="track">
-
-        <span class="track-number">03</span>
-
-        <span class="track-name">
-            DEADLOCKED
-        </span>
-
-        <span class="track-year">
-            2026
-        </span>
-
-    </div>
-
-    <div class="track">
-
-        <span class="track-number">04</span>
-
-        <span class="track-name">
-            VIRULENCE
-        </span>
-
-        <span class="track-year">
-            2025
-        </span>
-
-    </div>
+  </div>
 
 </section>
 
 
-<!-- =========================================================
-     INDUSTRY
-     ========================================================= -->
+<!-- =========================
+     ABOUT / INDUSTRY
+========================= -->
 
-<section class="industry" id="industry">
+<section
+  class="industry"
+  id="about"
+>
 
-    <div class="industry-inner">
+  <div class="industry-inner">
 
-        <div class="industry-title">
-            MUSIC<br>
-            IS THE<br>
-            MEDIUM.
-        </div>
+    <div class="industry-title">
 
-        <div class="industry-meta">
+      MUSIC
+      <br>
 
-            XIMERMJ is an independent electronic producer,
-            composer and DJ based in Buffalo, New York.
+      IS THE
+      <br>
 
-            <br><br>
-
-            Selected for the GRAMMY Museum
-            INDUSTRY SESSIONS: Music Production 101 —
-            Fall 2026.
-
-        </div>
+      MEDIUM.
 
     </div>
+
+
+    <div class="industry-meta">
+
+      XIMERMJ is an independent electronic
+      producer, composer and DJ based in
+      Buffalo, New York.
+
+      <br>
+      <br>
+
+      Selected for the GRAMMY Museum
+      INDUSTRY SESSIONS:
+      Music Production 101 — Fall 2026.
+
+    </div>
+
+  </div>
 
 </section>
 
 
-<!-- =========================================================
+<!-- =========================
      FOOTER
-     ========================================================= -->
+========================= -->
 
 <footer>
 
-    <div class="footer-title">
-        XIMERMJ
+  <div class="footer-title">
+    XIMERMJ
+  </div>
+
+
+  <div class="footer-bottom">
+
+    <div>
+      © 2026 XIMERMJ / RICHNER RECORDS LLC
     </div>
 
-    <div class="footer-bottom">
 
-        <div>
-            © 2026 XIMERMJ / RICHNER RECORDS LLC
-        </div>
+    <div class="footer-links">
 
-        <div class="footer-links">
+      <a
+        href="https://music.apple.com/us/album/afterburn/6820104032?i=6820104033"
+        target="_blank"
+        rel="noopener"
+      >
+        APPLE MUSIC
+      </a>
 
-            <a href="https://open.spotify.com/" target="_blank">
-                SPOTIFY
-            </a>
 
-            <a href="https://music.apple.com/" target="_blank">
-                APPLE MUSIC
-            </a>
+      <a
+        href="https://linktr.ee/ximermj"
+        target="_blank"
+        rel="noopener"
+      >
+        ALL LINKS
+      </a>
 
-            <a href="https://www.instagram.com/" target="_blank">
-                INSTAGRAM
-            </a>
 
-        </div>
+      <a
+        href="mailto:jmr7100@icloud.com"
+      >
+        EMAIL
+      </a>
 
     </div>
+
+  </div>
 
 </footer>
 
 
-<script>
+<!-- =========================
+     INTERACTION
+========================= -->
 
-/* =========================================================
-   XIMERMJ INTERACTION ENGINE
-   ========================================================= */
+<script>
 
 const root = document.documentElement;
 
-let mouseX = 0;
-let mouseY = 0;
+let tx = 0;
+let ty = 0;
 
-let targetX = 0;
-let targetY = 0;
-
-let scrollVelocity = 0;
-let lastScroll = window.scrollY;
+let mx = 0;
+let my = 0;
 
 
-/* ---------------------------------------------------------
-   TRACKPAD / MOUSE MOVEMENT
-   --------------------------------------------------------- */
+window.addEventListener(
+  "pointermove",
+  (e) => {
 
-window.addEventListener("pointermove", (event) => {
+    tx =
+      (
+        e.clientX /
+        innerWidth -
+        .5
+      ) * 24;
 
-    targetX = (event.clientX / window.innerWidth - .5) * 30;
+    ty =
+      (
+        e.clientY /
+        innerHeight -
+        .5
+      ) * 16;
 
-    targetY = (event.clientY / window.innerHeight - .5) * 20;
+  }
+);
 
-});
+
+function animate(){
+
+  mx +=
+    (tx - mx) *
+    .08;
+
+  my +=
+    (ty - my) *
+    .08;
 
 
-/* ---------------------------------------------------------
-   SMOOTH MOUSE FOLLOW
-   --------------------------------------------------------- */
+  root.style.setProperty(
+    "--mx",
+    mx + "px"
+  );
 
-function animateMouse() {
+  root.style.setProperty(
+    "--my",
+    my + "px"
+  );
 
-    mouseX += (targetX - mouseX) * .08;
-    mouseY += (targetY - mouseY) * .08;
 
-    root.style.setProperty(
-        "--mouse-x",
-        `${mouseX}px`
-    );
+  root.style.setProperty(
+    "--ax",
+    (mx * .45) + "px"
+  );
 
-    root.style.setProperty(
-        "--mouse-y",
-        `${mouseY}px`
-    );
+  root.style.setProperty(
+    "--ay",
+    (my * .45) + "px"
+  );
 
-    requestAnimationFrame(animateMouse);
+  root.style.setProperty(
+    "--ar",
+    (mx * .018) + "deg"
+  );
+
+
+  requestAnimationFrame(
+    animate
+  );
+
 }
 
-animateMouse();
 
-
-/* ---------------------------------------------------------
-   SCROLL ENGINE
-   --------------------------------------------------------- */
-
-window.addEventListener("scroll", () => {
-
-    const scrollY = window.scrollY;
-
-    scrollVelocity =
-        scrollY - lastScroll;
-
-    lastScroll = scrollY;
-
-
-    /* Page progress */
-
-    const maxScroll =
-        document.body.scrollHeight -
-        window.innerHeight;
-
-    const progress =
-        (scrollY / maxScroll) * 100;
-
-    document.querySelector(".progress-bar").style.height =
-        `${progress}%`;
-
-
-    /* Hero scale */
-
-    const heroScale =
-        1 + Math.min(scrollY / 1800, .35);
-
-    root.style.setProperty(
-        "--scale",
-        heroScale
-    );
-
-
-    /* Release movement */
-
-    const release =
-        document.querySelector(".release");
-
-    const rect =
-        release.getBoundingClientRect();
-
-    const progressRelease =
-        Math.max(
-            0,
-            Math.min(
-                1,
-                -rect.top /
-                (release.offsetHeight - window.innerHeight)
-            )
-        );
-
-
-    const releaseX =
-        Math.sin(progressRelease * Math.PI) * 80;
-
-    const releaseY =
-        Math.cos(progressRelease * Math.PI) * 30;
-
-    const rotation =
-        Math.sin(progressRelease * Math.PI) * 2;
-
-    const scale =
-        1 +
-        Math.sin(progressRelease * Math.PI) * .12;
-
-    root.style.setProperty(
-        "--release-x",
-        releaseX
-    );
-
-    root.style.setProperty(
-        "--release-y",
-        releaseY
-    );
-
-    root.style.setProperty(
-        "--release-rotate",
-        `${rotation}deg`
-    );
-
-    root.style.setProperty(
-        "--release-scale",
-        scale
-    );
-
-
-    /* Statement movement */
-
-    root.style.setProperty(
-        "--statement-x",
-        `${Math.sin(scrollY * .002) * 40}px`
-    );
-
-});
-
-
-/* ---------------------------------------------------------
-   HOVER DISTORTION
-   --------------------------------------------------------- */
-
-const releaseImage =
-    document.querySelector(".release-image");
-
-document.addEventListener("pointermove", (event) => {
-
-    const rect =
-        releaseImage.getBoundingClientRect();
-
-    const x =
-        event.clientX - rect.left;
-
-    const y =
-        event.clientY - rect.top;
-
-    if (
-        x > 0 &&
-        x < rect.width &&
-        y > 0 &&
-        y < rect.height
-    ) {
-
-        const shift =
-            ((x / rect.width) - .5) * 80;
-
-        root.style.setProperty(
-            "--text-shift",
-            `${shift}px`
-        );
-
-    }
-
-});
-
-
-/* ---------------------------------------------------------
-   KEYBOARD ACCESSIBILITY
-   --------------------------------------------------------- */
-
-document.addEventListener("keydown", (event) => {
-
-    if (event.key === "Escape") {
-        window.scrollTo({
-            top: 0,
-            behavior: "smooth"
-        });
-    }
-
-});
+animate();
 
 </script>
+
 
 </body>
 </html>

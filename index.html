@@ -2,442 +2,575 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta
+  name="viewport"
+  content="width=device-width, initial-scale=1.0"
+>
 
 <title>XIMERMJ — Desert Distortion</title>
 
 <meta
   name="description"
-  content="XIMERMJ — independent electronic artist and producer from Buffalo, New York. Desert Distortion."
+  content="XIMERMJ — independent electronic artist, producer and DJ. Desert Distortion."
 >
 
-<meta property="og:title" content="XIMERMJ — Desert Distortion">
+<meta
+  name="theme-color"
+  content="#030303"
+>
+
+<meta
+  property="og:title"
+  content="XIMERMJ — Desert Distortion"
+>
+
 <meta
   property="og:description"
-  content="XIMERMJ — Desert Distortion. A new era."
+  content="XIMERMJ enters a new era with Desert Distortion."
 >
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://ximermj.com">
+
+<meta
+  property="og:type"
+  content="website"
+>
+
+<meta
+  property="og:url"
+  content="https://ximermj.com/"
+>
 
 <style>
 
-:root{
-  --bg:#030303;
-  --fg:#f4f4f0;
-  --muted:#8b8b86;
-  --line:rgba(255,255,255,.13);
-  --glow:rgba(255,255,255,.12);
+/* =========================================================
+   XIMERMJ.COM
+   DESERT DISTORTION
+   ========================================================= */
+
+:root {
+  --black: #030303;
+  --white: #f4f4f0;
+  --gray: #8b8b86;
+  --dark-gray: #555;
+  --line: rgba(255,255,255,.14);
+  --soft-line: rgba(255,255,255,.08);
 }
 
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
+
+/* =========================================================
+   RESET
+   ========================================================= */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-html{
-  background:var(--bg);
-  scroll-behavior:smooth;
+html {
+  background: var(--black);
+  color: var(--white);
+  scroll-behavior: smooth;
 }
 
-body{
+body {
+  margin: 0;
   background:
     radial-gradient(
-      circle at 50% 32%,
+      circle at 50% 30%,
       rgba(255,255,255,.055),
-      transparent 28%
+      transparent 30%
     ),
     radial-gradient(
       circle at 80% 80%,
       rgba(255,255,255,.025),
-      transparent 25%
+      transparent 30%
     ),
-    var(--bg);
+    var(--black);
 
-  color:var(--fg);
+  color: var(--white);
 
   font-family:
     Arial,
     Helvetica,
     sans-serif;
 
-  overflow-x:hidden;
+  overflow-x: hidden;
 }
 
 
-/* =========================
-   GRAIN / NOISE
-========================= */
+/* =========================================================
+   FILM GRAIN
+   ========================================================= */
 
-body:before{
-  content:"";
-  position:fixed;
-  inset:-50%;
-  pointer-events:none;
-  z-index:9998;
+body::before {
+  content: "";
 
-  opacity:.035;
+  position: fixed;
 
-  background-image:url(
-    "data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"
-  );
+  inset: -50%;
 
-  animation:grain .18s steps(2) infinite;
+  width: 200%;
+  height: 200%;
+
+  pointer-events: none;
+
+  z-index: 9999;
+
+  opacity: .035;
+
+  background-image:
+    url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+
+  animation:
+    grain .18s steps(2) infinite;
 }
 
-@keyframes grain{
+@keyframes grain {
 
-  0%{
-    transform:translate(0,0);
+  0% {
+    transform: translate(0,0);
   }
 
-  25%{
-    transform:translate(2%,-1%);
+  25% {
+    transform: translate(2%,-1%);
   }
 
-  50%{
-    transform:translate(-1%,2%);
+  50% {
+    transform: translate(-1%,2%);
   }
 
-  75%{
-    transform:translate(1%,1%);
+  75% {
+    transform: translate(1%,1%);
   }
 
-  100%{
-    transform:translate(-2%,-1%);
+  100% {
+    transform: translate(-2%,-1%);
   }
 
 }
 
 
-/* =========================
+/* =========================================================
    NAVIGATION
-========================= */
+   ========================================================= */
 
-nav{
-  position:fixed;
-  top:0;
-  left:0;
-  width:100%;
+nav {
 
-  padding:22px 28px;
+  position: fixed;
 
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
+  top: 0;
+  left: 0;
 
-  z-index:1000;
+  width: 100%;
 
-  mix-blend-mode:difference;
+  padding:
+    24px
+    30px;
+
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  z-index: 1000;
+
+  mix-blend-mode: difference;
 }
 
-.logo{
-  font-size:13px;
-  font-weight:700;
-  letter-spacing:.18em;
+.logo {
+
+  color: #fff;
+
+  font-size: 13px;
+
+  font-weight: 700;
+
+  letter-spacing: .2em;
+
+  text-decoration: none;
 }
 
-.nav-right{
-  display:flex;
-  gap:25px;
+.nav-links {
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 28px;
 }
 
-.nav-right a{
-  color:#fff;
-  text-decoration:none;
+.nav-links a {
 
-  font-size:10px;
-  letter-spacing:.16em;
-  text-transform:uppercase;
+  color: #fff;
 
-  transition:.25s;
+  text-decoration: none;
+
+  font-family: monospace;
+
+  font-size: 9px;
+
+  letter-spacing: .15em;
+
+  text-transform: uppercase;
+
+  transition:
+    opacity .25s ease;
 }
 
-.nav-right a:hover{
-  opacity:.55;
+.nav-links a:hover {
+  opacity: .5;
 }
 
 
-/* =========================
+/* =========================================================
    HERO
-========================= */
+   ========================================================= */
 
-.hero{
-  min-height:100svh;
+.hero {
 
-  position:relative;
+  min-height: 100svh;
 
-  display:flex;
-  align-items:center;
-  justify-content:center;
+  position: relative;
 
-  overflow:hidden;
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+
+  overflow: hidden;
 }
 
-.hero:after{
-  content:"";
+.hero-title {
 
-  position:absolute;
-  inset:0;
+  position: relative;
 
-  background:
-    linear-gradient(
-      transparent 60%,
-      rgba(0,0,0,.7)
+  z-index: 2;
+
+  font-size:
+    clamp(
+      70px,
+      17vw,
+      245px
     );
 
-  pointer-events:none;
-}
+  font-weight: 700;
 
-.hero-title{
-  font-size:clamp(
-    72px,
-    17vw,
-    250px
-  );
+  letter-spacing: -.095em;
 
-  font-weight:700;
+  line-height: .72;
 
-  letter-spacing:-.095em;
-
-  line-height:.72;
-
-  position:relative;
-
-  z-index:2;
+  white-space: nowrap;
 
   transform:
     translate(
-      var(--mx),
-      var(--my)
+      var(--hero-x, 0px),
+      var(--hero-y, 0px)
     );
 
   transition:
     transform .12s linear;
 }
 
-.hero-meta{
-  position:absolute;
+.hero::after {
 
-  bottom:30px;
-  left:28px;
-  right:28px;
+  content: "";
 
-  z-index:3;
+  position: absolute;
 
-  display:flex;
-  justify-content:space-between;
-  align-items:end;
+  inset: 0;
 
-  font-family:monospace;
-
-  font-size:9px;
-
-  letter-spacing:.16em;
-
-  color:var(--muted);
-
-  text-transform:uppercase;
-}
-
-
-/* =========================
-   ANNOUNCEMENT
-========================= */
-
-.announcement{
-  min-height:100svh;
-
-  position:relative;
-
-  display:grid;
-  place-items:center;
-
-  padding:100px 28px;
-}
-
-.announcement-inner{
-  width:min(
-    1100px,
-    100%
-  );
-
-  position:relative;
-}
-
-.kicker{
-  font-family:monospace;
-
-  font-size:9px;
-
-  letter-spacing:.22em;
-
-  color:var(--muted);
-
-  text-transform:uppercase;
-
-  margin-bottom:20px;
-}
-
-.announcement h2{
-  font-size:clamp(
-    60px,
-    13vw,
-    190px
-  );
-
-  line-height:.76;
-
-  letter-spacing:-.085em;
-
-  max-width:1000px;
-}
-
-.announcement h2 span{
-  display:block;
-  color:#777;
-}
-
-.announcement-copy{
-  margin-top:42px;
-
-  display:flex;
-
-  justify-content:space-between;
-
-  gap:30px;
-
-  align-items:end;
-
-  border-top:1px solid var(--line);
-
-  padding-top:18px;
-}
-
-.announcement-copy p{
-  max-width:470px;
-
-  font-family:monospace;
-
-  font-size:11px;
-
-  line-height:1.8;
-
-  color:#aaa;
-}
-
-.cta{
-  color:#fff;
-
-  text-decoration:none;
-
-  border:1px solid rgba(255,255,255,.35);
-
-  padding:14px 18px;
-
-  font-size:10px;
-
-  letter-spacing:.16em;
-
-  white-space:nowrap;
-
-  transition:.25s;
-}
-
-.cta:hover{
-  background:#fff;
-  color:#000;
-}
-
-
-/* =========================
-   ARTWORK
-========================= */
-
-.art{
-  min-height:100svh;
-
-  display:grid;
-
-  place-items:center;
-
-  padding:70px 28px;
-
-  overflow:hidden;
-}
-
-.artwork-link{
-  display:block;
-
-  width:min(
-    76vw,
-    760px
-  );
-
-  aspect-ratio:1/1;
-
-  text-decoration:none;
-
-  position:relative;
-
-  transform:
-    translate3d(
-      var(--ax),
-      var(--ay),
-      0
-    )
-    rotate(var(--ar));
-
-  transition:
-    transform .12s linear;
-}
-
-.artwork{
-  width:100%;
-  height:100%;
-
-  position:relative;
+  pointer-events: none;
 
   background:
     linear-gradient(
-      135deg,
-      rgba(255,255,255,.08),
-      transparent 35%
-    ),
-    url("images/desert-distortion.webp")
-      center / cover
-      no-repeat,
-    linear-gradient(
-      145deg,
-      #242424,
-      #080808 62%,
-      #303030
+      to bottom,
+      transparent 55%,
+      rgba(0,0,0,.75)
+    );
+}
+
+.hero-meta {
+
+  position: absolute;
+
+  left: 30px;
+  right: 30px;
+  bottom: 30px;
+
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: flex-end;
+
+  gap: 20px;
+
+  z-index: 3;
+
+  font-family: monospace;
+
+  font-size: 9px;
+
+  line-height: 1.5;
+
+  letter-spacing: .14em;
+
+  text-transform: uppercase;
+
+  color: var(--gray);
+}
+
+
+/* =========================================================
+   SECTION BASE
+   ========================================================= */
+
+section {
+  position: relative;
+}
+
+
+/* =========================================================
+   DESERT DISTORTION ANNOUNCEMENT
+   ========================================================= */
+
+.announcement {
+
+  min-height: 100svh;
+
+  padding:
+    120px
+    30px;
+
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+}
+
+.announcement-inner {
+
+  width: min(
+    1150px,
+    100%
+  );
+}
+
+.eyebrow {
+
+  margin-bottom: 25px;
+
+  font-family: monospace;
+
+  font-size: 9px;
+
+  letter-spacing: .22em;
+
+  color: var(--gray);
+
+  text-transform: uppercase;
+}
+
+.announcement-title {
+
+  font-size:
+    clamp(
+      60px,
+      13vw,
+      185px
     );
 
-  box-shadow:
-    0 0 90px
-    rgba(255,255,255,.07);
+  line-height: .76;
 
-  overflow:hidden;
+  letter-spacing: -.085em;
+
+  font-weight: 700;
+}
+
+.announcement-title span {
+
+  display: block;
+
+  color: #686865;
+}
+
+.announcement-bottom {
+
+  margin-top: 50px;
+
+  padding-top: 20px;
+
+  border-top:
+    1px solid var(--line);
+
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: flex-end;
+
+  gap: 30px;
+}
+
+.announcement-description {
+
+  max-width: 520px;
+
+  font-family: monospace;
+
+  font-size: 11px;
+
+  line-height: 1.8;
+
+  color: #aaa;
+}
+
+
+/* =========================================================
+   BUTTON
+   ========================================================= */
+
+.button {
+
+  display: inline-flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  padding:
+    15px
+    20px;
+
+  border:
+    1px solid
+    rgba(255,255,255,.35);
+
+  color: #fff;
+
+  text-decoration: none;
+
+  font-family: monospace;
+
+  font-size: 9px;
+
+  letter-spacing: .16em;
+
+  text-transform: uppercase;
+
+  white-space: nowrap;
 
   transition:
-    filter .3s ease,
-    transform .3s ease;
+    background .25s ease,
+    color .25s ease,
+    border-color .25s ease;
 }
 
-.artwork-link:hover .artwork{
+.button:hover {
+
+  background: #fff;
+
+  border-color: #fff;
+
+  color: #000;
+}
+
+
+/* =========================================================
+   ARTWORK
+   ========================================================= */
+
+.artwork-section {
+
+  min-height: 100svh;
+
+  padding:
+    70px
+    30px
+    130px;
+
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+}
+
+.artwork-link {
+
+  width: min(
+    78vw,
+    820px
+  );
+
+  aspect-ratio: 1 / 1;
+
+  display: block;
+
+  position: relative;
+
+  text-decoration: none;
+
+  transform:
+    translate(
+      var(--art-x, 0px),
+      var(--art-y, 0px)
+    )
+    rotate(
+      var(--art-rotate, 0deg)
+    );
+
+  transition:
+    transform .15s linear;
+}
+
+.artwork {
+
+  width: 100%;
+  height: 100%;
+
+  position: relative;
+
+  overflow: hidden;
+
+  background:
+    #111
+    url("images/desert-distortion.webp")
+    center center /
+    cover
+    no-repeat;
+
+  box-shadow:
+    0 0 100px
+    rgba(255,255,255,.065);
+
+  transition:
+    transform .4s ease,
+    filter .4s ease;
+}
+
+.artwork-link:hover .artwork {
+
+  transform: scale(1.012);
+
   filter:
-    brightness(1.07)
-    contrast(1.05);
-
-  transform:scale(1.008);
+    brightness(1.06)
+    contrast(1.04);
 }
 
-.artwork:after{
-  content:"";
+.artwork::after {
 
-  position:absolute;
-  inset:0;
+  content: "";
+
+  position: absolute;
+
+  inset: 0;
+
+  pointer-events: none;
 
   background:
     repeating-linear-gradient(
@@ -447,386 +580,544 @@ nav{
       rgba(255,255,255,.025) 6px
     );
 
-  mix-blend-mode:screen;
-
-  pointer-events:none;
+  mix-blend-mode: screen;
 }
 
-.art-label{
-  position:absolute;
+.artwork-label {
 
-  left:18px;
-  bottom:18px;
+  position: absolute;
 
-  z-index:2;
+  left: 20px;
+  bottom: 20px;
 
-  font-family:monospace;
+  z-index: 3;
 
-  font-size:9px;
+  color: #fff;
 
-  letter-spacing:.16em;
+  font-family: monospace;
 
-  color:#fff;
+  font-size: 9px;
+
+  letter-spacing: .16em;
+
+  text-transform: uppercase;
 }
 
-.art-note{
-  position:absolute;
+.artwork-note {
 
-  right:18px;
-  top:18px;
+  position: absolute;
 
-  z-index:2;
+  top: 20px;
+  right: 20px;
 
-  font-family:monospace;
+  z-index: 3;
 
-  font-size:8px;
+  color: rgba(255,255,255,.7);
 
-  letter-spacing:.14em;
+  font-family: monospace;
 
-  writing-mode:vertical-rl;
+  font-size: 8px;
 
-  color:#aaa;
+  letter-spacing: .15em;
+
+  writing-mode: vertical-rl;
+
+  text-transform: uppercase;
 }
 
 
-/* =========================
+/* =========================================================
    TRACKLIST
-========================= */
+   ========================================================= */
 
-.release{
+.tracklist {
+
   padding:
     12vw
-    28px
-    16vw;
+    30px
+    17vw;
 }
 
-.section-label{
-  font-family:monospace;
+.section-label {
 
-  font-size:9px;
+  margin-bottom: 55px;
 
-  letter-spacing:.2em;
+  font-family: monospace;
 
-  color:var(--muted);
+  font-size: 9px;
 
-  margin-bottom:55px;
+  letter-spacing: .2em;
 
-  text-transform:uppercase;
+  color: var(--gray);
+
+  text-transform: uppercase;
 }
 
-.release-row{
-  display:grid;
+.track {
+
+  display: grid;
 
   grid-template-columns:
     70px
     1fr
-    auto;
+    70px;
 
-  align-items:baseline;
+  align-items: baseline;
 
-  border-top:1px solid var(--line);
+  padding:
+    24px
+    0;
 
-  padding:24px 0;
+  border-top:
+    1px solid var(--line);
 
-  transition:.3s;
+  transition:
+    padding .25s ease,
+    background .25s ease;
 }
 
-.release-row:last-child{
-  border-bottom:1px solid var(--line);
+.track:last-of-type {
+
+  border-bottom:
+    1px solid var(--line);
 }
 
-.release-row:hover{
-  padding-left:18px;
-  padding-right:18px;
+.track:hover {
+
+  padding-left: 18px;
+
+  padding-right: 18px;
+
+  background:
+    rgba(255,255,255,.015);
 }
 
-.num,
-.year{
-  font-family:monospace;
+.track-number,
+.track-year {
 
-  font-size:10px;
+  font-family: monospace;
 
-  color:var(--muted);
+  font-size: 10px;
+
+  color: var(--gray);
 }
 
-.name{
-  font-size:clamp(
-    28px,
-    5vw,
-    68px
-  );
+.track-title {
 
-  letter-spacing:-.065em;
+  font-size:
+    clamp(
+      27px,
+      5vw,
+      70px
+    );
+
+  font-weight: 500;
+
+  letter-spacing: -.065em;
+
+  line-height: 1;
 }
 
-.release-row a{
-  color:inherit;
+.track-title a {
 
-  text-decoration:none;
+  color: inherit;
+
+  text-decoration: none;
 }
 
-.release-row a:hover{
-  text-decoration:underline;
+.track-title a:hover {
 
-  text-underline-offset:8px;
+  text-decoration:
+    underline;
+
+  text-underline-offset:
+    8px;
+}
+
+.track-note {
+
+  margin-top: 45px;
+
+  padding-top: 20px;
+
+  border-top:
+    1px solid var(--soft-line);
+
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: flex-end;
+
+  gap: 30px;
+}
+
+.track-note p {
+
+  max-width: 520px;
+
+  font-family: monospace;
+
+  font-size: 10px;
+
+  line-height: 1.8;
+
+  color: var(--gray);
 }
 
 
-/* =========================
+/* =========================================================
    STATEMENT
-========================= */
+   ========================================================= */
 
-.statement{
-  min-height:95svh;
+.statement {
+
+  min-height: 95svh;
 
   padding:
     12vw
     7vw;
 
-  display:flex;
+  display: flex;
 
-  align-items:center;
+  align-items: center;
 }
 
-.statement-text{
-  max-width:1450px;
+.statement-text {
 
-  font-size:clamp(
-    44px,
-    8vw,
-    125px
-  );
+  max-width: 1450px;
 
-  line-height:.87;
+  font-size:
+    clamp(
+      45px,
+      8vw,
+      125px
+    );
 
-  letter-spacing:-.075em;
+  line-height: .88;
+
+  letter-spacing: -.075em;
 }
 
-.statement-text .dim{
-  color:#555;
+.statement-dim {
+
+  color: #555;
 }
 
 
-/* =========================
-   INDUSTRY / ABOUT
-========================= */
+/* =========================================================
+   ABOUT / INDUSTRY
+   ========================================================= */
 
-.industry{
+.about {
+
+  min-height: 80svh;
+
   padding:
     12vw
     7vw;
 
-  min-height:80svh;
+  display: flex;
 
-  display:flex;
-
-  align-items:center;
+  align-items: center;
 }
 
-.industry-inner{
-  width:100%;
+.about-inner {
 
-  border-top:1px solid var(--line);
-  border-bottom:1px solid var(--line);
+  width: 100%;
 
-  padding:75px 0;
+  padding:
+    75px
+    0;
+
+  border-top:
+    1px solid var(--line);
+
+  border-bottom:
+    1px solid var(--line);
 }
 
-.industry-title{
-  font-size:clamp(
-    54px,
-    10vw,
-    150px
-  );
+.about-title {
 
-  line-height:.78;
+  font-size:
+    clamp(
+      55px,
+      10vw,
+      150px
+    );
 
-  letter-spacing:-.085em;
+  line-height: .78;
+
+  letter-spacing: -.085em;
 }
 
-.industry-meta{
-  margin-top:42px;
+.about-copy {
 
-  max-width:620px;
+  max-width: 650px;
 
-  font:
-    11px/1.9
-    monospace;
+  margin-top: 45px;
 
-  color:#999;
+  font-family: monospace;
+
+  font-size: 11px;
+
+  line-height: 1.9;
+
+  color: #999;
+}
+
+.about-copy strong {
+
+  color: #fff;
+
+  font-weight: normal;
 }
 
 
-/* =========================
+/* =========================================================
    FOOTER
-========================= */
+   ========================================================= */
 
-footer{
-  min-height:80svh;
+footer {
 
-  padding:28px;
+  min-height: 80svh;
 
-  display:flex;
+  padding:
+    30px;
 
-  flex-direction:column;
+  display: flex;
 
-  justify-content:space-between;
+  flex-direction: column;
+
+  justify-content: space-between;
 }
 
-.footer-title{
-  font-size:clamp(
-    70px,
-    16vw,
-    240px
-  );
+.footer-title {
 
-  letter-spacing:-.1em;
+  font-size:
+    clamp(
+      70px,
+      16vw,
+      240px
+    );
 
-  line-height:.72;
+  line-height: .72;
+
+  letter-spacing: -.1em;
 }
 
-.footer-bottom{
-  display:flex;
+.footer-bottom {
 
-  justify-content:space-between;
+  display: flex;
 
-  gap:20px;
+  justify-content: space-between;
 
-  font:
-    9px
-    monospace;
+  align-items: flex-end;
 
-  color:var(--muted);
+  gap: 25px;
 
-  letter-spacing:.08em;
+  font-family: monospace;
+
+  font-size: 9px;
+
+  line-height: 1.7;
+
+  letter-spacing: .08em;
+
+  color: var(--gray);
 }
 
-.footer-links{
-  display:flex;
+.footer-links {
 
-  gap:20px;
+  display: flex;
 
-  flex-wrap:wrap;
+  flex-wrap: wrap;
+
+  justify-content: flex-end;
+
+  gap: 20px;
 }
 
-.footer-links a{
-  color:inherit;
+.footer-links a {
 
-  text-decoration:none;
+  color: inherit;
 
-  transition:.25s;
+  text-decoration: none;
+
+  transition:
+    color .25s ease;
 }
 
-.footer-links a:hover{
-  color:#fff;
+.footer-links a:hover {
+
+  color: #fff;
 }
 
 
-/* =========================
+/* =========================================================
    MOBILE
-========================= */
+   ========================================================= */
 
-@media(max-width:700px){
+@media (max-width: 700px) {
 
-  nav{
-    padding:18px;
-  }
+  nav {
 
-  .nav-right{
-    display:none;
-  }
-
-  .hero-title{
-    font-size:24vw;
-  }
-
-  .hero-meta{
-    left:18px;
-    right:18px;
-
-    gap:20px;
-  }
-
-  .announcement{
-    padding:80px 18px;
-  }
-
-  .announcement h2{
-    font-size:20vw;
-  }
-
-  .announcement-copy{
-    display:block;
-  }
-
-  .announcement-copy p{
-    margin-bottom:28px;
-  }
-
-  .art{
-    padding:50px 18px;
-  }
-
-  .artwork-link{
-    width:92vw;
-  }
-
-  .release{
     padding:
-      18vw
       18px;
   }
 
-  .release-row{
+  .nav-links {
+
+    display: none;
+  }
+
+  .hero-title {
+
+    font-size:
+      24vw;
+  }
+
+  .hero-meta {
+
+    left: 18px;
+    right: 18px;
+    bottom: 20px;
+
+    font-size: 8px;
+  }
+
+  .announcement {
+
+    padding:
+      100px
+      18px;
+  }
+
+  .announcement-title {
+
+    font-size:
+      20vw;
+  }
+
+  .announcement-bottom {
+
+    display: block;
+  }
+
+  .announcement-description {
+
+    margin-bottom: 30px;
+  }
+
+  .artwork-section {
+
+    padding:
+      50px
+      18px
+      100px;
+  }
+
+  .artwork-link {
+
+    width: 94vw;
+  }
+
+  .tracklist {
+
+    padding:
+      20vw
+      18px
+      25vw;
+  }
+
+  .track {
+
     grid-template-columns:
-      40px
+      42px
       1fr;
   }
 
-  .year{
-    display:none;
+  .track-year {
+
+    display: none;
   }
 
-  .statement{
+  .track-title {
+
+    font-size:
+      29px;
+  }
+
+  .track-note {
+
+    display: block;
+  }
+
+  .track-note p {
+
+    margin-bottom: 25px;
+  }
+
+  .statement {
+
     padding:
-      20vw
+      22vw
       18px;
   }
 
-  .industry{
+  .about {
+
     padding:
-      20vw
+      22vw
       18px;
   }
 
-  footer{
-    padding:18px;
+  .about-inner {
+
+    padding:
+      55px
+      0;
   }
 
-  .footer-bottom{
-    flex-direction:column;
+  footer {
+
+    padding:
+      18px;
+  }
+
+  .footer-bottom {
+
+    flex-direction: column;
+
+    align-items: flex-start;
+  }
+
+  .footer-links {
+
+    justify-content: flex-start;
   }
 
 }
 
 
-/* =========================
+/* =========================================================
    REDUCED MOTION
-========================= */
+   ========================================================= */
 
-@media(prefers-reduced-motion:reduce){
+@media (prefers-reduced-motion: reduce) {
 
-  html{
-    scroll-behavior:auto;
+  html {
+    scroll-behavior: auto;
   }
 
-  body:before{
-    animation:none;
+  body::before {
+    animation: none;
   }
 
   .hero-title,
-  .artwork-link{
-    transform:none !important;
+  .artwork-link {
+
+    transform: none !important;
   }
 
 }
@@ -838,23 +1129,26 @@ footer{
 <body>
 
 
-<!-- =========================
+<!-- =======================================================
      NAVIGATION
-========================= -->
+     ======================================================= -->
 
 <nav>
 
-  <div class="logo">
+  <a
+    class="logo"
+    href="#top"
+  >
     XIMERMJ
-  </div>
+  </a>
 
-  <div class="nav-right">
+  <div class="nav-links">
 
     <a href="#desert">
       Desert Distortion
     </a>
 
-    <a href="#music">
+    <a href="#tracklist">
       Tracklist
     </a>
 
@@ -865,7 +1159,7 @@ footer{
     <a
       href="https://linktr.ee/ximermj"
       target="_blank"
-      rel="noopener"
+      rel="noopener noreferrer"
     >
       All Links ↗
     </a>
@@ -875,9 +1169,11 @@ footer{
 </nav>
 
 
-<!-- =========================
+<!-- =======================================================
      HERO
-========================= -->
+     ======================================================= -->
+
+<main id="top">
 
 <section class="hero">
 
@@ -900,9 +1196,9 @@ footer{
 </section>
 
 
-<!-- =========================
-     DESERT DISTORTION
-========================= -->
+<!-- =======================================================
+     DESERT DISTORTION ANNOUNCEMENT
+     ======================================================= -->
 
 <section
   class="announcement"
@@ -911,30 +1207,42 @@ footer{
 
   <div class="announcement-inner">
 
-    <div class="kicker">
+    <div class="eyebrow">
       NEW ERA / 2026
     </div>
 
-    <h2>
+    <h2 class="announcement-title">
+
       DESERT
-      <span>DISTORTION</span>
+
+      <span>
+        DISTORTION
+      </span>
+
     </h2>
 
-    <div class="announcement-copy">
+    <div class="announcement-bottom">
 
-      <p>
-        XIMERMJ enters a new phase built around
+      <p class="announcement-description">
+
+        XIMERMJ enters a new era built around
         desert heat, empty pools, mid-century
         architecture, damaged color and digital decay.
+
+        <br>
+        <br>
+
+        Eight tracks. One distorted desert.
+
       </p>
 
       <a
-        class="cta"
+        class="button"
         href="https://distrokid.com/hyperfollow/ximermj/desert-distortion-2"
         target="_blank"
-        rel="noopener"
+        rel="noopener noreferrer"
       >
-        LISTEN / PRE-SAVE ↗
+        Listen / Pre-Save ↗
       </a>
 
     </div>
@@ -944,30 +1252,29 @@ footer{
 </section>
 
 
-<!-- =========================
+<!-- =======================================================
      ARTWORK
-========================= -->
+     ======================================================= -->
 
 <section
-  class="art"
-  id="artwork"
+  class="artwork-section"
 >
 
   <a
     class="artwork-link"
     href="https://distrokid.com/hyperfollow/ximermj/desert-distortion-2"
     target="_blank"
-    rel="noopener"
-    aria-label="Open Desert Distortion release page"
+    rel="noopener noreferrer"
+    aria-label="Listen to Desert Distortion"
   >
 
     <div class="artwork">
 
-      <div class="art-label">
+      <div class="artwork-label">
         XIMERMJ / DESERT DISTORTION
       </div>
 
-      <div class="art-note">
+      <div class="artwork-note">
         NEW TRANSMISSION / 2026
       </div>
 
@@ -978,13 +1285,13 @@ footer{
 </section>
 
 
-<!-- =========================
+<!-- =======================================================
      TRACKLIST
-========================= -->
+     ======================================================= -->
 
 <section
-  class="release"
-  id="music"
+  class="tracklist"
+  id="tracklist"
 >
 
   <div class="section-label">
@@ -992,168 +1299,166 @@ footer{
   </div>
 
 
-  <div class="release-row">
+  <div class="track">
 
-    <span class="num">
+    <div class="track-number">
       01
-    </span>
+    </div>
 
-    <span class="name">
+    <div class="track-title">
       UNDER PRESSURE
-    </span>
+    </div>
 
-    <span class="year">
+    <div class="track-year">
       2026
-    </span>
+    </div>
 
   </div>
 
 
-  <div class="release-row">
+  <div class="track">
 
-    <span class="num">
+    <div class="track-number">
       02
-    </span>
+    </div>
 
-    <span class="name">
+    <div class="track-title">
       SUN DAMAGE
-    </span>
+    </div>
 
-    <span class="year">
+    <div class="track-year">
       2026
-    </span>
+    </div>
 
   </div>
 
 
-  <div class="release-row">
+  <div class="track">
 
-    <span class="num">
+    <div class="track-number">
       03
-    </span>
+    </div>
 
-    <span class="name">
+    <div class="track-title">
       MIRAGE PROTOCOL
-    </span>
+    </div>
 
-    <span class="year">
+    <div class="track-year">
       2026
-    </span>
+    </div>
 
   </div>
 
 
-  <div class="release-row">
+  <div class="track">
 
-    <span class="num">
+    <div class="track-number">
       04
-    </span>
+    </div>
 
-    <span class="name">
+    <div class="track-title">
       INVALUABLE
-    </span>
+    </div>
 
-    <span class="year">
+    <div class="track-year">
       2026
-    </span>
+    </div>
 
   </div>
 
 
-  <div class="release-row">
+  <div class="track">
 
-    <span class="num">
+    <div class="track-number">
       05
-    </span>
+    </div>
 
-    <span class="name">
+    <div class="track-title">
       HEADWAY
-    </span>
+    </div>
 
-    <span class="year">
+    <div class="track-year">
       2026
-    </span>
+    </div>
 
   </div>
 
 
-  <div class="release-row">
+  <div class="track">
 
-    <span class="num">
+    <div class="track-number">
       06
-    </span>
+    </div>
 
-    <span class="name">
+    <div class="track-title">
       FAULT LINE
-    </span>
+    </div>
 
-    <span class="year">
+    <div class="track-year">
       2026
-    </span>
+    </div>
 
   </div>
 
 
-  <div class="release-row">
+  <div class="track">
 
-    <span class="num">
+    <div class="track-number">
       07
-    </span>
+    </div>
 
-    <span class="name">
+    <div class="track-title">
       DESERT SIGNAL
-    </span>
+    </div>
 
-    <span class="year">
+    <div class="track-year">
       2026
-    </span>
+    </div>
 
   </div>
 
 
-  <div class="release-row">
+  <div class="track">
 
-    <span class="num">
+    <div class="track-number">
       08
-    </span>
+    </div>
 
-    <span class="name">
+    <div class="track-title">
 
       <a
         href="https://music.apple.com/us/album/afterburn/6820104032?i=6820104033"
         target="_blank"
-        rel="noopener"
+        rel="noopener noreferrer"
       >
         AFTERBURN ↗
       </a>
 
-    </span>
+    </div>
 
-    <span class="year">
+    <div class="track-year">
       2026
-    </span>
+    </div>
 
   </div>
 
 
-  <div
-    class="announcement-copy"
-    style="margin-top:45px"
-  >
+  <div class="track-note">
 
     <p>
-      Eight tracks. One distorted desert.
       The official Desert Distortion release
-      hub is now live.
+      hub is now live. Follow the full XIMERMJ
+      world, streaming links, socials and EPK
+      through the links below.
     </p>
 
     <a
-      class="cta"
+      class="button"
       href="https://distrokid.com/hyperfollow/ximermj/desert-distortion-2"
       target="_blank"
-      rel="noopener"
+      rel="noopener noreferrer"
     >
-      DESERT DISTORTION ↗
+      Desert Distortion ↗
     </a>
 
   </div>
@@ -1161,18 +1466,19 @@ footer{
 </section>
 
 
-<!-- =========================
+<!-- =======================================================
      ARTIST STATEMENT
-========================= -->
+     ======================================================= -->
 
 <section class="statement">
 
   <div class="statement-text">
 
     ELECTRONIC MUSIC
+
     <br>
 
-    <span class="dim">
+    <span class="statement-dim">
       WITHOUT A FIXED SHAPE.
     </span>
 
@@ -1180,6 +1486,7 @@ footer{
     <br>
 
     GLITCH. HOUSE. TECHNO.
+
     <br>
 
     DARK POP. CINEMATIC TEXTURES.
@@ -1189,23 +1496,25 @@ footer{
 </section>
 
 
-<!-- =========================
+<!-- =======================================================
      ABOUT / INDUSTRY
-========================= -->
+     ======================================================= -->
 
 <section
-  class="industry"
+  class="about"
   id="about"
 >
 
-  <div class="industry-inner">
+  <div class="about-inner">
 
-    <div class="industry-title">
+    <div class="about-title">
 
       MUSIC
+
       <br>
 
       IS THE
+
       <br>
 
       MEDIUM.
@@ -1213,7 +1522,7 @@ footer{
     </div>
 
 
-    <div class="industry-meta">
+    <div class="about-copy">
 
       XIMERMJ is an independent electronic
       producer, composer and DJ based in
@@ -1222,8 +1531,19 @@ footer{
       <br>
       <br>
 
-      Selected for the GRAMMY Museum
-      INDUSTRY SESSIONS:
+      His work blends glitch, indie house,
+      techno, dark pop, ambient elements and
+      cinematic textures.
+
+      <br>
+      <br>
+
+      <strong>
+        GRAMMY MUSEUM INDUSTRY SESSIONS
+      </strong>
+
+      <br>
+
       Music Production 101 — Fall 2026.
 
     </div>
@@ -1232,10 +1552,12 @@ footer{
 
 </section>
 
+</main>
 
-<!-- =========================
+
+<!-- =======================================================
      FOOTER
-========================= -->
+     ======================================================= -->
 
 <footer>
 
@@ -1254,22 +1576,28 @@ footer{
     <div class="footer-links">
 
       <a
+        href="https://distrokid.com/hyperfollow/ximermj/desert-distortion-2"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        DESERT DISTORTION
+      </a>
+
+      <a
         href="https://music.apple.com/us/album/afterburn/6820104032?i=6820104033"
         target="_blank"
-        rel="noopener"
+        rel="noopener noreferrer"
       >
         APPLE MUSIC
       </a>
 
-
       <a
         href="https://linktr.ee/ximermj"
         target="_blank"
-        rel="noopener"
+        rel="noopener noreferrer"
       >
-        ALL LINKS
+        LINKTREE
       </a>
-
 
       <a
         href="mailto:jmr7100@icloud.com"
@@ -1284,89 +1612,101 @@ footer{
 </footer>
 
 
-<!-- =========================
+<!-- =======================================================
      INTERACTION
-========================= -->
+     ======================================================= -->
 
 <script>
 
-const root = document.documentElement;
+(function () {
 
-let tx = 0;
-let ty = 0;
+  const root =
+    document.documentElement;
 
-let mx = 0;
-let my = 0;
+  let targetX = 0;
+  let targetY = 0;
+
+  let currentX = 0;
+  let currentY = 0;
 
 
-window.addEventListener(
-  "pointermove",
-  (e) => {
+  window.addEventListener(
+    "pointermove",
+    function (event) {
 
-    tx =
+      targetX =
+        (
+          event.clientX /
+          window.innerWidth -
+          0.5
+        ) * 22;
+
+      targetY =
+        (
+          event.clientY /
+          window.innerHeight -
+          0.5
+        ) * 14;
+
+    },
+    {
+      passive: true
+    }
+  );
+
+
+  function animate() {
+
+    currentX +=
       (
-        e.clientX /
-        innerWidth -
-        .5
-      ) * 24;
+        targetX -
+        currentX
+      ) * 0.08;
 
-    ty =
+    currentY +=
       (
-        e.clientY /
-        innerHeight -
-        .5
-      ) * 16;
+        targetY -
+        currentY
+      ) * 0.08;
+
+
+    root.style.setProperty(
+      "--hero-x",
+      currentX + "px"
+    );
+
+    root.style.setProperty(
+      "--hero-y",
+      currentY + "px"
+    );
+
+
+    root.style.setProperty(
+      "--art-x",
+      currentX * .42 + "px"
+    );
+
+    root.style.setProperty(
+      "--art-y",
+      currentY * .42 + "px"
+    );
+
+    root.style.setProperty(
+      "--art-rotate",
+      currentX * .015 + "deg"
+    );
+
+
+    requestAnimationFrame(
+      animate
+    );
 
   }
-);
 
 
-function animate(){
+  animate();
 
-  mx +=
-    (tx - mx) *
-    .08;
-
-  my +=
-    (ty - my) *
-    .08;
-
-
-  root.style.setProperty(
-    "--mx",
-    mx + "px"
-  );
-
-  root.style.setProperty(
-    "--my",
-    my + "px"
-  );
-
-
-  root.style.setProperty(
-    "--ax",
-    (mx * .45) + "px"
-  );
-
-  root.style.setProperty(
-    "--ay",
-    (my * .45) + "px"
-  );
-
-  root.style.setProperty(
-    "--ar",
-    (mx * .018) + "deg"
-  );
-
-
-  requestAnimationFrame(
-    animate
-  );
-
-}
-
-
-animate();
+})();
 
 </script>
 

@@ -1,1823 +1,2271 @@
 <!DOCTYPE html>
+
 <html lang="en">
+
 <head>
 
-<meta charset="UTF-8">
+  <meta charset="UTF-8">
 
-<meta
-  name="viewport"
-  content="width=device-width, initial-scale=1.0"
->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>XIMERMJ — Electronic Artist / EPK</title>
+  <title>XIMERMJ — Electronic Music</title>
 
-<meta
-  name="description"
-  content="XIMERMJ electronic artist EPK — music, releases, press, achievements and contact information."
->
+  <meta name="description" content="XIMERMJ is an independent electronic artist from Buffalo, New York. Glitch, electronic, dark pop, ambient and cinematic sound.">
 
-<style>
+  <meta name="author" content="XIMERMJ">
 
-/* =========================================================
-   XIMERMJ — 2026 ELECTRONIC PRESS KIT
-   TEXT / FACTS / PROMOTION VERSION
-   ========================================================= */
+  <meta property="og:title" content="XIMERMJ — Desert Distortion">
 
-:root {
-  --black: #080808;
-  --white: #f5f5f1;
-  --gray: #a5a5a0;
-  --dark-gray: #686863;
-  --line: #292929;
-}
+  <meta property="og:description" content="Independent electronic music by XIMERMJ. Desert Distortion — November 13, 2026.">
 
-* {
-  box-sizing: border-box;
-}
+  <meta property="og:type" content="website">
 
-html {
-  scroll-behavior: smooth;
-}
+  <meta property="og:url" content="https://ximermj.com">
 
-body {
-  margin: 0;
+  <meta name="theme-color" content="#0a0a0a">
 
-  background: var(--black);
+  <style>
 
-  color: var(--white);
+    /* =========================================================
 
-  font-family:
-    Arial,
-    Helvetica,
-    sans-serif;
+       RESET
 
-  line-height: 1.5;
-}
+    ========================================================= */
 
-a {
-  color: inherit;
+    * {
 
-  text-decoration: none;
-}
+      margin: 0;
 
-a:hover {
-  text-decoration: underline;
+      padding: 0;
 
-  text-underline-offset: 5px;
-}
+      box-sizing: border-box;
 
+    }
 
-/* =========================================================
-   CONTAINER
-   ========================================================= */
+    html {
 
-.container {
+      scroll-behavior: smooth;
 
-  width: min(
-    1180px,
-    calc(100% - 48px)
-  );
+    }
 
-  margin: 0 auto;
-}
+    body {
 
+      background: #090909;
 
-/* =========================================================
-   HEADER
-   ========================================================= */
+      color: #f1eee7;
 
-header {
+      font-family: Arial, Helvetica, sans-serif;
 
-  border-bottom:
-    1px solid var(--line);
+      line-height: 1.5;
 
-  padding:
-    28px 0;
-}
+      overflow-x: hidden;
 
-.header-inner {
+    }
 
-  display: flex;
+    a {
 
-  justify-content: space-between;
+      color: inherit;
 
-  align-items: center;
+      text-decoration: none;
 
-  gap: 30px;
-}
+    }
 
-.logo {
+    img {
 
-  font-size: 18px;
+      max-width: 100%;
 
-  font-weight: 700;
+      display: block;
 
-  letter-spacing: .22em;
-}
+    }
 
-.header-label {
+    /* =========================================================
 
-  font-family: monospace;
+       GLOBAL
 
-  font-size: 11px;
+    ========================================================= */
 
-  letter-spacing: .12em;
+    .container {
 
-  color: var(--gray);
+      width: min(1400px, 92%);
 
-  text-transform: uppercase;
-}
+      margin: 0 auto;
 
+    }
 
-/* =========================================================
-   HERO
-   ========================================================= */
+    .eyebrow {
 
-.hero {
+      font-size: 11px;
 
-  padding:
-    120px 0
-    100px;
+      letter-spacing: 0.22em;
 
-  border-bottom:
-    1px solid var(--line);
-}
+      text-transform: uppercase;
 
-.hero-kicker {
+      opacity: 0.55;
 
-  font-family: monospace;
+    }
 
-  font-size: 11px;
+    .section-number {
 
-  letter-spacing: .18em;
+      font-size: 11px;
 
-  color: var(--gray);
+      letter-spacing: 0.18em;
 
-  text-transform: uppercase;
+      opacity: 0.4;
 
-  margin-bottom: 35px;
-}
+      margin-bottom: 20px;
 
-.hero h1 {
+    }
 
-  margin: 0;
+    .section-title {
 
-  font-size:
-    clamp(
-      70px,
-      15vw,
-      190px
-    );
+      font-size: clamp(42px, 7vw, 110px);
 
-  line-height: .82;
+      line-height: 0.9;
 
-  letter-spacing:
-    -.09em;
+      letter-spacing: -0.055em;
 
-  font-weight: 700;
-}
+      font-weight: 700;
 
-.hero-subtitle {
+      text-transform: uppercase;
 
-  margin-top: 45px;
+    }
 
-  max-width: 720px;
+    .muted {
 
-  font-size:
-    clamp(
-      20px,
-      2.5vw,
-      30px
-    );
+      color: #9d9a93;
 
-  line-height: 1.35;
+    }
 
-  color: #deded9;
-}
+    .line {
 
+      width: 100%;
 
-/* =========================================================
-   QUICK FACTS
-   ========================================================= */
+      height: 1px;
 
-.quick-facts {
+      background: rgba(255,255,255,0.12);
 
-  display: grid;
+      margin: 30px 0;
 
-  grid-template-columns:
-    repeat(4, 1fr);
+    }
 
-  border-bottom:
-    1px solid var(--line);
-}
+    /* =========================================================
 
-.fact {
+       NAVIGATION
 
-  padding:
-    32px 24px;
+    ========================================================= */
 
-  border-right:
-    1px solid var(--line);
-}
+    nav {
 
-.fact:last-child {
+      position: fixed;
 
-  border-right: none;
-}
+      top: 0;
 
-.fact-number {
+      left: 0;
 
-  font-size: 32px;
+      width: 100%;
 
-  font-weight: 700;
+      z-index: 1000;
 
-  letter-spacing: -.04em;
+      display: flex;
 
-  margin-bottom: 5px;
-}
+      justify-content: space-between;
 
-.fact-label {
+      align-items: center;
 
-  font-family: monospace;
+      padding: 22px 4%;
 
-  font-size: 10px;
+      background: rgba(9,9,9,0.78);
 
-  color: var(--gray);
+      backdrop-filter: blur(18px);
 
-  text-transform: uppercase;
+      -webkit-backdrop-filter: blur(18px);
 
-  letter-spacing: .12em;
-}
+      border-bottom: 1px solid rgba(255,255,255,0.08);
 
+    }
 
-/* =========================================================
-   GENERAL SECTIONS
-   ========================================================= */
+    .nav-logo {
 
-section {
+      font-size: 14px;
 
-  padding:
-    100px 0;
+      font-weight: 700;
 
-  border-bottom:
-    1px solid var(--line);
-}
+      letter-spacing: 0.18em;
 
-.section-number {
+    }
 
-  font-family: monospace;
+    .nav-links {
 
-  font-size: 10px;
+      display: flex;
 
-  letter-spacing: .18em;
+      gap: 28px;
 
-  color: var(--gray);
+      font-size: 11px;
 
-  margin-bottom: 22px;
-}
+      text-transform: uppercase;
 
-.section-title {
+      letter-spacing: 0.14em;
 
-  font-size:
-    clamp(
-      42px,
-      7vw,
-      90px
-    );
+      opacity: 0.65;
 
-  line-height: .9;
+    }
 
-  letter-spacing: -.07em;
+    .nav-links a {
 
-  font-weight: 500;
+      transition: opacity 0.2s ease;
 
-  margin: 0 0 45px;
-}
+    }
 
+    .nav-links a:hover {
 
-/* =========================================================
-   ARTIST BIO
-   ========================================================= */
+      opacity: 1;
 
-.bio-grid {
+    }
 
-  display: grid;
+    /* =========================================================
 
-  grid-template-columns:
-    1fr 1fr;
+       HERO
 
-  gap: 80px;
-}
+    ========================================================= */
 
-.bio-lead {
+    .hero {
 
-  font-size:
-    clamp(
-      25px,
-      3vw,
-      38px
-    );
+      min-height: 100vh;
 
-  line-height: 1.25;
+      display: flex;
 
-  letter-spacing: -.03em;
-}
+      align-items: flex-end;
 
-.bio-copy {
+      padding: 150px 0 70px;
 
-  color: var(--gray);
+      position: relative;
 
-  font-size: 17px;
+      overflow: hidden;
 
-  line-height: 1.8;
-}
+      background:
 
+        radial-gradient(
 
-/* =========================================================
-   CURRENT RELEASE
-   ========================================================= */
+          circle at 70% 30%,
 
-.release-header {
+          rgba(255,255,255,0.07),
 
-  display: flex;
+          transparent 35%
 
-  justify-content: space-between;
+        ),
 
-  align-items: end;
+        linear-gradient(
 
-  gap: 30px;
+          180deg,
 
-  margin-bottom: 55px;
-}
+          #0c0c0c 0%,
 
-.release-date {
+          #090909 100%
 
-  font-family: monospace;
+        );
 
-  font-size: 11px;
+    }
 
-  color: var(--gray);
+    .hero::after {
 
-  letter-spacing: .1em;
+      content: "";
 
-  text-transform: uppercase;
-}
+      position: absolute;
 
-.release-title {
+      inset: 0;
 
-  font-size:
-    clamp(
-      48px,
-      8vw,
-      110px
-    );
+      background:
 
-  line-height: .85;
+        repeating-linear-gradient(
 
-  letter-spacing: -.08em;
+          0deg,
 
-  margin: 0;
-}
+          transparent 0px,
 
-.release-description {
+          transparent 3px,
 
-  max-width: 780px;
+          rgba(255,255,255,0.012) 4px
 
-  font-size: 21px;
+        );
 
-  line-height: 1.6;
+      pointer-events: none;
 
-  color: #d4d4cf;
+    }
 
-  margin-bottom: 45px;
-}
+    .hero-content {
 
+      position: relative;
 
-/* =========================================================
-   BUTTONS / LINKS
-   ========================================================= */
+      z-index: 2;
 
-.links {
+    }
 
-  display: flex;
+    .hero-title {
 
-  flex-wrap: wrap;
+      font-size: clamp(70px, 17vw, 260px);
 
-  gap: 12px;
-}
+      font-weight: 800;
 
-.button {
+      letter-spacing: -0.09em;
 
-  display: inline-flex;
+      line-height: 0.76;
 
-  align-items: center;
+      text-transform: uppercase;
 
-  min-height: 48px;
+      margin: 25px 0;
 
-  padding:
-    0 20px;
+    }
 
-  border:
-    1px solid #555;
+    .hero-subtitle {
 
-  font-size: 11px;
+      max-width: 620px;
 
-  font-weight: 700;
+      font-size: clamp(17px, 2vw, 25px);
 
-  letter-spacing: .08em;
+      color: #a9a59d;
 
-  text-transform: uppercase;
+      line-height: 1.35;
 
-  transition:
-    background .2s,
-    color .2s;
-}
+    }
 
-.button:hover {
+    .hero-meta {
 
-  background: var(--white);
+      display: grid;
 
-  color: var(--black);
+      grid-template-columns: repeat(4, 1fr);
 
-  text-decoration: none;
-}
+      gap: 20px;
 
+      margin-top: 70px;
 
-/* =========================================================
-   TRACKLIST
-   ========================================================= */
+      max-width: 850px;
 
-.tracklist {
+    }
 
-  border-top:
-    1px solid var(--line);
-}
+    .meta-item {
 
-.track {
+      border-top: 1px solid rgba(255,255,255,0.15);
 
-  display: grid;
+      padding-top: 12px;
 
-  grid-template-columns:
-    70px
-    1fr
-    80px;
+    }
 
-  align-items: center;
+    .meta-label {
 
-  padding:
-    22px 0;
+      font-size: 9px;
 
-  border-bottom:
-    1px solid var(--line);
-}
+      text-transform: uppercase;
 
-.track-number {
+      letter-spacing: 0.18em;
 
-  font-family: monospace;
+      opacity: 0.4;
 
-  font-size: 11px;
+      margin-bottom: 5px;
 
-  color: var(--gray);
-}
+    }
 
-.track-name {
+    .meta-value {
 
-  font-size:
-    clamp(
-      20px,
-      3vw,
-      34px
-    );
+      font-size: 13px;
 
-  letter-spacing: -.04em;
-}
+    }
 
-.track-year {
+    /* =========================================================
 
-  font-family: monospace;
+       SECTIONS
 
-  font-size: 10px;
+    ========================================================= */
 
-  text-align: right;
+    section {
 
-  color: var(--gray);
-}
+      padding: 150px 0;
 
+      border-top: 1px solid rgba(255,255,255,0.08);
 
-/* =========================================================
-   RECOGNITION
-   ========================================================= */
+    }
 
-.recognition {
+    .section-grid {
 
-  display: grid;
+      display: grid;
 
-  grid-template-columns:
-    repeat(2, 1fr);
+      grid-template-columns: 1fr 2fr;
 
-  gap: 1px;
+      gap: 70px;
 
-  background: var(--line);
+    }
 
-  border:
-    1px solid var(--line);
-}
+    /* =========================================================
 
-.recognition-card {
+       ARTIST
 
-  background: var(--black);
+    ========================================================= */
 
-  padding:
-    35px;
-}
+    .artist-copy {
 
-.recognition-card strong {
+      max-width: 760px;
 
-  display: block;
+      font-size: clamp(22px, 3vw, 38px);
 
-  font-size:
-    clamp(
-      25px,
-      3vw,
-      38px
-    );
+      line-height: 1.18;
 
-  line-height: 1.05;
+      letter-spacing: -0.025em;
 
-  letter-spacing: -.04em;
+    }
 
-  margin-bottom: 15px;
-}
+    .artist-copy p + p {
 
-.recognition-card span {
+      margin-top: 30px;
 
-  display: block;
+    }
 
-  color: var(--gray);
+    /* =========================================================
 
-  font-size: 14px;
+       CURRENT RELEASE
 
-  line-height: 1.6;
-}
+    ========================================================= */
 
+    .release-grid {
 
-/* =========================================================
-   PRESS
-   ========================================================= */
+      display: grid;
 
-.press-list {
+      grid-template-columns: 1.1fr 1fr;
 
-  border-top:
-    1px solid var(--line);
-}
+      gap: 70px;
 
-.press-item {
+      align-items: start;
 
-  display: flex;
+    }
 
-  justify-content: space-between;
+    .release-title {
 
-  align-items: center;
+      font-size: clamp(55px, 9vw, 130px);
 
-  gap: 30px;
+      line-height: 0.85;
 
-  padding:
-    25px 0;
+      letter-spacing: -0.065em;
 
-  border-bottom:
-    1px solid var(--line);
-}
+      text-transform: uppercase;
 
-.press-name {
+    }
 
-  font-size:
-    clamp(
-      22px,
-      3vw,
-      34px
-    );
+    .release-description {
 
-  letter-spacing: -.04em;
-}
+      margin-top: 35px;
 
-.press-type {
+      max-width: 620px;
 
-  font-family: monospace;
+      color: #aaa69e;
 
-  font-size: 10px;
+      font-size: 18px;
 
-  color: var(--gray);
+      line-height: 1.55;
 
-  text-transform: uppercase;
+    }
 
-  letter-spacing: .1em;
+    .release-date {
 
-  text-align: right;
-}
+      margin-top: 45px;
 
+      font-size: 13px;
 
-/* =========================================================
-   MUSIC HISTORY
-   ========================================================= */
+      letter-spacing: 0.16em;
 
-.release-history {
+      text-transform: uppercase;
 
-  display: grid;
+    }
 
-  grid-template-columns:
-    1fr 1fr;
+    .button-row {
 
-  gap: 1px;
+      display: flex;
 
-  background: var(--line);
+      flex-wrap: wrap;
 
-  border:
-    1px solid var(--line);
-}
+      gap: 12px;
 
-.history-item {
+      margin-top: 35px;
 
-  background: var(--black);
+    }
 
-  padding:
-    35px;
-}
+    .button {
 
-.history-year {
+      display: inline-flex;
 
-  font-family: monospace;
+      align-items: center;
 
-  font-size: 11px;
+      justify-content: center;
 
-  color: var(--gray);
+      padding: 15px 21px;
 
-  margin-bottom: 12px;
-}
+      border: 1px solid rgba(255,255,255,0.25);
 
-.history-title {
+      font-size: 10px;
 
-  font-size:
-    clamp(
-      26px,
-      3vw,
-      40px
-    );
+      text-transform: uppercase;
 
-  letter-spacing: -.05em;
+      letter-spacing: 0.16em;
 
-  margin-bottom: 12px;
-}
+      transition:
 
-.history-description {
+        background 0.2s ease,
 
-  color: var(--gray);
+        color 0.2s ease,
 
-  font-size: 14px;
+        border-color 0.2s ease;
 
-  line-height: 1.7;
-}
+    }
 
+    .button:hover {
 
-/* =========================================================
-   INDUSTRY
-   ========================================================= */
+      background: #f1eee7;
 
-.industry {
+      color: #090909;
 
-  display: grid;
+      border-color: #f1eee7;
 
-  grid-template-columns:
-    1fr 1fr;
+    }
 
-  gap: 80px;
-}
+    /* =========================================================
 
-.industry-lead {
+       RELEASE VISUAL
 
-  font-size:
-    clamp(
-      28px,
-      4vw,
-      50px
-    );
+    ========================================================= */
 
-  line-height: 1.1;
+    .release-visual {
 
-  letter-spacing: -.05em;
-}
+      min-height: 580px;
 
-.industry-copy {
+      display: flex;
 
-  color: var(--gray);
+      align-items: flex-end;
 
-  font-size: 17px;
+      padding: 35px;
 
-  line-height: 1.8;
-}
+      position: relative;
 
+      overflow: hidden;
 
-/* =========================================================
-   CONTACT
-   ========================================================= */
+      background:
 
-.contact {
+        linear-gradient(
 
-  padding-bottom:
-    130px;
-}
+          145deg,
 
-.contact-email {
+          #28241f 0%,
 
-  display: inline-block;
+          #151515 45%,
 
-  font-size:
-    clamp(
-      28px,
-      5vw,
-      68px
-    );
+          #080808 100%
 
-  letter-spacing: -.06em;
+        );
 
-  margin-bottom: 40px;
-}
+    }
 
-.contact-details {
+    .release-visual::before {
 
-  color: var(--gray);
+      content: "";
 
-  line-height: 1.8;
+      position: absolute;
 
-  font-size: 15px;
-}
+      width: 500px;
 
+      height: 500px;
 
-/* =========================================================
-   FOOTER
-   ========================================================= */
+      border-radius: 50%;
 
-footer {
+      background:
 
-  padding:
-    30px 0
-    45px;
-}
+        radial-gradient(
 
-.footer-inner {
+          circle,
 
-  display: flex;
+          rgba(207,170,117,0.22),
 
-  justify-content: space-between;
+          transparent 65%
 
-  gap: 30px;
+        );
 
-  color: var(--gray);
+      top: -150px;
 
-  font-family: monospace;
+      right: -150px;
 
-  font-size: 10px;
+    }
 
-  letter-spacing: .08em;
+    .release-visual-text {
 
-  text-transform: uppercase;
-}
+      position: relative;
 
+      z-index: 2;
 
-/* =========================================================
-   MOBILE
-   ========================================================= */
+      font-size: clamp(55px, 8vw, 115px);
 
-@media (max-width: 800px) {
+      line-height: 0.78;
 
-  .container {
+      letter-spacing: -0.07em;
 
-    width:
-      calc(100% - 32px);
-  }
+      font-weight: 700;
 
-  .hero {
+      text-transform: uppercase;
 
-    padding:
-      85px 0
-      70px;
-  }
+    }
 
-  .quick-facts {
+    /* =========================================================
 
-    grid-template-columns:
-      repeat(2, 1fr);
-  }
+       AFTERBURN
 
-  .fact:nth-child(2) {
+    ========================================================= */
 
-    border-right: none;
-  }
+    .afterburn {
 
-  .fact:nth-child(1),
-  .fact:nth-child(2) {
+      background:
 
-    border-bottom:
-      1px solid var(--line);
-  }
+        linear-gradient(
 
-  .bio-grid,
-  .industry {
+          180deg,
 
-    grid-template-columns: 1fr;
+          #0b0b0b,
 
-    gap: 40px;
-  }
+          #12100d
 
-  .recognition {
+        );
 
-    grid-template-columns: 1fr;
-  }
+    }
 
-  .release-history {
+    .afterburn-grid {
 
-    grid-template-columns: 1fr;
-  }
+      display: grid;
 
-  .release-header {
+      grid-template-columns: 1fr 1fr;
 
-    display: block;
-  }
+      gap: 70px;
 
-  .release-date {
+      align-items: center;
 
-    margin-top: 20px;
-  }
+    }
 
-}
+    .afterburn-title {
 
+      font-size: clamp(70px, 12vw, 180px);
 
-@media (max-width: 550px) {
+      line-height: 0.78;
 
-  .header-inner {
+      letter-spacing: -0.08em;
 
-    align-items: flex-start;
-  }
+      text-transform: uppercase;
 
-  .header-label {
+    }
 
-    display: none;
-  }
+    .afterburn-copy {
 
-  section {
+      color: #aaa69e;
 
-    padding:
-      75px 0;
-  }
+      font-size: 19px;
 
-  .hero h1 {
+      max-width: 570px;
 
-    font-size:
-      24vw;
-  }
+      line-height: 1.55;
 
-  .quick-facts {
+    }
 
-    grid-template-columns: 1fr;
-  }
+    .afterburn-copy p + p {
 
-  .fact {
+      margin-top: 25px;
 
-    border-right: none;
+    }
 
-    border-bottom:
-      1px solid var(--line);
-  }
+    /* =========================================================
 
-  .fact:last-child {
+       TRACKLIST
 
-    border-bottom: none;
-  }
+    ========================================================= */
 
-  .track {
+    .tracklist {
 
-    grid-template-columns:
-      45px
-      1fr;
-  }
+      margin-top: 60px;
 
-  .track-year {
+    }
 
-    display: none;
-  }
+    .track {
 
-  .press-item {
+      display: grid;
 
-    display: block;
-  }
+      grid-template-columns: 70px 1fr auto;
 
-  .press-type {
+      gap: 20px;
 
-    text-align: left;
+      padding: 20px 0;
 
-    margin-top: 8px;
-  }
+      border-bottom: 1px solid rgba(255,255,255,0.1);
 
-  .footer-inner {
+      align-items: center;
 
-    display: block;
+    }
 
-    line-height: 2;
-  }
+    .track-number {
 
-}
+      font-size: 11px;
 
-</style>
+      opacity: 0.35;
+
+      letter-spacing: 0.1em;
+
+    }
+
+    .track-name {
+
+      font-size: clamp(19px, 3vw, 30px);
+
+      letter-spacing: -0.025em;
+
+    }
+
+    .track-type {
+
+      font-size: 9px;
+
+      letter-spacing: 0.16em;
+
+      text-transform: uppercase;
+
+      opacity: 0.35;
+
+    }
+
+    /* =========================================================
+
+       RECOGNITION
+
+    ========================================================= */
+
+    .recognition-grid {
+
+      display: grid;
+
+      grid-template-columns: repeat(3, 1fr);
+
+      gap: 1px;
+
+      background: rgba(255,255,255,0.1);
+
+      margin-top: 60px;
+
+    }
+
+    .recognition-card {
+
+      min-height: 260px;
+
+      padding: 30px;
+
+      background: #090909;
+
+      display: flex;
+
+      flex-direction: column;
+
+      justify-content: space-between;
+
+    }
+
+    .recognition-year {
+
+      font-size: 10px;
+
+      letter-spacing: 0.15em;
+
+      opacity: 0.4;
+
+    }
+
+    .recognition-title {
+
+      font-size: 27px;
+
+      line-height: 1;
+
+      letter-spacing: -0.04em;
+
+    }
+
+    .recognition-description {
+
+      font-size: 13px;
+
+      color: #8f8b84;
+
+      margin-top: 12px;
+
+    }
+
+    /* =========================================================
+
+       RELEASE HISTORY
+
+    ========================================================= */
+
+    .history-row {
+
+      display: grid;
+
+      grid-template-columns: 100px 1fr auto;
+
+      gap: 25px;
+
+      padding: 28px 0;
+
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+
+      align-items: center;
+
+    }
+
+    .history-year {
+
+      font-size: 11px;
+
+      opacity: 0.4;
+
+    }
+
+    .history-title {
+
+      font-size: clamp(25px, 4vw, 48px);
+
+      letter-spacing: -0.04em;
+
+    }
+
+    .history-type {
+
+      font-size: 10px;
+
+      text-transform: uppercase;
+
+      letter-spacing: 0.15em;
+
+      opacity: 0.4;
+
+    }
+
+    /* =========================================================
+
+       PRESS
+
+    ========================================================= */
+
+    .press-copy {
+
+      max-width: 750px;
+
+      font-size: clamp(24px, 3vw, 42px);
+
+      line-height: 1.15;
+
+      letter-spacing: -0.035em;
+
+    }
+
+    .press-note {
+
+      margin-top: 35px;
+
+      max-width: 600px;
+
+      color: #929089;
+
+      font-size: 16px;
+
+    }
+
+    /* =========================================================
+
+       INDUSTRY
+
+    ========================================================= */
+
+    .industry-grid {
+
+      display: grid;
+
+      grid-template-columns: 1fr 1fr;
+
+      gap: 70px;
+
+    }
+
+    .industry-copy {
+
+      font-size: 18px;
+
+      color: #aaa69e;
+
+      max-width: 600px;
+
+    }
+
+    .industry-list {
+
+      border-top: 1px solid rgba(255,255,255,0.1);
+
+    }
+
+    .industry-item {
+
+      display: flex;
+
+      justify-content: space-between;
+
+      gap: 20px;
+
+      padding: 20px 0;
+
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+
+      font-size: 13px;
+
+    }
+
+    .industry-item span:last-child {
+
+      opacity: 0.4;
+
+      text-align: right;
+
+    }
+
+    /* =========================================================
+
+       SHOP
+
+    ========================================================= */
+
+    .shop-grid {
+
+      display: grid;
+
+      grid-template-columns: 1fr 1fr;
+
+      gap: 1px;
+
+      background: rgba(255,255,255,0.1);
+
+      margin-top: 60px;
+
+    }
+
+    .shop-card {
+
+      min-height: 380px;
+
+      padding: 35px;
+
+      background: #090909;
+
+      display: flex;
+
+      flex-direction: column;
+
+      justify-content: space-between;
+
+      transition: background 0.25s ease;
+
+    }
+
+    .shop-card:hover {
+
+      background: #111111;
+
+    }
+
+    .shop-number {
+
+      font-size: 10px;
+
+      letter-spacing: 0.18em;
+
+      opacity: 0.35;
+
+    }
+
+    .shop-title {
+
+      font-size: clamp(40px, 6vw, 80px);
+
+      line-height: 0.85;
+
+      letter-spacing: -0.06em;
+
+      text-transform: uppercase;
+
+    }
+
+    .shop-description {
+
+      max-width: 430px;
+
+      color: #8e8b84;
+
+      font-size: 14px;
+
+      margin-top: 20px;
+
+    }
+
+    .shop-link {
+
+      margin-top: 35px;
+
+      display: inline-block;
+
+      font-size: 10px;
+
+      text-transform: uppercase;
+
+      letter-spacing: 0.17em;
+
+      opacity: 0.7;
+
+    }
+
+    .shop-card:hover .shop-link {
+
+      opacity: 1;
+
+    }
+
+    /* =========================================================
+
+       CONTACT
+
+    ========================================================= */
+
+    .contact-email {
+
+      display: inline-block;
+
+      margin-top: 45px;
+
+      font-size: clamp(24px, 4vw, 55px);
+
+      letter-spacing: -0.04em;
+
+      border-bottom: 1px solid rgba(255,255,255,0.35);
+
+      padding-bottom: 8px;
+
+    }
+
+    .contact-email:hover {
+
+      border-color: #f1eee7;
+
+    }
+
+    /* =========================================================
+
+       FOOTER
+
+    ========================================================= */
+
+    footer {
+
+      border-top: 1px solid rgba(255,255,255,0.1);
+
+      padding: 35px 0;
+
+      font-size: 10px;
+
+      text-transform: uppercase;
+
+      letter-spacing: 0.16em;
+
+      opacity: 0.45;
+
+    }
+
+    .footer-inner {
+
+      display: flex;
+
+      justify-content: space-between;
+
+      gap: 20px;
+
+    }
+
+    /* =========================================================
+
+       RESPONSIVE
+
+    ========================================================= */
+
+    @media (max-width: 900px) {
+
+      .nav-links {
+
+        display: none;
+
+      }
+
+      .hero-meta {
+
+        grid-template-columns: repeat(2, 1fr);
+
+      }
+
+      .section-grid,
+
+      .release-grid,
+
+      .afterburn-grid,
+
+      .industry-grid {
+
+        grid-template-columns: 1fr;
+
+        gap: 45px;
+
+      }
+
+      .recognition-grid {
+
+        grid-template-columns: 1fr;
+
+      }
+
+      .shop-grid {
+
+        grid-template-columns: 1fr;
+
+      }
+
+      .release-visual {
+
+        min-height: 420px;
+
+      }
+
+    }
+
+    @media (max-width: 600px) {
+
+      section {
+
+        padding: 100px 0;
+
+      }
+
+      .container {
+
+        width: 88%;
+
+      }
+
+      nav {
+
+        padding: 18px 6%;
+
+      }
+
+      .hero {
+
+        padding-top: 130px;
+
+        padding-bottom: 50px;
+
+      }
+
+      .hero-title {
+
+        font-size: 22vw;
+
+      }
+
+      .hero-meta {
+
+        grid-template-columns: 1fr 1fr;
+
+        margin-top: 50px;
+
+      }
+
+      .track {
+
+        grid-template-columns: 35px 1fr;
+
+      }
+
+      .track-type {
+
+        display: none;
+
+      }
+
+      .history-row {
+
+        grid-template-columns: 65px 1fr;
+
+      }
+
+      .history-type {
+
+        display: none;
+
+      }
+
+      .shop-card {
+
+        min-height: 300px;
+
+      }
+
+      .footer-inner {
+
+        flex-direction: column;
+
+      }
+
+    }
+
+  </style>
 
 </head>
 
-
 <body>
 
+  <!-- =========================================================
 
-<!-- =====================================================
-     HEADER
-     ===================================================== -->
+       NAVIGATION
 
-<header>
+  ========================================================= -->
 
-  <div class="container header-inner">
+  <nav>
 
-    <div class="logo">
+    <a href="#top" class="nav-logo">
+
       XIMERMJ
-    </div>
-
-    <div class="header-label">
-      Electronic Press Kit / 2026
-    </div>
-
-  </div>
-
-</header>
-
-
-<!-- =====================================================
-     HERO
-     ===================================================== -->
-
-<div class="container">
-
-<section class="hero">
-
-  <div class="hero-kicker">
-    Independent Electronic Artist / Producer
-  </div>
-
-  <h1>
-    XIMERMJ
-  </h1>
-
-  <div class="hero-subtitle">
-
-    Electronic music without a fixed shape.
-    Glitch, house, techno, dark pop and cinematic textures.
-
-  </div>
-
-</section>
-
-
-<!-- =====================================================
-     QUICK FACTS
-     ===================================================== -->
-
-<div class="quick-facts">
-
-  <div class="fact">
-
-    <div class="fact-number">
-      3
-    </div>
-
-    <div class="fact-label">
-      EPs
-    </div>
-
-  </div>
-
-
-  <div class="fact">
-
-    <div class="fact-number">
-      319K+
-    </div>
-
-    <div class="fact-label">
-      Reported catalog streams
-    </div>
-
-  </div>
-
-
-  <div class="fact">
-
-    <div class="fact-number">
-      2×
-    </div>
-
-    <div class="fact-label">
-      U.S. iTunes Dance #1
-    </div>
-
-  </div>
-
-
-  <div class="fact">
-
-    <div class="fact-number">
-      2026
-    </div>
-
-    <div class="fact-label">
-      Desert Distortion era
-    </div>
-
-  </div>
-
-</div>
-
-
-<!-- =====================================================
-     ARTIST
-     ===================================================== -->
-
-<section>
-
-  <div class="section-number">
-    01 / Artist
-  </div>
-
-  <div class="bio-grid">
-
-    <div class="bio-lead">
-
-      XIMERMJ is the independent electronic
-      project of John Richner, based in Buffalo,
-      New York.
-
-    </div>
-
-
-    <div class="bio-copy">
-
-      XIMERMJ operates somewhere between
-      electronic production, glitch aesthetics,
-      house, techno, dark pop and cinematic
-      sound design.
-
-      <br><br>
-
-      The project focuses on atmosphere,
-      digital distortion and emotional tension
-      rather than fitting into a single genre.
-
-      <br><br>
-
-      Releases are issued through
-      <strong>Richner Records LLC.</strong>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- =====================================================
-     CURRENT RELEASE
-     ===================================================== -->
-
-<section>
-
-  <div class="section-number">
-    02 / Current Release
-  </div>
-
-
-  <div class="release-header">
-
-    <h2 class="release-title">
-      Desert<br>
-      Distortion
-    </h2>
-
-
-    <div class="release-date">
-
-      EP3 / November 13, 2026
-
-    </div>
-
-  </div>
-
-
-  <div class="release-description">
-
-    <strong>Desert Distortion</strong> is the third
-    XIMERMJ EP and the next chapter of the project.
-
-    <br><br>
-
-    The era is built around Palm Springs modernism,
-    desert heat, empty pools, damaged color,
-    mid-century architecture and digital decay.
-
-  </div>
-
-
-  <div class="links">
-
-    <a
-      class="button"
-      href="https://distrokid.com/hyperfollow/ximermj/desert-distortion-2"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      Pre-Save / Follow
-    </a>
-
-
-    <a
-      class="button"
-      href="https://elasticstage.com/ximermj/releases/desert-distortion-album"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      Pre-Order
-    </a>
-
-  </div>
-
-</section>
-
-
-<!-- =====================================================
-     AFTERBURN
-     ===================================================== -->
-
-<section>
-
-  <div class="section-number">
-    03 / Lead Single
-  </div>
-
-
-  <div class="release-header">
-
-    <h2 class="release-title">
-      Afterburn
-    </h2>
-
-
-    <div class="release-date">
-      Released October 2, 2026
-    </div>
-
-  </div>
-
-
-  <div class="release-description">
-
-    <strong>Afterburn</strong> introduces the visual
-    and sonic world surrounding Desert Distortion.
-
-    <br><br>
-
-    The track explores what remains after the
-    polished fantasy wears off — desert heat,
-    empty spaces, damaged architecture and
-    digital deterioration.
-
-  </div>
-
-
-  <div class="links">
-
-    <a
-      class="button"
-      href="https://music.apple.com/us/album/afterburn/6820104032?i=6820104033"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      Apple Music
-    </a>
-
-
-    <a
-      class="button"
-      href="https://open.spotify.com/"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      Spotify
-    </a>
-
-  </div>
-
-</section>
-
-
-<!-- =====================================================
-     TRACKLIST
-     ===================================================== -->
-
-<section>
-
-  <div class="section-number">
-    04 / Desert Distortion Tracklist
-  </div>
-
-
-  <div class="tracklist">
-
-
-    <div class="track">
-
-      <div class="track-number">
-        01
-      </div>
-
-      <div class="track-name">
-        Under Pressure
-      </div>
-
-      <div class="track-year">
-        2026
-      </div>
-
-    </div>
-
-
-    <div class="track">
-
-      <div class="track-number">
-        02
-      </div>
-
-      <div class="track-name">
-        Sun Damage
-      </div>
-
-      <div class="track-year">
-        2026
-      </div>
-
-    </div>
-
-
-    <div class="track">
-
-      <div class="track-number">
-        03
-      </div>
-
-      <div class="track-name">
-        Mirage Protocol
-      </div>
-
-      <div class="track-year">
-        2026
-      </div>
-
-    </div>
-
-
-    <div class="track">
-
-      <div class="track-number">
-        04
-      </div>
-
-      <div class="track-name">
-        Invaluable
-      </div>
-
-      <div class="track-year">
-        2026
-      </div>
-
-    </div>
-
-
-    <div class="track">
-
-      <div class="track-number">
-        05
-      </div>
-
-      <div class="track-name">
-        Headway
-      </div>
-
-      <div class="track-year">
-        2026
-      </div>
-
-    </div>
-
-
-    <div class="track">
-
-      <div class="track-number">
-        06
-      </div>
-
-      <div class="track-name">
-        Fault Line
-      </div>
-
-      <div class="track-year">
-        2026
-      </div>
-
-    </div>
-
-
-    <div class="track">
-
-      <div class="track-number">
-        07
-      </div>
-
-      <div class="track-name">
-        Desert Signal
-      </div>
-
-      <div class="track-year">
-        2026
-      </div>
-
-    </div>
-
-
-    <div class="track">
-
-      <div class="track-number">
-        08
-      </div>
-
-      <div class="track-name">
-        Afterburn
-      </div>
-
-      <div class="track-year">
-        2026
-      </div>
-
-    </div>
-
-
-  </div>
-
-</section>
-
-
-<!-- =====================================================
-     RECOGNITION
-     ===================================================== -->
-
-<section>
-
-  <div class="section-number">
-    05 / Recognition
-  </div>
-
-
-  <h2 class="section-title">
-    Career<br>
-    Highlights
-  </h2>
-
-
-  <div class="recognition">
-
-
-    <div class="recognition-card">
-
-      <strong>
-        2× U.S. iTunes Dance #1
-      </strong>
-
-      <span>
-        Signature Search reached #1 on the
-        U.S. iTunes Dance Album chart on two
-        separate occasions.
-      </span>
-
-    </div>
-
-
-    <div class="recognition-card">
-
-      <strong>
-        319K+ Streams
-      </strong>
-
-      <span>
-        XIMERMJ has reported more than 319,000
-        catalog streams across the project.
-      </span>
-
-    </div>
-
-
-    <div class="recognition-card">
-
-      <strong>
-        Charli XCX
-      </strong>
-
-      <span>
-        In 2025, Trivial Truths appeared on the
-        U.S. iTunes Dance chart alongside
-        Charli XCX's Brat remix album for
-        approximately one week.
-      </span>
-
-    </div>
-
-
-    <div class="recognition-card">
-
-      <strong>
-        GRAMMY Museum
-      </strong>
-
-      <span>
-        Accepted into the GRAMMY Museum
-        INDUSTRY SESSIONS: Music Production 101
-        Fall 2026 program.
-      </span>
-
-    </div>
-
-
-  </div>
-
-</section>
-
-
-<!-- =====================================================
-     RELEASE HISTORY
-     ===================================================== -->
-
-<section>
-
-  <div class="section-number">
-    06 / Release History
-  </div>
-
-
-  <div class="release-history">
-
-
-    <div class="history-item">
-
-      <div class="history-year">
-        2025
-      </div>
-
-      <div class="history-title">
-        Trivial Truths
-      </div>
-
-      <div class="history-description">
-        Debut EP establishing the XIMERMJ project
-        and its electronic / experimental identity.
-      </div>
-
-    </div>
-
-
-    <div class="history-item">
-
-      <div class="history-year">
-        2026
-      </div>
-
-      <div class="history-title">
-        Signature Search
-      </div>
-
-      <div class="history-description">
-        Second EP and a major step forward for
-        the project, including U.S. iTunes Dance
-        chart recognition.
-      </div>
-
-    </div>
-
-
-    <div class="history-item">
-
-      <div class="history-year">
-        2026
-      </div>
-
-      <div class="history-title">
-        Afterburn
-      </div>
-
-      <div class="history-description">
-        Lead single for the Desert Distortion era,
-        released October 2, 2026.
-      </div>
-
-    </div>
-
-
-    <div class="history-item">
-
-      <div class="history-year">
-        2026
-      </div>
-
-      <div class="history-title">
-        Desert Distortion
-      </div>
-
-      <div class="history-description">
-        Third EP scheduled for November 13, 2026.
-      </div>
-
-    </div>
-
-
-  </div>
-
-</section>
-
-
-<!-- =====================================================
-     PRESS
-     ===================================================== -->
-
-<section>
-
-  <div class="section-number">
-    07 / Selected Press &amp; Coverage
-  </div>
-
-
-  <h2 class="section-title">
-    In The<br>
-    Press
-  </h2>
-
-
-  <div class="press-list">
-
-
-    <a
-      class="press-item"
-      href="https://londondailypost.co.uk/ximermj-interview-the-trivial-truths-behind-an-independent-vision/"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-
-      <span class="press-name">
-        London Daily Post
-      </span>
-
-      <span class="press-type">
-        Interview ↗
-      </span>
 
     </a>
 
+    <div class="nav-links">
 
-    <a
-      class="press-item"
-      href="https://stereostickman.com/interviews/ximermj/"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
+      <a href="#artist">Artist</a>
 
-      <span class="press-name">
-        Stereo Stickman
-      </span>
+      <a href="#release">Release</a>
 
-      <span class="press-type">
-        Interview ↗
-      </span>
+      <a href="#tracklist">Tracklist</a>
 
-    </a>
+      <a href="#shop">Shop</a>
 
+      <a href="#press">Press</a>
 
-    <a
-      class="press-item"
-      href="https://www.broken8music.com/blogs/interviews/rising-talent-ximermj-talks-about-his-journey-from-grungy-venues-to-online-persona"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-
-      <span class="press-name">
-        Broken8 Music
-      </span>
-
-      <span class="press-type">
-        Interview ↗
-      </span>
-
-    </a>
-
-
-    <div class="press-item">
-
-      <span class="press-name">
-        The Bandcamp Diaries
-      </span>
-
-      <span class="press-type">
-        Coverage
-      </span>
+      <a href="#contact">Contact</a>
 
     </div>
 
+  </nav>
 
-    <div class="press-item">
+  <!-- =========================================================
 
-      <span class="press-name">
-        Tunepical
-      </span>
+       HERO
 
-      <span class="press-type">
-        Coverage
-      </span>
+  ========================================================= -->
+
+  <main id="top">
+
+    <section class="hero">
+
+      <div class="container hero-content">
+
+        <div class="eyebrow">
+
+          Independent Electronic Artist / Buffalo, New York
+
+        </div>
+
+        <h1 class="hero-title">
+
+          XIMERMJ
+
+        </h1>
+
+        <p class="hero-subtitle">
+
+          Glitch, electronic, dark pop and cinematic textures
+
+          built around digital chaos, surrealism and damaged beauty.
+
+        </p>
+
+        <div class="hero-meta">
+
+          <div class="meta-item">
+
+            <div class="meta-label">Current Era</div>
+
+            <div class="meta-value">Desert Distortion</div>
+
+          </div>
+
+          <div class="meta-item">
+
+            <div class="meta-label">Next Release</div>
+
+            <div class="meta-value">November 13, 2026</div>
+
+          </div>
+
+          <div class="meta-item">
+
+            <div class="meta-label">Catalog</div>
+
+            <div class="meta-value">3 EPs</div>
+
+          </div>
+
+          <div class="meta-item">
+
+            <div class="meta-label">Reported Streams</div>
+
+            <div class="meta-value">319K+</div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- =======================================================
+
+         ARTIST
+
+    ======================================================= -->
+
+    <section id="artist">
+
+      <div class="container">
+
+        <div class="section-number">
+
+          01 / ARTIST
+
+        </div>
+
+        <div class="section-grid">
+
+          <div>
+
+            <div class="eyebrow">
+
+              XIMERMJ
+
+            </div>
+
+          </div>
+
+          <div class="artist-copy">
+
+            <p>
+
+              XIMERMJ is an independent electronic project from
+
+              Buffalo, New York, built around distorted textures,
+
+              electronic production, dark pop instincts and
+
+              cinematic atmosphere.
+
+            </p>
+
+            <p>
+
+              The project moves between polished and damaged —
+
+              combining club-oriented production with ambient
+
+              space, digital artifacts and surreal visual worlds.
+
+            </p>
+
+            <p class="muted">
+
+              The current chapter is Desert Distortion.
+
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- =======================================================
+
+         CURRENT RELEASE
+
+    ======================================================= -->
+
+    <section id="release">
+
+      <div class="container">
+
+        <div class="section-number">
+
+          02 / CURRENT RELEASE
+
+        </div>
+
+        <div class="release-grid">
+
+          <div>
+
+            <div class="eyebrow">
+
+              EP / 03
+
+            </div>
+
+            <h2 class="release-title">
+
+              Desert<br>
+
+              Distortion
+
+            </h2>
+
+            <p class="release-description">
+
+              A new XIMERMJ era built around Palm Springs modernism
+
+              after the shine wears off — empty pools, desert heat,
+
+              mid-century architecture, damaged color and digital decay.
+
+            </p>
+
+            <div class="release-date">
+
+              Friday / November 13 / 2026
+
+            </div>
+
+            <div class="button-row">
+
+              <a
+
+                class="button"
+
+                href="https://distrokid.com/hyperfollow/ximermj/desert-distortion-2?ref=release"
+
+                target="_blank"
+
+                rel="noopener"
+
+              >
+
+                Presave / HyperFollow
+
+              </a>
+
+              <a
+
+                class="button"
+
+                href="https://elasticstage.com/ximermj/releases/desert-distortion-album"
+
+                target="_blank"
+
+                rel="noopener"
+
+              >
+
+                Vinyl + CD
+
+              </a>
+
+            </div>
+
+          </div>
+
+          <div class="release-visual">
+
+            <div class="release-visual-text">
+
+              DESERT<br>
+
+              DISTORTION
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- =======================================================
+
+         AFTERBURN
+
+    ======================================================= -->
+
+    <section class="afterburn">
+
+      <div class="container">
+
+        <div class="section-number">
+
+          03 / LEAD SINGLE
+
+        </div>
+
+        <div class="afterburn-grid">
+
+          <div>
+
+            <div class="eyebrow">
+
+              Released October 2, 2026
+
+            </div>
+
+            <h2 class="afterburn-title">
+
+              Afterburn
+
+            </h2>
+
+          </div>
+
+          <div class="afterburn-copy">
+
+            <p>
+
+              “Afterburn” introduces the visual and sonic language
+
+              of the Desert Distortion era.
+
+            </p>
+
+            <p>
+
+              Palm Springs modernism after the shine wears off.
+
+              Empty pools. Desert heat. Mid-century architecture.
+
+              Damaged color. Digital decay.
+
+            </p>
+
+            <div class="button-row">
+
+              <a
+
+                class="button"
+
+                href="https://music.apple.com/us/album/afterburn/6820104032?i=6820104033"
+
+                target="_blank"
+
+                rel="noopener"
+
+              >
+
+                Apple Music
+
+              </a>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- =======================================================
+
+         TRACKLIST
+
+    ======================================================= -->
+
+    <section id="tracklist">
+
+      <div class="container">
+
+        <div class="section-number">
+
+          04 / TRACKLIST
+
+        </div>
+
+        <h2 class="section-title">
+
+          Desert<br>
+
+          Distortion
+
+        </h2>
+
+        <div class="tracklist">
+
+          <div class="track">
+
+            <div class="track-number">01</div>
+
+            <div class="track-name">Under Pressure</div>
+
+            <div class="track-type">EP</div>
+
+          </div>
+
+          <div class="track">
+
+            <div class="track-number">02</div>
+
+            <div class="track-name">Sun Damage</div>
+
+            <div class="track-type">EP</div>
+
+          </div>
+
+          <div class="track">
+
+            <div class="track-number">03</div>
+
+            <div class="track-name">Mirage Protocol</div>
+
+            <div class="track-type">EP</div>
+
+          </div>
+
+          <div class="track">
+
+            <div class="track-number">04</div>
+
+            <div class="track-name">Invaluable</div>
+
+            <div class="track-type">EP</div>
+
+          </div>
+
+          <div class="track">
+
+            <div class="track-number">05</div>
+
+            <div class="track-name">Headway</div>
+
+            <div class="track-type">EP</div>
+
+          </div>
+
+          <div class="track">
+
+            <div class="track-number">06</div>
+
+            <div class="track-name">Fault Line</div>
+
+            <div class="track-type">EP</div>
+
+          </div>
+
+          <div class="track">
+
+            <div class="track-number">07</div>
+
+            <div class="track-name">Desert Signal</div>
+
+            <div class="track-type">EP</div>
+
+          </div>
+
+          <div class="track">
+
+            <div class="track-number">08</div>
+
+            <div class="track-name">Afterburn</div>
+
+            <div class="track-type">Single / EP</div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- =======================================================
+
+         RECOGNITION
+
+    ======================================================= -->
+
+    <section>
+
+      <div class="container">
+
+        <div class="section-number">
+
+          05 / RECOGNITION
+
+        </div>
+
+        <h2 class="section-title">
+
+          Independent<br>
+
+          Momentum
+
+        </h2>
+
+        <div class="recognition-grid">
+
+          <div class="recognition-card">
+
+            <div class="recognition-year">
+
+              2026
+
+            </div>
+
+            <div>
+
+              <div class="recognition-title">
+
+                319K+
+
+              </div>
+
+              <div class="recognition-description">
+
+                Reported catalog streams across the XIMERMJ project.
+
+              </div>
+
+            </div>
+
+          </div>
+
+          <div class="recognition-card">
+
+            <div class="recognition-year">
+
+              2026
+
+            </div>
+
+            <div>
+
+              <div class="recognition-title">
+
+                10M+
+
+              </div>
+
+              <div class="recognition-description">
+
+                Reported playlist reach across the project.
+
+              </div>
+
+            </div>
+
+          </div>
+
+          <div class="recognition-card">
+
+            <div class="recognition-year">
+
+              2026
+
+            </div>
+
+            <div>
+
+              <div class="recognition-title">
+
+                GRAMMY
+
+                MUSEUM
+
+              </div>
+
+              <div class="recognition-description">
+
+                Accepted into the Fall 2026 Music Production 101
+
+                Industry Sessions program.
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- =======================================================
+
+         RELEASE HISTORY
+
+    ======================================================= -->
+
+    <section>
+
+      <div class="container">
+
+        <div class="section-number">
+
+          06 / RELEASE HISTORY
+
+        </div>
+
+        <div class="history-row">
+
+          <div class="history-year">
+
+            2026
+
+          </div>
+
+          <div class="history-title">
+
+            Desert Distortion
+
+          </div>
+
+          <div class="history-type">
+
+            EP / Upcoming
+
+          </div>
+
+        </div>
+
+        <div class="history-row">
+
+          <div class="history-year">
+
+            2026
+
+          </div>
+
+          <div class="history-title">
+
+            Signature Search
+
+          </div>
+
+          <div class="history-type">
+
+            EP
+
+          </div>
+
+        </div>
+
+        <div class="history-row">
+
+          <div class="history-year">
+
+            2025
+
+          </div>
+
+          <div class="history-title">
+
+            Trivial Truths
+
+          </div>
+
+          <div class="history-type">
+
+            EP
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- =======================================================
+
+         PRESS
+
+    ======================================================= -->
+
+    <section id="press">
+
+      <div class="container">
+
+        <div class="section-number">
+
+          07 / PRESS
+
+        </div>
+
+        <div class="press-copy">
+
+          XIMERMJ is available for
+
+          interviews, reviews, premieres,
+
+          editorial coverage and electronic
+
+          music features.
+
+        </div>
+
+        <p class="press-note">
+
+          For press inquiries, EPK requests,
+
+          interviews and coverage related to
+
+          Desert Distortion, contact the artist directly.
+
+        </p>
+
+        <div class="button-row">
+
+          <a
+
+            class="button"
+
+            href="mailto:jmr7100@icloud.com"
+
+          >
+
+            Press Contact
+
+          </a>
+
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- =======================================================
+
+         INDUSTRY
+
+    ======================================================= -->
+
+    <section>
+
+      <div class="container">
+
+        <div class="section-number">
+
+          08 / INDUSTRY
+
+        </div>
+
+        <div class="industry-grid">
+
+          <div>
+
+            <h2 class="section-title">
+
+              Built<br>
+
+              Independently
+
+            </h2>
+
+          </div>
+
+          <div>
+
+            <p class="industry-copy">
+
+              XIMERMJ operates as an independent artist project
+
+              through Richner Records LLC, with distribution,
+
+              publishing administration, performance rights
+
+              registration and direct-to-fan physical releases.
+
+            </p>
+
+            <div class="industry-list">
+
+              <div class="industry-item">
+
+                <span>Label</span>
+
+                <span>Richner Records LLC</span>
+
+              </div>
+
+              <div class="industry-item">
+
+                <span>Artist</span>
+
+                <span>XIMERMJ</span>
+
+              </div>
+
+              <div class="industry-item">
+
+                <span>Rights</span>
+
+                <span>ASCAP</span>
+
+              </div>
+
+              <div class="industry-item">
+
+                <span>Distribution</span>
+
+                <span>DistroKid</span>
+
+              </div>
+
+              <div class="industry-item">
+
+                <span>Current Era</span>
+
+                <span>Desert Distortion</span>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- =======================================================
+
+         SHOP
+
+    ======================================================= -->
+
+    <section id="shop">
+
+      <div class="container">
+
+        <div class="section-number">
+
+          09 / SHOP
+
+        </div>
+
+        <h2 class="section-title">
+
+          Physical.
+
+        </h2>
+
+        <div class="shop-grid">
+
+          <!-- MERCH -->
+
+          <a
+
+            class="shop-card"
+
+            href="https://ximermj.printify.me"
+
+            target="_blank"
+
+            rel="noopener"
+
+          >
+
+            <div class="shop-number">
+
+              01 / XIMERMJ GOODS
+
+            </div>
+
+            <div>
+
+              <div class="shop-title">
+
+                Merch
+
+              </div>
+
+              <p class="shop-description">
+
+                Apparel and physical objects from the XIMERMJ
+
+                universe.
+
+              </p>
+
+              <div class="shop-link">
+
+                Enter Store →
+
+              </div>
+
+            </div>
+
+          </a>
+
+          <!-- VINYL / CD -->
+
+          <a
+
+            class="shop-card"
+
+            href="https://elasticstage.com/ximermj/releases/desert-distortion-album"
+
+            target="_blank"
+
+            rel="noopener"
+
+          >
+
+            <div class="shop-number">
+
+              02 / DESERT DISTORTION
+
+            </div>
+
+            <div>
+
+              <div class="shop-title">
+
+                Vinyl<br>
+
+                + CD
+
+              </div>
+
+              <p class="shop-description">
+
+                Physical editions of Desert Distortion,
+
+                including vinyl and CD releases.
+
+              </p>
+
+              <div class="shop-link">
+
+                View Physical Release →
+
+              </div>
+
+            </div>
+
+          </a>
+
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- =======================================================
+
+         CONTACT
+
+    ======================================================= -->
+
+    <section id="contact">
+
+      <div class="container">
+
+        <div class="section-number">
+
+          10 / CONTACT
+
+        </div>
+
+        <div class="section-grid">
+
+          <div>
+
+            <div class="eyebrow">
+
+              XIMERMJ / RICHNER RECORDS LLC
+
+            </div>
+
+          </div>
+
+          <div>
+
+            <h2 class="section-title">
+
+              Get<br>
+
+              In Touch.
+
+            </h2>
+
+            <a
+
+              class="contact-email"
+
+              href="mailto:jmr7100@icloud.com"
+
+            >
+
+              jmr7100@icloud.com
+
+            </a>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+  <!-- =========================================================
+
+       FOOTER
+
+  ========================================================= -->
+
+  <footer>
+
+    <div class="container footer-inner">
+
+      <div>
+
+        © 2026 XIMERMJ / Richner Records LLC
+
+      </div>
+
+      <div>
+
+        Buffalo, New York
+
+      </div>
 
     </div>
 
-
-  </div>
-
-</section>
-
-
-<!-- =====================================================
-     INDUSTRY
-     ===================================================== -->
-
-<section>
-
-  <div class="section-number">
-    08 / Industry
-  </div>
-
-
-  <div class="industry">
-
-
-    <div class="industry-lead">
-
-      Independent music.
-      <br>
-      Real releases.
-      <br>
-      No fixed genre.
-
-    </div>
-
-
-    <div class="industry-copy">
-
-      XIMERMJ is operated independently through
-      Richner Records LLC.
-
-      <br><br>
-
-      The project combines electronic production,
-      independent release strategy, visual identity,
-      digital promotion and direct-to-audience
-      distribution.
-
-      <br><br>
-
-      Current focus:
-      <strong>Desert Distortion</strong>,
-      scheduled for November 13, 2026.
-
-    </div>
-
-
-  </div>
-
-</section>
-
-
-<!-- =====================================================
-     CONTACT
-     ===================================================== -->
-
-<section class="contact">
-
-  <div class="section-number">
-    09 / Contact
-  </div>
-
-
-  <h2 class="section-title">
-    Booking.<br>
-    Press.<br>
-    Collaboration.
-  </h2>
-
-
-  <a
-    class="contact-email"
-    href="mailto:jmr7100@icloud.com"
-  >
-    jmr7100@icloud.com
-  </a>
-
-
-  <div class="contact-details">
-
-    XIMERMJ / John Richner
-
-    <br>
-
-    Richner Records LLC
-
-    <br>
-
-    Buffalo, New York
-
-    <br><br>
-
-    Official website:
-    <a href="https://ximermj.com">
-      ximermj.com
-    </a>
-
-  </div>
-
-
-  <br><br>
-
-
-  <div class="links">
-
-    <a
-      class="button"
-      href="https://distrokid.com/hyperfollow/ximermj/desert-distortion-2"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      Desert Distortion
-    </a>
-
-
-    <a
-      class="button"
-      href="https://music.apple.com/us/album/afterburn/6820104032?i=6820104033"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      Afterburn
-    </a>
-
-
-    <a
-      class="button"
-      href="https://linktr.ee/ximermj"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      All Links
-    </a>
-
-  </div>
-
-</section>
-
-
-</div>
-
-
-<!-- =====================================================
-     FOOTER
-     ===================================================== -->
-
-<footer>
-
-  <div class="container footer-inner">
-
-    <span>
-      XIMERMJ / Richner Records LLC
-    </span>
-
-    <span>
-      Electronic Press Kit / 2026
-    </span>
-
-  </div>
-
-</footer>
-
+  </footer>
 
 </body>
+
 </html>

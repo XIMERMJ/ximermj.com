@@ -1,35 +1,42 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#101B2C">
+  <meta name="theme-color" content="#080d18">
 
   <title>XIMERMJ — Official Website</title>
 
-  <meta name="description" content="XIMERMJ is an independent electronic music project exploring glitch, electronic music, dark pop and cinematic sound design.">
+  <meta name="description" content="XIMERMJ — Independent electronic music producer from Buffalo, New York. Discover Desert Distortion, music, physical editions and more.">
+
+  <meta property="og:title" content="XIMERMJ — Desert Distortion">
+  <meta property="og:description" content="Desert Distortion. November 13, 2026.">
+  <meta property="og:type" content="website">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700;800;900&family=DM+Mono:wght@400;500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
   <style>
     :root {
-      --background: #101B2C;
-      --surface: #19283C;
-      --surface-light: #223249;
-      --border: #344257;
-      --silver: #AAB5C5;
-      --muted: #8292A8;
-      --white: #F0F2F6;
-      --accent: #829BB9;
+      --background: #080d18;
+      --background-light: #0d1523;
+      --panel: #101c2c;
+      --blue: #9eafc5;
+      --blue-bright: #d8e5f2;
+      --white: #f1f4f8;
+      --muted: #8593a6;
+      --line: rgba(190, 207, 226, 0.18);
+      --display: "Barlow Condensed", sans-serif;
+      --mono: "DM Mono", monospace;
+      --body: "Inter", sans-serif;
     }
 
     * {
+      box-sizing: border-box;
       margin: 0;
       padding: 0;
-      box-sizing: border-box;
     }
 
     html {
@@ -39,9 +46,19 @@
     body {
       background: var(--background);
       color: var(--white);
-      font-family: 'Manrope', sans-serif;
+      font-family: var(--body);
       line-height: 1.6;
       overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 30;
+      opacity: 0.10;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.18'/%3E%3C/svg%3E");
     }
 
     a {
@@ -50,292 +67,779 @@
     }
 
     .container {
-      width: min(1100px, 88%);
-      margin: auto;
+      width: min(1180px, calc(100% - 48px));
+      margin: 0 auto;
     }
 
-    .mono {
-      font-family: 'DM Mono', monospace;
-      letter-spacing: 0.08em;
+    .eyebrow {
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: 3px;
       text-transform: uppercase;
+      color: var(--blue);
+    }
+
+    .section {
+      padding: 105px 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .section-heading {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 24px;
+      margin-bottom: 48px;
+    }
+
+    .section-heading h2 {
+      font-family: var(--display);
+      font-size: clamp(48px, 8vw, 88px);
+      line-height: .9;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    .section-heading p {
+      color: var(--muted);
+      max-width: 310px;
+      font-size: 12px;
+      line-height: 1.8;
     }
 
     /* NAVIGATION */
 
-    header {
-      border-bottom: 1px solid var(--border);
-      position: relative;
-      z-index: 10;
+    .site-header {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 20;
+      border-bottom: 1px solid rgba(190, 207, 226, .12);
     }
 
-    .navigation {
+    .nav {
       min-height: 82px;
       display: flex;
       justify-content: space-between;
       align-items: center;
+      gap: 24px;
     }
 
-    .logo {
-      font-size: 25px;
+    .brand {
+      font-family: var(--display);
+      font-size: 31px;
       font-weight: 800;
-      letter-spacing: 0.14em;
+      letter-spacing: 2px;
+    }
+
+    .brand span,
+    .footer-brand span {
+      color: var(--blue);
     }
 
     .nav-links {
       display: flex;
-      gap: 34px;
       align-items: center;
+      gap: 29px;
     }
 
     .nav-links a {
-      color: var(--silver);
-      font-size: 11px;
-      font-family: 'DM Mono', monospace;
-      letter-spacing: 0.08em;
-      transition: color 0.25s;
+      font-family: var(--mono);
+      font-size: 10px;
+      color: var(--muted);
+      letter-spacing: 1.4px;
+      text-transform: uppercase;
+      transition: color .2s ease;
     }
 
     .nav-links a:hover {
       color: var(--white);
     }
 
+    .nav-links .nav-button {
+      border: 1px solid var(--blue);
+      padding: 11px 16px;
+      color: var(--white);
+    }
+
     /* HERO */
 
     .hero {
-      min-height: 610px;
+      min-height: 760px;
+      height: 100svh;
+      max-height: 1000px;
       display: flex;
-      flex-direction: column;
-      justify-content: center;
-      padding: 110px 0;
-      border-bottom: 1px solid var(--border);
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+      background:
+        radial-gradient(ellipse at 80% 45%, rgba(76, 101, 135, .19), transparent 45%),
+        linear-gradient(145deg, #0b1422 0%, #080d18 65%, #101c2b 100%);
     }
 
-    .eyebrow {
-      color: var(--accent);
-      font-size: 11px;
+    .hero::before {
+      content: "";
+      position: absolute;
+      top: 17%;
+      right: -12%;
+      width: 70%;
+      height: 70%;
+      border: 1px solid rgba(180, 201, 226, .09);
+      border-radius: 50%;
+      transform: rotate(-20deg);
+      box-shadow:
+        0 0 0 45px rgba(180, 201, 226, .018),
+        0 0 0 90px rgba(180, 201, 226, .015),
+        0 0 0 135px rgba(180, 201, 226, .012);
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 30%;
+      background: linear-gradient(transparent, rgba(8, 13, 24, .9));
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      padding-top: 90px;
+    }
+
+    .hero-topline {
+      display: flex;
+      align-items: center;
+      gap: 14px;
       margin-bottom: 32px;
     }
 
+    .hero-topline span:last-child {
+      width: 55px;
+      height: 1px;
+      background: var(--blue);
+    }
+
     .hero h1 {
-      font-size: clamp(58px, 11vw, 126px);
-      line-height: 0.95;
+      font-family: var(--display);
+      font-size: clamp(100px, 19vw, 245px);
+      line-height: .72;
+      letter-spacing: -7px;
       font-weight: 800;
-      letter-spacing: -0.085em;
+      text-transform: uppercase;
+      max-width: 1100px;
     }
 
     .hero h1 span {
       display: block;
-      color: var(--silver);
+      color: var(--blue);
+    }
+
+    .hero-subtitle {
+      margin-top: 42px;
+      font-family: var(--mono);
+      font-size: 12px;
+      letter-spacing: 4px;
+      color: var(--blue-bright);
+      text-transform: uppercase;
     }
 
     .hero-description {
-      max-width: 470px;
-      color: var(--silver);
-      margin-top: 36px;
-      font-size: 14px;
+      max-width: 410px;
+      color: var(--muted);
+      font-size: 13px;
       line-height: 1.9;
+      margin-top: 17px;
     }
 
-    .hero-location {
-      margin-top: 28px;
-      font-size: 10px;
-      color: var(--muted);
-    }
-
-    /* SECTION GENERAL */
-
-    section {
-      padding: 100px 0;
-      border-bottom: 1px solid var(--border);
-    }
-
-    .section-label {
-      font-family: 'DM Mono', monospace;
-      color: var(--muted);
-      font-size: 10px;
-      letter-spacing: 0.12em;
-      margin-bottom: 35px;
-    }
-
-    .section-title {
-      font-size: clamp(30px, 5vw, 52px);
-      letter-spacing: -0.055em;
-      line-height: 1.1;
-      margin-bottom: 35px;
-    }
-
-    /* LATEST RELEASE */
-
-    .release-panel {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      padding: clamp(28px, 6vw, 65px);
-      position: relative;
-    }
-
-    .release-number {
-      font-family: 'DM Mono', monospace;
-      color: var(--muted);
-      font-size: 10px;
-    }
-
-    .release-panel h3 {
-      font-size: clamp(34px, 7vw, 75px);
-      letter-spacing: -0.07em;
-      line-height: 1;
-      margin: 30px 0 20px;
-    }
-
-    .release-panel p {
-      color: var(--silver);
-      font-size: 14px;
-    }
-
-    .release-date {
-      margin-top: 28px;
-      color: var(--accent);
-      font-family: 'DM Mono', monospace;
-      font-size: 11px;
-    }
-
-    .release-links {
+    .hero-actions {
       display: flex;
       flex-wrap: wrap;
-      gap: 14px;
+      gap: 12px;
       margin-top: 35px;
     }
 
     .button {
-      display: inline-block;
-      padding: 14px 23px;
-      border: 1px solid var(--silver);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 49px;
+      padding: 0 23px;
+      border: 1px solid var(--blue);
+      background: transparent;
       color: var(--white);
-      font-family: 'DM Mono', monospace;
+      font-family: var(--mono);
       font-size: 10px;
-      letter-spacing: 0.08em;
-      transition: all 0.25s ease;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      transition: all .25s ease;
+    }
+
+    .button.primary {
+      background: var(--blue-bright);
+      color: #09111d;
+      border-color: var(--blue-bright);
     }
 
     .button:hover {
       background: var(--white);
       color: var(--background);
+      border-color: var(--white);
     }
 
-    .button.primary {
-      background: var(--white);
-      color: var(--background);
+    .hero-footer {
+      position: absolute;
+      z-index: 3;
+      bottom: 30px;
+      left: 0;
+      right: 0;
+      display: flex;
+      justify-content: space-between;
+      color: var(--muted);
+      font-family: var(--mono);
+      font-size: 9px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
     }
 
-    .button.primary:hover {
-      background: transparent;
-      color: var(--white);
+    /* REPEATING XIMERMJ WORDMARK BANDS */
+
+    .wordmark-band {
+      width: 100%;
+      overflow: hidden;
+      white-space: nowrap;
+      position: relative;
+      border-top: 1px solid rgba(190, 207, 226, .15);
+      border-bottom: 1px solid rgba(190, 207, 226, .15);
+      background: #0b1421;
+      padding: 13px 0 9px;
+    }
+
+    .wordmark-track {
+      display: flex;
+      width: max-content;
+      align-items: center;
+      animation: wordmark-scroll 42s linear infinite;
+    }
+
+    .wordmark-track span {
+      display: inline-block;
+      flex-shrink: 0;
+      padding: 0 25px;
+      font-family: var(--display);
+      font-size: clamp(35px, 6vw, 67px);
+      font-weight: 800;
+      line-height: 1;
+      letter-spacing: 2px;
+      color: rgba(158, 175, 197, .30);
+      text-transform: uppercase;
+    }
+
+    .wordmark-track span:nth-child(even) {
+      color: rgba(216, 229, 242, .78);
+    }
+
+    .wordmark-track span:nth-child(3n) {
+      color: rgba(133, 147, 166, .48);
+    }
+
+    .wordmark-band.light {
+      background: #101c2c;
+    }
+
+    .wordmark-band.light .wordmark-track span {
+      color: rgba(216, 229, 242, .25);
+    }
+
+    .wordmark-band.light .wordmark-track span:nth-child(even) {
+      color: rgba(216, 229, 242, .82);
+    }
+
+    @keyframes wordmark-scroll {
+      from {
+        transform: translateX(0);
+      }
+      to {
+        transform: translateX(-50%);
+      }
+    }
+
+    /* RELEASE STRIP */
+
+    .release-strip {
+      background: #111d2c;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .release-strip-inner {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .release-stat {
+      padding: 29px 25px;
+      border-right: 1px solid var(--line);
+    }
+
+    .release-stat:first-child {
+      padding-left: 0;
+    }
+
+    .release-stat:last-child {
+      border-right: 0;
+    }
+
+    .release-stat strong {
+      display: block;
+      font-family: var(--display);
+      font-size: 38px;
+      line-height: 1;
+      font-weight: 600;
+    }
+
+    .release-stat span {
+      display: block;
+      margin-top: 8px;
+      color: var(--muted);
+      font-family: var(--mono);
+      font-size: 9px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    /* FEATURED RELEASE */
+
+    .featured {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 75px;
+      align-items: center;
+    }
+
+    .release-art {
+      min-height: 490px;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 36px;
+      border: 1px solid rgba(190, 207, 226, .22);
+      background:
+        radial-gradient(ellipse at 75% 20%, rgba(154, 177, 207, .22), transparent 45%),
+        linear-gradient(155deg, #263b52 0%, #101e30 40%, #080d18 100%);
+    }
+
+    .release-art::before {
+      content: "";
+      position: absolute;
+      width: 420px;
+      height: 420px;
+      border: 1px solid rgba(218, 231, 245, .2);
+      border-radius: 50%;
+      top: 14%;
+      left: 25%;
+      box-shadow:
+        0 0 0 30px rgba(218, 231, 245, .025),
+        0 0 0 60px rgba(218, 231, 245, .02);
+    }
+
+    .release-art::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(transparent 55%, rgba(3, 7, 14, .8));
+    }
+
+    .art-label,
+    .art-title,
+    .art-bottom {
+      position: relative;
+      z-index: 2;
+    }
+
+    .art-label {
+      font-family: var(--mono);
+      font-size: 9px;
+      letter-spacing: 3px;
+      color: var(--blue-bright);
+    }
+
+    .art-title {
+      font-family: var(--display);
+      font-size: clamp(65px, 10vw, 112px);
+      line-height: .75;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: -2px;
+    }
+
+    .art-title span {
+      display: block;
+      color: var(--blue);
+    }
+
+    .art-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      font-family: var(--mono);
+      font-size: 9px;
+      letter-spacing: 2px;
+      color: var(--blue-bright);
+    }
+
+    .release-copy .eyebrow {
+      margin-bottom: 20px;
+    }
+
+    .release-copy h2 {
+      font-family: var(--display);
+      font-size: clamp(60px, 8vw, 100px);
+      line-height: .82;
+      text-transform: uppercase;
+      font-weight: 700;
+      margin-bottom: 28px;
+    }
+
+    .release-copy h2 span {
+      color: var(--blue);
+    }
+
+    .release-copy p {
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 2;
+      max-width: 450px;
+    }
+
+    .release-date {
+      margin: 28px 0;
+      padding: 18px 0;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      font-family: var(--mono);
+      font-size: 11px;
+      letter-spacing: 2px;
+      color: var(--blue-bright);
+    }
+
+    .release-copy .hero-actions {
+      margin-top: 25px;
+    }
+
+    /* PHYSICAL EDITIONS */
+
+    .physical {
+      background:
+        linear-gradient(135deg, rgba(33, 52, 74, .4), transparent 60%),
+        var(--background-light);
+    }
+
+    .physical-layout {
+      display: grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 80px;
+      align-items: center;
+    }
+
+    .physical-copy h2 {
+      font-family: var(--display);
+      font-size: clamp(65px, 10vw, 112px);
+      line-height: .82;
+      text-transform: uppercase;
+      margin: 20px 0 25px;
+    }
+
+    .physical-copy h2 span {
+      display: block;
+      color: var(--blue);
+    }
+
+    .physical-copy p {
+      max-width: 480px;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 2;
+    }
+
+    .physical-copy .button {
+      margin-top: 30px;
+    }
+
+    .physical-details {
+      border-top: 1px solid var(--line);
+    }
+
+    .physical-detail {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      padding: 21px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .physical-detail strong {
+      font-family: var(--display);
+      font-size: 27px;
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+
+    .physical-detail span {
+      color: var(--muted);
+      font-family: var(--mono);
+      font-size: 9px;
+      letter-spacing: 1.5px;
+      text-align: right;
+      text-transform: uppercase;
+    }
+
+    /* MUSIC */
+
+    .music-list {
+      border-top: 1px solid var(--line);
+    }
+
+    .music-row {
+      display: grid;
+      grid-template-columns: 65px 1fr auto;
+      gap: 20px;
+      align-items: center;
+      padding: 23px 0;
+      border-bottom: 1px solid var(--line);
+      transition: padding .2s ease;
+    }
+
+    .music-row:hover {
+      padding-left: 10px;
+      padding-right: 10px;
+    }
+
+    .music-number {
+      color: var(--muted);
+      font-family: var(--mono);
+      font-size: 11px;
+    }
+
+    .music-title {
+      font-family: var(--display);
+      font-size: 34px;
+      font-weight: 600;
+      text-transform: uppercase;
+      line-height: 1;
+    }
+
+    .music-meta {
+      color: var(--muted);
+      font-family: var(--mono);
+      font-size: 9px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin-top: 7px;
+    }
+
+    .music-link {
+      color: var(--blue-bright);
+      font-family: var(--mono);
+      font-size: 9px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
     }
 
     /* DISCOGRAPHY */
 
-    .track-list {
-      border-top: 1px solid var(--border);
+    .discography {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
     }
 
-    .track {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 25px 0;
-      border-bottom: 1px solid var(--border);
-      transition: padding 0.25s ease;
+    .release-card {
+      padding: 30px;
+      border-right: 1px solid var(--line);
     }
 
-    .track:hover {
-      padding-left: 12px;
-      padding-right: 12px;
+    .release-card:last-child {
+      border-right: 0;
     }
 
-    .track-name {
-      font-size: 17px;
-      font-weight: 600;
-    }
-
-    .track-year {
-      color: var(--muted);
-      font-family: 'DM Mono', monospace;
+    .release-card .year {
+      color: var(--blue);
+      font-family: var(--mono);
       font-size: 10px;
+      letter-spacing: 2px;
+    }
+
+    .release-card h3 {
+      font-family: var(--display);
+      font-size: 39px;
+      line-height: .95;
+      text-transform: uppercase;
+      margin: 18px 0 12px;
+    }
+
+    .release-card p {
+      color: var(--muted);
+      font-size: 11px;
+      line-height: 1.8;
     }
 
     /* ABOUT */
 
-    .about-content {
-      max-width: 690px;
-      color: var(--silver);
-      font-size: 16px;
-      line-height: 2;
+    .about {
+      background: #0c1421;
     }
 
-    /* LINKS */
+    .about-layout {
+      display: grid;
+      grid-template-columns: .8fr 1.2fr;
+      gap: 90px;
+    }
+
+    .about-title {
+      font-family: var(--display);
+      font-size: clamp(70px, 10vw, 120px);
+      line-height: .78;
+      text-transform: uppercase;
+    }
+
+    .about-title span {
+      color: var(--blue);
+      display: block;
+    }
+
+    .about-copy p {
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 2.1;
+      margin-bottom: 20px;
+      max-width: 600px;
+    }
+
+    .about-location {
+      margin-top: 34px;
+      padding-top: 22px;
+      border-top: 1px solid var(--line);
+      font-family: var(--mono);
+      color: var(--blue);
+      font-size: 10px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    /* CONNECT */
 
     .links-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      border-top: 1px solid var(--border);
-      border-left: 1px solid var(--border);
+      gap: 0 45px;
+      border-top: 1px solid var(--line);
     }
 
     .link-item {
-      padding: 28px;
-      border-right: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
-      font-family: 'DM Mono', monospace;
-      font-size: 11px;
-      color: var(--silver);
-      transition: background 0.25s, color 0.25s;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 23px 0;
+      border-bottom: 1px solid var(--line);
+      transition: color .2s ease;
     }
 
     .link-item:hover {
-      background: var(--surface);
-      color: var(--white);
+      color: var(--blue-bright);
+    }
+
+    .link-item strong {
+      font-family: var(--display);
+      font-size: 28px;
+      font-weight: 600;
+      text-transform: uppercase;
     }
 
     .link-item span {
-      float: right;
+      font-family: var(--mono);
+      font-size: 15px;
+      color: var(--blue);
+    }
+
+    /* CONTACT */
+
+    .contact {
+      text-align: center;
+      background:
+        radial-gradient(ellipse at center, rgba(77, 103, 138, .17), transparent 65%),
+        #0b1320;
+    }
+
+    .contact h2 {
+      font-family: var(--display);
+      font-size: clamp(75px, 14vw, 160px);
+      line-height: .85;
+      text-transform: uppercase;
+      margin: 20px 0;
+    }
+
+    .contact h2 span {
+      color: var(--blue);
+    }
+
+    .contact p {
       color: var(--muted);
+      font-size: 13px;
+      margin-bottom: 28px;
+    }
+
+    .contact .button {
+      margin: 5px;
     }
 
     /* FOOTER */
 
     footer {
-      padding: 40px 0;
+      padding: 30px 0;
+      border-top: 1px solid var(--line);
     }
 
-    .footer-content {
+    .footer-inner {
       display: flex;
       justify-content: space-between;
       align-items: center;
       gap: 20px;
-      flex-wrap: wrap;
     }
 
     .footer-brand {
-      font-size: 17px;
+      font-family: var(--display);
+      font-size: 27px;
       font-weight: 800;
-      letter-spacing: 0.12em;
+      letter-spacing: 2px;
     }
 
     .footer-copy {
-      font-family: 'DM Mono', monospace;
       color: var(--muted);
+      font-family: var(--mono);
       font-size: 9px;
-      letter-spacing: 0.08em;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      text-align: right;
     }
 
     /* MOBILE */
 
-    @media (max-width: 650px) {
-      .navigation {
-        min-height: 72px;
+    @media (max-width: 800px) {
+      .container {
+        width: min(100% - 36px, 600px);
       }
 
-      .logo {
-        font-size: 21px;
+      .nav {
+        min-height: 70px;
       }
 
       .nav-links {
@@ -343,29 +847,138 @@
       }
 
       .nav-links a {
-        font-size: 9px;
+        font-size: 8px;
+        letter-spacing: .5px;
+      }
+
+      .nav-links a:nth-child(2),
+      .nav-links a:nth-child(3) {
+        display: none;
+      }
+
+      .brand {
+        font-size: 26px;
       }
 
       .hero {
-        min-height: 540px;
-        padding: 90px 0;
+        min-height: 700px;
+        height: 92svh;
       }
 
-      section {
+      .hero h1 {
+        font-size: clamp(95px, 21vw, 155px);
+        letter-spacing: -4px;
+      }
+
+      .hero-footer {
+        font-size: 8px;
+        letter-spacing: 1px;
+      }
+
+      .section {
         padding: 75px 0;
+      }
+
+      .section-heading {
+        display: block;
+      }
+
+      .section-heading p {
+        margin-top: 18px;
+      }
+
+      .release-strip-inner {
+        grid-template-columns: 1fr;
+      }
+
+      .release-stat,
+      .release-stat:first-child {
+        padding: 20px 0;
+        border-right: 0;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .release-stat:last-child {
+        border-bottom: 0;
+      }
+
+      .featured,
+      .physical-layout,
+      .about-layout {
+        grid-template-columns: 1fr;
+        gap: 45px;
+      }
+
+      .release-art {
+        min-height: 410px;
+      }
+
+      .discography {
+        grid-template-columns: 1fr;
+      }
+
+      .release-card {
+        border-right: 0;
+        border-bottom: 1px solid var(--line);
+        padding: 25px 0;
+      }
+
+      .release-card:last-child {
+        border-bottom: 0;
       }
 
       .links-grid {
         grid-template-columns: 1fr;
       }
 
-      .track-name {
-        font-size: 14px;
+      .music-row {
+        grid-template-columns: 32px 1fr auto;
+        gap: 12px;
       }
 
-      .footer-content {
-        flex-direction: column;
+      .music-title {
+        font-size: 27px;
+      }
+
+      .music-link {
+        font-size: 8px;
+      }
+
+      .footer-inner {
         align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .footer-copy {
+        text-align: left;
+      }
+
+      .wordmark-track span {
+        padding: 0 17px;
+      }
+    }
+
+    @media (max-width: 420px) {
+      .hero h1 {
+        font-size: 22vw;
+      }
+
+      .hero-subtitle {
+        font-size: 10px;
+        letter-spacing: 2px;
+      }
+
+      .hero-footer span:last-child {
+        text-align: right;
+      }
+
+      .button {
+        padding: 0 15px;
+        font-size: 9px;
+      }
+
+      .music-title {
+        font-size: 24px;
       }
     }
 
@@ -374,8 +987,8 @@
         scroll-behavior: auto;
       }
 
-      *, *::before, *::after {
-        transition-duration: 0.01ms !important;
+      .wordmark-track {
+        animation: none;
       }
     }
   </style>
@@ -385,248 +998,547 @@
 
   <!-- NAVIGATION -->
 
-  <header>
-    <div class="container navigation">
-      <a href="#" class="logo">XIMERMJ</a>
+  <header class="site-header">
+    <div class="container nav">
+      <a href="#home" class="brand">XIMER<span>MJ</span></a>
 
       <nav class="nav-links">
-        <a href="#release">RELEASES</a>
-        <a href="#about">ABOUT</a>
-        <a href="#connect">CONNECT</a>
+        <a href="#music">Music</a>
+        <a href="#releases">Releases</a>
+        <a href="#about">About</a>
+        <a href="#contact" class="nav-button">Contact</a>
       </nav>
     </div>
   </header>
 
+
+  <!-- HERO -->
+
   <main>
 
-    <!-- HERO -->
+    <section class="hero" id="home">
+      <div class="container hero-content">
 
-    <div class="container">
-      <section class="hero">
-        <p class="eyebrow mono">
-          INDEPENDENT ELECTRONIC PRODUCER
-        </p>
+        <div class="hero-topline">
+          <span class="eyebrow">Independent Electronic Artist</span>
+          <span></span>
+        </div>
 
         <h1>
-          DIGITAL<br>
-          <span>CHAOS.</span>
+          XIMER
+          <span>MJ</span>
         </h1>
 
+        <div class="hero-subtitle">
+          Sound beyond the signal.
+        </div>
+
         <p class="hero-description">
-          Electronic music exploring the intersection of
-          glitch, dark pop, underground dance and cinematic
-          sound design.
+          Electronic music shaped by atmosphere, distortion,
+          movement and the spaces between them.
         </p>
 
-        <p class="hero-location mono">
-          BUFFALO, NEW YORK · EST. 2024
-        </p>
-      </section>
+        <div class="hero-actions">
+          <a class="button primary"
+             href="https://distrokid.com/hyperfollow/ximermj/desert-distortion-2?ref=release"
+             target="_blank" rel="noopener noreferrer">
+            Pre-Save Desert Distortion
+          </a>
+
+          <a class="button" href="#music">
+            Explore Music
+          </a>
+        </div>
+
+      </div>
+
+      <div class="container hero-footer">
+        <span>Buffalo, New York</span>
+        <span>Richner Records LLC</span>
+      </div>
+    </section>
+
+
+    <!-- WORDMARK BAND 01 -->
+
+    <div class="wordmark-band" aria-label="XIMERMJ">
+      <div class="wordmark-track">
+        <span>XIMERMJ</span><span>XIMERMJ</span>
+        <span>XIMERMJ</span><span>XIMERMJ</span>
+        <span>XIMERMJ</span><span>XIMERMJ</span>
+        <span>XIMERMJ</span><span>XIMERMJ</span>
+        <span>XIMERMJ</span><span>XIMERMJ</span>
+        <span>XIMERMJ</span><span>XIMERMJ</span>
+      </div>
     </div>
 
-    <!-- LATEST RELEASE -->
 
-    <section id="release">
-      <div class="container">
+    <!-- RELEASE INFORMATION -->
 
-        <p class="section-label">
-          01 / LATEST RELEASE
-        </p>
+    <section class="release-strip">
+      <div class="container release-strip-inner">
 
-        <div class="release-panel">
+        <div class="release-stat">
+          <strong>2026</strong>
+          <span>Desert Distortion</span>
+        </div>
 
-          <p class="release-number">
-            XIMERMJ — EP 03
-          </p>
+        <div class="release-stat">
+          <strong>11.13</strong>
+          <span>Release Date — November 13</span>
+        </div>
 
-          <h3>DESERT<br>DISTORTION.</h3>
+        <div class="release-stat">
+          <strong>10M+</strong>
+          <span>Playlist Reach</span>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- FEATURED RELEASE -->
+
+    <section class="section" id="featured">
+      <div class="container featured">
+
+        <div class="release-art">
+          <div class="art-label">
+            XIMERMJ / RICHNER RECORDS
+          </div>
+
+          <div class="art-title">
+            DESERT
+            <span>DISTORTION</span>
+          </div>
+
+          <div class="art-bottom">
+            <span>EP / 2026</span>
+            <span>DD-003</span>
+          </div>
+        </div>
+
+        <div class="release-copy">
+
+          <div class="eyebrow">The New Release / 003</div>
+
+          <h2>
+            Desert
+            <span>Distortion</span>
+          </h2>
 
           <p>
-            A new collection of electronic compositions
-            exploring atmosphere, distortion and the
-            spaces between.
+            A new chapter in the XIMERMJ project.
+            Desert Distortion explores the space between
+            electronic movement and cinematic atmosphere —
+            where heat, isolation, architecture and digital
+            decay become part of the sound.
           </p>
 
           <div class="release-date">
-            NOVEMBER 13, 2026
+            NOVEMBER 13, 2026 — INDEPENDENT RELEASE
           </div>
 
-          <div class="release-links">
-            <!-- Replace with your actual presave link -->
-            <a href="https://music.apple.com/us/album/desert-distortion-ep/6826155949"
-               class="button primary"
-               target="_blank"
-               rel="noopener noreferrer">
-              PRE-ORDER / PRESAVE ↗
+          <div class="hero-actions">
+            <a class="button primary"
+               href="https://distrokid.com/hyperfollow/ximermj/desert-distortion-2?ref=release"
+               target="_blank" rel="noopener noreferrer">
+              Pre-Save Now
             </a>
 
-            <!-- Replace with your Spotify link -->
-            <a href="https://open.spotify.com/artist/3HF0pRkcW2264iFUOstWv4"
-               class="button"
-               target="_blank"
-               rel="noopener noreferrer">
-              SPOTIFY ↗
-            </a>
-
-            <!-- Replace with your Apple Music link -->
-            <a href="https://music.apple.com/us/artist/ximermj/1701039590"
-               class="button"
-               target="_blank"
-               rel="noopener noreferrer">
-              APPLE MUSIC ↗
+            <a class="button"
+               href="https://elasticstage.com/ximermj/releases/desert-distortion-album"
+               target="_blank" rel="noopener noreferrer">
+              Physical Editions
             </a>
           </div>
 
         </div>
+
       </div>
     </section>
+
+
+    <!-- WORDMARK BAND 02 -->
+
+    <div class="wordmark-band light" aria-label="XIMERMJ">
+      <div class="wordmark-track">
+        <span>XIMERMJ</span><span>XIMERMJ</span>
+        <span>XIMERMJ</span><span>XIMERMJ</span>
+        <span>XIMERMJ</span><span>XIMERMJ</span>
+        <span>XIMERMJ</span><span>XIMERMJ</span>
+        <span>XIMERMJ</span><span>XIMERMJ</span>
+        <span>XIMERMJ</span><span>XIMERMJ</span>
+      </div>
+    </div>
+
+
+    <!-- PHYSICAL EDITIONS -->
+
+    <section class="section physical" id="physical">
+      <div class="container physical-layout">
+
+        <div class="physical-copy">
+
+          <div class="eyebrow">The Release / Physical Format</div>
+
+          <h2>
+            Own The
+            <span>Distortion.</span>
+          </h2>
+
+          <p>
+            Desert Distortion is not limited to the digital release.
+            Physical editions are available for collectors and
+            listeners who want to own a piece of the project.
+
+            Explore the vinyl and CD editions through Elasticstage.
+          </p>
+
+          <a class="button primary"
+             href="https://elasticstage.com/ximermj/releases/desert-distortion-album"
+             target="_blank" rel="noopener noreferrer">
+            Explore Vinyl / CD
+          </a>
+
+        </div>
+
+        <div class="physical-details">
+
+          <div class="physical-detail">
+            <strong>Vinyl</strong>
+            <span>Physical Edition</span>
+          </div>
+
+          <div class="physical-detail">
+            <strong>Compact Disc</strong>
+            <span>Physical Edition</span>
+          </div>
+
+          <div class="physical-detail">
+            <strong>Desert Distortion</strong>
+            <span>2026 Release</span>
+          </div>
+
+          <div class="physical-detail">
+            <strong>Elasticstage</strong>
+            <span>Official Store</span>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- MUSIC -->
+
+    <section class="section" id="music">
+      <div class="container">
+
+        <div class="section-heading">
+          <h2>Latest Music</h2>
+          <p>
+            Selected releases from the XIMERMJ catalog.
+            Listen across streaming platforms.
+          </p>
+        </div>
+
+        <div class="music-list">
+
+          <a class="music-row"
+             href="https://music.apple.com/us/album/afterburn/6820104032?i=6820104033"
+             target="_blank" rel="noopener noreferrer">
+
+            <span class="music-number">01</span>
+
+            <div>
+              <div class="music-title">Afterburn</div>
+              <div class="music-meta">Single / 2026</div>
+            </div>
+
+            <span class="music-link">Listen ↗</span>
+          </a>
+
+          <a class="music-row"
+             href="https://distrokid.com/hyperfollow/ximermj/desert-distortion-2?ref=release"
+             target="_blank" rel="noopener noreferrer">
+
+            <span class="music-number">02</span>
+
+            <div>
+              <div class="music-title">Desert Distortion</div>
+              <div class="music-meta">EP / 2026</div>
+            </div>
+
+            <span class="music-link">Explore ↗</span>
+          </a>
+
+          <a class="music-row"
+             href="https://distrokid.com/hyperfollow/ximermj/desert-distortion-2?ref=release"
+             target="_blank" rel="noopener noreferrer">
+
+            <span class="music-number">03</span>
+
+            <div>
+              <div class="music-title">Signature Search</div>
+              <div class="music-meta">EP / 2026</div>
+            </div>
+
+            <span class="music-link">Explore ↗</span>
+          </a>
+
+          <a class="music-row"
+             href="https://distrokid.com/hyperfollow/ximermj/desert-distortion-2?ref=release"
+             target="_blank" rel="noopener noreferrer">
+
+            <span class="music-number">04</span>
+
+            <div>
+              <div class="music-title">Trivial Truths</div>
+              <div class="music-meta">EP / 2025</div>
+            </div>
+
+            <span class="music-link">Explore ↗</span>
+          </a>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- WORDMARK BAND 03 -->
+
+    <div class="wordmark-band" aria-label="XIMERMJ">
+      <div class="wordmark-track">
+        <span>XIMERMJ</span><span>XIMERMJ</span>
+        <span>XIMERMJ</span><span>XIMERMJ</span>
+        <span>XIMERMJ</span><span>XIMERMJ</span>
+        <span>XIMERMJ</span><span>XIMERMJ</span>
+        <span>XIMERMJ</span><span>XIMERMJ</span>
+        <span>XIMERMJ</span><span>XIMERMJ</span>
+      </div>
+    </div>
+
 
     <!-- DISCOGRAPHY -->
 
-    <section id="discography">
+    <section class="section" id="releases">
       <div class="container">
 
-        <p class="section-label">
-          02 / DISCOGRAPHY
-        </p>
+        <div class="section-heading">
+          <h2>Discography</h2>
+          <p>
+            Three releases. Three chapters.
+            An evolving electronic project.
+          </p>
+        </div>
 
-        <h2 class="section-title">
-          SELECTED WORKS
-        </h2>
+        <div class="discography">
 
-        <div class="track-list">
-
-          <div class="track">
-            <span class="track-name">
-              01. Trivial Truths
-            </span>
-            <span class="track-year">2025</span>
+          <div class="release-card">
+            <div class="year">2026 / 003</div>
+            <h3>Desert<br>Distortion</h3>
+            <p>
+              A cinematic electronic landscape built around
+              atmosphere, heat and distortion.
+            </p>
           </div>
 
-          <div class="track">
-            <span class="track-name">
-              02. Signature Search
-            </span>
-            <span class="track-year">2026</span>
+          <div class="release-card">
+            <div class="year">2026 / 002</div>
+            <h3>Signature<br>Search</h3>
+            <p>
+              An exploration of electronic textures,
+              rhythm and digital identity.
+            </p>
           </div>
 
-          <div class="track">
-            <span class="track-name">
-              03. Desert Distortion
-            </span>
-            <span class="track-year">2026</span>
+          <div class="release-card">
+            <div class="year">2025 / 001</div>
+            <h3>Trivial<br>Truths</h3>
+            <p>
+              The beginning of the XIMERMJ release series.
+            </p>
           </div>
 
         </div>
+
       </div>
     </section>
+
 
     <!-- ABOUT -->
 
-    <section id="about">
-      <div class="container">
+    <section class="section about" id="about">
+      <div class="container about-layout">
 
-        <p class="section-label">
-          03 / THE PROJECT
-        </p>
+        <div>
+          <div class="eyebrow">Artist Profile</div>
 
-        <h2 class="section-title">
-          ABOUT XIMERMJ
-        </h2>
+          <h2 class="about-title">
+            About
+            <span>XIMERMJ</span>
+          </h2>
+        </div>
 
-        <p class="about-content">
-          XIMERMJ is an independent electronic music project
-          based in Buffalo, New York. Blending glitch,
-          indie house, techno, dark pop and cinematic
-          textures, the project explores digital chaos,
-          surrealism and the relationship between
-          technology and human experience.
+        <div class="about-copy">
 
-          <br><br>
+          <p>
+            XIMERMJ is an independent electronic music producer
+            based in Buffalo, New York. The project moves between
+            indie house, techno, dark pop, ambient and cinematic
+            electronic music.
+          </p>
 
-          Operating independently under Richner Records LLC,
-          XIMERMJ continues to develop an evolving sound
-          and visual identity.
-        </p>
+          <p>
+            Built around atmosphere and contrast, the sound
+            explores digital chaos, surrealism, movement and
+            emotional tension. Each release develops a distinct
+            visual and sonic world rather than following a
+            fixed formula.
+          </p>
+
+          <p>
+            Operating independently through Richner Records LLC,
+            XIMERMJ continues to build an evolving catalog and
+            creative identity outside the traditional label system.
+          </p>
+
+          <div class="about-location">
+            Independent / Buffalo, New York / Richner Records LLC
+          </div>
+
+        </div>
 
       </div>
     </section>
 
+
+    <!-- WORDMARK BAND 04 -->
+
+    <div class="wordmark-band light" aria-label="XIMERMJ">
+      <div class="wordmark-track">
+        <span>XIMERMJ</span><span>XIMERMJ</span>
+        <span>XIMERMJ</span><span>XIMERMJ</span>
+        <span>XIMERMJ</span><span>XIMERMJ</span>
+        <span>XIMERMJ</span><span>XIMERMJ</span>
+        <span>XIMERMJ</span><span>XIMERMJ</span>
+        <span>XIMERMJ</span><span>XIMERMJ</span>
+      </div>
+    </div>
+
+
     <!-- CONNECT -->
 
-    <section id="connect">
+    <section class="section" id="connect">
       <div class="container">
 
-        <p class="section-label">
-          04 / CONNECT
-        </p>
-
-        <h2 class="section-title">
-          FIND THE SIGNAL.
-        </h2>
+        <div class="section-heading">
+          <h2>Connect</h2>
+          <p>
+            Music, updates, merchandise and everything
+            surrounding the project.
+          </p>
+        </div>
 
         <div class="links-grid">
 
-          <a href="https://open.spotify.com/artist/3HF0pRkcW2264iFUOstWv4"
-             class="link-item"
-             target="_blank"
-             rel="noopener noreferrer">
-            SPOTIFY <span>↗</span>
+          <a class="link-item"
+             href="https://music.apple.com/us/album/afterburn/6820104032?i=6820104033"
+             target="_blank" rel="noopener noreferrer">
+            <strong>Apple Music</strong>
+            <span>↗</span>
           </a>
 
-          <a href="https://music.apple.com/us/artist/ximermj/1701039590"
-             class="link-item"
-             target="_blank"
-             rel="noopener noreferrer">
-            APPLE MUSIC <span>↗</span>
+          <a class="link-item"
+             href="https://distrokid.com/hyperfollow/ximermj/desert-distortion-2?ref=release"
+             target="_blank" rel="noopener noreferrer">
+            <strong>Pre-Save</strong>
+            <span>↗</span>
           </a>
 
-          <a href="https://instagram.com/ximermj"
-             class="link-item"
-             target="_blank"
-             rel="noopener noreferrer">
-            INSTAGRAM <span>↗</span>
+          <a class="link-item"
+             href="https://elasticstage.com/ximermj/releases/desert-distortion-album"
+             target="_blank" rel="noopener noreferrer">
+            <strong>Vinyl / CD</strong>
+            <span>↗</span>
           </a>
 
-          <a href="https://tiktok.com/ximermj"
-             class="link-item"
-             target="_blank"
-             rel="noopener noreferrer">
-            TIKTOK <span>↗</span>
+          <a class="link-item"
+             href="https://ximermj.printify.me"
+             target="_blank" rel="noopener noreferrer">
+            <strong>Merchandise</strong>
+            <span>↗</span>
           </a>
 
-          <a href="mailto:contact@ximermj.com"
-             class="link-item">
-            CONTACT <span>↗</span>
+          <a class="link-item"
+             href="https://www.bandsintown.com/a/15583471"
+             target="_blank" rel="noopener noreferrer">
+            <strong>Bandsintown</strong>
+            <span>↗</span>
           </a>
 
-          <a href="https://www.ximermj.com"
-             class="link-item">
-            OFFICIAL WEBSITE <span>↗</span>
+          <a class="link-item"
+             href="mailto:jmr7100@icloud.com">
+            <strong>Email</strong>
+            <span>↗</span>
           </a>
 
         </div>
+
+      </div>
+    </section>
+
+
+    <!-- CONTACT -->
+
+    <section class="section contact" id="contact">
+      <div class="container">
+
+        <div class="eyebrow">Inquiries / Collaborations / Press</div>
+
+        <h2>
+          Stay
+          <span>Connected.</span>
+        </h2>
+
+        <p>
+          For press, bookings, collaborations and general inquiries.
+        </p>
+
+        <a class="button primary"
+           href="mailto:jmr7100@icloud.com">
+          Contact XIMERMJ
+        </a>
+
+        <a class="button"
+           href="https://ximermj.printify.me"
+           target="_blank" rel="noopener noreferrer">
+          Official Merchandise
+        </a>
+
       </div>
     </section>
 
   </main>
 
+
   <!-- FOOTER -->
 
   <footer>
-    <div class="container footer-content">
+    <div class="container footer-inner">
 
       <div class="footer-brand">
-        XIMERMJ
+        XIMER<span>MJ</span>
       </div>
 
-      <p class="footer-copy">
-        AN INDEPENDENT PROJECT BY RICHNER RECORDS LLC
-      </p>
-
-      <p class="footer-copy">
-        © 2026 XIMERMJ. ALL RIGHTS RESERVED.
-      </p>
+      <div class="footer-copy">
+        © 2026 XIMERMJ / RICHNER RECORDS LLC
+        <br>
+        INDEPENDENT BY DESIGN.
+      </div>
 
     </div>
   </footer>
